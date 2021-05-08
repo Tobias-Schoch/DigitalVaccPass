@@ -5,8 +5,6 @@
 https://www.figma.com/file/VIL42w7pMXSORDfHED8z46/DigitalVaccinationPass?node-id=0%3A1
 
 
-A new Flutter application.
-
 ## Getting Started
 
 This project is a starting point for a Flutter application.
