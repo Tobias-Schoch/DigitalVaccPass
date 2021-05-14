@@ -9,6 +9,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:digital_vac_pass/main.dart';
+import 'package:golden_toolkit/golden_toolkit.dart';
+
+import 'util.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
@@ -27,4 +30,17 @@ void main() {
     expect(find.text('0'), findsNothing);
     expect(find.text('1'), findsOneWidget);
   });
+
+  testGoldens('example Test', (tester) async {
+    final builder = DeviceBuilder()
+      ..overrideDevicesForAllScenarios(
+        devices: devicesWithDifferentTextScales,
+      )
+      ..addScenario(widget: MyApp());
+    await tester.pumpDeviceBuilder(builder);
+    await screenMatchesGolden(tester, 'initial');
+  });
+
 }
+
+
