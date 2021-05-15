@@ -31,15 +31,15 @@ void main() {
     expect(find.text('1'), findsOneWidget);
   });
 
-  testGoldens('example Test', (tester) async {
-    final builder = DeviceBuilder()
-      ..overrideDevicesForAllScenarios(
-        devices: devicesWithDifferentTextScales,
-      )
-      ..addScenario(widget: MyApp());
-    await tester.pumpDeviceBuilder(builder);
-    await screenMatchesGolden(tester, 'initial');
-  });
+  // testGoldens('example Test', (tester) async {
+  //   final builder = DeviceBuilder()
+  //     ..overrideDevicesForAllScenarios(
+  //       devices: devicesWithDifferentTextScales,
+  //     )
+  //     ..addScenario(widget: MyApp());
+  //   await tester.pumpDeviceBuilder(builder);
+  //   await screenMatchesGolden(tester, 'initial');
+  // });
 
 }
 
