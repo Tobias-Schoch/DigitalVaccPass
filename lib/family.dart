@@ -17,6 +17,7 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
     return Scaffold(
       appBar: AppBar(
         title: MyHeader(),
+        elevation: 0,
       ),
       body: Center(
         child: Column(

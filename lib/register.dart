@@ -17,6 +17,7 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
     return Scaffold(
       appBar: AppBar(
         title: MyHeader(),
+        elevation: 0,
       ),
       body: Center(
         child: Column(

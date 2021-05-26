@@ -17,6 +17,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
     return Scaffold(
       appBar: AppBar(
         title: MyHeader(),
+        elevation: 0,
       ),
       body: Center(
         child: Column(

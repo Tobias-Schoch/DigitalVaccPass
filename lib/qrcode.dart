@@ -17,6 +17,7 @@ class _MyQRPageState extends State<MyQRPage> {
     return Scaffold(
       appBar: AppBar(
         title: MyHeader(),
+        elevation: 0,
       ),
       body: Container(
         alignment: Alignment.topLeft,
@@ -27,9 +28,10 @@ class _MyQRPageState extends State<MyQRPage> {
           children: <Widget>[
             Text(
               "Mein QR-Code",
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme.of(context).textTheme.headline4, textAlign: TextAlign.start,
             ),
-            Image.asset('images/qr.png'),
+            Image.asset('images/qr.png', height: MediaQuery.of(context).size.width * 0.8),
+
           ],
         ),
       ),

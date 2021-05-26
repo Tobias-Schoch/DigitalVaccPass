@@ -17,6 +17,7 @@ class _MyAboutPageState extends State<MyAboutPage> {
     return Scaffold(
       appBar: AppBar(
         title: MyHeader(),
+        elevation: 0,
       ),
       body: Container(
         alignment: Alignment.topLeft,

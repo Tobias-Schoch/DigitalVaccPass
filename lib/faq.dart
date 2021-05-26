@@ -17,6 +17,7 @@ class _MyFaqPageState extends State<MyFaqPage> {
     return Scaffold(
       appBar: AppBar(
         title: MyHeader(),
+        elevation: 0,
       ),
       body: Container(
         alignment: Alignment.topLeft,
