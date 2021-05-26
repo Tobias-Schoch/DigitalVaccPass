@@ -11,12 +11,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const textColor = const Color(0xff263238);
+    const backgroundColor = const Color(0xfffafafa);
     return MaterialApp(
       title: 'Impfpass',
       theme: ThemeData(
           fontFamily: "Inter",
-          primaryColor: Colors.white,
-          scaffoldBackgroundColor: Colors.white,
+          primaryColor: backgroundColor,
           textTheme: TextTheme(
             headline1: TextStyle(
                 fontWeight: FontWeight.w500, fontSize: 40, color: textColor),
@@ -63,7 +63,9 @@ class _MyHomePageState extends State<MyHomePage> {
             Text("Impfungen",
                 style: Theme.of(context).textTheme.headline4,
                 textAlign: TextAlign.left),
+            SizedBox(height: 25),
             Card(
+                elevation: 10,
                 child:
                     Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
               ListTile(
@@ -88,7 +90,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     ],
                   ))
             ])),
+            SizedBox(height: 20),
             Card(
+              elevation: 10,
                 child:
                     Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
               ListTile(
@@ -113,7 +117,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     ],
                   ))
             ])),
+            SizedBox(height: 20),
             Card(
+                elevation: 10,
                 child:
                     Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
               ListTile(

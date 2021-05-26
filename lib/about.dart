@@ -30,7 +30,9 @@ class _MyAboutPageState extends State<MyAboutPage> {
               "About",
               style: Theme.of(context).textTheme.headline4,
             ),
+            SizedBox(height: 25),
             Card(
+                elevation: 10,
                 child:
                     Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                   ListTile(
