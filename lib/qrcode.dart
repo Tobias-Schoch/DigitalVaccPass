@@ -18,11 +18,17 @@ class _MyQRPageState extends State<MyQRPage> {
       appBar: AppBar(
         title: MyHeader(),
       ),
-      body: Center(
+      body: Container(
+        alignment: Alignment.topLeft,
+        margin: const EdgeInsets.all(40.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Text("QR CODE View"),
+            Text(
+              "Mein QR-Code",
+              style: Theme.of(context).textTheme.bodyText1,
+            ),
+            Image.asset('images/qr.png'),
           ],
         ),
       ),
