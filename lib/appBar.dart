@@ -9,7 +9,8 @@ class MyHeader extends StatelessWidget {
           "Impfpass",
           style: Theme.of(context).textTheme.headline1,
         ),
-        Image.asset("images/vaccine.png", width: 90, height: 90),
+        SizedBox(width: 15),
+        Image.asset("images/vaccine.png", width: 60, height: 60),
       ],
     );
   }

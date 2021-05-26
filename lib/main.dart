@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
           primaryColor: backgroundColor,
           textTheme: TextTheme(
             headline1: TextStyle(
-                fontWeight: FontWeight.w500, fontSize: 40, color: textColor),
+                fontWeight: FontWeight.w600, fontSize: 40, color: textColor),
             headline4: TextStyle(
                 fontWeight: FontWeight.w700, fontSize: 30, color: textColor),
             headline5: TextStyle(
