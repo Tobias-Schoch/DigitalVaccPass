@@ -15,7 +15,10 @@ class MyApp extends StatelessWidget {
           primaryColor: Colors.white,
           scaffoldBackgroundColor: Colors.white,
           textTheme: TextTheme(
+            headline5: TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
             headline6: TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
+            bodyText1: TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
+            bodyText2: TextStyle(fontWeight: FontWeight.w400, fontSize: 15),
           )),
       home: MyHomePage(title: 'Impfpass'),
     );
@@ -41,7 +44,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -56,7 +58,10 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Row(
           children: <Widget>[
-            Text(widget.title, style: TextStyle(fontWeight: FontWeight.w500)),
+            Text(
+              widget.title,
+              style: Theme.of(context).textTheme.headline5,
+            ),
             SizedBox(width: 10),
             Image.asset("images/vaccine.png", width: 40, height: 40),
           ],
@@ -86,11 +91,11 @@ class _MyHomePageState extends State<MyHomePage> {
             Card(
                 margin: EdgeInsets.all(20),
                 child:
-                Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+                    Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                   ListTile(
                       title: Text(
                         "Covid-19 Biontech",
-                        style: TextStyle(fontWeight: FontWeight.w500),
+                        style: Theme.of(context).textTheme.bodyText1,
                       ),
                       subtitle: Column(
                         children: [
@@ -105,11 +110,11 @@ class _MyHomePageState extends State<MyHomePage> {
             Card(
                 margin: EdgeInsets.all(20),
                 child:
-                Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+                    Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                   ListTile(
                       title: Text(
                         "Tetanus",
-                        style: TextStyle(fontWeight: FontWeight.w500),
+                        style: Theme.of(context).textTheme.bodyText1,
                       ),
                       subtitle: Column(
                         children: [
@@ -124,11 +129,11 @@ class _MyHomePageState extends State<MyHomePage> {
             Card(
                 margin: EdgeInsets.all(20),
                 child:
-                Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+                    Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                   ListTile(
                       title: Text(
                         "Diptherie",
-                        style: TextStyle(fontWeight: FontWeight.w500),
+                        style: Theme.of(context).textTheme.bodyText1,
                       ),
                       subtitle: Column(
                         children: [
@@ -156,7 +161,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   children: <Widget>[
                     Text(
                       widget.title,
-                      style: TextStyle(fontSize: 20),
+                      style: Theme.of(context).textTheme.headline5,
                     ),
                     SizedBox(width: 10),
                     Image.asset("images/vaccine.png", width: 40, height: 40),
@@ -168,10 +173,7 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: Icon(Icons.local_hospital_outlined),
               title: Text(
                 'Impfpass',
-                style: Theme
-                    .of(context)
-                    .textTheme
-                    .headline6,
+                style: Theme.of(context).textTheme.headline6,
               ),
               onTap: () {
                 Navigator.pop(context);
@@ -181,10 +183,7 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: Icon(Icons.masks_outlined),
               title: Text(
                 'Testergebnisse',
-                style: Theme
-                    .of(context)
-                    .textTheme
-                    .headline6,
+                style: Theme.of(context).textTheme.headline6,
               ),
               onTap: () {
                 Navigator.pop(context);
@@ -194,10 +193,7 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: Icon(Icons.people_outline),
               title: Text(
                 'Familienübersicht',
-                style: Theme
-                    .of(context)
-                    .textTheme
-                    .headline6,
+                style: Theme.of(context).textTheme.headline6,
               ),
               onTap: () {
                 Navigator.pop(context);
@@ -207,10 +203,7 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: Icon(Icons.qr_code_2_outlined),
               title: Text(
                 'Mein QR-Code',
-                style: Theme
-                    .of(context)
-                    .textTheme
-                    .headline6,
+                style: Theme.of(context).textTheme.headline6,
               ),
               onTap: () {
                 Navigator.pop(context);
@@ -220,10 +213,7 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: Icon(Icons.quiz_outlined),
               title: Text(
                 'FAQ',
-                style: Theme
-                    .of(context)
-                    .textTheme
-                    .headline6,
+                style: Theme.of(context).textTheme.headline6,
               ),
               onTap: () {
                 Navigator.pop(context);
@@ -233,10 +223,7 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: Icon(Icons.privacy_tip_outlined),
               title: Text(
                 'Über uns',
-                style: Theme
-                    .of(context)
-                    .textTheme
-                    .headline6,
+                style: Theme.of(context).textTheme.headline6,
               ),
               onTap: () {
                 Navigator.pop(context);
@@ -246,10 +233,7 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: Icon(Icons.logout_rounded),
               title: Text(
                 'Logout',
-                style: Theme
-                    .of(context)
-                    .textTheme
-                    .headline6,
+                style: Theme.of(context).textTheme.headline6,
               ),
               onTap: () {
                 Navigator.pop(context);
