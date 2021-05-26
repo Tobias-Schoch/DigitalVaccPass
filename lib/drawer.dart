@@ -1,4 +1,13 @@
+import 'package:digital_vac_pass/qrcode.dart';
+import 'package:digital_vac_pass/testresult.dart';
 import 'package:flutter/material.dart';
+
+import 'about.dart';
+import 'family.dart';
+import 'faq.dart';
+import 'main.dart';
+import 'qrcode.dart';
+import 'login.dart';
 
 class MyDrawer extends StatelessWidget {
   @override
@@ -31,7 +40,7 @@ class MyDrawer extends StatelessWidget {
               style: Theme.of(context).textTheme.headline6,
             ),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyHomePage()));
             },
           ),
           ListTile(
@@ -41,7 +50,7 @@ class MyDrawer extends StatelessWidget {
               style: Theme.of(context).textTheme.headline6,
             ),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyTestPage()));
             },
           ),
           ListTile(
@@ -51,7 +60,7 @@ class MyDrawer extends StatelessWidget {
               style: Theme.of(context).textTheme.headline6,
             ),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyFamilyPage()));
             },
           ),
           ListTile(
@@ -61,7 +70,7 @@ class MyDrawer extends StatelessWidget {
               style: Theme.of(context).textTheme.headline6,
             ),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyQRPage()));
             },
           ),
           ListTile(
@@ -71,7 +80,7 @@ class MyDrawer extends StatelessWidget {
               style: Theme.of(context).textTheme.headline6,
             ),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyFaqPage()));
             },
           ),
           ListTile(
@@ -81,7 +90,7 @@ class MyDrawer extends StatelessWidget {
               style: Theme.of(context).textTheme.headline6,
             ),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyAboutPage()));
             },
           ),
           ListTile(
@@ -91,7 +100,7 @@ class MyDrawer extends StatelessWidget {
               style: Theme.of(context).textTheme.headline6,
             ),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyLoginPage()));
             },
           ),
         ],
