@@ -34,6 +34,7 @@ class _MyAboutPageState extends State<MyAboutPage> {
                     Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                   ListTile(
                       title: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             SizedBox(height: 18),
                             Text("Digitaler Impfpass", style: Theme.of(context).textTheme.bodyText1,
@@ -41,6 +42,7 @@ class _MyAboutPageState extends State<MyAboutPage> {
                           ]
                       ),
                       subtitle: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(height: 10),
                           Text("Version 0.0.0.2", textAlign: TextAlign.left),

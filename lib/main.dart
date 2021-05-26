@@ -18,12 +18,18 @@ class MyApp extends StatelessWidget {
           primaryColor: Colors.white,
           scaffoldBackgroundColor: Colors.white,
           textTheme: TextTheme(
-            headline1: TextStyle(fontWeight: FontWeight.w500, fontSize: 40, color: textColor),
-            headline4: TextStyle(fontWeight: FontWeight.w700, fontSize: 30, color: textColor),
-            headline5: TextStyle(fontWeight: FontWeight.w500, fontSize: 20, color: textColor),
-            headline6: TextStyle(fontWeight: FontWeight.w500, fontSize: 15, color: textColor),
-            bodyText1: TextStyle(fontWeight: FontWeight.w700, fontSize: 24, color: textColor),
-            bodyText2: TextStyle(fontWeight: FontWeight.w400, fontSize: 16, color: textColor),
+            headline1: TextStyle(
+                fontWeight: FontWeight.w500, fontSize: 40, color: textColor),
+            headline4: TextStyle(
+                fontWeight: FontWeight.w700, fontSize: 30, color: textColor),
+            headline5: TextStyle(
+                fontWeight: FontWeight.w500, fontSize: 20, color: textColor),
+            headline6: TextStyle(
+                fontWeight: FontWeight.w500, fontSize: 15, color: textColor),
+            bodyText1: TextStyle(
+                fontWeight: FontWeight.w700, fontSize: 24, color: textColor),
+            bodyText2: TextStyle(
+                fontWeight: FontWeight.w400, fontSize: 16, color: textColor),
           )),
       home: MyHomePage(title: 'Impfpass'),
     );
@@ -53,80 +59,84 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text("Impfungen", style: Theme.of(context).textTheme.headline4, textAlign: TextAlign.left),
+            Text("Impfungen",
+                style: Theme.of(context).textTheme.headline4,
+                textAlign: TextAlign.left),
             Card(
                 child:
                     Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-                  ListTile(
-                      title: Column(
-                        children: [
-                          SizedBox(height: 18),
-                          Text("Covid-19 Biontech", style: Theme.of(context).textTheme.bodyText1),
-                        ]
-                      ),
-
-                      subtitle: Column(
-                        children: [
-                          SizedBox(height: 10),
-                          Text("ChargeNr.: 123845234",
-                              textAlign: TextAlign.left),
-                          SizedBox(height: 2),
-                          Text("Datum: 08.05.2021", textAlign: TextAlign.left),
-                          SizedBox(height: 2),
-                          Text("Arzt: Dr. Peter Schmidt",
-                              textAlign: TextAlign.left),
-                          SizedBox(height: 18),
-                        ],
-                      ))
-                ])),
+              ListTile(
+                  title: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                    SizedBox(height: 18),
+                    Text("Covid-19 Biontech",
+                        style: Theme.of(context).textTheme.bodyText1),
+                  ]),
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(height: 10),
+                      Text("ChargeNr.: 123845234", textAlign: TextAlign.left),
+                      SizedBox(height: 2),
+                      Text("Datum: 08.05.2021", textAlign: TextAlign.left),
+                      SizedBox(height: 2),
+                      Text("Arzt: Dr. Peter Schmidt",
+                          textAlign: TextAlign.left),
+                      SizedBox(height: 18),
+                    ],
+                  ))
+            ])),
             Card(
                 child:
                     Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-                  ListTile(
-                      title: Column(
-                          children: [
-                            SizedBox(height: 18),
-                            Text("Tetanus", style: Theme.of(context).textTheme.bodyText1),
-                          ]
-                      ),
-                      subtitle: Column(
-                        children: [
-                          SizedBox(height: 10),
-                          Text("ChargeNr.: 123845234",
-                              textAlign: TextAlign.left),
-                          SizedBox(height: 2),
-                          Text("Datum: 08.05.2021", textAlign: TextAlign.left),
-                          SizedBox(height: 2),
-                          Text("Arzt: Dr. Peter Schmidt",
-                              textAlign: TextAlign.left),
-                          SizedBox(height: 18),
-                        ],
-                      ))
-                ])),
+              ListTile(
+                  title: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(height: 18),
+                        Text("Tetanus",
+                            style: Theme.of(context).textTheme.bodyText1),
+                      ]),
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(height: 10),
+                      Text("ChargeNr.: 123845234", textAlign: TextAlign.left),
+                      SizedBox(height: 2),
+                      Text("Datum: 08.05.2021", textAlign: TextAlign.left),
+                      SizedBox(height: 2),
+                      Text("Arzt: Dr. Peter Schmidt",
+                          textAlign: TextAlign.left),
+                      SizedBox(height: 18),
+                    ],
+                  ))
+            ])),
             Card(
                 child:
                     Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-                  ListTile(
-                      title: Column(
-                          children: [
-                            SizedBox(height: 18),
-                            Text("Diptherie", style: Theme.of(context).textTheme.bodyText1),
-                          ]
-                      ),
-                      subtitle: Column(
-                        children: [
-                          SizedBox(height: 10),
-                          Text("ChargeNr.: 123845234",
-                              textAlign: TextAlign.left),
-                          SizedBox(height: 2),
-                          Text("Datum: 08.05.2021", textAlign: TextAlign.left),
-                          SizedBox(height: 2),
-                          Text("Arzt: Dr. Peter Schmidt",
-                              textAlign: TextAlign.left),
-                          SizedBox(height: 18),
-                        ],
-                      ))
-                ])),
+              ListTile(
+                  title: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                    SizedBox(height: 18),
+                    Text("Diptherie",
+                        style: Theme.of(context).textTheme.bodyText1),
+                  ]),
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(height: 10),
+                      Text("ChargeNr.: 123845234", textAlign: TextAlign.left),
+                      SizedBox(height: 2),
+                      Text("Datum: 08.05.2021", textAlign: TextAlign.left),
+                      SizedBox(height: 2),
+                      Text("Arzt: Dr. Peter Schmidt",
+                          textAlign: TextAlign.left),
+                      SizedBox(height: 18),
+                    ],
+                  ))
+            ])),
           ],
         ),
       ),

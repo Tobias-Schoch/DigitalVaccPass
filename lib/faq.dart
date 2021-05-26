@@ -34,12 +34,14 @@ class _MyFaqPageState extends State<MyFaqPage> {
                     Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                   ListTile(
                       title: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             SizedBox(height: 18),
                             Text("Ist der Impfpass sicher?", style: Theme.of(context).textTheme.bodyText1),
                           ]
                       ),
                       subtitle: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(height: 10),
                           Text(
@@ -54,12 +56,14 @@ class _MyFaqPageState extends State<MyFaqPage> {
                     Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                   ListTile(
                       title: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             SizedBox(height: 18),
                             Text("Wie schnell sehe ich neue Impfungen?", style: Theme.of(context).textTheme.bodyText1, textAlign: TextAlign.left),
                           ]
                       ),
                       subtitle: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(height: 10),
                           Text(
