@@ -41,18 +41,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -88,13 +76,64 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
+            Text(widget.title),
+            Card(
+                margin: EdgeInsets.all(20),
+                child:
+                Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+                  ListTile(
+                      title: Text(
+                        "Covid-19 Biontech",
+                        style: TextStyle(fontWeight: FontWeight.w500),
+                      ),
+                      subtitle: Column(
+                        children: [
+                          Text("ChargeNr.: 123845234",
+                              textAlign: TextAlign.left),
+                          Text("Datum: 08.05.2021", textAlign: TextAlign.left),
+                          Text("Arzt: Dr. Peter Schmidt",
+                              textAlign: TextAlign.left),
+                        ],
+                      ))
+                ])),
+            Card(
+                margin: EdgeInsets.all(20),
+                child:
+                Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+                  ListTile(
+                      title: Text(
+                        "Tetanus",
+                        style: TextStyle(fontWeight: FontWeight.w500),
+                      ),
+                      subtitle: Column(
+                        children: [
+                          Text("ChargeNr.: 123845234",
+                              textAlign: TextAlign.left),
+                          Text("Datum: 08.05.2021", textAlign: TextAlign.left),
+                          Text("Arzt: Dr. Peter Schmidt",
+                              textAlign: TextAlign.left),
+                        ],
+                      ))
+                ])),
+            Card(
+                margin: EdgeInsets.all(20),
+                child:
+                Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+                  ListTile(
+                      title: Text(
+                        "Diptherie",
+                        style: TextStyle(fontWeight: FontWeight.w500),
+                      ),
+                      subtitle: Column(
+                        children: [
+                          Text("ChargeNr.: 123845234",
+                              textAlign: TextAlign.left),
+                          Text("Datum: 08.05.2021", textAlign: TextAlign.left),
+                          Text("Arzt: Dr. Peter Schmidt",
+                              textAlign: TextAlign.left),
+                        ],
+                      ))
+                ])),
           ],
         ),
       ),
@@ -123,7 +162,10 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: Icon(Icons.local_hospital_outlined),
               title: Text(
                 'Impfpass',
-                style: Theme.of(context).textTheme.headline6,
+                style: Theme
+                    .of(context)
+                    .textTheme
+                    .headline6,
               ),
               onTap: () {
                 Navigator.pop(context);
@@ -133,7 +175,10 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: Icon(Icons.masks_outlined),
               title: Text(
                 'Testergebnisse',
-                style: Theme.of(context).textTheme.headline6,
+                style: Theme
+                    .of(context)
+                    .textTheme
+                    .headline6,
               ),
               onTap: () {
                 Navigator.pop(context);
@@ -143,7 +188,10 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: Icon(Icons.people_outline),
               title: Text(
                 'Familienübersicht',
-                style: Theme.of(context).textTheme.headline6,
+                style: Theme
+                    .of(context)
+                    .textTheme
+                    .headline6,
               ),
               onTap: () {
                 Navigator.pop(context);
@@ -153,7 +201,10 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: Icon(Icons.qr_code_2_outlined),
               title: Text(
                 'Mein QR-Code',
-                style: Theme.of(context).textTheme.headline6,
+                style: Theme
+                    .of(context)
+                    .textTheme
+                    .headline6,
               ),
               onTap: () {
                 Navigator.pop(context);
@@ -163,7 +214,10 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: Icon(Icons.quiz_outlined),
               title: Text(
                 'FAQ',
-                style: Theme.of(context).textTheme.headline6,
+                style: Theme
+                    .of(context)
+                    .textTheme
+                    .headline6,
               ),
               onTap: () {
                 Navigator.pop(context);
@@ -173,7 +227,10 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: Icon(Icons.privacy_tip_outlined),
               title: Text(
                 'Über uns',
-                style: Theme.of(context).textTheme.headline6,
+                style: Theme
+                    .of(context)
+                    .textTheme
+                    .headline6,
               ),
               onTap: () {
                 Navigator.pop(context);
@@ -183,7 +240,10 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: Icon(Icons.logout_rounded),
               title: Text(
                 'Logout',
-                style: Theme.of(context).textTheme.headline6,
+                style: Theme
+                    .of(context)
+                    .textTheme
+                    .headline6,
               ),
               onTap: () {
                 Navigator.pop(context);
