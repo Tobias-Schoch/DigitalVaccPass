@@ -46,13 +46,15 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: MyHeader(),
       ),
-      body: Center(
+      body: Container(
+        alignment: Alignment.topLeft,
+        margin: const EdgeInsets.all(20.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text("Impfpass", style: Theme.of(context).textTheme.headline4),
+            Text("Impfungen", style: Theme.of(context).textTheme.headline4, textAlign: TextAlign.left),
             Card(
-                margin: EdgeInsets.all(20),
                 child:
                     Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                   ListTile(
@@ -78,7 +80,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       ))
                 ])),
             Card(
-                margin: EdgeInsets.all(20),
                 child:
                     Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                   ListTile(
@@ -103,7 +104,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       ))
                 ])),
             Card(
-                margin: EdgeInsets.all(20),
                 child:
                     Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                   ListTile(

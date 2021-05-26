@@ -20,16 +20,16 @@ class _MyFaqPageState extends State<MyFaqPage> {
       ),
       body: Container(
         alignment: Alignment.topLeft,
-        margin: const EdgeInsets.all(40.0),
+        margin: const EdgeInsets.all(20.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
               "FAQ",
               style: Theme.of(context).textTheme.headline4,
             ),
             Card(
-                margin: EdgeInsets.all(20),
                 child:
                     Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                   ListTile(
@@ -50,7 +50,6 @@ class _MyFaqPageState extends State<MyFaqPage> {
                       ))
                 ])),
             Card(
-                margin: EdgeInsets.all(20),
                 child:
                     Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                   ListTile(
