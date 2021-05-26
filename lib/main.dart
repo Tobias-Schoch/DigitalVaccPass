@@ -53,17 +53,24 @@ class _MyHomePageState extends State<MyHomePage> {
                 child:
                     Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                   ListTile(
-                      title: Text(
-                        "Covid-19 Biontech",
-                        style: Theme.of(context).textTheme.bodyText1,
+                      title: Column(
+                        children: [
+                          SizedBox(height: 18),
+                          Text("Covid-19 Biontech", style: Theme.of(context).textTheme.bodyText1),
+                        ]
                       ),
+
                       subtitle: Column(
                         children: [
+                          SizedBox(height: 10),
                           Text("ChargeNr.: 123845234",
                               textAlign: TextAlign.left),
+                          SizedBox(height: 2),
                           Text("Datum: 08.05.2021", textAlign: TextAlign.left),
+                          SizedBox(height: 2),
                           Text("Arzt: Dr. Peter Schmidt",
                               textAlign: TextAlign.left),
+                          SizedBox(height: 18),
                         ],
                       ))
                 ])),
@@ -72,17 +79,23 @@ class _MyHomePageState extends State<MyHomePage> {
                 child:
                     Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                   ListTile(
-                      title: Text(
-                        "Tetanus",
-                        style: Theme.of(context).textTheme.bodyText1,
+                      title: Column(
+                          children: [
+                            SizedBox(height: 18),
+                            Text("Tetanus", style: Theme.of(context).textTheme.bodyText1),
+                          ]
                       ),
                       subtitle: Column(
                         children: [
+                          SizedBox(height: 10),
                           Text("ChargeNr.: 123845234",
                               textAlign: TextAlign.left),
+                          SizedBox(height: 2),
                           Text("Datum: 08.05.2021", textAlign: TextAlign.left),
+                          SizedBox(height: 2),
                           Text("Arzt: Dr. Peter Schmidt",
                               textAlign: TextAlign.left),
+                          SizedBox(height: 18),
                         ],
                       ))
                 ])),
@@ -91,17 +104,23 @@ class _MyHomePageState extends State<MyHomePage> {
                 child:
                     Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                   ListTile(
-                      title: Text(
-                        "Diptherie",
-                        style: Theme.of(context).textTheme.bodyText1,
+                      title: Column(
+                          children: [
+                            SizedBox(height: 18),
+                            Text("Diptherie", style: Theme.of(context).textTheme.bodyText1),
+                          ]
                       ),
                       subtitle: Column(
                         children: [
+                          SizedBox(height: 10),
                           Text("ChargeNr.: 123845234",
                               textAlign: TextAlign.left),
+                          SizedBox(height: 2),
                           Text("Datum: 08.05.2021", textAlign: TextAlign.left),
+                          SizedBox(height: 2),
                           Text("Arzt: Dr. Peter Schmidt",
                               textAlign: TextAlign.left),
+                          SizedBox(height: 18),
                         ],
                       ))
                 ])),

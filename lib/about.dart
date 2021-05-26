@@ -33,15 +33,21 @@ class _MyAboutPageState extends State<MyAboutPage> {
                 child:
                     Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                   ListTile(
-                      title: Text(
-                        "Digitaler Impfpass",
-                        style: Theme.of(context).textTheme.bodyText1,
+                      title: Column(
+                          children: [
+                            SizedBox(height: 18),
+                            Text("Digitaler Impfpass", style: Theme.of(context).textTheme.bodyText1,
+                                textAlign: TextAlign.left),
+                          ]
                       ),
                       subtitle: Column(
                         children: [
+                          SizedBox(height: 10),
                           Text("Version 0.0.0.2", textAlign: TextAlign.left),
+                          SizedBox(height: 2),
                           Text("© 2021 Luis Nothvogel & Tobias Schoch",
                               textAlign: TextAlign.left),
+                          SizedBox(height: 18),
                         ],
                       ))
                 ])),

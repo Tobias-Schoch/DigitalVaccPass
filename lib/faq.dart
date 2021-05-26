@@ -33,15 +33,19 @@ class _MyFaqPageState extends State<MyFaqPage> {
                 child:
                     Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                   ListTile(
-                      title: Text(
-                        "Ist der Impfpass sicher?",
-                        style: Theme.of(context).textTheme.bodyText1,
+                      title: Column(
+                          children: [
+                            SizedBox(height: 18),
+                            Text("Ist der Impfpass sicher?", style: Theme.of(context).textTheme.bodyText1),
+                          ]
                       ),
                       subtitle: Column(
                         children: [
+                          SizedBox(height: 10),
                           Text(
                               "Ja, diese App wurde mit Professoren und Experten entwickelt, die sich extrem gut auskennen mit der Materie",
                               textAlign: TextAlign.left),
+                          SizedBox(height: 18),
                         ],
                       ))
                 ])),
@@ -50,16 +54,21 @@ class _MyFaqPageState extends State<MyFaqPage> {
                 child:
                     Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                   ListTile(
-                      title: Text(
-                        "Wie schnell sehe ich neue Impfungen?",
-                        style: Theme.of(context).textTheme.bodyText1,
+                      title: Column(
+                          children: [
+                            SizedBox(height: 18),
+                            Text("Wie schnell sehe ich neue Impfungen?", style: Theme.of(context).textTheme.bodyText1, textAlign: TextAlign.left),
+                          ]
                       ),
                       subtitle: Column(
                         children: [
+                          SizedBox(height: 10),
                           Text(
                               "Innerhalb weniger Sekunden nach Scannung des QR-Codes ist die Impfung durch den Arzt übertragen.",
                               textAlign: TextAlign.left),
+                          SizedBox(height: 18),
                         ],
+
                       ))
                 ])),
           ],
