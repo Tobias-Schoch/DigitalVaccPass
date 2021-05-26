@@ -18,11 +18,33 @@ class _MyAboutPageState extends State<MyAboutPage> {
       appBar: AppBar(
         title: MyHeader(),
       ),
-      body: Center(
+      body: Container(
+        alignment: Alignment.topLeft,
+        margin: const EdgeInsets.all(40.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Text("About View"),
+            Text(
+              "About",
+              style: Theme.of(context).textTheme.bodyText1,
+            ),
+            Card(
+                margin: EdgeInsets.all(20),
+                child:
+                    Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+                  ListTile(
+                      title: Text(
+                        "Digitaler Impfpass",
+                        style: Theme.of(context).textTheme.bodyText1,
+                      ),
+                      subtitle: Column(
+                        children: [
+                          Text("Version 0.0.0.2", textAlign: TextAlign.left),
+                          Text("© 2021 Luis Nothvogel & Tobias Schoch",
+                              textAlign: TextAlign.left),
+                        ],
+                      ))
+                ])),
           ],
         ),
       ),
