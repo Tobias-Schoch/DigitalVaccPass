@@ -11,12 +11,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Impfpass',
       theme: ThemeData(
-        primaryColor: Colors.white,
-        scaffoldBackgroundColor: Colors.white,
+          fontFamily: "Inter",
+          primaryColor: Colors.white,
+          scaffoldBackgroundColor: Colors.white,
           textTheme: TextTheme(
             headline6: TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
-          )
-      ),
+          )),
       home: MyHomePage(title: 'Impfpass'),
     );
   }
@@ -98,11 +98,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
