@@ -26,7 +26,7 @@ class _MyQRPageState extends State<MyQRPage> {
           children: <Widget>[
             Text(
               "Mein QR-Code",
-              style: Theme.of(context).textTheme.bodyText1,
+              style: Theme.of(context).textTheme.headline4,
             ),
             Image.asset('images/qr.png'),
           ],

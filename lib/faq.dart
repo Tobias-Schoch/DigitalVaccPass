@@ -25,8 +25,8 @@ class _MyFaqPageState extends State<MyFaqPage> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Text(
-              "About",
-              style: Theme.of(context).textTheme.bodyText1,
+              "FAQ",
+              style: Theme.of(context).textTheme.headline4,
             ),
             Card(
                 margin: EdgeInsets.all(20),

@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    const textColor = const Color(0xff263238);
     return MaterialApp(
       title: 'Impfpass',
       theme: ThemeData(
@@ -17,10 +18,12 @@ class MyApp extends StatelessWidget {
           primaryColor: Colors.white,
           scaffoldBackgroundColor: Colors.white,
           textTheme: TextTheme(
-            headline5: TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
-            headline6: TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
-            bodyText1: TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
-            bodyText2: TextStyle(fontWeight: FontWeight.w400, fontSize: 15),
+            headline1: TextStyle(fontWeight: FontWeight.w500, fontSize: 40, color: textColor),
+            headline4: TextStyle(fontWeight: FontWeight.w700, fontSize: 30, color: textColor),
+            headline5: TextStyle(fontWeight: FontWeight.w500, fontSize: 20, color: textColor),
+            headline6: TextStyle(fontWeight: FontWeight.w500, fontSize: 15, color: textColor),
+            bodyText1: TextStyle(fontWeight: FontWeight.w700, fontSize: 24, color: textColor),
+            bodyText2: TextStyle(fontWeight: FontWeight.w400, fontSize: 16, color: textColor),
           )),
       home: MyHomePage(title: 'Impfpass'),
     );
@@ -47,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text("Impfpass"),
+            Text("Impfpass", style: Theme.of(context).textTheme.headline4),
             Card(
                 margin: EdgeInsets.all(20),
                 child:

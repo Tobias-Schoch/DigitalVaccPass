@@ -7,10 +7,9 @@ class MyHeader extends StatelessWidget {
       children: <Widget>[
         Text(
           "Impfpass",
-          style: Theme.of(context).textTheme.headline5,
+          style: Theme.of(context).textTheme.headline1,
         ),
-        SizedBox(width: 10),
-        Image.asset("images/vaccine.png", width: 40, height: 40),
+        Image.asset("images/vaccine.png", width: 90, height: 90),
       ],
     );
   }

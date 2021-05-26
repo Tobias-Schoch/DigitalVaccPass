@@ -26,7 +26,7 @@ class _MyAboutPageState extends State<MyAboutPage> {
           children: <Widget>[
             Text(
               "About",
-              style: Theme.of(context).textTheme.bodyText1,
+              style: Theme.of(context).textTheme.headline4,
             ),
             Card(
                 margin: EdgeInsets.all(20),
