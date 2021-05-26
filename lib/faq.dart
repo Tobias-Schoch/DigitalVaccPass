@@ -32,6 +32,9 @@ class _MyFaqPageState extends State<MyFaqPage> {
             ),
             SizedBox(height: 25),
             Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12.0),
+                ),
                 elevation: 10,
                 child:
                     Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
@@ -56,6 +59,9 @@ class _MyFaqPageState extends State<MyFaqPage> {
                 ])),
             SizedBox(height: 20),
             Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12.0),
+                ),
                 elevation: 10,
                 child:
                     Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
