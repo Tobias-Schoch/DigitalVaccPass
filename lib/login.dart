@@ -1,3 +1,4 @@
+import 'package:digital_vac_pass/register.dart';
 import 'package:digital_vac_pass/statistics.dart';
 import 'package:flutter/material.dart';
 import 'appBar.dart';
@@ -42,15 +43,15 @@ class _MyLoginPageState extends State<MyLoginPage> {
                   fillColor: primeColor,
                   border: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(color: primeColor),
+                    borderSide: new BorderSide(color: primeColor, width: 3.0,),
                   ),
                   enabledBorder: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(color: textColor),
+                    borderSide: new BorderSide(color: textColor, width: 3.0,),
                   ),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12.0),
-                      borderSide: BorderSide(color: primeColor)),
+                      borderSide: BorderSide(color: primeColor, width: 3.0,)),
                   labelStyle: new TextStyle(color: textColor),
                 ),
                 validator: (val) {
@@ -70,15 +71,15 @@ class _MyLoginPageState extends State<MyLoginPage> {
                   fillColor: primeColor,
                   border: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(color: primeColor),
+                    borderSide: new BorderSide(color: primeColor, width: 3.0,),
                   ),
                   enabledBorder: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(color: textColor),
+                    borderSide: new BorderSide(color: textColor, width: 3.0,),
                   ),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12.0),
-                      borderSide: BorderSide(color: primeColor)),
+                      borderSide: BorderSide(color: primeColor, width: 3.0,)),
                   labelStyle: new TextStyle(color: textColor),
                 ),
                 obscureText: true,
@@ -97,8 +98,13 @@ class _MyLoginPageState extends State<MyLoginPage> {
                   primary: textColor,
                 ),
                 onPressed: () {},
-                child: const Text('Password vergessen?'),
+                child: Row(
+                  children: <Widget>[
+                    const Text('Password vergessen?'),
+                  ],
+                ),
               ),
+
               SizedBox(height: 25),
               ConstrainedBox(
                 constraints: BoxConstraints.tightFor(height: 60),
@@ -111,13 +117,34 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     ),
                   ),
                   onPressed: () {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => MyStatisticPage()));
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => MyStatisticPage()));
                   },
                   label: Text('Einloggen', style: new TextStyle(fontSize: 20)),
                   icon: Icon(Icons.login),
                 ),
               ),
+              SizedBox(height: 25),
+              ConstrainedBox(
+                constraints: BoxConstraints.tightFor(height: 60),
+                child: ElevatedButton.icon(
+                  style: ElevatedButton.styleFrom(
+                    textStyle: const TextStyle(fontSize: 16),
+                    primary: Color(0xFFFFFFFF),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      side: BorderSide(color: primeColor, width: 3.0,),
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => MyRegisterPage()));
+                  },
+                  label: Text('Registrieren', style: TextStyle(fontSize: 20, color: textColor)),
+                  icon: Icon(Icons.pin, color: textColor,),
+                ),
+              ),
+              SizedBox(height: 25),
             ],
           ),
         ),
