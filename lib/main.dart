@@ -11,11 +11,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     const textColor = const Color(0xff263238);
     const backgroundColor = const Color(0xfffafafa);
+    const primeColor = const Color(0xff5D5FEF);
     return MaterialApp(
       title: 'Impfpass',
       theme: ThemeData(
           fontFamily: "Inter",
           primaryColor: backgroundColor,
+          accentColor: primeColor,
           textTheme: TextTheme(
             headline1: TextStyle(
                 fontWeight: FontWeight.w600, fontSize: 40, color: textColor),
