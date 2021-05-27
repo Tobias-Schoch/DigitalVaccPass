@@ -1,7 +1,7 @@
-import 'package:digital_vac_pass/qrcode.dart';
 import 'package:flutter/material.dart';
 import 'appBar.dart';
 import 'drawer.dart';
+import 'package:digital_vac_pass/qrcode.dart';
 
 void main() {
   runApp(MyApp());
@@ -81,7 +81,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     Navigator.of(context).push(
                         MaterialPageRoute(builder: (context) => MyQRPage()));
                   },
-                  label: Text('Mein QR-Code', style: new TextStyle(fontSize: 20)),
+                  label:
+                      Text('Mein QR-Code', style: new TextStyle(fontSize: 20)),
                   icon: Icon(Icons.qr_code_2),
                 ),
               ),
