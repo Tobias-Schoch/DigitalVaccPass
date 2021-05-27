@@ -1,4 +1,4 @@
-import 'package:digital_vac_pass/qrcode.dart';
+import 'package:digital_vac_pass/addvaccination.dart';
 import 'package:flutter/material.dart';
 import 'appBar.dart';
 import 'drawer.dart';
@@ -45,7 +45,7 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
                   ),
                   onPressed: () {
                     Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => MyQRPage()));
+                        MaterialPageRoute(builder: (context) => MyVaccinationAddPage()));
                   },
                   label: Text('Impfung hinzufügen', style: new TextStyle(fontSize: 20)),
                   icon: Icon(Icons.healing),

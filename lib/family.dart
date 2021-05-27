@@ -45,7 +45,7 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
                   ),
                   onPressed: () {},
                   label: Text('Hinzufügen', style: new TextStyle(fontSize: 20)),
-                  icon: Icon(Icons.group_add),
+                  icon: Icon(Icons.qr_code_scanner),
                 ),
               ),
               SizedBox(height: 20),
