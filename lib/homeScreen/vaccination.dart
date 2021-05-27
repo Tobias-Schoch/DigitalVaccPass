@@ -37,60 +37,67 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
                     onTap: () {
                       print(index);
                     },
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12.0),
-                      ),
-                      elevation: 10,
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: Column(
-                              children: <Widget>[
-                                ListTile(
-                                  title: Column(
-                                      crossAxisAlignment:
+                    child: Column(
+                      children: [
+                        Card(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                          elevation: 10,
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: Column(
+                                  children: <Widget>[
+                                    ListTile(
+                                      title: Column(
+                                          crossAxisAlignment:
                                           CrossAxisAlignment.start,
-                                      children: [
-                                        SizedBox(height: 18),
-                                        Text(
-                                            vaccinationListDb
-                                                .elementAt(index)
-                                                .vaccinationName,
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyText1),
-                                      ]),
-                                  subtitle: Column(
-                                    crossAxisAlignment:
+                                          children: [
+                                            SizedBox(height: 18),
+                                            Text(
+                                                vaccinationListDb
+                                                    .elementAt(index)
+                                                    .vaccinationName,
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodyText1),
+                                          ]),
+                                      subtitle: Column(
+                                        crossAxisAlignment:
                                         CrossAxisAlignment.start,
-                                    children: [
-                                      SizedBox(height: 10),
-                                      Text('Datum.: ' +
-                                          DateFormat('dd.MM.yyyy').format(
+                                        children: [
+                                          SizedBox(height: 10),
+                                          Text('Datum.: ' +
+                                              DateFormat('dd.MM.yyyy').format(
+                                                  vaccinationListDb
+                                                      .elementAt(index)
+                                                      .vaccinationDate)),
+                                          SizedBox(height: 8),
+                                          Text('ChargeNr: ' +
                                               vaccinationListDb
                                                   .elementAt(index)
-                                                  .vaccinationDate)),
-                                      SizedBox(height: 8),
-                                      Text('ChargeNr: ' +
-                                          vaccinationListDb
-                                              .elementAt(index)
-                                              .chargeNr),
-                                      SizedBox(height: 8),
-                                      Text('Arzt: ' +
-                                          vaccinationListDb
-                                              .elementAt(index)
-                                              .doctorSignature),
-                                      SizedBox(height: 18),
-                                    ],
-                                  ),
+                                                  .chargeNr),
+                                          SizedBox(height: 8),
+                                          Text('Arzt: ' +
+                                              vaccinationListDb
+                                                  .elementAt(index)
+                                                  .doctorSignature),
+                                          SizedBox(height: 18),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
-                    ),
+                        ),
+                        SizedBox(height: 20),
+                      ],
+                    )
+
+
                   );
                 },
               ),
