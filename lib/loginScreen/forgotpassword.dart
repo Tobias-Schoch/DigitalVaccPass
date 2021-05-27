@@ -86,7 +86,7 @@ class _MyForgotPasswordPageState extends State<MyForgotPasswordPage> {
                         builder: (context) => MyLoginPage()));
                   },
                   label: Text('Zurücksetzen', style: new TextStyle(fontSize: 20)),
-                  icon: Icon(Icons.restart_alt),
+                  icon: Icon(Icons.print),
                 ),
               ),
               SizedBox(height: 25),
