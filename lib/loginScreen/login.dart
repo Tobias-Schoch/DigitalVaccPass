@@ -1,5 +1,5 @@
-import 'package:digital_vac_pass/homeScreen/home.dart';
-import 'package:digital_vac_pass/loginScreen/register.dart';
+import '../homeScreen/home.dart';
+import 'register.dart';
 import 'package:flutter/material.dart';
 import '../appBar.dart';
 import 'forgotpassword.dart';

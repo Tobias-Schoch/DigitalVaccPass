@@ -119,9 +119,10 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
 
 List<Vaccination> vaccinationListDb = List<Vaccination>.generate(20, (int i) {
   return Vaccination(
-      faker.lorem.word(),
+      faker.internet.domainName(),
       faker.randomGenerator.decimal().toString(),
       faker.date.dateTime(),
       faker.person.name(),
       faker.lorem.sentence());
+
 });
