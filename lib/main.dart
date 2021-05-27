@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'appBar.dart';
-import 'drawer.dart';
-import 'package:digital_vac_pass/qrcode.dart';
+import 'loginScreen/login.dart';
 
 void main() {
   runApp(MyApp());
@@ -50,11 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: MyHeader(),
-        elevation: 0,
-      ),
-      drawer: MyDrawer(),
+      body: MyLoginPage(),
     );
   }
 }

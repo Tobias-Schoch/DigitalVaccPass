@@ -1,8 +1,8 @@
-import 'package:digital_vac_pass/register.dart';
+import 'package:digital_vac_pass/loginScreen/register.dart';
 import 'package:digital_vac_pass/statistics.dart';
 import 'package:flutter/material.dart';
-import 'appBar.dart';
-import 'drawer.dart';
+import '../appBar.dart';
+import 'forgotpassword.dart';
 
 class MyLoginPage extends StatefulWidget {
   MyLoginPage({Key key, this.title}) : super(key: key);
@@ -43,15 +43,24 @@ class _MyLoginPageState extends State<MyLoginPage> {
                   fillColor: primeColor,
                   border: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(color: primeColor, width: 3.0,),
+                    borderSide: new BorderSide(
+                      color: primeColor,
+                      width: 3.0,
+                    ),
                   ),
                   enabledBorder: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(color: textColor, width: 3.0,),
+                    borderSide: new BorderSide(
+                      color: textColor,
+                      width: 3.0,
+                    ),
                   ),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12.0),
-                      borderSide: BorderSide(color: primeColor, width: 3.0,)),
+                      borderSide: BorderSide(
+                        color: primeColor,
+                        width: 3.0,
+                      )),
                   labelStyle: new TextStyle(color: textColor),
                 ),
                 validator: (val) {
@@ -71,15 +80,24 @@ class _MyLoginPageState extends State<MyLoginPage> {
                   fillColor: primeColor,
                   border: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(color: primeColor, width: 3.0,),
+                    borderSide: new BorderSide(
+                      color: primeColor,
+                      width: 3.0,
+                    ),
                   ),
                   enabledBorder: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(color: textColor, width: 3.0,),
+                    borderSide: new BorderSide(
+                      color: textColor,
+                      width: 3.0,
+                    ),
                   ),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12.0),
-                      borderSide: BorderSide(color: primeColor, width: 3.0,)),
+                      borderSide: BorderSide(
+                        color: primeColor,
+                        width: 3.0,
+                      )),
                   labelStyle: new TextStyle(color: textColor),
                 ),
                 obscureText: true,
@@ -97,14 +115,16 @@ class _MyLoginPageState extends State<MyLoginPage> {
                   textStyle: const TextStyle(fontSize: 16),
                   primary: textColor,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => MyForgotPasswordPage()));
+                },
                 child: Row(
                   children: <Widget>[
-                    const Text('Password vergessen?'),
+                    const Text('Passwort vergessen?'),
                   ],
                 ),
               ),
-
               SizedBox(height: 25),
               ConstrainedBox(
                 constraints: BoxConstraints.tightFor(height: 60),
@@ -120,7 +140,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => MyStatisticPage()));
                   },
-                  label: Text('Einloggen', style: new TextStyle(fontSize: 20, fontWeight: FontWeight.w600)),
+                  label: Text('Einloggen', style: new TextStyle(fontSize: 20)),
                   icon: Icon(Icons.login),
                 ),
               ),
@@ -133,15 +153,22 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     primary: Color(0xFFFFFFFF),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
-                      side: BorderSide(color: primeColor, width: 3.0,),
+                      side: BorderSide(
+                        color: primeColor,
+                        width: 3.0,
+                      ),
                     ),
                   ),
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => MyRegisterPage()));
                   },
-                  label: Text('Registrieren', style: TextStyle(fontSize: 20, color: primeColor)),
-                  icon: Icon(Icons.pin, color: primeColor,),
+                  label: Text('Registrieren',
+                      style: TextStyle(fontSize: 20, color: primeColor)),
+                  icon: Icon(
+                    Icons.pin,
+                    color: primeColor,
+                  ),
                 ),
               ),
               SizedBox(height: 25),
@@ -149,7 +176,6 @@ class _MyLoginPageState extends State<MyLoginPage> {
           ),
         ),
       ),
-      drawer: MyDrawer(),
     );
   }
 }

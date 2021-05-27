@@ -1,7 +1,6 @@
 import 'package:digital_vac_pass/statistics.dart';
 import 'package:flutter/material.dart';
-import 'appBar.dart';
-import 'drawer.dart';
+import '../appBar.dart';
 
 class MyRegisterPage extends StatefulWidget {
   MyRegisterPage({Key key, this.title}) : super(key: key);
@@ -146,15 +145,6 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                 },
               ),
               SizedBox(height: 25),
-              TextButton(
-                style: TextButton.styleFrom(
-                  textStyle: const TextStyle(fontSize: 16),
-                  primary: textColor,
-                ),
-                onPressed: () {},
-                child: const Text('Password vergessen?'),
-              ),
-              SizedBox(height: 25),
               ConstrainedBox(
                 constraints: BoxConstraints.tightFor(height: 60),
                 child: ElevatedButton.icon(
@@ -169,7 +159,7 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                     Navigator.of(context).push(
                         MaterialPageRoute(builder: (context) => MyStatisticPage()));
                   },
-                  label: Text('Einloggen', style: new TextStyle(fontSize: 20)),
+                  label: Text('Registrieren', style: new TextStyle(fontSize: 20)),
                   icon: Icon(Icons.login),
                 ),
               ),
@@ -177,7 +167,6 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
           ),
         ),
       ),
-      drawer: MyDrawer(),
     );
   }
 }
