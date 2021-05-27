@@ -1,4 +1,5 @@
 import 'package:digital_vac_pass/qrcode.dart';
+import 'package:digital_vac_pass/statistics.dart';
 import 'package:digital_vac_pass/testresult.dart';
 import 'package:flutter/material.dart';
 
@@ -41,6 +42,16 @@ class MyDrawer extends StatelessWidget {
             ),
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyHomePage()));
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.insights_outlined),
+            title: Text(
+              'Statistiken',
+              style: Theme.of(context).textTheme.headline6,
+            ),
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyStatisticPage()));
             },
           ),
           ListTile(
