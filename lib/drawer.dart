@@ -97,7 +97,7 @@ class MyDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.qr_code_2_outlined),
+            leading: Icon(Icons.qr_code_outlined),
             title: Text(
               'Mein QR-Code',
               style: Theme.of(context).textTheme.headline6,
@@ -107,7 +107,7 @@ class MyDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.quiz_outlined),
+            leading: Icon(Icons.accessible),
             title: Text(
               'FAQ',
               style: Theme.of(context).textTheme.headline6,
@@ -137,7 +137,7 @@ class MyDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.logout_rounded),
+            leading: Icon(Icons.logout),
             title: Text(
               'Logout',
               style: Theme.of(context).textTheme.headline6,

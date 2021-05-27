@@ -83,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                   label:
                       Text('Mein QR-Code', style: new TextStyle(fontSize: 20)),
-                  icon: Icon(Icons.qr_code_2),
+                  icon: Icon(Icons.qr_code),
                 ),
               ),
               SizedBox(height: 20),
