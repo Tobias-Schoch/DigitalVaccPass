@@ -166,7 +166,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                   label: Text('Registrieren',
                       style: TextStyle(fontSize: 20, color: primeColor)),
                   icon: Icon(
-                    Icons.pin,
+                    Icons.push_pin,
                     color: primeColor,
                   ),
                 ),
