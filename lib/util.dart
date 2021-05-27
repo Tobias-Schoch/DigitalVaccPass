@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 class Vaccination {
   String vaccinationName;
   String chargeNr;
@@ -31,8 +33,14 @@ class User {
   String userEmail;
   String userPassword;
   Role userRole;
-  Login loggedIn;
-  User(this.userName, this.userEmail, this.userPassword, this.userRole, this.loggedIn);
+  User(this.userName, this.userEmail, this.userPassword, this.userRole);
+}
+
+class PredefinedColors {
+  static const lightOrange = const Color(0xffFFFACC);
+  static const lightRed = const Color(0xffFEC3C3);
+  static const lightGreen = const Color(0xffDEFFDB);
+  static const primaryColor = const Color(0xff5D5FEF);
 }
 
 enum Login {

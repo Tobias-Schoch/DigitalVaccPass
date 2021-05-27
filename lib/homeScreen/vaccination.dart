@@ -17,7 +17,7 @@ class MyVaccinationPage extends StatefulWidget {
 class _MyVaccinationPage extends State<MyVaccinationPage> {
   @override
   Widget build(BuildContext context) {
-    const primeColor = const Color(0xff5D5FEF);
+
     return Scaffold(
       body: Container(
         alignment: Alignment.topLeft,
@@ -68,7 +68,7 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
                                         CrossAxisAlignment.start,
                                         children: [
                                           SizedBox(height: 10),
-                                          Text('Datum.: ' +
+                                          Text('Datum: ' +
                                               DateFormat('dd.MM.yyyy').format(
                                                   vaccinationListDb
                                                       .elementAt(index)
@@ -110,8 +110,8 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
           Navigator.of(context)
               .push(MaterialPageRoute(builder: (context) => MyQRPage()));
         },
-        child: const Icon(Icons.qr_code),
-        backgroundColor: primeColor,
+        child: const Icon(Icons.add),
+        backgroundColor: PredefinedColors.primaryColor,
       ),
     );
   }

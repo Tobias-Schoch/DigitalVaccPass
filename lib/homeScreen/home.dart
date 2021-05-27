@@ -18,13 +18,13 @@ class MyHomeScreenPage extends StatefulWidget {
 }
 
 class _MyHomeScreenPage extends State<MyHomeScreenPage> with SingleTickerProviderStateMixin {
-  int _selectedTabIndex = 0;
+  int selectedTabIndex = 0;
   TabController _tabController;
 
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(vsync: this, length: 2, initialIndex: 0);
+    _tabController = TabController(vsync: this, length: 2, initialIndex: selectedTabIndex);
   }
 
   @override
@@ -35,7 +35,7 @@ class _MyHomeScreenPage extends State<MyHomeScreenPage> with SingleTickerProvide
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: MyHeader(),
           elevation: 0,

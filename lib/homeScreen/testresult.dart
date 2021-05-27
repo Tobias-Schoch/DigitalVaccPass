@@ -16,9 +16,9 @@ class MyTestPage extends StatefulWidget {
 class _MyTestPageState extends State<MyTestPage> {
   @override
   Widget build(BuildContext context) {
-    const pending = const Color(0xffFFFACC);
-    const positive = const Color(0xffFEC3C3);
-    const negative = const Color(0xffDEFFDB);
+    // const pending = const Color(0xffFFFACC);
+    // const positive = const Color(0xffFEC3C3);
+    // const negative = const Color(0xffDEFFDB);
     return Scaffold(
       body: Container(
         alignment: Alignment.topLeft,
@@ -50,9 +50,9 @@ class _MyTestPageState extends State<MyTestPage> {
                                           tileColor: testsListDb
                                             .elementAt(index)
                                             .testStatus == Status.Pending
-                                              ? pending
+                                              ? PredefinedColors.lightOrange
                                               : testsListDb.elementAt(index).testStatus == Status.Good
-                                              ? negative : positive,
+                                              ? PredefinedColors.lightGreen : PredefinedColors.lightRed,
                                           title: Column(
                                             crossAxisAlignment: CrossAxisAlignment.start,
                                             children: [
@@ -99,6 +99,10 @@ class _MyTestPageState extends State<MyTestPage> {
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
+        backgroundColor: PredefinedColors.primaryColor,
       ),
       drawer: MyDrawer(),
     );

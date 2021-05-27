@@ -46,4 +46,4 @@ app.*.map.json
 /android/app/release
 
 # golen_toolkit
-/failures/*.png
+/test/failures/
