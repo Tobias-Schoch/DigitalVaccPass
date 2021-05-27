@@ -1,3 +1,4 @@
+import 'package:digital_vac_pass/qrcode.dart';
 import 'package:flutter/material.dart';
 import 'appBar.dart';
 import 'drawer.dart';
@@ -48,6 +49,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    const primeColor = const Color(0xff5D5FEF);
     return Scaffold(
       appBar: AppBar(
         title: MyHeader(),
@@ -65,6 +67,25 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: Theme.of(context).textTheme.headline4,
                   textAlign: TextAlign.left),
               SizedBox(height: 25),
+              ConstrainedBox(
+                constraints: BoxConstraints.tightFor(height: 60, width: 1000),
+                child: ElevatedButton.icon(
+                  style: ElevatedButton.styleFrom(
+                    textStyle: const TextStyle(fontSize: 16),
+                    primary: primeColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12), // <-- Radius
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => MyQRPage()));
+                  },
+                  label: Text('Mein QR-Code', style: new TextStyle(fontSize: 20)),
+                  icon: Icon(Icons.qr_code_2),
+                ),
+              ),
+              SizedBox(height: 20),
               Card(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12.0),
