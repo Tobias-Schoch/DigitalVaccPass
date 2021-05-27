@@ -45,28 +45,32 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
                       child: Row(
                         children: [
                           Expanded(
-                              child: Column(
-                            children: <Widget>[
-                              ListTile(
+                            child: Column(
+                              children: <Widget>[
+                                ListTile(
                                   title: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
-                                    SizedBox(height: 18),
-                                    Text(
-                                        vaccinationListDb
-                                            .elementAt(index)
-                                            .vaccinationName,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyText1),
-                                  ]),
+                                        SizedBox(height: 18),
+                                        Text(
+                                            vaccinationListDb
+                                                .elementAt(index)
+                                                .vaccinationName,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodyText1),
+                                      ]),
                                   subtitle: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
                                       SizedBox(height: 10),
                                       Text('Datum.: ' +
-                                          DateFormat('dd.MM.yyyy').format(vaccinationListDb.elementAt(index).vaccinationDate)),
+                                          DateFormat('dd.MM.yyyy').format(
+                                              vaccinationListDb
+                                                  .elementAt(index)
+                                                  .vaccinationDate)),
                                       SizedBox(height: 8),
                                       Text('ChargeNr: ' +
                                           vaccinationListDb
@@ -79,10 +83,11 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
                                               .doctorSignature),
                                       SizedBox(height: 18),
                                     ],
-                                  ))
-                            ],
-                          )),
-                          SizedBox(height: 100),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                         ],
                       ),
                     ),
