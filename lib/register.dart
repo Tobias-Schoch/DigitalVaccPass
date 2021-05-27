@@ -35,6 +35,7 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                   textAlign: TextAlign.left),
               SizedBox(height: 25),
               new TextFormField(
+                autofocus: true,
                 cursorColor: textColor,
                 decoration: new InputDecoration(
                   labelText: "Vor- und Nachname",
@@ -62,7 +63,6 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
               ),
               SizedBox(height: 25),
               new TextFormField(
-                autofocus: true,
                 cursorColor: textColor,
                 decoration: new InputDecoration(
                   labelText: "E-Mail",

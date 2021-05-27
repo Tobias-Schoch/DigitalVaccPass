@@ -120,7 +120,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => MyStatisticPage()));
                   },
-                  label: Text('Einloggen', style: new TextStyle(fontSize: 20)),
+                  label: Text('Einloggen', style: new TextStyle(fontSize: 20, fontWeight: FontWeight.w600)),
                   icon: Icon(Icons.login),
                 ),
               ),
@@ -140,8 +140,8 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => MyRegisterPage()));
                   },
-                  label: Text('Registrieren', style: TextStyle(fontSize: 20, color: textColor)),
-                  icon: Icon(Icons.pin, color: textColor,),
+                  label: Text('Registrieren', style: TextStyle(fontSize: 20, color: primeColor)),
+                  icon: Icon(Icons.pin, color: primeColor,),
                 ),
               ),
               SizedBox(height: 25),
