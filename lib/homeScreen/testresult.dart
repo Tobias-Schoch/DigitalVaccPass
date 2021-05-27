@@ -1,7 +1,6 @@
 import 'package:digital_vac_pass/util.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
-import '../appBar.dart';
 import '../drawer.dart';
 
 class MyTestPage extends StatefulWidget {
@@ -150,5 +149,9 @@ class _MyTestPageState extends State<MyTestPage> {
 }
 
 List<Test> vaccinationListDb = List<Test>.generate(20, (int i) {
-  return Test.newlyWithoutStatus(faker.lorem.word(), faker.randomGenerator.decimal().toString(), faker.date.dateTime(), faker.lorem.sentence());
+  return Test.newlyWithoutStatus(
+      faker.lorem.word(),
+      faker.randomGenerator.decimal().toString(),
+      faker.date.dateTime(),
+      faker.lorem.sentence());
 });
