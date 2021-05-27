@@ -1,18 +1,15 @@
-import 'package:digital_vac_pass/homeScreen/home.dart';
-import 'package:digital_vac_pass/qrcode.dart';
-import 'package:digital_vac_pass/statistics.dart';
-import 'package:digital_vac_pass/homeScreen/testresult.dart';
-import 'package:digital_vac_pass/homeScreen/vaccination.dart';
 import 'package:flutter/material.dart';
-
 import 'about.dart';
 import 'addvaccination.dart';
 import 'family.dart';
 import 'faq.dart';
+import 'homeScreen/home.dart';
+import 'homeScreen/testresult.dart';
 import 'main.dart';
+import 'statistics.dart';
 import 'onboard.dart';
 import 'qrcode.dart';
-import 'login.dart';
+import 'loginScreen/login.dart';
 
 class MyDrawer extends StatelessWidget {
   @override

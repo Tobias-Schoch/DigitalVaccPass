@@ -30,6 +30,7 @@ class _MyQRPageState extends State<MyQRPage> {
               "Mein QR-Code",
               style: Theme.of(context).textTheme.headline4, textAlign: TextAlign.start,
             ),
+            SizedBox(height: 25),
             Image.asset('images/qr.png', height: MediaQuery.of(context).size.width * 0.8),
 
           ],

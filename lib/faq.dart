@@ -38,7 +38,7 @@ class _MyFaqPageState extends State<MyFaqPage> {
                   ),
                   elevation: 10,
                   child:
-                  Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+                      Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                     ListTile(
                         title: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
