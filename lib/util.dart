@@ -12,17 +12,18 @@ class Vaccination {
 
 class Test {
   String testName;
+  String testId;
   DateTime testDate;
   Status testStatus;
   String testDescription;
 
-  Test(this.testName, this.testDate, this.testStatus, this.testDescription);
+  Test(this.testName, this.testId, this.testDate, this.testStatus, this.testDescription);
 
-  Test.newlyWithoutStatus(this.testName, this.testDate, this.testDescription) : testStatus = Status.Pending;
+  Test.newlyWithoutStatus(this.testName, this.testId, this.testDate, this.testDescription) : testStatus = Status.Pending;
 
-  Test.newlyToday(this.testName, this.testStatus, this.testDescription) : testDate = DateTime.now();
+  Test.newlyToday(this.testName, this.testId, this.testStatus, this.testDescription) : testDate = DateTime.now();
 
-  Test.newlyTodayWithoutStatus(this.testName, this.testDescription) : testDate = DateTime.now(), testStatus = Status.Pending;
+  Test.newlyTodayWithoutStatus(this.testName, this.testId, this.testDescription) : testDate = DateTime.now(), testStatus = Status.Pending;
 }
 
 enum Status {

@@ -49,7 +49,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    const primeColor = const Color(0xff5D5FEF);
     return Scaffold(
       appBar: AppBar(
         title: MyHeader(),

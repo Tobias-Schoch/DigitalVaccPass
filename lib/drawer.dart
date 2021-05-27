@@ -1,7 +1,8 @@
+import 'package:digital_vac_pass/homeScreen/home.dart';
 import 'package:digital_vac_pass/qrcode.dart';
 import 'package:digital_vac_pass/statistics.dart';
-import 'package:digital_vac_pass/testresult.dart';
-import 'package:digital_vac_pass/vaccination.dart';
+import 'package:digital_vac_pass/homeScreen/testresult.dart';
+import 'package:digital_vac_pass/homeScreen/vaccination.dart';
 import 'package:flutter/material.dart';
 
 import 'about.dart';
@@ -44,7 +45,7 @@ class MyDrawer extends StatelessWidget {
               style: Theme.of(context).textTheme.headline6,
             ),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyVaccinationPage()));
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyHomeScreenPage()));
             },
           ),
           ListTile(

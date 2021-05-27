@@ -1,32 +1,25 @@
-
-import 'package:digital_vac_pass/qrcode.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:digital_vac_pass/util.dart';
+import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
+import '../appBar.dart';
+import '../drawer.dart';
 
-import 'appBar.dart';
-import 'drawer.dart';
-
-class MyVaccinationPage extends StatefulWidget {
-
-  MyVaccinationPage({Key key, this.title}) : super(key: key);
+class MyTestPage extends StatefulWidget {
+  MyTestPage({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  State<StatefulWidget> createState() => _MyVaccinationPage();
-
+  _MyTestPageState createState() => _MyTestPageState();
 }
 
-class _MyVaccinationPage extends State<MyVaccinationPage> {
-
+class _MyTestPageState extends State<MyTestPage> {
   @override
   Widget build(BuildContext context) {
-    const primeColor = const Color(0xff5D5FEF);
+    const pending = const Color(0xffFFFACC);
+    const positive = const Color(0xffFEC3C3);
+    const negative = const Color(0xffDEFFDB);
     return Scaffold(
-      appBar: AppBar(
-        title: MyHeader(),
-        elevation: 0,
-      ),
       body: Container(
         alignment: Alignment.topLeft,
         margin: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
@@ -35,82 +28,67 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text("Impfungen",
+              Text("Covid-19 Test",
                   style: Theme.of(context).textTheme.headline4,
                   textAlign: TextAlign.left),
               SizedBox(height: 25),
-              ConstrainedBox(
-                constraints: BoxConstraints.tightFor(height: 60, width: 1000),
-                child: ElevatedButton.icon(
-                  style: ElevatedButton.styleFrom(
-                    textStyle: const TextStyle(fontSize: 16),
-                    primary: primeColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12), // <-- Radius
+              Card(
+                  color: pending,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12.0),
+                  ),
+                  elevation: 10,
+                  child:
+                      Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+                    ListTile(
+                      title: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(height: 18),
+                            Text("Antigen Test",
+                                style: Theme.of(context).textTheme.headline5),
+                          ]),
+                      subtitle: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(height: 10),
+                            Text("Test-ID: 123845234",
+                                textAlign: TextAlign.left),
+                            SizedBox(height: 8),
+                            Text("Datum: 27.05.2021",
+                                textAlign: TextAlign.left),
+                            SizedBox(height: 8),
+                            Text("Arzt: Dr. Peter Schmidt",
+                                textAlign: TextAlign.left),
+                            SizedBox(height: 8),
+                            Text("Ausstehend",
+                                style: Theme.of(context).textTheme.bodyText1),
+                            SizedBox(height: 18),
+                          ]),
                     ),
-                  ),
-                  onPressed: () {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => MyQRPage()));
-                  },
-                  label:
-                  Text('Mein QR-Code', style: new TextStyle(fontSize: 20)),
-                  icon: Icon(Icons.qr_code),
-                ),
-              ),
-              SizedBox(height: 20),
-              Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.0),
-                  ),
-                  elevation: 10,
-                  child:
-                  Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-                    ListTile(
-                        title: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SizedBox(height: 18),
-                              Text("Covid-19 Biontech",
-                                  style: Theme.of(context).textTheme.bodyText1),
-                            ]),
-                        subtitle: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SizedBox(height: 10),
-                            Text("ChargeNr.: 123845234",
-                                textAlign: TextAlign.left),
-                            SizedBox(height: 8),
-                            Text("Datum: 08.05.2021",
-                                textAlign: TextAlign.left),
-                            SizedBox(height: 8),
-                            Text("Arzt: Dr. Peter Schmidt",
-                                textAlign: TextAlign.left),
-                            SizedBox(height: 18),
-                          ],
-                        ))
                   ])),
               SizedBox(height: 20),
               Card(
+                  color: negative,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12.0),
                   ),
                   elevation: 10,
                   child:
-                  Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+                      Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                     ListTile(
-                        title: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SizedBox(height: 18),
-                              Text("Tetanus",
-                                  style: Theme.of(context).textTheme.bodyText1),
-                            ]),
-                        subtitle: Column(
+                      title: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(height: 18),
+                            Text("Antigen Test",
+                                style: Theme.of(context).textTheme.headline5),
+                          ]),
+                      subtitle: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             SizedBox(height: 10),
-                            Text("ChargeNr.: 123845234",
+                            Text("Test-ID: 123845234",
                                 textAlign: TextAlign.left),
                             SizedBox(height: 8),
                             Text("Datum: 08.05.2021",
@@ -118,41 +96,48 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
                             SizedBox(height: 8),
                             Text("Arzt: Dr. Peter Schmidt",
                                 textAlign: TextAlign.left),
+                            SizedBox(height: 8),
+                            Text("Negativ",
+                                style: Theme.of(context).textTheme.bodyText1),
                             SizedBox(height: 18),
-                          ],
-                        ))
+                          ]),
+                    ),
                   ])),
               SizedBox(height: 20),
               Card(
+                  color: positive,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12.0),
                   ),
                   elevation: 10,
                   child:
-                  Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+                      Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                     ListTile(
-                        title: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SizedBox(height: 18),
-                              Text("Diptherie",
-                                  style: Theme.of(context).textTheme.bodyText1),
-                            ]),
-                        subtitle: Column(
+                      title: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(height: 18),
+                            Text("Antigen Test",
+                                style: Theme.of(context).textTheme.headline5),
+                          ]),
+                      subtitle: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             SizedBox(height: 10),
-                            Text("ChargeNr.: 123845234",
+                            Text("Test-ID: 122354234",
                                 textAlign: TextAlign.left),
                             SizedBox(height: 8),
-                            Text("Datum: 08.05.2021",
+                            Text("Datum: 12.04.2021",
                                 textAlign: TextAlign.left),
                             SizedBox(height: 8),
                             Text("Arzt: Dr. Peter Schmidt",
                                 textAlign: TextAlign.left),
+                            SizedBox(height: 8),
+                            Text("Positiv",
+                                style: Theme.of(context).textTheme.bodyText1),
                             SizedBox(height: 18),
-                          ],
-                        ))
+                          ]),
+                    ),
                   ])),
               SizedBox(height: 25),
             ],
@@ -162,5 +147,8 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
       drawer: MyDrawer(),
     );
   }
-
 }
+
+List<Test> vaccinationListDb = List<Test>.generate(20, (int i) {
+  return Test.newlyWithoutStatus(faker.lorem.word(), faker.randomGenerator.decimal().toString(), faker.date.dateTime(), faker.lorem.sentence());
+});
