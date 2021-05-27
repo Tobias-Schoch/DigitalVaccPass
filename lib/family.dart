@@ -35,22 +35,6 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
               SizedBox(height: 25),
               ConstrainedBox(
                 constraints: BoxConstraints.tightFor(height: 60, width: 1000),
-                child: ElevatedButton.icon(
-                  style: ElevatedButton.styleFrom(
-                    textStyle: const TextStyle(fontSize: 16),
-                    primary: primeColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
-                  onPressed: () {},
-                  label: Text('Hinzufügen', style: new TextStyle(fontSize: 20)),
-                  icon: Icon(Icons.qr_code_scanner),
-                ),
-              ),
-              SizedBox(height: 20),
-              ConstrainedBox(
-                constraints: BoxConstraints.tightFor(height: 60, width: 1000),
                 child: ElevatedButton(
                   child:
                       const Text('Peter Knopf', style: TextStyle(fontSize: 20, color: textColor)),
@@ -86,6 +70,11 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
             ],
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.qr_code_scanner),
+        backgroundColor: primeColor,
       ),
       drawer: MyDrawer(),
     );

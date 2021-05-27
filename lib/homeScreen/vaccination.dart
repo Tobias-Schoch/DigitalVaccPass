@@ -1,4 +1,5 @@
 
+import 'package:digital_vac_pass/qrcode.dart';
 import 'package:digital_vac_pass/util.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/cupertino.dart';
@@ -20,6 +21,7 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
 
   @override
   Widget build(BuildContext context) {
+    const primeColor = const Color(0xff5D5FEF);
     return Scaffold(
       body: Container(
         child: Column(
@@ -78,7 +80,11 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyQRPage()));
+        },
+        child: const Icon(Icons.qr_code),
+        backgroundColor: primeColor,
       ),
     );
   }

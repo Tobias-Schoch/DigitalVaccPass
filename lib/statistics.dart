@@ -33,25 +33,6 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
                   style: Theme.of(context).textTheme.headline4,
                   textAlign: TextAlign.left),
               SizedBox(height: 25),
-              ConstrainedBox(
-                constraints: BoxConstraints.tightFor(height: 60, width: 1000),
-                child: ElevatedButton.icon(
-                  style: ElevatedButton.styleFrom(
-                    textStyle: const TextStyle(fontSize: 16),
-                    primary: primeColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12), // <-- Radius
-                    ),
-                  ),
-                  onPressed: () {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => MyVaccinationAddPage()));
-                  },
-                  label: Text('Impfung hinzufügen', style: new TextStyle(fontSize: 20)),
-                  icon: Icon(Icons.healing),
-                ),
-              ),
-              SizedBox(height: 20),
               Card(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12.0),
@@ -183,6 +164,13 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
             ],
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyVaccinationAddPage()));
+        },
+        child: const Icon(Icons.qr_code_scanner),
+        backgroundColor: primeColor,
       ),
       drawer: MyDrawer(),
     );
