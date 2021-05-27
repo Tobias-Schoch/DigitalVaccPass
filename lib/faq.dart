@@ -21,71 +21,102 @@ class _MyFaqPageState extends State<MyFaqPage> {
       ),
       body: Container(
         alignment: Alignment.topLeft,
-        margin: const EdgeInsets.all(20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              "FAQ",
-              style: Theme.of(context).textTheme.headline4,
-            ),
-            SizedBox(height: 25),
-            Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12.0),
-                ),
-                elevation: 10,
-                child:
-                    Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-                  ListTile(
-                      title: Column(
+        margin: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                "FAQ",
+                style: Theme.of(context).textTheme.headline4,
+              ),
+              SizedBox(height: 25),
+              Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12.0),
+                  ),
+                  elevation: 10,
+                  child:
+                  Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+                    ListTile(
+                        title: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(height: 18),
+                              Text("Was passiert mit meinen Daten?",
+                                  style: Theme.of(context).textTheme.bodyText1,
+                                  textAlign: TextAlign.left),
+                            ]),
+                        subtitle: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            SizedBox(height: 10),
+                            Text(
+                                "Datenschutz liegt uns sehr am Herzen, daher speichern wir keine Daten. Die Daten werden lediglich auf ihrem Handy gespeichert und können nur von Ihnen eingesehen werden.",
+                                textAlign: TextAlign.left),
                             SizedBox(height: 18),
-                            Text("Ist der Impfpass sicher?", style: Theme.of(context).textTheme.bodyText1),
-                          ]
-                      ),
-                      subtitle: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(height: 10),
-                          Text(
-                              "Ja, diese App wurde mit Professoren und Experten entwickelt, die sich extrem gut auskennen mit der Materie",
-                              textAlign: TextAlign.left),
-                          SizedBox(height: 18),
-                        ],
-                      ))
-                ])),
-            SizedBox(height: 20),
-            Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12.0),
-                ),
-                elevation: 10,
-                child:
-                    Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-                  ListTile(
-                      title: Column(
+                          ],
+                        ))
+                  ])),
+              SizedBox(height: 20),
+              Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12.0),
+                  ),
+                  elevation: 10,
+                  child:
+                      Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+                    ListTile(
+                        title: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(height: 18),
+                              Text("Ist der Impfpass sicher?",
+                                  style: Theme.of(context).textTheme.bodyText1),
+                            ]),
+                        subtitle: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            SizedBox(height: 10),
+                            Text(
+                                "Ja, diese App wurde mit Professoren und Experten entwickelt, die sich extrem gut auskennen mit der Materie",
+                                textAlign: TextAlign.left),
                             SizedBox(height: 18),
-                            Text("Wie schnell sehe ich neue Impfungen?", style: Theme.of(context).textTheme.bodyText1, textAlign: TextAlign.left),
-                          ]
-                      ),
-                      subtitle: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(height: 10),
-                          Text(
-                              "Innerhalb weniger Sekunden nach Scannung des QR-Codes ist die Impfung durch den Arzt übertragen.",
-                              textAlign: TextAlign.left),
-                          SizedBox(height: 18),
-                        ],
-
-                      ))
-                ])),
-          ],
+                          ],
+                        ))
+                  ])),
+              SizedBox(height: 20),
+              Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12.0),
+                  ),
+                  elevation: 10,
+                  child:
+                      Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+                    ListTile(
+                        title: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(height: 18),
+                              Text("Wie schnell sehe ich neue Impfungen?",
+                                  style: Theme.of(context).textTheme.bodyText1,
+                                  textAlign: TextAlign.left),
+                            ]),
+                        subtitle: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(height: 10),
+                            Text(
+                                "Innerhalb weniger Sekunden nach Scannung des QR-Codes ist die Impfung durch den Arzt übertragen.",
+                                textAlign: TextAlign.left),
+                            SizedBox(height: 18),
+                          ],
+                        ))
+                  ])),
+              SizedBox(height: 25),
+            ],
+          ),
         ),
       ),
       drawer: MyDrawer(),
