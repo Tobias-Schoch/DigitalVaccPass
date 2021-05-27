@@ -4,6 +4,7 @@ import 'package:digital_vac_pass/testresult.dart';
 import 'package:flutter/material.dart';
 
 import 'about.dart';
+import 'addvaccination.dart';
 import 'family.dart';
 import 'faq.dart';
 import 'main.dart';
@@ -52,6 +53,16 @@ class MyDrawer extends StatelessWidget {
             ),
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyStatisticPage()));
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.qr_code_scanner_outlined),
+            title: Text(
+              'Impfung hinzufügen',
+              style: Theme.of(context).textTheme.headline6,
+            ),
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyVaccinationAddPage()));
             },
           ),
           ListTile(
@@ -121,7 +132,7 @@ class MyDrawer extends StatelessWidget {
               style: Theme.of(context).textTheme.headline6,
             ),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyLoginPage()));
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyApp()));
             },
           ),
         ],
