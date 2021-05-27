@@ -42,15 +42,15 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                   fillColor: primeColor,
                   border: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(color: primeColor),
+                    borderSide: new BorderSide(color: primeColor, width: 3.0),
                   ),
                   enabledBorder: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(color: textColor),
+                    borderSide: new BorderSide(color: textColor, width: 3.0),
                   ),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12.0),
-                      borderSide: BorderSide(color: primeColor)),
+                      borderSide: BorderSide(color: primeColor, width: 3.0)),
                   labelStyle: new TextStyle(color: textColor),
                 ),
                 validator: (val) {
@@ -69,15 +69,15 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                   fillColor: primeColor,
                   border: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(color: primeColor),
+                    borderSide: new BorderSide(color: primeColor, width: 3.0),
                   ),
                   enabledBorder: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(color: textColor),
+                    borderSide: new BorderSide(color: textColor, width: 3.0),
                   ),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12.0),
-                      borderSide: BorderSide(color: primeColor)),
+                      borderSide: BorderSide(color: primeColor, width: 3.0)),
                   labelStyle: new TextStyle(color: textColor),
                 ),
               ),
@@ -89,15 +89,15 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                   fillColor: primeColor,
                   border: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(color: primeColor),
+                    borderSide: new BorderSide(color: primeColor, width: 3.0),
                   ),
                   enabledBorder: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(color: textColor),
+                    borderSide: new BorderSide(color: textColor, width: 3.0),
                   ),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12.0),
-                      borderSide: BorderSide(color: primeColor)),
+                      borderSide: BorderSide(color: primeColor, width: 3.0)),
                   labelStyle: new TextStyle(color: textColor),
                 ),
                 validator: (val) {
