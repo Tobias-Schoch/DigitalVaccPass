@@ -80,7 +80,9 @@ class _MyTestPageState extends State<MyTestPage> {
                                               SizedBox(height: 8),
                                               Text(testsListDb
                                                       .elementAt(index)
-                                                      .testStatus.toString()),
+                                                      .testStatus.toString().substring(testsListDb
+                                                  .elementAt(index)
+                                                  .testStatus.toString().indexOf('.') + 1)),
                                               SizedBox(height: 18),
                                             ],
                                           ),

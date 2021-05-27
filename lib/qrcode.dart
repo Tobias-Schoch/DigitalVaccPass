@@ -31,7 +31,7 @@ class _MyQRPageState extends State<MyQRPage> {
               style: Theme.of(context).textTheme.headline4, textAlign: TextAlign.start,
             ),
             SizedBox(height: 25),
-            Image.asset('images/qr.png', height: MediaQuery.of(context).size.width * 0.8),
+            Image.asset('assets/images/qr.png', height: MediaQuery.of(context).size.width * 0.8),
 
           ],
         ),

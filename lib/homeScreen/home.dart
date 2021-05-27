@@ -8,26 +8,39 @@ import '../drawer.dart';
 
 class MyHomeScreenPage extends StatefulWidget {
 
-  MyHomeScreenPage({Key key, this.title}) : super(key: key);
+  MyHomeScreenPage({Key key, this.title, }) : super(key: key);
 
-  final String title;
+  final int title;
 
   @override
   State<StatefulWidget> createState() => _MyHomeScreenPage();
 
 }
 
-class _MyHomeScreenPage extends State<MyHomeScreenPage> {
+class _MyHomeScreenPage extends State<MyHomeScreenPage> with SingleTickerProviderStateMixin {
+  int _selectedTabIndex = 0;
+  TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(vsync: this, length: 2, initialIndex: 0);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 2,
-      child:  Scaffold(
+    return  Scaffold(
         appBar: AppBar(
           title: MyHeader(),
           elevation: 0,
           bottom: TabBar(
+            controller: _tabController,
             tabs: [
               Tab(icon: Icon(Icons.adb)),
               Tab(icon: Icon(Icons.accessible)),
@@ -35,13 +48,13 @@ class _MyHomeScreenPage extends State<MyHomeScreenPage> {
           ),
         ),
         body: TabBarView(
+          controller: _tabController,
           children: [
           MyVaccinationPage(),
           MyTestPage(),
           ],
         ),
         drawer: MyDrawer(),
-      ),
-    );
+      );
   }
 }

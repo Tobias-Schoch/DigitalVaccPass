@@ -29,7 +29,7 @@ class MyDrawer extends StatelessWidget {
                     style: Theme.of(context).textTheme.headline5,
                   ),
                   SizedBox(width: 10),
-                  Image.asset("images/vaccine.png", width: 40, height: 40),
+                  Image.asset("assets/images/vaccine.png", width: 40, height: 40),
                 ],
               ),
             ),
@@ -83,7 +83,8 @@ class MyDrawer extends StatelessWidget {
             onTap: () { Navigator.of(context).pushReplacement(
                 MaterialPageRoute(
                   builder: (context) => MyHomeScreenPage(),
-                ));},
+                ));
+            },
           ),
           ListTile(
             leading: Icon(Icons.people_outline),

@@ -10,7 +10,7 @@ class MyHeader extends StatelessWidget {
           style: Theme.of(context).textTheme.headline1,
         ),
         SizedBox(width: 15),
-        Image.asset("images/vaccine.png", width: 60, height: 60),
+        Image.asset("assets/images/vaccine.png", width: 60, height: 60),
       ],
     );
   }
