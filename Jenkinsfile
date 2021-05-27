@@ -11,8 +11,18 @@ pipeline {
         }
         stage ('Run Flutter Tests') {
             steps {
+                sh "flutter test --update-goldens"
                 sh "flutter test"
             }
+        }
+        stage('Update GIT') {
+        	steps {
+        		sh "git config user.email 'lu851not@htwg-konstanz.de'"
+        		sh "git config user.name 'lu851not'"
+        		sh "git add -A"
+        		sh "git diff-index --quiet HEAD || git commit -m 'update goldens'"
+        		sh "git push https://gitlab-ci-token:2LDK9QYHeQYzT57zGD-9@gitlab.in.htwg-konstanz.de/lehre/rschimka/mobile/g-mobile-sose21/04-mobile-sose21.git HEAD:master"
+        	}
         }
         stage('SonarQube Analysis') {
             steps {
