@@ -8,6 +8,7 @@ import 'addvaccination.dart';
 import 'family.dart';
 import 'faq.dart';
 import 'main.dart';
+import 'onboard.dart';
 import 'qrcode.dart';
 import 'login.dart';
 
@@ -63,6 +64,16 @@ class MyDrawer extends StatelessWidget {
             ),
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyVaccinationAddPage()));
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.qr_code_scanner_outlined),
+            title: Text(
+              'MyOnboardPage',
+              style: Theme.of(context).textTheme.headline6,
+            ),
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyOnboardPage()));
             },
           ),
           ListTile(
