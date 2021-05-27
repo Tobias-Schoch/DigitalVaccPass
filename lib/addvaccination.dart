@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import 'appBar.dart';
 import 'drawer.dart';
 
-class MyLoginPage extends StatefulWidget {
-  MyLoginPage({Key key, this.title}) : super(key: key);
+class MyVaccinationAddPage extends StatefulWidget {
+  MyVaccinationAddPage({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _MyLoginPageState createState() => _MyLoginPageState();
+  _MyVaccinationAddPageState createState() => _MyVaccinationAddPageState();
 }
 
-class _MyLoginPageState extends State<MyLoginPage> {
+class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
   @override
   Widget build(BuildContext context) {
     const primeColor = const Color(0xff5D5FEF);
@@ -30,7 +30,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              Text("Login",
+              Text("Impfung hinzufügen",
                   style: Theme.of(context).textTheme.headline4,
                   textAlign: TextAlign.left),
               SizedBox(height: 25),
@@ -38,7 +38,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                 autofocus: true,
                 cursorColor: textColor,
                 decoration: new InputDecoration(
-                  labelText: "E-Mail",
+                  labelText: "Impfung",
                   fillColor: primeColor,
                   border: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
@@ -55,18 +55,17 @@ class _MyLoginPageState extends State<MyLoginPage> {
                 ),
                 validator: (val) {
                   if (val.length == 0) {
-                    return "Emailfeld darf nicht leer sein.";
+                    return "Impfmittel darf nicht leer sein.";
                   } else {
                     return null;
                   }
                 },
-                keyboardType: TextInputType.emailAddress,
               ),
               SizedBox(height: 25),
               new TextFormField(
                 cursorColor: textColor,
                 decoration: new InputDecoration(
-                  labelText: "Passwort",
+                  labelText: "ChargeNr.",
                   fillColor: primeColor,
                   border: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
@@ -81,23 +80,33 @@ class _MyLoginPageState extends State<MyLoginPage> {
                       borderSide: BorderSide(color: primeColor)),
                   labelStyle: new TextStyle(color: textColor),
                 ),
-                obscureText: true,
+              ),
+              SizedBox(height: 25),
+              new TextFormField(
+                cursorColor: textColor,
+                decoration: new InputDecoration(
+                  labelText: "Datum",
+                  fillColor: primeColor,
+                  border: new OutlineInputBorder(
+                    borderRadius: new BorderRadius.circular(12.0),
+                    borderSide: new BorderSide(color: primeColor),
+                  ),
+                  enabledBorder: new OutlineInputBorder(
+                    borderRadius: new BorderRadius.circular(12.0),
+                    borderSide: new BorderSide(color: textColor),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                      borderSide: BorderSide(color: primeColor)),
+                  labelStyle: new TextStyle(color: textColor),
+                ),
                 validator: (val) {
-                  if (val.length <= 15) {
-                    return "Passwort ist zu kurz.";
+                  if (val.length == 0) {
+                    return "Datum darf nicht leer sein.";
                   } else {
                     return null;
                   }
                 },
-              ),
-              SizedBox(height: 25),
-              TextButton(
-                style: TextButton.styleFrom(
-                  textStyle: const TextStyle(fontSize: 16),
-                  primary: textColor,
-                ),
-                onPressed: () {},
-                child: const Text('Password vergessen?'),
               ),
               SizedBox(height: 25),
               ConstrainedBox(
@@ -114,8 +123,8 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     Navigator.of(context).push(
                         MaterialPageRoute(builder: (context) => MyStatisticPage()));
                   },
-                  label: Text('Einloggen', style: new TextStyle(fontSize: 20)),
-                  icon: Icon(Icons.login),
+                  label: Text('Impfung hinzufügen', style: new TextStyle(fontSize: 20)),
+                  icon: Icon(Icons.qr_code_scanner),
                 ),
               ),
             ],
