@@ -4,7 +4,6 @@ import 'addvaccination.dart';
 import 'family.dart';
 import 'faq.dart';
 import 'homeScreen/home.dart';
-import 'homeScreen/testresult.dart';
 import 'main.dart';
 import 'statistics.dart';
 import 'onboard.dart';
@@ -81,9 +80,10 @@ class MyDrawer extends StatelessWidget {
               'Testergebnisse',
               style: Theme.of(context).textTheme.headline6,
             ),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyTestPage()));
-            },
+            onTap: () { Navigator.of(context).pushReplacement(
+                MaterialPageRoute(
+                  builder: (context) => MyHomeScreenPage(),
+                ));},
           ),
           ListTile(
             leading: Icon(Icons.people_outline),

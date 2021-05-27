@@ -1,5 +1,5 @@
+import 'package:digital_vac_pass/homeScreen/home.dart';
 import 'package:digital_vac_pass/loginScreen/register.dart';
-import 'package:digital_vac_pass/statistics.dart';
 import 'package:flutter/material.dart';
 import '../appBar.dart';
 import 'forgotpassword.dart';
@@ -138,7 +138,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                   ),
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => MyStatisticPage()));
+                        builder: (context) => MyHomeScreenPage()));
                   },
                   label: Text('Einloggen', style: new TextStyle(fontSize: 20)),
                   icon: Icon(Icons.login),
