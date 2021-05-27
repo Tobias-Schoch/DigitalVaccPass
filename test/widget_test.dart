@@ -12,6 +12,10 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:digital_vac_pass/main.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
 
+import '../lib/homeScreen/testresult.dart';
+import '../lib/homeScreen/vaccination.dart';
+import '../lib/loginScreen/forgotpassword.dart';
+import '../lib/loginScreen/register.dart';
 import 'util.dart';
 
 void main() {
@@ -32,7 +36,7 @@ void main() {
   //   expect(find.text('1'), findsOneWidget);
   // });
 
-  testGoldens('example Test', (tester) async {
+  testGoldens('Login Screen Test', (tester) async {
     final builder = DeviceBuilder()
       ..overrideDevicesForAllScenarios(
         devices: devicesWithDifferentTextScales,
@@ -42,9 +46,60 @@ void main() {
           name: 'login page'
       );
     await tester.pumpDeviceBuilder(builder);
-    await screenMatchesGolden(tester, 'initial');
+    await screenMatchesGolden(tester, 'loginScreen');
   });
 
+  testGoldens('Register Screen Test', (tester) async {
+    final builder = DeviceBuilder()
+      ..overrideDevicesForAllScenarios(
+        devices: devicesWithDifferentTextScales,
+      )
+      ..addScenario(
+          widget: MyRegisterPage(),
+          name: 'register page'
+      );
+    await tester.pumpDeviceBuilder(builder);
+    await screenMatchesGolden(tester, 'registerScreen');
+  });
+
+  testGoldens('forgot Password Screen Test', (tester) async {
+    final builder = DeviceBuilder()
+      ..overrideDevicesForAllScenarios(
+        devices: devicesWithDifferentTextScales,
+      )
+      ..addScenario(
+          widget: MyForgotPasswordPage(),
+          name: 'forgot Password page'
+      );
+    await tester.pumpDeviceBuilder(builder);
+    await screenMatchesGolden(tester, 'forgotPassword');
+  });
+
+  testGoldens('Vaccination Screen Test', (tester) async {
+    final builder = DeviceBuilder()
+      ..overrideDevicesForAllScenarios(
+        devices: devicesWithDifferentTextScales,
+      )
+      ..addScenario(
+          widget: MyVaccinationPage(),
+          name: 'vaccination page'
+      );
+    await tester.pumpDeviceBuilder(builder);
+    await screenMatchesGolden(tester, 'vaccinationScreen');
+  });
+
+  testGoldens('Tests Screen Test', (tester) async {
+    final builder = DeviceBuilder()
+      ..overrideDevicesForAllScenarios(
+        devices: devicesWithDifferentTextScales,
+      )
+      ..addScenario(
+          widget: MyTestPage(),
+          name: 'tests page'
+      );
+    await tester.pumpDeviceBuilder(builder);
+    await screenMatchesGolden(tester, 'testsScreen');
+  });
 }
 
 
