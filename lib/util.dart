@@ -26,6 +26,25 @@ class Test {
   Test.newlyTodayWithoutStatus(this.testName, this.testId, this.testDescription) : testDate = DateTime.now(), testStatus = Status.Pending;
 }
 
+class User {
+  String userName;
+  String userEmail;
+  String userPassword;
+  Role userRole;
+  Login loggedIn;
+  User(this.userName, this.userEmail, this.userPassword, this.userRole, this.loggedIn);
+}
+
+enum Login {
+  NotLoggedIn,
+  LoggedIn
+}
+
+enum Role {
+  Normal,
+  Doctor
+}
+
 enum Status {
   Good,
   Bad,

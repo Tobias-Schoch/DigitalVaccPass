@@ -15,6 +15,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Impfpass',
       theme: ThemeData(
+          hoverColor:Colors.transparent,
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
           fontFamily: "Inter",
           primaryColor: backgroundColor,
           accentColor: primeColor,
