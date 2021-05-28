@@ -36,7 +36,6 @@ class _MyLoginPageState extends State<MyLoginPage> {
         }
       }
     });
-    //TODO on !exists show message
     return exists;
   }
 
@@ -103,7 +102,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     if (value.isNotEmpty) {
                       return null;
                     } else {
-                      return 'Can´t be empty';
+                      return 'Darf nicht leer sein.';
                     }
                   },
                 ),
@@ -142,7 +141,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     if (value.isNotEmpty) {
                       return null;
                     } else {
-                      return 'Can´t be empty';
+                      return 'Darf nicht leer sein.';
                     }
                   },
                 ),
@@ -174,6 +173,22 @@ class _MyLoginPageState extends State<MyLoginPage> {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) =>
                                 MyHomeScreenPage(selectedTabIndex: 0)));
+                      } else if (myEmailTextController.text != "" && myPasswordController.text != ""){
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            margin: const EdgeInsets.all(20.0),
+                            elevation: 10,
+                            content: const Text('E-Mail und Passwort stimmen nicht überein.'),
+                            duration: const Duration(milliseconds: 3000),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 15.0,
+                            ),
+                            behavior: SnackBarBehavior.floating,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12.0),
+                            ),
+                          ),
+                        );
                       }
                     },
                     label: Flexible(
