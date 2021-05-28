@@ -8,7 +8,6 @@ import 'main.dart';
 import 'statistics.dart';
 import 'onboard.dart';
 import 'qrcode.dart';
-import 'loginScreen/login.dart';
 
 class MyDrawer extends StatelessWidget {
   @override
