@@ -75,7 +75,7 @@ class MyDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.masks_outlined),
+            leading: Icon(Icons.masks_outlined,),
             title: Text(
               'Testergebnisse',
               style: Theme.of(context).textTheme.headline6,

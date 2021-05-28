@@ -121,7 +121,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                 },
                 child: Row(
                   children: <Widget>[
-                    const Text('Passwort vergessen?'),
+                    Flexible(child: const Text('Passwort vergessen?')),
                   ],
                 ),
               ),
@@ -140,7 +140,9 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => MyHomeScreenPage()));
                   },
-                  label: Text('Einloggen', style: new TextStyle(fontSize: 20)),
+                  label: Flexible(
+                      child: Text('Einloggen',
+                          style: new TextStyle(fontSize: 20))),
                   icon: Icon(Icons.login),
                 ),
               ),
@@ -163,8 +165,13 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => MyRegisterPage()));
                   },
-                  label: Text('Registrieren',
-                      style: TextStyle(fontSize: 20, color: primeColor)),
+                  label: Flexible(
+                    child: Text('Registrieren',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: primeColor,
+                        )),
+                  ),
                   icon: Icon(
                     Icons.push_pin,
                     color: primeColor,

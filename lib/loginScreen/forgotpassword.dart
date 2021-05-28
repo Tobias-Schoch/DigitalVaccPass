@@ -85,7 +85,7 @@ class _MyForgotPasswordPageState extends State<MyForgotPasswordPage> {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => MyLoginPage()));
                   },
-                  label: Text('Zurücksetzen', style: new TextStyle(fontSize: 20)),
+                  label: Flexible(child: Text('Zurücksetzen', style: new TextStyle(fontSize: 20), overflow: TextOverflow.clip,)),
                   icon: Icon(Icons.print),
                 ),
               ),

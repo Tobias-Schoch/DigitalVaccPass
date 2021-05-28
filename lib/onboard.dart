@@ -25,8 +25,13 @@ class _MyOnboardPageState extends State<MyOnboardPage> {
       child: Scaffold(
         body: OnBoard(
           pageController: _pageController,
-          onSkip: () {},
-          onDone: () {},
+          onSkip: () {
+            print("Skipped");
+          },
+          onDone: () {
+            print("Done");
+          },
+          imageWidth: 400,
           onBoardData: onBoardData,
           titleStyles: const TextStyle(
             color: primeColor,
@@ -105,18 +110,18 @@ final List<OnBoardModel> onBoardData = [
     title: "Nie wieder ohne Impfpass!",
     description:
         "Mit dem digitalen Impfpass haben Sie ab jetzt überall ihren Impfpass und ihre negativen Testergebnisse mit dabei.",
-    imgUrl: "images/phone.png",
+    imgUrl: "assets/images/phone.png",
   ),
   const OnBoardModel(
     title: "Mit Familienübersicht!",
     description:
         "Um die Impfungen Ihrer Familie zu verwalten, haben Sie ab jetzt äußerst einfach die Möglichkeit dazu.",
-    imgUrl: 'images/graph.png',
+    imgUrl: 'assets/images/graph.png',
   ),
   const OnBoardModel(
     title: "Die Daten für Ihren Impfpass haben nur Sie!",
     description:
         "Kein Datenschutz von Nöten, da die Daten nur auf Ihrem Endgerät gespeichert werden.",
-    imgUrl: 'images/weight.png',
+    imgUrl: 'assets/images/weight.png',
   ),
 ];

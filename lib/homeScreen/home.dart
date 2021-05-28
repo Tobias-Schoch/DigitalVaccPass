@@ -44,7 +44,7 @@ class _MyHomeScreenPage extends State<MyHomeScreenPage> with SingleTickerProvide
             controller: _tabController,
             indicator: UnderlineTabIndicator(
                 borderSide: BorderSide(width: 3.0, color: PredefinedColors.primaryColor),
-                insets: EdgeInsets.symmetric(horizontal:70.0)
+                insets: EdgeInsets.symmetric(horizontal:60.0)
             ),
             tabs: [
               Tab(icon: Icon(Icons.adb), text: "Impfpass"),
