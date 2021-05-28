@@ -25,7 +25,7 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Impfungen",
+            Text("Impfpass",
                 style: Theme.of(context).textTheme.headline4,
                 textAlign: TextAlign.left),
             SizedBox(height: 25),
