@@ -13,7 +13,7 @@ import 'package:digital_vac_pass/family.dart';
 import 'package:digital_vac_pass/faq.dart';
 import 'package:digital_vac_pass/loginScreen/login.dart';
 import 'package:digital_vac_pass/onboard.dart';
-import 'package:digital_vac_pass/qrcode.dart';
+import 'package:digital_vac_pass/qrScreen/qrcode.dart';
 import 'package:digital_vac_pass/statistics.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
 
