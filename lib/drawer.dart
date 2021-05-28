@@ -41,74 +41,6 @@ class MyDrawer extends StatelessWidget {
               ),
             ),
           ),
-          ListTile(
-            leading: Icon(Icons.local_hospital_outlined),
-            title: Text(
-              'Impfpass',
-              style: Theme.of(context).textTheme.headline6,
-            ),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => MyHomeScreenPage(selectedTabIndex: 0)));
-            },
-          ),
-          ListTile(
-            leading: Icon(
-              Icons.masks_outlined,
-            ),
-            title: Text(
-              'Testergebnisse',
-              style: Theme.of(context).textTheme.headline6,
-            ),
-            onTap: () {
-              Navigator.of(context).pushReplacement(MaterialPageRoute(
-                builder: (context) => MyHomeScreenPage(selectedTabIndex: 1),
-              ));
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.qr_code_scanner_outlined),
-            title: Text(
-              'MyOnboardPage',
-              style: Theme.of(context).textTheme.headline6,
-            ),
-            onTap: () {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => MyOnboardPage()));
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.people_outline),
-            title: Text(
-              'Familienübersicht',
-              style: Theme.of(context).textTheme.headline6,
-            ),
-            onTap: () {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => MyFamilyPage()));
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.qr_code_outlined),
-            title: Text(
-              'Mein QR-Code',
-              style: Theme.of(context).textTheme.headline6,
-            ),
-            onTap: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => MyQRPage()));
-            },
-          ),
-          Visibility(
-            visible: isVisible,
-            child: Divider(
-              thickness: 1.0,
-              color: PredefinedColors.primaryColor,
-              endIndent: 20.0,
-              indent: 15.0,
-              height: 50,
-            ),
-          ),
           Visibility(
             visible: isVisible,
             child: ListTile(
@@ -137,15 +69,83 @@ class MyDrawer extends StatelessWidget {
               },
             ),
           ),
+          Visibility(
+            visible: isVisible,
+            child: Divider(
+              thickness: 2.0,
+              color: PredefinedColors.primaryColor,
+              endIndent: 20.0,
+              indent: 15.0,
+              height: 40,
+            ),
+          ),
+          ListTile(
+            leading: Icon(Icons.local_hospital_outlined),
+            title: Text(
+              'Impfpass',
+              style: Theme.of(context).textTheme.headline6,
+            ),
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => MyHomeScreenPage(selectedTabIndex: 0)));
+            },
+          ),
+          ListTile(
+            leading: Icon(
+              Icons.masks_outlined,
+            ),
+            title: Text(
+              'Testergebnisse',
+              style: Theme.of(context).textTheme.headline6,
+            ),
+            onTap: () {
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                builder: (context) => MyHomeScreenPage(selectedTabIndex: 1),
+              ));
+            },
+          ),
+          // ListTile(
+          //   leading: Icon(Icons.qr_code_scanner_outlined),
+          //   title: Text(
+          //     'MyOnboardPage',
+          //     style: Theme.of(context).textTheme.headline6,
+          //   ),
+          //   onTap: () {
+          //     Navigator.of(context).push(
+          //         MaterialPageRoute(builder: (context) => MyOnboardPage()));
+          //   },
+          // ),
+          ListTile(
+            leading: Icon(Icons.people_outline),
+            title: Text(
+              'Familienübersicht',
+              style: Theme.of(context).textTheme.headline6,
+            ),
+            onTap: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => MyFamilyPage()));
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.qr_code_outlined),
+            title: Text(
+              'Mein QR-Code',
+              style: Theme.of(context).textTheme.headline6,
+            ),
+            onTap: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => MyQRPage()));
+            },
+          ),
           Divider(
-            thickness: 1.0,
+            thickness: 2.0,
             color: PredefinedColors.primaryColor,
             endIndent: 20.0,
             indent: 15.0,
-            height: 50,
+            height: 40,
           ),
           ListTile(
-            leading: Icon(Icons.accessible),
+            leading: Icon(Icons.help_center_outlined),
             title: Text(
               'FAQ',
               style: Theme.of(context).textTheme.headline6,
