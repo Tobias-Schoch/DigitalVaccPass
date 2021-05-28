@@ -26,7 +26,7 @@ class _MyTestPageState extends State<MyTestPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Tests",
+            Text("Covid-19 Test",
             style: Theme.of(context).textTheme.headline4,
           textAlign: TextAlign.left),
             SizedBox(height: 25),
@@ -37,6 +37,12 @@ class _MyTestPageState extends State<MyTestPage> {
                       return Column(
                         children: [
                           Card(
+                            color: testsListDb
+                                .elementAt(index)
+                                .testStatus == Status.Pending
+                                ? PredefinedColors.lightOrange
+                                : testsListDb.elementAt(index).testStatus == Status.Good
+                                ? PredefinedColors.lightGreen : PredefinedColors.lightRed,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12.0),
                             ),
@@ -47,12 +53,6 @@ class _MyTestPageState extends State<MyTestPage> {
                                     child: Column(
                                       children: <Widget>[
                                         ListTile(
-                                          tileColor: testsListDb
-                                            .elementAt(index)
-                                            .testStatus == Status.Pending
-                                              ? PredefinedColors.lightOrange
-                                              : testsListDb.elementAt(index).testStatus == Status.Good
-                                              ? PredefinedColors.lightGreen : PredefinedColors.lightRed,
                                           title: Column(
                                             crossAxisAlignment: CrossAxisAlignment.start,
                                             children: [
@@ -93,6 +93,7 @@ class _MyTestPageState extends State<MyTestPage> {
                               ],
                             ),
                           ),
+                          SizedBox(height: 20),
                         ],
                       );
                     }),
