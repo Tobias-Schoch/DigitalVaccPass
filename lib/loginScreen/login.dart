@@ -187,6 +187,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12.0),
                             ),
+                            backgroundColor: Theme.of(context).accentColor,
                           ),
                         );
                       }

@@ -34,7 +34,7 @@ class MyDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.local_hospital_outlined),
+            leading: Icon(Icons.local_hospital_outlined, color: Theme.of(context).accentColor),
             title: Text(
               'Impfpass',
               style: Theme.of(context).textTheme.headline6,
@@ -44,7 +44,7 @@ class MyDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.masks_outlined,),
+            leading: Icon(Icons.masks_outlined, color: Theme.of(context).accentColor),
             title: Text(
               'Testergebnisse',
               style: Theme.of(context).textTheme.headline6,
@@ -56,7 +56,7 @@ class MyDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.insights_outlined),
+            leading: Icon(Icons.insights_outlined, color: Theme.of(context).accentColor),
             title: Text(
               'Statistiken',
               style: Theme.of(context).textTheme.headline6,
@@ -66,7 +66,7 @@ class MyDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.qr_code_scanner_outlined),
+            leading: Icon(Icons.qr_code_scanner_outlined, color: Theme.of(context).accentColor,),
             title: Text(
               'Impfung hinzufügen',
               style: Theme.of(context).textTheme.headline6,
@@ -75,18 +75,18 @@ class MyDrawer extends StatelessWidget {
               Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyVaccinationAddPage()));
             },
           ),
+          // ListTile(
+          //   leading: Icon(Icons.qr_code_scanner_outlined, color: Theme.of(context).accentColor),
+          //   title: Text(
+          //     'MyOnboardPage',
+          //     style: Theme.of(context).textTheme.headline6,
+          //   ),
+          //   onTap: () {
+          //     Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyOnboardPage()));
+          //   },
+          // ),
           ListTile(
-            leading: Icon(Icons.qr_code_scanner_outlined),
-            title: Text(
-              'MyOnboardPage',
-              style: Theme.of(context).textTheme.headline6,
-            ),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyOnboardPage()));
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.people_outline),
+            leading: Icon(Icons.people_outline, color: Theme.of(context).accentColor),
             title: Text(
               'Familienübersicht',
               style: Theme.of(context).textTheme.headline6,
@@ -96,7 +96,7 @@ class MyDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.qr_code_outlined),
+            leading: Icon(Icons.qr_code_outlined, color: Theme.of(context).accentColor),
             title: Text(
               'Mein QR-Code',
               style: Theme.of(context).textTheme.headline6,
@@ -106,7 +106,7 @@ class MyDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.accessible),
+            leading: Icon(Icons.accessible, color: Theme.of(context).accentColor),
             title: Text(
               'FAQ',
               style: Theme.of(context).textTheme.headline6,
@@ -116,7 +116,7 @@ class MyDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.privacy_tip_outlined),
+            leading: Icon(Icons.privacy_tip_outlined, color: Theme.of(context).accentColor),
             title: Text(
               'Über uns',
               style: Theme.of(context).textTheme.headline6,
@@ -136,7 +136,7 @@ class MyDrawer extends StatelessWidget {
           //   },
           // ),
           ListTile(
-            leading: Icon(Icons.logout),
+            leading: Icon(Icons.logout, color: Theme.of(context).accentColor),
             title: Text(
               'Logout',
               style: Theme.of(context).textTheme.headline6,
