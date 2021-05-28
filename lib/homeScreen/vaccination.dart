@@ -117,12 +117,18 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
   }
 }
 
-List<Vaccination> vaccinationListDb = List<Vaccination>.generate(20, (int i) {
-  return Vaccination(
-      faker.internet.domainName(),
-      faker.randomGenerator.decimal().toString(),
-      faker.date.dateTime(),
-      faker.person.name(),
-      faker.lorem.sentence());
+// List<Vaccination> vaccinationListDb = List<Vaccination>.generate(20, (int i) {
+//   return Vaccination(
+//       faker.internet.domainName(),
+//       faker.randomGenerator.decimal().toString(),
+//       faker.date.dateTime(),
+//       faker.person.name(),
+//       faker.lorem.sentence());
+//
+// });
 
-});
+//FOR GOLDEN TESTS
+String strDt = "2021-05-28";
+List<Vaccination> vaccinationListDb = [new Vaccination("covid", "0001", DateTime.parse(strDt), "kekDoctor", "beschreibung"),
+  new Vaccination("covid2", "0002", DateTime.parse(strDt), "kekDoctor2", "beschreibung2"),
+  new Vaccination("covid3", "0003", DateTime.parse(strDt), "kekDoctor3", "beschreibung3")];
