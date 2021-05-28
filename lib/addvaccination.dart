@@ -4,6 +4,7 @@ import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/material.dart';
 import 'appBar.dart';
 import 'drawer.dart';
+import 'package:intl/intl.dart';
 
 class MyVaccinationAddPage extends StatefulWidget {
   MyVaccinationAddPage({Key key, this.title}) : super(key: key);
@@ -15,6 +16,8 @@ class MyVaccinationAddPage extends StatefulWidget {
 }
 
 class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
+  var now = new DateTime.now();
+  var formatter = new DateFormat('dd.MM.yyyy');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,6 +86,8 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
               ),
               SizedBox(height: 25),
               new TextFormField(
+
+                initialValue: formatter.format(now).toString(),
                 cursorColor: Theme.of(context).primaryColorLight,
                 decoration: new InputDecoration(
                   labelText: "Datum",
