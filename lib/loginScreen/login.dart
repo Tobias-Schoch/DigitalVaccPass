@@ -185,19 +185,16 @@ class _MyLoginPageState extends State<MyLoginPage> {
                           myPasswordController.text != "") {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
-                            margin: const EdgeInsets.all(20.0),
-                            elevation: 10,
-                            content: const Text(
-                                'E-Mail und Passwort stimmen nicht überein.'),
-                            duration: const Duration(milliseconds: 3000),
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 15.0,
-                            ),
                             behavior: SnackBarBehavior.floating,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12.0),
+                            width: 320,
+                            duration: const Duration(milliseconds: 3000),
+                            content: Container(
+                              height: 20,
+                              child: Center(
+                                child: Text(
+                                  'E-Mail und Passwort stimmen nicht überein.', textAlign: TextAlign.center,),
+                              )
                             ),
-                            backgroundColor: Theme.of(context).accentColor,
                           ),
                         );
                       }

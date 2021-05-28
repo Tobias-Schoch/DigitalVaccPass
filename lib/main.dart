@@ -34,6 +34,14 @@ class MyApp extends StatelessWidget {
           elevation: 10,
         ),
 
+        snackBarTheme: SnackBarThemeData(
+          elevation: 10,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12.0),
+          ),
+          backgroundColor: PredefinedColors.primaryColor,
+        ),
+
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             textStyle: const TextStyle(fontSize: 16, fontFamily: "Inter"),
