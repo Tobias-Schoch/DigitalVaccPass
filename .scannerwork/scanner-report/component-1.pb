@@ -1,0 +1,1 @@
+DigitalVaccinationPass :RDigitalVaccinationPassKey
