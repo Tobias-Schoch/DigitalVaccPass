@@ -41,7 +41,7 @@ class MyDrawer extends StatelessWidget {
               style: Theme.of(context).textTheme.headline6,
             ),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyHomeScreenPage()));
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyHomeScreenPage(selectedTabIndex: 0)));
             },
           ),
           ListTile(
@@ -82,7 +82,7 @@ class MyDrawer extends StatelessWidget {
             ),
             onTap: () { Navigator.of(context).pushReplacement(
                 MaterialPageRoute(
-                  builder: (context) => MyHomeScreenPage(),
+                  builder: (context) => MyHomeScreenPage(selectedTabIndex: 1),
                 ));
             },
           ),

@@ -5,9 +5,11 @@ class MyHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
-        Text(
-          "Impfpass",
-          style: Theme.of(context).textTheme.headline1,
+        Flexible(
+            child: Text(
+              "Impfpass",
+              style: Theme.of(context).textTheme.headline1,
+            ),
         ),
         SizedBox(width: 15),
         Image.asset("assets/images/vaccine.png", width: 60, height: 60),

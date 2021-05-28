@@ -1,4 +1,4 @@
-import 'package:digital_vac_pass/util.dart';
+import 'package:digital_vac_pass/utils/util.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -16,9 +16,6 @@ class MyTestPage extends StatefulWidget {
 class _MyTestPageState extends State<MyTestPage> {
   @override
   Widget build(BuildContext context) {
-    // const pending = const Color(0xffFFFACC);
-    // const positive = const Color(0xffFEC3C3);
-    // const negative = const Color(0xffDEFFDB);
     return Scaffold(
       body: Container(
         alignment: Alignment.topLeft,
