@@ -103,6 +103,7 @@ class _MyTestPageState extends State<MyTestPage> {
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         backgroundColor: PredefinedColors.primaryColor,
+        onPressed: () {},
       ),
       drawer: MyDrawer(),
     );

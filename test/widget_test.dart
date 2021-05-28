@@ -5,7 +5,16 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
+import 'package:digital_vac_pass/about.dart';
+import 'package:digital_vac_pass/addvaccination.dart';
+import 'package:digital_vac_pass/appBar.dart';
+import 'package:digital_vac_pass/drawer.dart';
+import 'package:digital_vac_pass/family.dart';
+import 'package:digital_vac_pass/faq.dart';
 import 'package:digital_vac_pass/loginScreen/login.dart';
+import 'package:digital_vac_pass/onboard.dart';
+import 'package:digital_vac_pass/qrcode.dart';
+import 'package:digital_vac_pass/statistics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -99,6 +108,123 @@ void main() {
       );
     await tester.pumpDeviceBuilder(builder);
     await screenMatchesGolden(tester, 'testsScreen');
+  });
+
+  testGoldens('About Screen Test', (tester) async {
+    final builder = DeviceBuilder()
+      ..overrideDevicesForAllScenarios(
+        devices: devicesWithDifferentTextScales,
+      )
+      ..addScenario(
+          widget: MyAboutPage(),
+          name: 'about page'
+      );
+    await tester.pumpDeviceBuilder(builder);
+    await screenMatchesGolden(tester, 'aboutScreen');
+  });
+
+  testGoldens('addVaccination Screen Test', (tester) async {
+    final builder = DeviceBuilder()
+      ..overrideDevicesForAllScenarios(
+        devices: devicesWithDifferentTextScales,
+      )
+      ..addScenario(
+          widget: MyVaccinationAddPage(),
+          name: 'addVaccination page'
+      );
+    await tester.pumpDeviceBuilder(builder);
+    await screenMatchesGolden(tester, 'addVaccinationScreen');
+  });
+
+  testGoldens('appBar Screen Test', (tester) async {
+    final builder = DeviceBuilder()
+      ..overrideDevicesForAllScenarios(
+        devices: devicesWithDifferentTextScales,
+      )
+      ..addScenario(
+          widget: MyHeader(),
+          name: 'appbar page'
+      );
+    await tester.pumpDeviceBuilder(builder);
+    await screenMatchesGolden(tester, 'appbarScreen');
+  });
+
+  testGoldens('drawer Screen Test', (tester) async {
+    final builder = DeviceBuilder()
+      ..overrideDevicesForAllScenarios(
+        devices: devicesWithDifferentTextScales,
+      )
+      ..addScenario(
+          widget: MyDrawer(),
+          name: 'drawer page'
+      );
+    await tester.pumpDeviceBuilder(builder);
+    await screenMatchesGolden(tester, 'drawerScreen');
+  });
+
+  testGoldens('family Screen Test', (tester) async {
+    final builder = DeviceBuilder()
+      ..overrideDevicesForAllScenarios(
+        devices: devicesWithDifferentTextScales,
+      )
+      ..addScenario(
+          widget: MyFamilyPage(),
+          name: 'family page'
+      );
+    await tester.pumpDeviceBuilder(builder);
+    await screenMatchesGolden(tester, 'familyScreen');
+  });
+
+  testGoldens('FAQ Screen Test', (tester) async {
+    final builder = DeviceBuilder()
+      ..overrideDevicesForAllScenarios(
+        devices: devicesWithDifferentTextScales,
+      )
+      ..addScenario(
+          widget: MyFaqPage(),
+          name: 'faq page'
+      );
+    await tester.pumpDeviceBuilder(builder);
+    await screenMatchesGolden(tester, 'faqScreen');
+  });
+
+  testGoldens('Onboard Screen Test', (tester) async {
+    final builder = DeviceBuilder()
+      ..overrideDevicesForAllScenarios(
+        devices: devicesWithDifferentTextScales,
+      )
+      ..addScenario(
+          widget: MyOnboardPage(),
+          name: 'onboard page'
+      );
+    await tester.pumpDeviceBuilder(builder);
+    await screenMatchesGolden(tester, 'onboardScreen');
+  });
+
+  testGoldens('Qrcode Screen Test', (tester) async {
+    final builder = DeviceBuilder()
+      ..overrideDevicesForAllScenarios(
+        devices: devicesWithDifferentTextScales,
+      )
+      ..addScenario(
+          widget: MyQRPage(),
+          name: 'qrcode page'
+      );
+    await tester.pumpDeviceBuilder(builder);
+    await screenMatchesGolden(tester, 'qrcodeScreen');
+  });
+
+  testGoldens('Statistics Screen Test', (tester) async {
+    final builder = DeviceBuilder()
+      ..overrideDevicesForAllScenarios(
+        devices: devicesWithDifferentTextScales,
+      )
+      ..addScenario(
+          widget: MyStatisticPage(),
+          name: 'statistics page'
+      );
+    await tester.pumpDeviceBuilder(builder);
+    await screenMatchesGolden(tester, 'statisticsScreen');
   });
 }
 
