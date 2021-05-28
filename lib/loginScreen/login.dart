@@ -138,7 +138,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                   ),
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => MyHomeScreenPage()));
+                        builder: (context) => MyHomeScreenPage(selectedTabIndex: 0)));
                   },
                   label: Text('Einloggen', style: new TextStyle(fontSize: 20)),
                   icon: Icon(Icons.login),

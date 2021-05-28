@@ -1,5 +1,5 @@
 import 'package:digital_vac_pass/qrcode.dart';
-import 'package:digital_vac_pass/util.dart';
+import 'package:digital_vac_pass/utils/util.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
