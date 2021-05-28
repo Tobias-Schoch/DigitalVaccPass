@@ -8,8 +8,25 @@ import 'main.dart';
 import 'statistics.dart';
 import 'onboard.dart';
 import 'qrcode.dart';
+import 'utils/util.dart';
 
 class MyDrawer extends StatelessWidget {
+
+  bool getUserState(String email) {
+    bool isDoctor = false;
+    TestData.userListDb.forEach((element) {
+      if (!isDoctor) {
+        if (element.userEmail.compareTo(email) == 0) {
+          print(element.userEmail.compareTo(email));
+          if (element.userRole == Role.Doctor) {
+            isDoctor = true;
+          }
+        }
+      }
+    });
+    return isDoctor;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -28,51 +45,67 @@ class MyDrawer extends StatelessWidget {
                     style: Theme.of(context).textTheme.headline5,
                   ),
                   SizedBox(width: 10),
-                  Image.asset("assets/images/vaccine.png", width: 40, height: 40),
+                  Image.asset("assets/images/vaccine.png",
+                      width: 40, height: 40),
                 ],
               ),
             ),
           ),
+          Visibility(
+            visible: getUserState(LastUser.lastUser),
+            child: ListTile(
+              leading: Icon(Icons.insights_outlined,
+                  color: Theme.of(context).accentColor),
+              title: Text(
+                'Statistiken',
+                style: Theme.of(context).textTheme.headline6,
+              ),
+              onTap: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => MyStatisticPage()));
+              },
+            ),
+          ),
+          Visibility(
+            visible: getUserState(LastUser.lastUser),
+            child: ListTile(
+              leading: Icon(
+                Icons.qr_code_scanner_outlined,
+                color: Theme.of(context).accentColor,
+              ),
+              title: Text(
+                'Impfung hinzufügen',
+                style: Theme.of(context).textTheme.headline6,
+              ),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => MyVaccinationAddPage()));
+              },
+            ),
+          ),
           ListTile(
-            leading: Icon(Icons.local_hospital_outlined, color: Theme.of(context).accentColor),
+            leading: Icon(Icons.local_hospital_outlined,
+                color: Theme.of(context).accentColor),
             title: Text(
               'Impfpass',
               style: Theme.of(context).textTheme.headline6,
             ),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyHomeScreenPage(selectedTabIndex: 0)));
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => MyHomeScreenPage(selectedTabIndex: 0)));
             },
           ),
           ListTile(
-            leading: Icon(Icons.masks_outlined, color: Theme.of(context).accentColor),
+            leading: Icon(Icons.masks_outlined,
+                color: Theme.of(context).accentColor),
             title: Text(
               'Testergebnisse',
               style: Theme.of(context).textTheme.headline6,
             ),
-            onTap: () { Navigator.of(context).pushReplacement(
-                MaterialPageRoute(
-                  builder: (context) => MyHomeScreenPage(selectedTabIndex: 1),
-                ));
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.insights_outlined, color: Theme.of(context).accentColor),
-            title: Text(
-              'Statistiken',
-              style: Theme.of(context).textTheme.headline6,
-            ),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyStatisticPage()));
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.qr_code_scanner_outlined, color: Theme.of(context).accentColor,),
-            title: Text(
-              'Impfung hinzufügen',
-              style: Theme.of(context).textTheme.headline6,
-            ),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyVaccinationAddPage()));
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                builder: (context) => MyHomeScreenPage(selectedTabIndex: 1),
+              ));
             },
           ),
           // ListTile(
@@ -86,55 +119,53 @@ class MyDrawer extends StatelessWidget {
           //   },
           // ),
           ListTile(
-            leading: Icon(Icons.people_outline, color: Theme.of(context).accentColor),
+            leading: Icon(Icons.people_outline,
+                color: Theme.of(context).accentColor),
             title: Text(
               'Familienübersicht',
               style: Theme.of(context).textTheme.headline6,
             ),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyFamilyPage()));
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => MyFamilyPage()));
             },
           ),
           ListTile(
-            leading: Icon(Icons.qr_code_outlined, color: Theme.of(context).accentColor),
+            leading: Icon(Icons.qr_code_outlined,
+                color: Theme.of(context).accentColor),
             title: Text(
               'Mein QR-Code',
               style: Theme.of(context).textTheme.headline6,
             ),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyQRPage()));
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => MyQRPage()));
             },
           ),
           ListTile(
-            leading: Icon(Icons.accessible, color: Theme.of(context).accentColor),
+            leading:
+                Icon(Icons.accessible, color: Theme.of(context).accentColor),
             title: Text(
               'FAQ',
               style: Theme.of(context).textTheme.headline6,
             ),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyFaqPage()));
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => MyFaqPage()));
             },
           ),
           ListTile(
-            leading: Icon(Icons.privacy_tip_outlined, color: Theme.of(context).accentColor),
+            leading: Icon(Icons.privacy_tip_outlined,
+                color: Theme.of(context).accentColor),
             title: Text(
               'Über uns',
               style: Theme.of(context).textTheme.headline6,
             ),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyAboutPage()));
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => MyAboutPage()));
             },
           ),
-          // ListTile(
-          //   leading: Icon(Icons.login_rounded),
-          //   title: Text(
-          //     'Login',
-          //     style: Theme.of(context).textTheme.headline6,
-          //   ),
-          //   onTap: () {
-          //     Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyLoginPage()));
-          //   },
-          // ),
           ListTile(
             leading: Icon(Icons.logout, color: Theme.of(context).accentColor),
             title: Text(
@@ -142,7 +173,8 @@ class MyDrawer extends StatelessWidget {
               style: Theme.of(context).textTheme.headline6,
             ),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyApp()));
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => MyApp()));
             },
           ),
         ],

@@ -48,6 +48,10 @@ class PredefinedColors {
   static const accentWhite = const Color(0xfffafafa);
 }
 
+class LastUser {
+  static String lastUser = "";
+}
+
 class TestData {
   static List<User> userListDb = [
     new User('Max Mustermann', 'max@test.de', '123', Role.Normal),

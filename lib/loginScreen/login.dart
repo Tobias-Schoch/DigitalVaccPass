@@ -173,6 +173,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) =>
                                 MyHomeScreenPage(selectedTabIndex: 0)));
+                        LastUser.lastUser = myEmailTextController.text;
                       } else if (myEmailTextController.text != "" && myPasswordController.text != ""){
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
