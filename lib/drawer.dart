@@ -6,18 +6,16 @@ import 'faq.dart';
 import 'homeScreen/home.dart';
 import 'main.dart';
 import 'statistics.dart';
-import 'onboard.dart';
 import 'qrcode.dart';
 import 'utils/util.dart';
 
 class MyDrawer extends StatelessWidget {
 
-  bool getUserState(String email) {
+  static bool getDoctor(String email) {
     bool isDoctor = false;
     TestData.userListDb.forEach((element) {
       if (!isDoctor) {
         if (element.userEmail.compareTo(email) == 0) {
-          print(element.userEmail.compareTo(email));
           if (element.userRole == Role.Doctor) {
             isDoctor = true;
           }
@@ -52,7 +50,7 @@ class MyDrawer extends StatelessWidget {
             ),
           ),
           Visibility(
-            visible: getUserState(LastUser.lastUser),
+            visible: getDoctor(LastUser.lastUser),
             child: ListTile(
               leading: Icon(Icons.insights_outlined,
                   color: Theme.of(context).accentColor),
@@ -67,7 +65,7 @@ class MyDrawer extends StatelessWidget {
             ),
           ),
           Visibility(
-            visible: getUserState(LastUser.lastUser),
+            visible: getDoctor(LastUser.lastUser),
             child: ListTile(
               leading: Icon(
                 Icons.qr_code_scanner_outlined,
@@ -144,7 +142,7 @@ class MyDrawer extends StatelessWidget {
           ),
           ListTile(
             leading:
-                Icon(Icons.accessible, color: Theme.of(context).accentColor),
+                Icon(Icons.quiz_outlined, color: Theme.of(context).accentColor),
             title: Text(
               'FAQ',
               style: Theme.of(context).textTheme.headline6,

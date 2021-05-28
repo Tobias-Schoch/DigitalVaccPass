@@ -106,7 +106,7 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
           Navigator.of(context)
               .push(MaterialPageRoute(builder: (context) => MyQRPage()));
         },
-        child: const Icon(Icons.add),
+        child: const Icon(Icons.qr_code),
         backgroundColor: Theme.of(context).accentColor,
       ),
     );

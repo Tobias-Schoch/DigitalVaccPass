@@ -53,8 +53,8 @@ class _MyHomeScreenPage extends State<MyHomeScreenPage> with SingleTickerProvide
                 insets: EdgeInsets.symmetric(horizontal:60.0)
             ),
             tabs: [
-              Tab(icon: Icon(Icons.adb), text: "Impfpass"),
-              Tab(icon: Icon(Icons.accessible), text: "Covid-19 Test"),
+              Tab(icon: Icon(Icons.local_hospital_outlined, color: Theme.of(context).accentColor), text: "Impfpass"),
+              Tab(icon: Icon(Icons.masks_outlined, color: Theme.of(context).accentColor), text: "Covid-19 Test"),
             ],
           ),
         ),
