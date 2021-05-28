@@ -1,6 +1,8 @@
+import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/material.dart';
 import 'appBar.dart';
 import 'drawer.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 class MyQRPage extends StatefulWidget {
   MyQRPage({Key key, this.title}) : super(key: key);
@@ -12,6 +14,19 @@ class MyQRPage extends StatefulWidget {
 }
 
 class _MyQRPageState extends State<MyQRPage> {
+
+  static String qrData(String email) {
+    String qrData;
+    TestData.userListDb.forEach((element) {
+      if (element.userEmail.compareTo(email) == 0) {
+        qrData = element.userEmail;
+        qrData += element.userName;
+      }
+    });
+    print(qrData);
+    return qrData;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,8 +38,8 @@ class _MyQRPageState extends State<MyQRPage> {
         alignment: Alignment.topLeft,
         margin: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Flexible(
                 child: Text(
@@ -33,7 +48,11 @@ class _MyQRPageState extends State<MyQRPage> {
                 ),
             ),
             SizedBox(height: 25),
-            Image.asset('assets/images/qr.png', fit: BoxFit.fitHeight),
+            QrImage(
+              data: qrData(LastUser.lastUser),
+              version: QrVersions.auto,
+              size: 200,
+            ),
           ],
         ),
       ),
