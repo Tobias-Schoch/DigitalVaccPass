@@ -5,26 +5,8 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
-import 'package:digital_vac_pass/about.dart';
-import 'package:digital_vac_pass/addvaccination.dart';
-import 'package:digital_vac_pass/appBar.dart';
-import 'package:digital_vac_pass/drawer.dart';
-import 'package:digital_vac_pass/family.dart';
-import 'package:digital_vac_pass/faq.dart';
-import 'package:digital_vac_pass/loginScreen/login.dart';
 import 'package:digital_vac_pass/onboard.dart';
-import 'package:digital_vac_pass/qrcode.dart';
-import 'package:digital_vac_pass/statistics.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
-
-import 'package:digital_vac_pass/main.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
-
-import '../lib/homeScreen/testresult.dart';
-import '../lib/homeScreen/vaccination.dart';
-import '../lib/loginScreen/forgotpassword.dart';
-import '../lib/loginScreen/register.dart';
 import 'util.dart';
 
 void main() {
@@ -45,19 +27,19 @@ void main() {
   //   expect(find.text('1'), findsOneWidget);
   // });
 
-  testGoldens('Login Screen Test', (tester) async {
-    final builder = DeviceBuilder()
-      ..overrideDevicesForAllScenarios(
-        devices: devicesWithDifferentTextScales,
-      )
-      ..addScenario(
-          widget: MyLoginPage(),
-          name: 'login page'
-      );
-    await tester.pumpDeviceBuilder(builder);
-    await screenMatchesGolden(tester, 'loginScreen');
-  });
-
+  // testGoldens('Login Screen Test', (tester) async {
+  //   final builder = DeviceBuilder()
+  //     ..overrideDevicesForAllScenarios(
+  //       devices: devicesWithDifferentTextScales,
+  //     )
+  //     ..addScenario(
+  //         widget: MyLoginPage(),
+  //         name: 'login page'
+  //     );
+  //   await tester.pumpDeviceBuilder(builder);
+  //   await screenMatchesGolden(tester, 'loginScreen');
+  // });
+  //
   // testGoldens('Register Screen Test', (tester) async {
   //   final builder = DeviceBuilder()
   //     ..overrideDevicesForAllScenarios(
@@ -187,20 +169,20 @@ void main() {
   //   await tester.pumpDeviceBuilder(builder);
   //   await screenMatchesGolden(tester, 'faqScreen');
   // });
-  //
-  // testGoldens('Onboard Screen Test', (tester) async {
-  //   final builder = DeviceBuilder()
-  //     ..overrideDevicesForAllScenarios(
-  //       devices: devicesWithDifferentTextScales,
-  //     )
-  //     ..addScenario(
-  //         widget: MyOnboardPage(),
-  //         name: 'onboard page'
-  //     );
-  //   await tester.pumpDeviceBuilder(builder);
-  //   await screenMatchesGolden(tester, 'onboardScreen');
-  // });
-  //
+
+  testGoldens('Onboard Screen Test', (tester) async {
+    final builder = DeviceBuilder()
+      ..overrideDevicesForAllScenarios(
+        devices: devicesWithDifferentTextScales,
+      )
+      ..addScenario(
+          widget: MyOnboardPage(),
+          name: 'onboard page'
+      );
+    await tester.pumpDeviceBuilder(builder);
+    await screenMatchesGolden(tester, 'onboardScreen');
+  });
+
   // testGoldens('Qrcode Screen Test', (tester) async {
   //   final builder = DeviceBuilder()
   //     ..overrideDevicesForAllScenarios(

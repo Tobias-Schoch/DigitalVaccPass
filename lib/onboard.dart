@@ -31,7 +31,7 @@ class _MyOnboardPageState extends State<MyOnboardPage> {
           onDone: () {
             print("Done");
           },
-          imageWidth: 400,
+          imageWidth: MediaQuery.of(context).size.width * 0.15,
           onBoardData: onBoardData,
           titleStyles: const TextStyle(
             color: primeColor,

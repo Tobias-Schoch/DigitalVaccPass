@@ -41,15 +41,24 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                   fillColor: primeColor,
                   border: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(color: primeColor, width: 3.0,),
+                    borderSide: new BorderSide(
+                      color: primeColor,
+                      width: 3.0,
+                    ),
                   ),
                   enabledBorder: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(color: textColor, width: 3.0,),
+                    borderSide: new BorderSide(
+                      color: textColor,
+                      width: 3.0,
+                    ),
                   ),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12.0),
-                      borderSide: BorderSide(color: primeColor, width: 3.0,)),
+                      borderSide: BorderSide(
+                        color: primeColor,
+                        width: 3.0,
+                      )),
                   labelStyle: new TextStyle(color: textColor),
                 ),
                 validator: (val) {
@@ -68,15 +77,24 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                   fillColor: primeColor,
                   border: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(color: primeColor, width: 3.0,),
+                    borderSide: new BorderSide(
+                      color: primeColor,
+                      width: 3.0,
+                    ),
                   ),
                   enabledBorder: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(color: textColor, width: 3.0,),
+                    borderSide: new BorderSide(
+                      color: textColor,
+                      width: 3.0,
+                    ),
                   ),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12.0),
-                      borderSide: BorderSide(color: primeColor, width: 3.0,)),
+                      borderSide: BorderSide(
+                        color: primeColor,
+                        width: 3.0,
+                      )),
                   labelStyle: new TextStyle(color: textColor),
                 ),
                 validator: (val) {
@@ -96,15 +114,24 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                   fillColor: primeColor,
                   border: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(color: primeColor, width: 3.0,),
+                    borderSide: new BorderSide(
+                      color: primeColor,
+                      width: 3.0,
+                    ),
                   ),
                   enabledBorder: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(color: textColor, width: 3.0,),
+                    borderSide: new BorderSide(
+                      color: textColor,
+                      width: 3.0,
+                    ),
                   ),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12.0),
-                      borderSide: BorderSide(color: primeColor, width: 3.0,)),
+                      borderSide: BorderSide(
+                        color: primeColor,
+                        width: 3.0,
+                      )),
                   labelStyle: new TextStyle(color: textColor),
                 ),
                 obscureText: true,
@@ -124,15 +151,24 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                   fillColor: primeColor,
                   border: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(color: primeColor, width: 3.0,),
+                    borderSide: new BorderSide(
+                      color: primeColor,
+                      width: 3.0,
+                    ),
                   ),
                   enabledBorder: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(color: textColor, width: 3.0,),
+                    borderSide: new BorderSide(
+                      color: textColor,
+                      width: 3.0,
+                    ),
                   ),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12.0),
-                      borderSide: BorderSide(color: primeColor, width: 3.0,)),
+                      borderSide: BorderSide(
+                        color: primeColor,
+                        width: 3.0,
+                      )),
                   labelStyle: new TextStyle(color: textColor),
                 ),
                 obscureText: true,
@@ -156,10 +192,13 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                     ),
                   ),
                   onPressed: () {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => MyStatisticPage()));
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => MyStatisticPage()));
                   },
-                  label: Text('Registrieren', style: new TextStyle(fontSize: 20)),
+                  label: Flexible(
+                    child: Text('Registrieren',
+                        style: new TextStyle(fontSize: 20)),
+                  ),
                   icon: Icon(Icons.login),
                 ),
               ),
