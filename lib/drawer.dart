@@ -72,7 +72,7 @@ class MyDrawer extends StatelessWidget {
           Visibility(
             visible: isVisible,
             child: Divider(
-              thickness: 2.0,
+              thickness: 3.0,
               color: PredefinedColors.primaryColor,
               endIndent: 20.0,
               indent: 15.0,
@@ -138,7 +138,7 @@ class MyDrawer extends StatelessWidget {
             },
           ),
           Divider(
-            thickness: 2.0,
+            thickness: 3.0,
             color: PredefinedColors.primaryColor,
             endIndent: 20.0,
             indent: 15.0,
