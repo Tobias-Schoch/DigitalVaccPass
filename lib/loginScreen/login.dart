@@ -119,10 +119,13 @@ class _MyLoginPageState extends State<MyLoginPage> {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => MyForgotPasswordPage()));
                 },
-                child: Row(
-                  children: <Widget>[
-                    const Text('Passwort vergessen?'),
-                  ],
+                child: Flexible(
+                  fit: FlexFit.tight,
+                  child: Row(
+                    children: <Widget>[
+                      Flexible(child: const Text('Passwort vergessen?'),),
+                    ],
+                  ),
                 ),
               ),
               SizedBox(height: 25),
@@ -147,28 +150,30 @@ class _MyLoginPageState extends State<MyLoginPage> {
               SizedBox(height: 25),
               ConstrainedBox(
                 constraints: BoxConstraints.tightFor(height: 60),
-                child: ElevatedButton.icon(
-                  style: ElevatedButton.styleFrom(
-                    textStyle: const TextStyle(fontSize: 16),
-                    primary: Color(0xFFFFFFFF),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                      side: BorderSide(
+                child: Flexible(
+                    child: ElevatedButton.icon(
+                      style: ElevatedButton.styleFrom(
+                        textStyle: const TextStyle(fontSize: 16),
+                        primary: Color(0xFFFFFFFF),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          side: BorderSide(
+                            color: primeColor,
+                            width: 3.0,
+                          ),
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => MyRegisterPage()));
+                      },
+                      label: Text('Registrieren',
+                          style: TextStyle(fontSize: 20, color: primeColor)),
+                      icon: Icon(
+                        Icons.push_pin,
                         color: primeColor,
-                        width: 3.0,
                       ),
                     ),
-                  ),
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => MyRegisterPage()));
-                  },
-                  label: Text('Registrieren',
-                      style: TextStyle(fontSize: 20, color: primeColor)),
-                  icon: Icon(
-                    Icons.push_pin,
-                    color: primeColor,
-                  ),
                 ),
               ),
               SizedBox(height: 25),
