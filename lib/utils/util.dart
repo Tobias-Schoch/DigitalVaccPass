@@ -33,6 +33,9 @@ class User {
   String userEmail;
   String userPassword;
   Role userRole;
+
+  static User loggedInUser;
+
   User(this.userName, this.userEmail, this.userPassword, this.userRole);
 }
 
@@ -43,6 +46,24 @@ class PredefinedColors {
   static const primaryColor = const Color(0xff5D5FEF);
   static const textColor = const Color(0xff263238);
   static const accentWhite = const Color(0xfffafafa);
+}
+
+class TestData {
+  static List<User> userListDb = [
+    new User('Max Mustermann', 'max@test.de', '123', Role.Normal),
+    new User('Moritz Mustermann', 'moritz@test.de', '1234', Role.Doctor)
+  ];
+
+  static User getMatchingUser(String email, String pw) {
+    User matchingUser;
+    userListDb.forEach((element) {
+      if (matchingUser == null && element.userEmail.compareTo(email) == 0 &&
+          element.userPassword.compareTo(pw) == 0) {
+        matchingUser = element;
+      }
+    });
+    return matchingUser;
+  }
 }
 
 enum Login {

@@ -15,10 +15,7 @@ class MyLoginPage extends StatefulWidget {
   _MyLoginPageState createState() => _MyLoginPageState();
 }
 
-List<User> userListDb = [
-  new User('Max Mustermann', 'max@test.de', '123', Role.Normal),
-  new User('Moritz Mustermann', 'moritz@test.de', '1234', Role.Doctor)
-];
+
 
 class _MyLoginPageState extends State<MyLoginPage> {
   final myEmailTextController = TextEditingController();
@@ -31,7 +28,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
       return false;
     }
     bool exists = false;
-    userListDb.forEach((element) {
+    TestData.userListDb.forEach((element) {
       if (!exists) {
         if (element.userEmail.compareTo(email) == 0 &&
             element.userPassword.compareTo(pw) == 0) {
@@ -39,6 +36,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
         }
       }
     });
+    //TODO on !exists show message
     return exists;
   }
 
@@ -169,8 +167,10 @@ class _MyLoginPageState extends State<MyLoginPage> {
                   constraints: BoxConstraints.tightFor(height: 60),
                   child: ElevatedButton.icon(
                     onPressed: () {
-                      if (checkIfUserExists(myEmailTextController.value.text,
-                          myPasswordController.value.text)) {
+                      if (checkIfUserExists(myEmailTextController.text,
+                          myPasswordController.text)) {
+                        User.loggedInUser = TestData.getMatchingUser(myEmailTextController.text,
+                            myPasswordController.text);
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) =>
                                 MyHomeScreenPage(selectedTabIndex: 0)));
