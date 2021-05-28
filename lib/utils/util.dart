@@ -48,10 +48,15 @@ class PredefinedColors {
   static const accentWhite = const Color(0xfffafafa);
 }
 
+class LastUser {
+  static String lastUser = "";
+}
+
 class TestData {
   static List<User> userListDb = [
     new User('Max Mustermann', 'max@test.de', '123', Role.Normal),
-    new User('Moritz Mustermann', 'moritz@test.de', '1234', Role.Doctor)
+    new User('Moritz Mustermann', 'moritz@test.de', '1234', Role.Doctor),
+    new User('T', 't', '1', Role.Normal)
   ];
 
   static User getMatchingUser(String email, String pw) {

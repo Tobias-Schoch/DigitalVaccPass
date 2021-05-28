@@ -1,3 +1,4 @@
+import 'package:digital_vac_pass/qrScreen/qrScanner.dart';
 import 'package:digital_vac_pass/statistics.dart';
 import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/material.dart';
@@ -113,7 +114,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                 child: ElevatedButton.icon(
                   onPressed: () {
                     Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => MyStatisticPage()));
+                        MaterialPageRoute(builder: (context) => QRExample()));
                   },
                   label: Text('Hinzufügen', style: new TextStyle(fontSize: 20)),
                   icon: Icon(Icons.qr_code_scanner),

@@ -213,7 +213,7 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                       child: Text('Registrieren',
                           style: new TextStyle(fontSize: 20)),
                     ),
-                    icon: Icon(Icons.login),
+                    icon: Icon(Icons.how_to_reg),
                   ),
                 ),
               ],

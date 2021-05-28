@@ -1,4 +1,4 @@
-import 'package:digital_vac_pass/qrcode.dart';
+import 'package:digital_vac_pass/qrScreen/qrcode.dart';
 import 'package:digital_vac_pass/utils/util.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/cupertino.dart';
@@ -103,7 +103,7 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
           Navigator.of(context)
               .push(MaterialPageRoute(builder: (context) => MyQRPage()));
         },
-        child: const Icon(Icons.add),
+        child: const Icon(Icons.qr_code),
         backgroundColor: Theme.of(context).accentColor,
       ),
     );
@@ -112,7 +112,7 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
 
 List<Vaccination> vaccinationListDb = List<Vaccination>.generate(20, (int i) {
   return Vaccination(
-      faker.internet.domainName(),
+      faker.food.dish(),
       faker.randomGenerator.decimal().toString(),
       faker.date.dateTime(),
       faker.person.name(),

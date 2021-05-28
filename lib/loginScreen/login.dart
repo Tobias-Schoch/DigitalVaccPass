@@ -1,7 +1,9 @@
+import 'package:digital_vac_pass/statistics.dart';
 import 'package:digital_vac_pass/utils/util.dart';
 
 import '../homeScreen/home.dart';
 import 'register.dart';
+import '../drawer.dart';
 import 'package:flutter/material.dart';
 import '../appBar.dart';
 import 'forgotpassword.dart';
@@ -14,8 +16,6 @@ class MyLoginPage extends StatefulWidget {
   @override
   _MyLoginPageState createState() => _MyLoginPageState();
 }
-
-
 
 class _MyLoginPageState extends State<MyLoginPage> {
   final myEmailTextController = TextEditingController();
@@ -36,7 +36,6 @@ class _MyLoginPageState extends State<MyLoginPage> {
         }
       }
     });
-    //TODO on !exists show message
     return exists;
   }
 
@@ -103,7 +102,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     if (value.isNotEmpty) {
                       return null;
                     } else {
-                      return 'Can´t be empty';
+                      return 'Darf nicht leer sein.';
                     }
                   },
                 ),
@@ -142,7 +141,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     if (value.isNotEmpty) {
                       return null;
                     } else {
-                      return 'Can´t be empty';
+                      return 'Darf nicht leer sein.';
                     }
                   },
                 ),
@@ -169,11 +168,38 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     onPressed: () {
                       if (checkIfUserExists(myEmailTextController.text,
                           myPasswordController.text)) {
-                        User.loggedInUser = TestData.getMatchingUser(myEmailTextController.text,
+                        User.loggedInUser = TestData.getMatchingUser(
+                            myEmailTextController.text,
                             myPasswordController.text);
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) =>
-                                MyHomeScreenPage(selectedTabIndex: 0)));
+                        if (MyDrawer.getDoctor(myEmailTextController.text)) {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => MyStatisticPage()));
+                        } else {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) =>
+                                  MyHomeScreenPage(selectedTabIndex: 0)));
+                        }
+
+                        LastUser.lastUser = myEmailTextController.text;
+                      } else if (myEmailTextController.text != "" &&
+                          myPasswordController.text != "") {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            margin: const EdgeInsets.all(20.0),
+                            elevation: 10,
+                            content: const Text(
+                                'E-Mail und Passwort stimmen nicht überein.'),
+                            duration: const Duration(milliseconds: 3000),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 15.0,
+                            ),
+                            behavior: SnackBarBehavior.floating,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12.0),
+                            ),
+                            backgroundColor: Theme.of(context).accentColor,
+                          ),
+                        );
                       }
                     },
                     label: Flexible(
@@ -205,7 +231,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                         child: Text('Registrieren',
                             style: Theme.of(context).textTheme.bodyText2)),
                     icon: Icon(
-                      Icons.push_pin,
+                      Icons.how_to_reg,
                       color: Theme.of(context).accentColor,
                     ),
                   ),

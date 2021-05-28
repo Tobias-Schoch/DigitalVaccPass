@@ -1,6 +1,7 @@
 import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/material.dart';
 import 'loginScreen/login.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,6 +11,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return MaterialApp(
       title: 'Impfpass',
       theme: ThemeData(
@@ -31,7 +36,7 @@ class MyApp extends StatelessWidget {
 
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            textStyle: const TextStyle(fontSize: 16),
+            textStyle: const TextStyle(fontSize: 16, fontFamily: "Inter"),
             primary: PredefinedColors.primaryColor,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12), // <-- Radius

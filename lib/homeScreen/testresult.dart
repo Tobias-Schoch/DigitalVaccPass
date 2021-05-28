@@ -3,6 +3,7 @@ import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../drawer.dart';
+import '../qrScreen/qrcode.dart';
 
 class MyTestPage extends StatefulWidget {
   MyTestPage({Key key, this.title}) : super(key: key);
@@ -95,9 +96,12 @@ class _MyTestPageState extends State<MyTestPage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
+        child: const Icon(Icons.qr_code),
         backgroundColor: Theme.of(context).accentColor,
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => MyQRPage()));
+        },
       ),
       drawer: MyDrawer(),
     );
