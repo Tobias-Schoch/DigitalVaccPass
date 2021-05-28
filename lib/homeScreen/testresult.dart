@@ -24,7 +24,7 @@ class _MyTestPageState extends State<MyTestPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Covid-19 Test",
+            Text("Testergebnisse",
             style: Theme.of(context).textTheme.headline4,
           textAlign: TextAlign.left),
             SizedBox(height: 25),
