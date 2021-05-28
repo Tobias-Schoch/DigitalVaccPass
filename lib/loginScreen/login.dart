@@ -52,8 +52,6 @@ class _MyLoginPageState extends State<MyLoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    const primeColor = const Color(0xff5D5FEF);
-    const textColor = const Color(0xff263238);
     return Scaffold(
       appBar: AppBar(
         title: MyHeader(),
@@ -74,31 +72,31 @@ class _MyLoginPageState extends State<MyLoginPage> {
               TextFormField(
                 controller: myEmailTextController,
                 autofocus: true,
-                cursorColor: textColor,
+                cursorColor: Theme.of(context).primaryColorLight,
                 decoration: new InputDecoration(
                   labelText: "E-Mail",
-                  fillColor: primeColor,
+                  fillColor: Theme.of(context).accentColor,
                   border: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
                     borderSide: new BorderSide(
-                      color: primeColor,
+                      color: Theme.of(context).accentColor,
                       width: 3.0,
                     ),
                   ),
                   enabledBorder: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
                     borderSide: new BorderSide(
-                      color: textColor,
+                      color: Theme.of(context).primaryColorLight,
                       width: 3.0,
                     ),
                   ),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12.0),
                       borderSide: BorderSide(
-                        color: primeColor,
+                        color: Theme.of(context).accentColor,
                         width: 3.0,
                       )),
-                  labelStyle: new TextStyle(color: textColor),
+                  labelStyle: new TextStyle(color: Theme.of(context).primaryColorLight),
                 ),
                 validator: (val) {
                   if (val.length == 0) {
@@ -112,31 +110,31 @@ class _MyLoginPageState extends State<MyLoginPage> {
               SizedBox(height: 25),
               TextFormField(
                 controller: myPasswordController,
-                cursorColor: textColor,
+                cursorColor: Theme.of(context).primaryColorLight,
                 decoration: new InputDecoration(
                   labelText: "Passwort",
-                  fillColor: primeColor,
+                  fillColor: Theme.of(context).accentColor,
                   border: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
                     borderSide: new BorderSide(
-                      color: primeColor,
+                      color: Theme.of(context).accentColor,
                       width: 3.0,
                     ),
                   ),
                   enabledBorder: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
                     borderSide: new BorderSide(
-                      color: textColor,
+                      color: Theme.of(context).primaryColorLight,
                       width: 3.0,
                     ),
                   ),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12.0),
                       borderSide: BorderSide(
-                        color: primeColor,
+                        color: Theme.of(context).accentColor,
                         width: 3.0,
                       )),
-                  labelStyle: new TextStyle(color: textColor),
+                  labelStyle: new TextStyle(color: Theme.of(context).primaryColorLight),
                 ),
                 obscureText: true,
               ),
@@ -144,7 +142,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
               TextButton(
                 style: TextButton.styleFrom(
                   textStyle: const TextStyle(fontSize: 16),
-                  primary: textColor,
+                  primary: Theme.of(context).primaryColorLight,
                 ),
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
@@ -160,13 +158,6 @@ class _MyLoginPageState extends State<MyLoginPage> {
               ConstrainedBox(
                 constraints: BoxConstraints.tightFor(height: 60),
                 child: ElevatedButton.icon(
-                  style: ElevatedButton.styleFrom(
-                    textStyle: const TextStyle(fontSize: 16),
-                    primary: primeColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12), // <-- Radius
-                    ),
-                  ),
                   onPressed: () {
                     if (checkIfUserExists(myEmailTextController.value.text, myPasswordController.value.text)) {
                       Navigator.of(context).push(MaterialPageRoute(
@@ -189,7 +180,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                       side: BorderSide(
-                        color: primeColor,
+                        color: Theme.of(context).accentColor,
                         width: 3.0,
                       ),
                     ),
@@ -200,14 +191,11 @@ class _MyLoginPageState extends State<MyLoginPage> {
                   },
                   label: Flexible(
                     child: Text('Registrieren',
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: primeColor,
-                        )),
+                        style: Theme.of(context).textTheme.bodyText2)
                   ),
                   icon: Icon(
                     Icons.push_pin,
-                    color: primeColor,
+                    color: Theme.of(context).accentColor,
                   ),
                 ),
               ),

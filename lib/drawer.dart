@@ -27,7 +27,6 @@ class MyDrawer extends StatelessWidget {
                   Text(
                     "Impfpass",
                     style: Theme.of(context).textTheme.headline5,
-                    textAlign: TextAlign.center,
                   ),
                   SizedBox(width: 10),
                   Image.asset("assets/images/vaccine.png", width: 40, height: 40),

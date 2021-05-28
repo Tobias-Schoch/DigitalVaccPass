@@ -15,7 +15,6 @@ class MyStatisticPage extends StatefulWidget {
 class _MyStatisticPageState extends State<MyStatisticPage> {
   @override
   Widget build(BuildContext context) {
-    const primeColor = const Color(0xff5D5FEF);
     return Scaffold(
       appBar: AppBar(
         title: MyHeader(),
@@ -34,10 +33,6 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
                   textAlign: TextAlign.left),
               SizedBox(height: 25),
               Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.0),
-                  ),
-                  elevation: 10,
                   child:
                   Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                     ListTile(
@@ -66,10 +61,6 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
                   ])),
               SizedBox(height: 20),
               Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.0),
-                  ),
-                  elevation: 10,
                   child:
                   Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                     ListTile(
@@ -98,10 +89,6 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
                   ])),
               SizedBox(height: 20),
               Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.0),
-                  ),
-                  elevation: 10,
                   child:
                   Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                     ListTile(
@@ -130,10 +117,6 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
                   ])),
               SizedBox(height: 20),
               Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.0),
-                  ),
-                  elevation: 10,
                   child:
                   Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                     ListTile(
@@ -170,7 +153,7 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
           Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyVaccinationAddPage()));
         },
         child: const Icon(Icons.qr_code_scanner),
-        backgroundColor: primeColor,
+        backgroundColor: Theme.of(context).accentColor,
       ),
       drawer: MyDrawer(),
     );

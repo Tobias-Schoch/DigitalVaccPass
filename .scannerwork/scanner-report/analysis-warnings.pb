@@ -1,0 +1,2 @@
+‚
+øSonarScanner will require Java 11 to run, starting in SonarQube 9.x. Please upgrade the version of Java that executes the scanner and refer to <a href="/documentation/analysis/analysis-with-java-11/" target="_blank">the documentation</a> if needed.ÃÀÄ»˜/

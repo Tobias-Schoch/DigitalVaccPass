@@ -1,0 +1,6 @@
+projectKey=DigitalVaccinationPassKey
+serverUrl=http://f776e35e-dd5a-47aa-8cb8-5826c98b5ed0.ma.bw-cloud-instance.org:9000
+serverVersion=8.9.0.43852
+dashboardUrl=http://f776e35e-dd5a-47aa-8cb8-5826c98b5ed0.ma.bw-cloud-instance.org:9000/dashboard?id=DigitalVaccinationPassKey
+ceTaskId=AXmHdFsQ7tH9YTbp0hMR
+ceTaskUrl=http://f776e35e-dd5a-47aa-8cb8-5826c98b5ed0.ma.bw-cloud-instance.org:9000/api/ce/task?id=AXmHdFsQ7tH9YTbp0hMR
