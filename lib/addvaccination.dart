@@ -114,7 +114,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                     Navigator.of(context).push(
                         MaterialPageRoute(builder: (context) => MyStatisticPage()));
                   },
-                  label: Text('Hinzufügen', style: Theme.of(context).textTheme.bodyText2),
+                  label: Text('Hinzufügen', style: new TextStyle(fontSize: 20)),
                   icon: Icon(Icons.qr_code_scanner),
                 ),
               ),
