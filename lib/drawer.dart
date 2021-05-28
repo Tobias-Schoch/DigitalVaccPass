@@ -1,3 +1,5 @@
+import 'package:digital_vac_pass/utils/util.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'about.dart';
 import 'addvaccination.dart';
@@ -10,6 +12,11 @@ import 'onboard.dart';
 import 'qrcode.dart';
 
 class MyDrawer extends StatelessWidget {
+
+  final bool isVisible;
+
+  MyDrawer({this.isVisible});
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -28,7 +35,8 @@ class MyDrawer extends StatelessWidget {
                     style: Theme.of(context).textTheme.headline5,
                   ),
                   SizedBox(width: 10),
-                  Image.asset("assets/images/vaccine.png", width: 40, height: 40),
+                  Image.asset("assets/images/vaccine.png",
+                      width: 40, height: 40),
                 ],
               ),
             ),
@@ -40,39 +48,22 @@ class MyDrawer extends StatelessWidget {
               style: Theme.of(context).textTheme.headline6,
             ),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyHomeScreenPage(selectedTabIndex: 0)));
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => MyHomeScreenPage(selectedTabIndex: 0)));
             },
           ),
           ListTile(
-            leading: Icon(Icons.masks_outlined,),
+            leading: Icon(
+              Icons.masks_outlined,
+            ),
             title: Text(
               'Testergebnisse',
               style: Theme.of(context).textTheme.headline6,
             ),
-            onTap: () { Navigator.of(context).pushReplacement(
-                MaterialPageRoute(
-                  builder: (context) => MyHomeScreenPage(selectedTabIndex: 1),
-                ));
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.insights_outlined),
-            title: Text(
-              'Statistiken',
-              style: Theme.of(context).textTheme.headline6,
-            ),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyStatisticPage()));
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.qr_code_scanner_outlined),
-            title: Text(
-              'Impfung hinzufügen',
-              style: Theme.of(context).textTheme.headline6,
-            ),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyVaccinationAddPage()));
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                builder: (context) => MyHomeScreenPage(selectedTabIndex: 1),
+              ));
             },
           ),
           ListTile(
@@ -82,7 +73,8 @@ class MyDrawer extends StatelessWidget {
               style: Theme.of(context).textTheme.headline6,
             ),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyOnboardPage()));
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => MyOnboardPage()));
             },
           ),
           ListTile(
@@ -92,7 +84,8 @@ class MyDrawer extends StatelessWidget {
               style: Theme.of(context).textTheme.headline6,
             ),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyFamilyPage()));
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => MyFamilyPage()));
             },
           ),
           ListTile(
@@ -102,8 +95,54 @@ class MyDrawer extends StatelessWidget {
               style: Theme.of(context).textTheme.headline6,
             ),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyQRPage()));
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => MyQRPage()));
             },
+          ),
+          Visibility(
+            visible: isVisible,
+            child: Divider(
+              thickness: 1.0,
+              color: PredefinedColors.primaryColor,
+              endIndent: 20.0,
+              indent: 15.0,
+              height: 50,
+            ),
+          ),
+          Visibility(
+            visible: isVisible,
+            child: ListTile(
+              leading: Icon(Icons.insights_outlined),
+              title: Text(
+                'Statistiken',
+                style: Theme.of(context).textTheme.headline6,
+              ),
+              onTap: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => MyStatisticPage()));
+              },
+            ),
+          ),
+          Visibility(
+            visible: isVisible,
+            child: ListTile(
+              leading: Icon(Icons.qr_code_scanner_outlined),
+              title: Text(
+                'Impfung hinzufügen',
+                style: Theme.of(context).textTheme.headline6,
+              ),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => MyVaccinationAddPage()));
+              },
+            ),
+          ),
+          Divider(
+            thickness: 1.0,
+            color: PredefinedColors.primaryColor,
+            endIndent: 20.0,
+            indent: 15.0,
+            height: 50,
           ),
           ListTile(
             leading: Icon(Icons.accessible),
@@ -112,7 +151,8 @@ class MyDrawer extends StatelessWidget {
               style: Theme.of(context).textTheme.headline6,
             ),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyFaqPage()));
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => MyFaqPage()));
             },
           ),
           ListTile(
@@ -122,19 +162,10 @@ class MyDrawer extends StatelessWidget {
               style: Theme.of(context).textTheme.headline6,
             ),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyAboutPage()));
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => MyAboutPage()));
             },
           ),
-          // ListTile(
-          //   leading: Icon(Icons.login_rounded),
-          //   title: Text(
-          //     'Login',
-          //     style: Theme.of(context).textTheme.headline6,
-          //   ),
-          //   onTap: () {
-          //     Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyLoginPage()));
-          //   },
-          // ),
           ListTile(
             leading: Icon(Icons.logout),
             title: Text(
@@ -142,7 +173,8 @@ class MyDrawer extends StatelessWidget {
               style: Theme.of(context).textTheme.headline6,
             ),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyApp()));
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => MyApp()));
             },
           ),
         ],

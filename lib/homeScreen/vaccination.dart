@@ -17,7 +17,6 @@ class MyVaccinationPage extends StatefulWidget {
 class _MyVaccinationPage extends State<MyVaccinationPage> {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: Container(
         alignment: Alignment.topLeft,
@@ -92,8 +91,6 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
                         SizedBox(height: 20),
                       ],
                     )
-
-
                   );
                 },
               ),

@@ -1,5 +1,6 @@
 import 'package:digital_vac_pass/homeScreen/testresult.dart';
 import 'package:digital_vac_pass/homeScreen/vaccination.dart';
+import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -65,7 +66,7 @@ class _MyHomeScreenPage extends State<MyHomeScreenPage> with SingleTickerProvide
           MyTestPage(),
           ],
         ),
-        drawer: MyDrawer(),
+        drawer: MyDrawer(isVisible: User.loggedInUser.userRole == Role.Doctor ? true : false),
       );
   }
 }

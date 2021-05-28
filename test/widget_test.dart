@@ -151,8 +151,12 @@ void main() {
         devices: devicesWithDifferentTextScales,
       )
       ..addScenario(
-          widget: MyDrawer(),
-          name: 'drawer page'
+          widget: MyDrawer(isVisible: false),
+          name: 'drawer page normal'
+      )
+      ..addScenario(
+          widget: MyDrawer(isVisible: true),
+          name: 'drawer page doctor'
       );
     await tester.pumpDeviceBuilder(builder);
     await screenMatchesGolden(tester, 'drawerScreen');

@@ -1,4 +1,5 @@
 import 'package:digital_vac_pass/addvaccination.dart';
+import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/material.dart';
 import 'appBar.dart';
 import 'drawer.dart';
@@ -155,7 +156,7 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
         child: const Icon(Icons.qr_code_scanner),
         backgroundColor: Theme.of(context).accentColor,
       ),
-      drawer: MyDrawer(),
+      drawer: MyDrawer(isVisible: User.loggedInUser.userRole == Role.Doctor ? true : false),
     );
   }
 }

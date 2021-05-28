@@ -1,3 +1,4 @@
+import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/material.dart';
 import 'appBar.dart';
 import 'drawer.dart';
@@ -61,7 +62,7 @@ class _MyAboutPageState extends State<MyAboutPage> {
           ),
         ),
       ),
-      drawer: MyDrawer(),
+      drawer: MyDrawer(isVisible: User.loggedInUser.userRole == Role.Doctor ? true : false),
     );
   }
 }
