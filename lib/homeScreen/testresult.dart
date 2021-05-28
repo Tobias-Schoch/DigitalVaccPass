@@ -40,10 +40,6 @@ class _MyTestPageState extends State<MyTestPage> {
                                 ? PredefinedColors.lightOrange
                                 : testsListDb.elementAt(index).testStatus == Status.Good
                                 ? PredefinedColors.lightGreen : PredefinedColors.lightRed,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12.0),
-                            ),
-                            elevation: 10,
                             child: Row(
                               children: [
                                 Expanded(
@@ -100,7 +96,7 @@ class _MyTestPageState extends State<MyTestPage> {
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
-        backgroundColor: PredefinedColors.primaryColor,
+        backgroundColor: Theme.of(context).accentColor,
         onPressed: () {},
       ),
       drawer: MyDrawer(),

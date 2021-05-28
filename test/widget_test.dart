@@ -15,10 +15,6 @@ import 'package:digital_vac_pass/loginScreen/login.dart';
 import 'package:digital_vac_pass/onboard.dart';
 import 'package:digital_vac_pass/qrcode.dart';
 import 'package:digital_vac_pass/statistics.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
-
-import 'package:digital_vac_pass/main.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
 
 import '../lib/homeScreen/testresult.dart';

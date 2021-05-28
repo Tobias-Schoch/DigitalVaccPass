@@ -127,16 +127,6 @@ class MyDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.login_rounded),
-            title: Text(
-              'Login',
-              style: Theme.of(context).textTheme.headline6,
-            ),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyLoginPage()));
-            },
-          ),
-          ListTile(
             leading: Icon(Icons.logout),
             title: Text(
               'Logout',

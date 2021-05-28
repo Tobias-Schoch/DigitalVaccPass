@@ -18,7 +18,6 @@ class _MyOnboardPageState extends State<MyOnboardPage> {
 
   @override
   Widget build(BuildContext context) {
-    const primeColor = const Color(0xff5D5FEF);
     const primeColorAccent = const Color(0xff7577f8);
     return Provider<OnBoardState>(
       create: (_) => OnBoardState(),
@@ -33,8 +32,8 @@ class _MyOnboardPageState extends State<MyOnboardPage> {
           },
           imageWidth: MediaQuery.of(context).size.width * 0.15,
           onBoardData: onBoardData,
-          titleStyles: const TextStyle(
-            color: primeColor,
+          titleStyles: TextStyle(
+            color: Theme.of(context).accentColor,
             fontSize: 18,
             fontWeight: FontWeight.w900,
             letterSpacing: 0.15,
@@ -43,10 +42,10 @@ class _MyOnboardPageState extends State<MyOnboardPage> {
             fontSize: 16,
             color: Colors.brown.shade300,
           ),
-          pageIndicatorStyle: const PageIndicatorStyle(
+          pageIndicatorStyle: PageIndicatorStyle(
             width: 100,
             inactiveColor: primeColorAccent,
-            activeColor: primeColor,
+            activeColor: Theme.of(context).accentColor,
             inactiveSize: Size(8, 8),
             activeSize: Size(12, 12),
           ),
@@ -70,8 +69,8 @@ class _MyOnboardPageState extends State<MyOnboardPage> {
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
-                    gradient: const LinearGradient(
-                      colors: [primeColor, primeColorAccent],
+                    gradient: LinearGradient(
+                      colors: [Theme.of(context).accentColor, primeColorAccent],
                     ),
                   ),
                   child: Text(

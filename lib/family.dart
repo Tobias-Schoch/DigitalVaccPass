@@ -14,8 +14,6 @@ class MyFamilyPage extends StatefulWidget {
 class _MyFamilyPageState extends State<MyFamilyPage> {
   @override
   Widget build(BuildContext context) {
-    const primeColor = const Color(0xff5D5FEF);
-    const textColor = const Color(0xff263238);
     return Scaffold(
       appBar: AppBar(
         title: MyHeader(),
@@ -37,13 +35,12 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
                 constraints: BoxConstraints.tightFor(height: 60, width: 1000),
                 child: ElevatedButton(
                   child:
-                      const Text('Peter Knopf', style: TextStyle(fontSize: 20, color: textColor)),
+                      Text('Peter Knopf', style: Theme.of(context).textTheme.bodyText2),
                   style: ElevatedButton.styleFrom(
-                    textStyle: const TextStyle(fontSize: 16),
                     primary: Color(0xFFFFFFFF),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
-                      side: BorderSide(color: primeColor, width: 3.0,),
+                      side: BorderSide(color: Theme.of(context).accentColor, width: 3.0,),
                     ),
                   ),
                   onPressed: () {},
@@ -54,13 +51,12 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
                 constraints: BoxConstraints.tightFor(height: 60, width: 1000),
                 child: ElevatedButton(
                   child:
-                  const Text('Juliane Knopf', style: TextStyle(fontSize: 20, color: textColor)),
+                  Text('Juliane Knopf', style: Theme.of(context).textTheme.bodyText2),
                   style: ElevatedButton.styleFrom(
-                    textStyle: const TextStyle(fontSize: 16),
                     primary: Color(0xFFFFFFFF),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
-                      side: BorderSide(color: primeColor, width: 3.0,),
+                      side: BorderSide(color: Theme.of(context).accentColor, width: 3.0,),
                     ),
                   ),
                   onPressed: () {},
@@ -74,7 +70,7 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         child: const Icon(Icons.qr_code_scanner),
-        backgroundColor: primeColor,
+        backgroundColor: Theme.of(context).accentColor,
       ),
       drawer: MyDrawer(),
     );

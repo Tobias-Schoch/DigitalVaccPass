@@ -14,8 +14,6 @@ class MyRegisterPage extends StatefulWidget {
 class _MyRegisterPageState extends State<MyRegisterPage> {
   @override
   Widget build(BuildContext context) {
-    const primeColor = const Color(0xff5D5FEF);
-    const textColor = const Color(0xff263238);
     return Scaffold(
       appBar: AppBar(
         title: MyHeader(),
@@ -35,31 +33,31 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
               SizedBox(height: 25),
               new TextFormField(
                 autofocus: true,
-                cursorColor: textColor,
+                cursorColor: Theme.of(context).primaryColorLight,
                 decoration: new InputDecoration(
                   labelText: "Vor- und Nachname",
-                  fillColor: primeColor,
+                  fillColor: Theme.of(context).accentColor,
                   border: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
                     borderSide: new BorderSide(
-                      color: primeColor,
+                      color: Theme.of(context).accentColor,
                       width: 3.0,
                     ),
                   ),
                   enabledBorder: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
                     borderSide: new BorderSide(
-                      color: textColor,
+                      color: Theme.of(context).primaryColorLight,
                       width: 3.0,
                     ),
                   ),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12.0),
                       borderSide: BorderSide(
-                        color: primeColor,
+                        color: Theme.of(context).accentColor,
                         width: 3.0,
                       )),
-                  labelStyle: new TextStyle(color: textColor),
+                  labelStyle: new TextStyle(color: Theme.of(context).primaryColorLight),
                 ),
                 validator: (val) {
                   if (val.length == 0) {
@@ -71,31 +69,31 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
               ),
               SizedBox(height: 25),
               new TextFormField(
-                cursorColor: textColor,
+                cursorColor: Theme.of(context).primaryColorLight,
                 decoration: new InputDecoration(
                   labelText: "E-Mail",
-                  fillColor: primeColor,
+                  fillColor: Theme.of(context).accentColor,
                   border: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
                     borderSide: new BorderSide(
-                      color: primeColor,
+                      color: Theme.of(context).accentColor,
                       width: 3.0,
                     ),
                   ),
                   enabledBorder: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
                     borderSide: new BorderSide(
-                      color: textColor,
+                      color: Theme.of(context).primaryColorLight,
                       width: 3.0,
                     ),
                   ),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12.0),
                       borderSide: BorderSide(
-                        color: primeColor,
+                        color: Theme.of(context).accentColor,
                         width: 3.0,
                       )),
-                  labelStyle: new TextStyle(color: textColor),
+                  labelStyle: new TextStyle(color: Theme.of(context).primaryColorLight),
                 ),
                 validator: (val) {
                   if (val.length == 0) {
@@ -108,31 +106,31 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
               ),
               SizedBox(height: 25),
               new TextFormField(
-                cursorColor: textColor,
+                cursorColor: Theme.of(context).primaryColorLight,
                 decoration: new InputDecoration(
                   labelText: "Passwort",
-                  fillColor: primeColor,
+                  fillColor: Theme.of(context).accentColor,
                   border: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
                     borderSide: new BorderSide(
-                      color: primeColor,
+                      color: Theme.of(context).accentColor,
                       width: 3.0,
                     ),
                   ),
                   enabledBorder: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
                     borderSide: new BorderSide(
-                      color: textColor,
+                      color: Theme.of(context).primaryColorLight,
                       width: 3.0,
                     ),
                   ),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12.0),
                       borderSide: BorderSide(
-                        color: primeColor,
+                        color: Theme.of(context).accentColor,
                         width: 3.0,
                       )),
-                  labelStyle: new TextStyle(color: textColor),
+                  labelStyle: new TextStyle(color: Theme.of(context).primaryColorLight),
                 ),
                 obscureText: true,
                 validator: (val) {
@@ -145,31 +143,31 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
               ),
               SizedBox(height: 25),
               new TextFormField(
-                cursorColor: textColor,
+                cursorColor: Theme.of(context).primaryColorLight,
                 decoration: new InputDecoration(
                   labelText: "Passwort",
-                  fillColor: primeColor,
+                  fillColor: Theme.of(context).accentColor,
                   border: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
                     borderSide: new BorderSide(
-                      color: primeColor,
+                      color: Theme.of(context).accentColor,
                       width: 3.0,
                     ),
                   ),
                   enabledBorder: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
                     borderSide: new BorderSide(
-                      color: textColor,
+                      color: Theme.of(context).primaryColorLight,
                       width: 3.0,
                     ),
                   ),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12.0),
                       borderSide: BorderSide(
-                        color: primeColor,
+                        color: Theme.of(context).accentColor,
                         width: 3.0,
                       )),
-                  labelStyle: new TextStyle(color: textColor),
+                  labelStyle: new TextStyle(color: Theme.of(context).primaryColorLight),
                 ),
                 obscureText: true,
                 validator: (val) {
@@ -184,13 +182,6 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
               ConstrainedBox(
                 constraints: BoxConstraints.tightFor(height: 60),
                 child: ElevatedButton.icon(
-                  style: ElevatedButton.styleFrom(
-                    textStyle: const TextStyle(fontSize: 16),
-                    primary: primeColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12), // <-- Radius
-                    ),
-                  ),
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => MyStatisticPage()));

@@ -40,10 +40,6 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
                     child: Column(
                       children: [
                         Card(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12.0),
-                          ),
-                          elevation: 10,
                           child: Row(
                             children: [
                               Expanded(
@@ -111,7 +107,7 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
               .push(MaterialPageRoute(builder: (context) => MyQRPage()));
         },
         child: const Icon(Icons.add),
-        backgroundColor: PredefinedColors.primaryColor,
+        backgroundColor: Theme.of(context).accentColor,
       ),
     );
   }

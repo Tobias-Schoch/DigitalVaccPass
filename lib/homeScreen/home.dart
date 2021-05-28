@@ -1,6 +1,5 @@
 import 'package:digital_vac_pass/homeScreen/testresult.dart';
 import 'package:digital_vac_pass/homeScreen/vaccination.dart';
-import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -50,7 +49,7 @@ class _MyHomeScreenPage extends State<MyHomeScreenPage> with SingleTickerProvide
           bottom: TabBar(
             controller: _tabController,
             indicator: UnderlineTabIndicator(
-                borderSide: BorderSide(width: 3.0, color: PredefinedColors.primaryColor),
+                borderSide: BorderSide(width: 3.0, color: Theme.of(context).accentColor),
                 insets: EdgeInsets.symmetric(horizontal:60.0)
             ),
             tabs: [
