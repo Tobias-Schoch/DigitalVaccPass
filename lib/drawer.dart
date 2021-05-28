@@ -6,7 +6,7 @@ import 'faq.dart';
 import 'homeScreen/home.dart';
 import 'main.dart';
 import 'statistics.dart';
-import 'qrcode.dart';
+import 'qrScreen/qrcode.dart';
 import 'utils/util.dart';
 
 class MyDrawer extends StatelessWidget {

@@ -3,7 +3,7 @@ import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../drawer.dart';
-import '../qrcode.dart';
+import '../qrScreen/qrcode.dart';
 
 class MyTestPage extends StatefulWidget {
   MyTestPage({Key key, this.title}) : super(key: key);
