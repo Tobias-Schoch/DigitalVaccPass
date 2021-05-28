@@ -31,6 +31,12 @@ class _MyQRPageState extends State<MyQRPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        // Change icon and action for qrcode, for better ui
+        // TODO: Check from where coming & (de-) activate leading
+        // leading: IconButton(
+        //   icon: Icon(Icons.arrow_back),
+        //   onPressed: () => Navigator.pop(context),
+        // ),
         title: MyHeader(),
         elevation: 0,
       ),
