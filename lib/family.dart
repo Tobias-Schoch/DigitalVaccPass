@@ -32,7 +32,7 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
                   textAlign: TextAlign.left),
               SizedBox(height: 25),
               ConstrainedBox(
-                constraints: BoxConstraints.tightFor(height: 60, width: 1000),
+                constraints: BoxConstraints.tightFor(height: 60, width: double.infinity),
                 child: ElevatedButton(
                   child:
                       Text('Peter Knopf', style: Theme.of(context).textTheme.bodyText2),
@@ -48,7 +48,7 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
               ),
               SizedBox(height: 20),
               ConstrainedBox(
-                constraints: BoxConstraints.tightFor(height: 60, width: 1000),
+                constraints: BoxConstraints.tightFor(height: 60, width: double.infinity),
                 child: ElevatedButton(
                   child:
                   Text('Juliane Knopf', style: Theme.of(context).textTheme.bodyText2),
