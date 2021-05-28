@@ -1,5 +1,3 @@
-import 'package:digital_vac_pass/util.dart';
-
 import '../homeScreen/home.dart';
 import 'register.dart';
 import 'package:flutter/material.dart';

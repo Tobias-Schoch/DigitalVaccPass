@@ -1,5 +1,6 @@
 import 'package:digital_vac_pass/homeScreen/testresult.dart';
 import 'package:digital_vac_pass/homeScreen/vaccination.dart';
+import 'package:digital_vac_pass/util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -41,9 +42,13 @@ class _MyHomeScreenPage extends State<MyHomeScreenPage> with SingleTickerProvide
           elevation: 0,
           bottom: TabBar(
             controller: _tabController,
+            indicator: UnderlineTabIndicator(
+                borderSide: BorderSide(width: 3.0, color: PredefinedColors.primaryColor),
+                insets: EdgeInsets.symmetric(horizontal:70.0)
+            ),
             tabs: [
-              Tab(icon: Icon(Icons.adb)),
-              Tab(icon: Icon(Icons.accessible)),
+              Tab(icon: Icon(Icons.adb), text: "Impfpass"),
+              Tab(icon: Icon(Icons.accessible), text: "Covid-19 Test"),
             ],
           ),
         ),
