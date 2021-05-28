@@ -114,7 +114,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                 child: ElevatedButton.icon(
                   onPressed: () {
                     Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => QRExample()));
+                        MaterialPageRoute(builder: (context) => MyStatisticPage()));
                   },
                   label: Text('Hinzufügen', style: new TextStyle(fontSize: 20)),
                   icon: Icon(Icons.qr_code_scanner),

@@ -34,8 +34,8 @@ dependencies:
   intl: ^0.17.0
   mailer: ^5.0.0
   qr_flutter: ^3.2.0
-  qr_code_scanner: ^0.4.0
-  twitter_qr_scanner: ^1.0.4
+#  qr_code_scanner: ^0.4.0
+#  twitter_qr_scanner: ^1.0.4
 
 
 dev_dependencies:
