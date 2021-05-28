@@ -1,3 +1,5 @@
+import 'package:digital_vac_pass/utils/util.dart';
+
 import '../homeScreen/home.dart';
 import 'register.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +15,41 @@ class MyLoginPage extends StatefulWidget {
   _MyLoginPageState createState() => _MyLoginPageState();
 }
 
+List<User> userListDb = [new User('Max Mustermann', 'max@test.de', '123', Role.Normal)
+  , new User('Moritz Musermann', 'moritz@test.de', '1234', Role.Doctor)];
+
 class _MyLoginPageState extends State<MyLoginPage> {
+
+  final myEmailTextController = TextEditingController();
+  final myPasswordController = TextEditingController();
+
+  bool checkIfUserExists(String email, String pw) {
+    if (email.isEmpty) {
+
+      return false;
+    }
+    if (pw.isEmpty) {
+
+      return false;
+    }
+    bool exists = false;
+    userListDb.forEach((element) {
+      if (!exists) {
+        if (element.userEmail.compareTo(email) == 0 && element.userPassword.compareTo(pw) == 0) {
+          exists = true;
+        }
+      }
+    });
+    return exists;
+  }
+
+  @override
+  void dispose() {
+    myEmailTextController.dispose();
+    myPasswordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     const primeColor = const Color(0xff5D5FEF);
@@ -35,7 +71,8 @@ class _MyLoginPageState extends State<MyLoginPage> {
                   style: Theme.of(context).textTheme.headline4,
                   textAlign: TextAlign.left),
               SizedBox(height: 25),
-              new TextFormField(
+              TextFormField(
+                controller: myEmailTextController,
                 autofocus: true,
                 cursorColor: textColor,
                 decoration: new InputDecoration(
@@ -73,7 +110,8 @@ class _MyLoginPageState extends State<MyLoginPage> {
                 keyboardType: TextInputType.emailAddress,
               ),
               SizedBox(height: 25),
-              new TextFormField(
+              TextFormField(
+                controller: myPasswordController,
                 cursorColor: textColor,
                 decoration: new InputDecoration(
                   labelText: "Passwort",
@@ -101,13 +139,6 @@ class _MyLoginPageState extends State<MyLoginPage> {
                   labelStyle: new TextStyle(color: textColor),
                 ),
                 obscureText: true,
-                validator: (val) {
-                  if (val.length <= 15) {
-                    return "Passwort ist zu kurz.";
-                  } else {
-                    return null;
-                  }
-                },
               ),
               SizedBox(height: 25),
               TextButton(
@@ -137,8 +168,10 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     ),
                   ),
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => MyHomeScreenPage()));
+                    if (checkIfUserExists(myEmailTextController.value.text, myPasswordController.value.text)) {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => MyHomeScreenPage(selectedTabIndex: 0)));
+                    }
                   },
                   label: Flexible(
                       child: Text('Einloggen',

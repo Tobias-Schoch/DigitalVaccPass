@@ -27,6 +27,7 @@ class MyDrawer extends StatelessWidget {
                   Text(
                     "Impfpass",
                     style: Theme.of(context).textTheme.headline5,
+                    textAlign: TextAlign.center,
                   ),
                   SizedBox(width: 10),
                   Image.asset("assets/images/vaccine.png", width: 40, height: 40),
@@ -42,6 +43,18 @@ class MyDrawer extends StatelessWidget {
             ),
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyHomeScreenPage(selectedTabIndex: 0)));
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.masks_outlined,),
+            title: Text(
+              'Testergebnisse',
+              style: Theme.of(context).textTheme.headline6,
+            ),
+            onTap: () { Navigator.of(context).pushReplacement(
+                MaterialPageRoute(
+                  builder: (context) => MyHomeScreenPage(selectedTabIndex: 1),
+                ));
             },
           ),
           ListTile(
@@ -72,18 +85,6 @@ class MyDrawer extends StatelessWidget {
             ),
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyOnboardPage()));
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.masks_outlined,),
-            title: Text(
-              'Testergebnisse',
-              style: Theme.of(context).textTheme.headline6,
-            ),
-            onTap: () { Navigator.of(context).pushReplacement(
-                MaterialPageRoute(
-                  builder: (context) => MyHomeScreenPage(selectedTabIndex: 1),
-                ));
             },
           ),
           ListTile(
@@ -126,16 +127,16 @@ class MyDrawer extends StatelessWidget {
               Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyAboutPage()));
             },
           ),
-          ListTile(
-            leading: Icon(Icons.login_rounded),
-            title: Text(
-              'Login',
-              style: Theme.of(context).textTheme.headline6,
-            ),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyLoginPage()));
-            },
-          ),
+          // ListTile(
+          //   leading: Icon(Icons.login_rounded),
+          //   title: Text(
+          //     'Login',
+          //     style: Theme.of(context).textTheme.headline6,
+          //   ),
+          //   onTap: () {
+          //     Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyLoginPage()));
+          //   },
+          // ),
           ListTile(
             leading: Icon(Icons.logout),
             title: Text(
