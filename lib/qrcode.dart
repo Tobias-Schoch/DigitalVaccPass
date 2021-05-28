@@ -23,16 +23,17 @@ class _MyQRPageState extends State<MyQRPage> {
         alignment: Alignment.topLeft,
         margin: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Text(
-              "Mein QR-Code",
-              style: Theme.of(context).textTheme.headline4, textAlign: TextAlign.start,
+            Flexible(
+                child: Text(
+                  "Mein QR-Code",
+                  style: Theme.of(context).textTheme.headline4, textAlign: TextAlign.start,
+                ),
             ),
             SizedBox(height: 25),
-            Image.asset('assets/images/qr.png', height: MediaQuery.of(context).size.width * 0.8),
-
+            Image.asset('assets/images/qr.png', fit: BoxFit.fitHeight),
           ],
         ),
       ),
