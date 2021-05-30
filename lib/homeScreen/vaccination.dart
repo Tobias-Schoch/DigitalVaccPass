@@ -1,20 +1,22 @@
-import 'package:digital_vac_pass/qrScreen/qrcode.dart';
+import 'package:digital_vac_pass/utils/customWidgets.dart';
 import 'package:digital_vac_pass/utils/util.dart';
-import 'package:faker/faker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class MyVaccinationPage extends StatefulWidget {
-  MyVaccinationPage({Key key, this.title}) : super(key: key);
+  MyVaccinationPage({Key key, this.title, this.selectedUser, this.isFloatingActionButtonVisible}) : super(key: key);
 
   final String title;
+  final User selectedUser;
+  final bool isFloatingActionButtonVisible;
 
   @override
   State<StatefulWidget> createState() => _MyVaccinationPage();
 }
 
 class _MyVaccinationPage extends State<MyVaccinationPage> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,103 +24,86 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
         alignment: Alignment.topLeft,
         margin: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text("Impfpass",
+            Text(widget.selectedUser.userName,
                 style: Theme.of(context).textTheme.headline4,
-                textAlign: TextAlign.left),
-            SizedBox(height: 25),
+                textAlign: TextAlign.center),
             Expanded(
               child: ListView.builder(
-                itemCount: vaccinationListDb.length,
+                itemCount: widget.selectedUser.vaccinations.length,
                 itemBuilder: (context, index) {
                   return InkWell(
-                    onTap: () {
-                      print(index);
-                    },
-                    child: Column(
-                      children: [
-                        Card(
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Column(
-                                  children: <Widget>[
-                                    ListTile(
-                                      title: Column(
-                                          crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                          children: [
-                                            SizedBox(height: 18),
-                                            Text(
-                                                vaccinationListDb
-                                                    .elementAt(index)
-                                                    .vaccinationName,
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .bodyText1),
-                                          ]),
-                                      subtitle: Column(
-                                        crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                        children: [
-                                          SizedBox(height: 10),
-                                          Text('Datum: ' +
-                                              DateFormat('dd.MM.yyyy').format(
-                                                  vaccinationListDb
+                      onTap: () {
+                        print(index);
+                      },
+                      child: Column(
+                        children: [
+                          Card(
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: Column(
+                                    children: <Widget>[
+                                      ListTile(
+                                        title: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              SizedBox(height: 18),
+                                              Text(
+                                                  widget
+                                                      .selectedUser.vaccinations
                                                       .elementAt(index)
-                                                      .vaccinationDate)),
-                                          SizedBox(height: 8),
-                                          Text('ChargeNr: ' +
-                                              vaccinationListDb
-                                                  .elementAt(index)
-                                                  .chargeNr),
-                                          SizedBox(height: 8),
-                                          Text('Arzt: ' +
-                                              vaccinationListDb
-                                                  .elementAt(index)
-                                                  .doctorSignature),
-                                          SizedBox(height: 18),
-                                        ],
+                                                      .vaccinationName,
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .bodyText1),
+                                            ]),
+                                        subtitle: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            SizedBox(height: 10),
+                                            Text('Datum: ' +
+                                                DateFormat('dd.MM.yyyy').format(
+                                                    widget.selectedUser
+                                                        .vaccinations
+                                                        .elementAt(index)
+                                                        .vaccinationDate)),
+                                            SizedBox(height: 8),
+                                            Text('ChargeNr: ' +
+                                                widget.selectedUser.vaccinations
+                                                    .elementAt(index)
+                                                    .chargeNr),
+                                            SizedBox(height: 8),
+                                            Text('Arzt: ' +
+                                                widget.selectedUser.vaccinations
+                                                    .elementAt(index)
+                                                    .doctorSignature),
+                                            SizedBox(height: 18),
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 20),
-                      ],
-                    )
-                  );
+                          SizedBox(height: 20),
+                        ],
+                      ));
                 },
               ),
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => MyQRPage()));
-        },
-        child: const Icon(Icons.qr_code),
-        backgroundColor: Theme.of(context).accentColor,
-      ),
+      floatingActionButton: myVisibleFloatingActionButton(context, widget.isFloatingActionButtonVisible),
     );
   }
 }
-
-List<Vaccination> vaccinationListDb = List<Vaccination>.generate(20, (int i) {
-  return Vaccination(
-      faker.food.dish(),
-      faker.randomGenerator.decimal().toString(),
-      faker.date.dateTime(),
-      faker.person.name(),
-      faker.lorem.sentence());
-
-});
 
 //FOR GOLDEN TESTS
 // String strDt = "2021-05-28";

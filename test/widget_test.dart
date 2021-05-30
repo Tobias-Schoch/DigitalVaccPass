@@ -7,14 +7,14 @@
 
 import 'package:digital_vac_pass/about.dart';
 import 'package:digital_vac_pass/addvaccination.dart';
-import 'package:digital_vac_pass/appBar.dart';
-import 'package:digital_vac_pass/drawer.dart';
-import 'package:digital_vac_pass/family.dart';
+import 'package:digital_vac_pass/familyScreen/family.dart';
+import 'package:digital_vac_pass/utils/appBar.dart';
+import 'package:digital_vac_pass/utils/drawer.dart';
 import 'package:digital_vac_pass/faq.dart';
 import 'package:digital_vac_pass/loginScreen/login.dart';
 import 'package:digital_vac_pass/onboard.dart';
 import 'package:digital_vac_pass/qrScreen/qrcode.dart';
-import 'package:digital_vac_pass/statistics.dart';
+import 'package:digital_vac_pass/statisticScreen/statistics.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
 
 import '../lib/homeScreen/testresult.dart';

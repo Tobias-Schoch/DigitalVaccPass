@@ -1,15 +1,14 @@
+import 'package:digital_vac_pass/familyScreen/family.dart';
 import 'package:digital_vac_pass/qrScreen/qrcode.dart';
 import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'about.dart';
-import 'addvaccination.dart';
-import 'family.dart';
-import 'faq.dart';
-import 'homeScreen/home.dart';
-import 'main.dart';
-import 'statistics.dart';
-import 'onboard.dart';
+import '../about.dart';
+import '../addvaccination.dart';
+import '../faq.dart';
+import '../homeScreen/home.dart';
+import '../main.dart';
+import '../statisticScreen/statistics.dart';
 
 class MyDrawer extends StatelessWidget {
 

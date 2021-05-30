@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../appBar.dart';
+import '../utils/appBar.dart';
 import 'login.dart';
 
 class MyForgotPasswordPage extends StatefulWidget {

@@ -1,11 +1,10 @@
-import 'package:digital_vac_pass/statistics.dart';
+import 'package:digital_vac_pass/statisticScreen/statistics.dart';
 import 'package:digital_vac_pass/utils/util.dart';
 
 import '../homeScreen/home.dart';
 import 'register.dart';
-import '../drawer.dart';
 import 'package:flutter/material.dart';
-import '../appBar.dart';
+import '../utils/appBar.dart';
 import 'forgotpassword.dart';
 
 class MyLoginPage extends StatefulWidget {

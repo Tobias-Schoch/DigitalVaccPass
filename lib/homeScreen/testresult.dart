@@ -1,14 +1,15 @@
+import 'package:digital_vac_pass/utils/customWidgets.dart';
 import 'package:digital_vac_pass/utils/util.dart';
-import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import '../drawer.dart';
-import '../qrScreen/qrcode.dart';
+import '../utils/drawer.dart';
 
 class MyTestPage extends StatefulWidget {
-  MyTestPage({Key key, this.title}) : super(key: key);
+  MyTestPage({Key key, this.title, this.selectedUser, this.isFloatingActionButtonVisible}) : super(key: key);
 
   final String title;
+  final User selectedUser;
+  final bool isFloatingActionButtonVisible;
 
   @override
   _MyTestPageState createState() => _MyTestPageState();
@@ -22,100 +23,100 @@ class _MyTestPageState extends State<MyTestPage> {
         alignment: Alignment.topLeft,
         margin: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text("Testergebnisse",
-            style: Theme.of(context).textTheme.headline4,
-          textAlign: TextAlign.left),
-            SizedBox(height: 25),
+            Text(widget.selectedUser.userName,
+                style: Theme.of(context).textTheme.headline4,
+                textAlign: TextAlign.center),
             Expanded(
-                child: ListView.builder(
-                    itemCount: testsListDb.length,
-                    itemBuilder: (context, index) {
-                      return Column(
-                        children: [
-                          Card(
-                            color: testsListDb
-                                .elementAt(index)
-                                .testStatus == Status.Pending
-                                ? PredefinedColors.lightOrange
-                                : testsListDb.elementAt(index).testStatus == Status.Good
-                                ? PredefinedColors.lightGreen : PredefinedColors.lightRed,
-                            child: Row(
-                              children: [
-                                Expanded(
-                                    child: Column(
-                                      children: <Widget>[
-                                        ListTile(
-                                          title: Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-                                              SizedBox(height: 18),
-                                              Text(
-                                                testsListDb.elementAt(index).testName,
-                                                style: Theme.of(context).textTheme.bodyText1,
-                                              ),
-                                            ],
+              child: ListView.builder(
+                  itemCount: widget.selectedUser.tests.length,
+                  itemBuilder: (context, index) {
+                    return Column(
+                      children: [
+                        Card(
+                          color: widget.selectedUser.tests
+                                      .elementAt(index)
+                                      .testStatus ==
+                                  Status.Pending
+                              ? PredefinedColors.lightOrange
+                              : widget.selectedUser.tests
+                                          .elementAt(index)
+                                          .testStatus ==
+                                      Status.Good
+                                  ? PredefinedColors.lightGreen
+                                  : PredefinedColors.lightRed,
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: Column(
+                                  children: <Widget>[
+                                    ListTile(
+                                      title: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          SizedBox(height: 18),
+                                          Text(
+                                            widget.selectedUser.tests
+                                                .elementAt(index)
+                                                .testName,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodyText1,
                                           ),
-                                          subtitle: Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-                                              SizedBox(height: 10),
-                                              Text('Datum.: ' +
-                                                  DateFormat('dd.MM.yyyy').format(
-                                                      testsListDb
-                                                          .elementAt(index)
-                                                          .testDate)),
-                                              SizedBox(height: 8),
-                                              Text('Test-ID: ' +
-                                                  testsListDb
+                                        ],
+                                      ),
+                                      subtitle: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          SizedBox(height: 10),
+                                          Text('Datum.: ' +
+                                              DateFormat('dd.MM.yyyy').format(
+                                                  widget.selectedUser.tests
                                                       .elementAt(index)
-                                                      .testId),
-                                              SizedBox(height: 8),
-                                              Text(testsListDb
-                                                      .elementAt(index)
-                                                      .testStatus.toString().substring(testsListDb
+                                                      .testDate)),
+                                          SizedBox(height: 8),
+                                          Text('Test-ID: ' +
+                                              widget.selectedUser.tests
                                                   .elementAt(index)
-                                                  .testStatus.toString().indexOf('.') + 1)),
-                                              SizedBox(height: 18),
-                                            ],
-                                          ),
-                                        )
-                                      ],
-                                    ),
+                                                  .testId),
+                                          SizedBox(height: 8),
+                                          Text(widget.selectedUser.tests
+                                              .elementAt(index)
+                                              .testStatus
+                                              .toString()
+                                              .substring(widget
+                                                      .selectedUser.tests
+                                                      .elementAt(index)
+                                                      .testStatus
+                                                      .toString()
+                                                      .indexOf('.') +
+                                                  1)),
+                                          SizedBox(height: 18),
+                                        ],
+                                      ),
+                                    )
+                                  ],
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-                          SizedBox(height: 20),
-                        ],
-                      );
-                    }),
+                        ),
+                        SizedBox(height: 20),
+                      ],
+                    );
+                  }),
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.qr_code),
-        backgroundColor: Theme.of(context).accentColor,
-        onPressed: () {
-          Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => MyQRPage()));
-        },
-      ),
+      floatingActionButton: myVisibleFloatingActionButton(context, widget.isFloatingActionButtonVisible),
       drawer: MyDrawer(),
     );
   }
 }
-
-List<Test> testsListDb = List<Test>.generate(20, (int i) {
-  return Test(
-      faker.lorem.word(),
-      faker.randomGenerator.decimal().toString(),
-      faker.date.dateTime(),
-      faker.randomGenerator.element(Status.values),
-      faker.lorem.sentence());
-});
 
 //FOR GOLDEN TESTS
 // String strDt = "2021-05-28";

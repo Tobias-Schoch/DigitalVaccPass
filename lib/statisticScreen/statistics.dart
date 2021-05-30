@@ -1,8 +1,8 @@
 import 'package:digital_vac_pass/addvaccination.dart';
 import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/material.dart';
-import 'appBar.dart';
-import 'drawer.dart';
+import '../utils/appBar.dart';
+import '../utils/drawer.dart';
 
 class MyStatisticPage extends StatefulWidget {
   MyStatisticPage({Key key, this.title}) : super(key: key);

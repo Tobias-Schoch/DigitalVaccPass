@@ -4,8 +4,8 @@ import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../appBar.dart';
-import '../drawer.dart';
+import '../utils/appBar.dart';
+import '../utils/drawer.dart';
 
 class MyHomeScreenPage extends StatefulWidget {
 
@@ -62,8 +62,8 @@ class _MyHomeScreenPage extends State<MyHomeScreenPage> with SingleTickerProvide
         body: TabBarView(
           controller: _tabController,
           children: [
-          MyVaccinationPage(),
-          MyTestPage(),
+          MyVaccinationPage(selectedUser: User.loggedInUser, isFloatingActionButtonVisible: true),
+          MyTestPage(selectedUser: User.loggedInUser, isFloatingActionButtonVisible: true),
           ],
         ),
         drawer: MyDrawer(isVisible: User.loggedInUser.userRole == Role.Doctor ? true : false),

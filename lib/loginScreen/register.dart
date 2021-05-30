@@ -1,7 +1,7 @@
 import 'package:digital_vac_pass/loginScreen/login.dart';
 import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/material.dart';
-import '../appBar.dart';
+import '../utils/appBar.dart';
 
 class MyRegisterPage extends StatefulWidget {
   MyRegisterPage({Key key, this.title}) : super(key: key);

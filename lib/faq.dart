@@ -1,7 +1,7 @@
 import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/material.dart';
-import 'appBar.dart';
-import 'drawer.dart';
+import 'utils/appBar.dart';
+import 'utils/drawer.dart';
 
 class MyFaqPage extends StatefulWidget {
   MyFaqPage({Key key, this.title}) : super(key: key);

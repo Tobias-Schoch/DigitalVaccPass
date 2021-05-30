@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:faker/faker.dart';
+
 class Vaccination {
   String vaccinationName;
   String chargeNr;
@@ -33,10 +35,15 @@ class User {
   String userEmail;
   String userPassword;
   Role userRole;
+  List<Vaccination> vaccinations;
+  List<Test> tests;
 
   static User loggedInUser;
 
   User(this.userName, this.userEmail, this.userPassword, this.userRole);
+
+  User.withData(this.userName, this.userEmail, this.userPassword, this.userRole, this.vaccinations, this.tests);
+
 }
 
 class PredefinedColors {
@@ -54,11 +61,36 @@ class LastUser {
 
 class TestData {
   static List<User> userListDb = [
-    new User('Max Mustermann', 'max@test.de', '123', Role.Normal),
-    new User('Moritz Mustermann', 'moritz@test.de', '1234', Role.Doctor),
-    new User('T', 't', '1', Role.Normal),
-    new User('a', 'a', 'a', Role.Doctor)
+    new User.withData('t', 't', 't', Role.Normal, generateVaccList(20), generateTestsList(10)),
+    new User.withData('a', 'a', 'a', Role.Doctor, generateVaccList(20), generateTestsList(10))
   ];
+
+  static List<User> familyUserDb = List<User>.generate(5, (int i) {
+    return User.withData(faker.person.name(), faker.lorem.sentence(), faker.lorem.word(),
+        Role.Normal, TestData.generateVaccList(10), TestData.generateTestsList(5));
+  });
+
+  static List<Vaccination> generateVaccList(int size) {
+    return List<Vaccination>.generate(size, (int i) {
+      return Vaccination(
+          faker.food.dish(),
+          faker.randomGenerator.decimal().toString(),
+          faker.date.dateTime(),
+          faker.person.name(),
+          faker.lorem.sentence());
+    });
+  }
+
+  static List<Test> generateTestsList(int size) {
+    return List<Test>.generate(size, (int i) {
+      return Test(
+          faker.lorem.word(),
+          faker.randomGenerator.decimal().toString(),
+          faker.date.dateTime(),
+          faker.randomGenerator.element(Status.values),
+          faker.lorem.sentence());
+    });
+  }
 
   static User getMatchingUser(String email, String pw) {
     User matchingUser;
