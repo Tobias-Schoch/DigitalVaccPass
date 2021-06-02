@@ -23,11 +23,12 @@ class _MyTestPageState extends State<MyTestPage> {
         alignment: Alignment.topLeft,
         margin: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(widget.selectedUser.userName,
                 style: Theme.of(context).textTheme.headline4,
                 textAlign: TextAlign.center),
+            SizedBox(height: 25),
             Expanded(
               child: ListView.builder(
                   itemCount: widget.selectedUser.tests.length,

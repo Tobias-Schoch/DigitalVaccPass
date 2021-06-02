@@ -25,6 +25,7 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
         alignment: Alignment.topLeft,
         margin: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text("Familienübersicht",
                 style: Theme.of(context).textTheme.headline4,
@@ -42,6 +43,7 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
                               Expanded(
                                 child: Column(
                                   children: <Widget>[
+                                    SizedBox(height: 18),
                                     InkWell(
                                       child: ListTile(
                                         title: Text(
@@ -50,16 +52,13 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
                                               .textTheme
                                               .bodyText1,
                                         ),
-                                        leading: Icon(
-                                          Icons.person,
-                                          size: 50,
-                                        ),
                                       ),
                                       onTap: () {
                                         Navigator.of(context).push(MaterialPageRoute(
                                             builder: (context) => MyFamilyHomeScreenPage(title: TestData.familyUserDb.elementAt(index).userName, selectedUser: TestData.familyUserDb.elementAt(index))));
                                       },
                                     ),
+                                    SizedBox(height: 18),
                                   ],
                                 ),
                               ),
