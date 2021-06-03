@@ -81,7 +81,7 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
         backgroundColor: Theme.of(context).accentColor,
       ),
       drawer: MyDrawer(
-          isVisible: User.loggedInUser.userRole == Role.Doctor ? true : false),
+          isVisible: User.loggedInUser == null ? false : User.loggedInUser.userRole == Role.Doctor ? true : false),
     );
   }
 }

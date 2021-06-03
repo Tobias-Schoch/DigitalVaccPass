@@ -114,13 +114,6 @@ class _MyTestPageState extends State<MyTestPage> {
         ),
       ),
       floatingActionButton: myVisibleFloatingActionButton(context, widget.isFloatingActionButtonVisible),
-      drawer: MyDrawer(),
     );
   }
 }
-
-//FOR GOLDEN TESTS
-// String strDt = "2021-05-28";
-// List<Test> testsListDb = [new Test("testName", "testId", DateTime.parse(strDt), Status.Pending, "testDescription")
-//   , new Test("testName2", "testId2", DateTime.parse(strDt), Status.Good, "testDescription2")
-//   , new Test("testName3", "testId3", DateTime.parse(strDt), Status.Bad, "testDescription3"),];

@@ -54,15 +54,17 @@ class _MyQRPageState extends State<MyQRPage> {
                 ),
             ),
             SizedBox(height: 25),
-            QrImage(
-              data: qrData(LastUser.lastUser),
-              version: QrVersions.auto,
-              size: 200,
+            Flexible(
+                child: QrImage(
+                  data: qrData(LastUser.lastUser),
+                  version: QrVersions.auto,
+                  size: 200,
+                ),
             ),
           ],
         ),
       ),
-      drawer: MyDrawer(isVisible: User.loggedInUser.userRole == Role.Doctor ? true : false),
+      drawer: MyDrawer(isVisible: User.loggedInUser == null ? false : User.loggedInUser.userRole == Role.Doctor ? true : false),
     );
   }
 }

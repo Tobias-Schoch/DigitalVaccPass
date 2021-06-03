@@ -62,7 +62,7 @@ class _MyAboutPageState extends State<MyAboutPage> {
           ),
         ),
       ),
-      drawer: MyDrawer(isVisible: User.loggedInUser.userRole == Role.Doctor ? true : false),
+      drawer: MyDrawer(isVisible: User.loggedInUser == null ? false : User.loggedInUser.userRole == Role.Doctor ? true : false),
     );
   }
 }

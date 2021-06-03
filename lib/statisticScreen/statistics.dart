@@ -156,7 +156,7 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
         child: const Icon(Icons.qr_code_scanner),
         backgroundColor: Theme.of(context).accentColor,
       ),
-      drawer: MyDrawer(isVisible: User.loggedInUser.userRole == Role.Doctor ? true : false),
+      drawer: MyDrawer(isVisible: User.loggedInUser == null ? false : User.loggedInUser.userRole == Role.Doctor ? true : false),
     );
   }
 }

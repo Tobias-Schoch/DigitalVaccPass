@@ -61,14 +61,23 @@ class LastUser {
 
 class TestData {
   static List<User> userListDb = [
-    new User.withData('t', 't', 't', Role.Normal, generateVaccList(20), generateTestsList(10)),
-    new User.withData('a', 'a', 'a', Role.Doctor, generateVaccList(20), generateTestsList(10))
+    new User.withData('t', 't', 't', Role.Normal, vaccinationListDb, testsListDb),
+    new User.withData('a', 'a', 'a', Role.Doctor, vaccinationListDb, testsListDb)
   ];
 
   static List<User> familyUserDb = List<User>.generate(5, (int i) {
     return User.withData(faker.person.name(), faker.lorem.sentence(), faker.lorem.word(),
-        Role.Normal, TestData.generateVaccList(10), TestData.generateTestsList(5));
+        Role.Normal, vaccinationListDb, testsListDb);
   });
+
+  static String strDt = "2021-05-28";
+  static List<Vaccination> vaccinationListDb = [new Vaccination("covid", "0001", DateTime.parse(strDt), "kekDoctor", "beschreibung"),
+    new Vaccination("covid2", "0002", DateTime.parse(strDt), "kekDoctor2", "beschreibung2"),
+    new Vaccination("covid3", "0003", DateTime.parse(strDt), "kekDoctor3", "beschreibung3")];
+
+  static List<Test> testsListDb = [new Test("testName", "testId", DateTime.parse(strDt), Status.Pending, "testDescription")
+  , new Test("testName2", "testId2", DateTime.parse(strDt), Status.Good, "testDescription2")
+  , new Test("testName3", "testId3", DateTime.parse(strDt), Status.Bad, "testDescription3")];
 
   static List<Vaccination> generateVaccList(int size) {
     return List<Vaccination>.generate(size, (int i) {

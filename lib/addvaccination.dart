@@ -128,7 +128,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
           ),
         ),
       ),
-      drawer: MyDrawer(isVisible: User.loggedInUser.userRole == Role.Doctor ? true : false),
+      drawer: MyDrawer(isVisible: true),
     );
   }
 }
