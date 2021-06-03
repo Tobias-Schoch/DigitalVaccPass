@@ -55,11 +55,23 @@ class _MyQRPageState extends State<MyQRPage> {
             ),
             SizedBox(height: 25),
             Flexible(
-                child: QrImage(
-                  data: qrData(LastUser.lastUser),
-                  version: QrVersions.auto,
-                  size: 200,
-                ),
+              child: Row(
+                children: [
+                  Visibility(
+                    visible: User.loggedInUser == null ? false : true,
+                    child: QrImage(
+                      data: qrData(LastUser.lastUser),
+                      version: QrVersions.auto,
+                      size: 200,
+                    ),
+                  ),
+                  Visibility(
+                    visible: User.loggedInUser == null ? true : false,
+                    child: Image.asset("assets/images/qr.png",
+                        width: 200),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
