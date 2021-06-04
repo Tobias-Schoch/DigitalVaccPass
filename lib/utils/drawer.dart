@@ -177,17 +177,6 @@ class MyDrawer extends StatelessWidget {
                   .push(MaterialPageRoute(builder: (context) => MyApp()));
             },
           ),
-          ListTile(
-            leading: Icon(Icons.logout),
-            title: Text(
-              'QR Scanner',
-              style: Theme.of(context).textTheme.headline6,
-            ),
-            onTap: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => QRViewExample()));
-            },
-          ),
         ],
       ),
     );

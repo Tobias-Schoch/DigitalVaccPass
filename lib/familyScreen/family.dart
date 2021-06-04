@@ -1,3 +1,4 @@
+import 'package:digital_vac_pass/qrScreen/qrScanner.dart';
 import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/material.dart';
 import '../utils/appBar.dart';
@@ -75,7 +76,8 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          //TODO open QR-Scanner
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => QRViewExample()));
         },
         child: const Icon(Icons.add),
         backgroundColor: Theme.of(context).accentColor,

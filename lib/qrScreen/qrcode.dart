@@ -20,7 +20,6 @@ class _MyQRPageState extends State<MyQRPage> {
     TestData.userListDb.forEach((element) {
       if (element.userEmail.compareTo(email) == 0) {
         qrData = element.userEmail;
-        qrData += element.userName;
       }
     });
     return qrData;
