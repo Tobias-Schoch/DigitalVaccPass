@@ -3,13 +3,13 @@ import 'package:digital_vac_pass/qrScreen/qrcode.dart';
 import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../about.dart';
-import '../addvaccination.dart';
-import '../faq.dart';
-import '../qrScreen/qrScanner.dart';
-import '../homeScreen/home.dart';
-import '../main.dart';
-import '../statisticScreen/statistics.dart';
+import 'package:digital_vac_pass/aboutScreen/about.dart';
+import 'package:digital_vac_pass/doctorScreen/addvaccination.dart';
+import 'package:digital_vac_pass/aboutScreen/faq.dart';
+import 'package:digital_vac_pass/qrScreen/qrScanner.dart';
+import 'package:digital_vac_pass/homeScreen/home.dart';
+import 'package:digital_vac_pass/main.dart';
+import 'package:digital_vac_pass/doctorScreen/statistics.dart';
 
 class MyDrawer extends StatelessWidget {
 

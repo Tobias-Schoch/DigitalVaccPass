@@ -1,4 +1,4 @@
-import 'package:digital_vac_pass/addvaccination.dart';
+import 'package:digital_vac_pass/doctorScreen/addvaccination.dart';
 import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/material.dart';
 import '../utils/appBar.dart';
