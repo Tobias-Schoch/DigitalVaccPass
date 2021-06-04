@@ -16,8 +16,6 @@ class MyVaccinationAddPage extends StatefulWidget {
 }
 
 class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
-  var now = new DateTime.now();
-  var formatter = new DateFormat('dd.MM.yyyy');
   DateTime _selectedDate;
   TextEditingController _textEditingController = TextEditingController();
 
@@ -48,16 +46,20 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                   fillColor: Theme.of(context).accentColor,
                   border: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(color: Theme.of(context).accentColor, width: 3.0),
+                    borderSide: new BorderSide(
+                        color: Theme.of(context).accentColor, width: 3.0),
                   ),
                   enabledBorder: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(color: Theme.of(context).primaryColorLight, width: 3.0),
+                    borderSide: new BorderSide(
+                        color: Theme.of(context).primaryColorLight, width: 3.0),
                   ),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12.0),
-                      borderSide: BorderSide(color: Theme.of(context).accentColor, width: 3.0)),
-                  labelStyle: new TextStyle(color: Theme.of(context).primaryColorLight),
+                      borderSide: BorderSide(
+                          color: Theme.of(context).accentColor, width: 3.0)),
+                  labelStyle:
+                      new TextStyle(color: Theme.of(context).primaryColorLight),
                 ),
                 validator: (val) {
                   if (val.length == 0) {
@@ -75,16 +77,20 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                   fillColor: Theme.of(context).accentColor,
                   border: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(color: Theme.of(context).accentColor, width: 3.0),
+                    borderSide: new BorderSide(
+                        color: Theme.of(context).accentColor, width: 3.0),
                   ),
                   enabledBorder: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(color: Theme.of(context).primaryColorLight, width: 3.0),
+                    borderSide: new BorderSide(
+                        color: Theme.of(context).primaryColorLight, width: 3.0),
                   ),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12.0),
-                      borderSide: BorderSide(color: Theme.of(context).accentColor, width: 3.0)),
-                  labelStyle: new TextStyle(color: Theme.of(context).primaryColorLight),
+                      borderSide: BorderSide(
+                          color: Theme.of(context).accentColor, width: 3.0)),
+                  labelStyle:
+                      new TextStyle(color: Theme.of(context).primaryColorLight),
                 ),
               ),
               SizedBox(height: 25),
@@ -100,16 +106,20 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                   fillColor: Theme.of(context).accentColor,
                   border: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(color: Theme.of(context).accentColor, width: 3.0),
+                    borderSide: new BorderSide(
+                        color: Theme.of(context).accentColor, width: 3.0),
                   ),
                   enabledBorder: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(color: Theme.of(context).primaryColorLight, width: 3.0),
+                    borderSide: new BorderSide(
+                        color: Theme.of(context).primaryColorLight, width: 3.0),
                   ),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12.0),
-                      borderSide: BorderSide(color: Theme.of(context).accentColor, width: 3.0)),
-                  labelStyle: new TextStyle(color: Theme.of(context).primaryColorLight),
+                      borderSide: BorderSide(
+                          color: Theme.of(context).accentColor, width: 3.0)),
+                  labelStyle:
+                      new TextStyle(color: Theme.of(context).primaryColorLight),
                 ),
                 validator: (val) {
                   if (val.length == 0) {
@@ -124,8 +134,8 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                 constraints: BoxConstraints.tightFor(height: 60),
                 child: ElevatedButton.icon(
                   onPressed: () {
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) => QRViewExample()));
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => QRViewExample()));
                   },
                   label: Text('Hinzufügen', style: new TextStyle(fontSize: 20)),
                   icon: Icon(Icons.qr_code_scanner),
@@ -138,11 +148,12 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
       drawer: MyDrawer(isVisible: true),
     );
   }
+
   _selectDate(BuildContext context) async {
     DateTime newSelectedDate = await showDatePicker(
         context: context,
-        locale : const Locale("de","DE"),
-        initialDate: _selectedDate != null ? _selectedDate : DateTime.now(),
+        locale: const Locale("de", "DE"),
+        initialDate: DateTime.now(),
         firstDate: DateTime(2000),
         lastDate: DateTime.now(),
         builder: (BuildContext context, Widget child) {
