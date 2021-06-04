@@ -1,3 +1,4 @@
+import 'package:digital_vac_pass/utils/sendMail.dart';
 import 'package:flutter/material.dart';
 import 'package:digital_vac_pass/doctorScreen/statistics.dart';
 import 'package:digital_vac_pass/utils/util.dart';
