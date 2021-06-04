@@ -15,6 +15,7 @@ import 'package:digital_vac_pass/loginScreen/login.dart';
 import 'package:digital_vac_pass/onboard.dart';
 import 'package:digital_vac_pass/qrScreen/qrcode.dart';
 import 'package:digital_vac_pass/statisticScreen/statistics.dart';
+import 'package:digital_vac_pass/utils/util.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
 
 import '../lib/homeScreen/testresult.dart';
@@ -86,8 +87,12 @@ void main() {
         devices: devicesWithDifferentTextScales,
       )
       ..addScenario(
-          widget: MyVaccinationPage(),
+          widget: MyVaccinationPage(selectedUser: TestData.userListDb.first, isFloatingActionButtonVisible: true),
           name: 'vaccination page'
+      )
+      ..addScenario(
+          widget: MyVaccinationPage(selectedUser: TestData.userListDb.first, isFloatingActionButtonVisible: false),
+          name: 'vaccination page without action button'
       );
     await tester.pumpDeviceBuilder(builder);
     await screenMatchesGolden(tester, 'vaccinationScreen');
@@ -99,8 +104,12 @@ void main() {
         devices: devicesWithDifferentTextScales,
       )
       ..addScenario(
-          widget: MyTestPage(),
+          widget: MyTestPage(selectedUser: TestData.userListDb.first, isFloatingActionButtonVisible: true),
           name: 'tests page'
+      )
+      ..addScenario(
+          widget: MyTestPage(selectedUser: TestData.userListDb.first, isFloatingActionButtonVisible: false),
+          name: 'tests without action button page'
       );
     await tester.pumpDeviceBuilder(builder);
     await screenMatchesGolden(tester, 'testsScreen');

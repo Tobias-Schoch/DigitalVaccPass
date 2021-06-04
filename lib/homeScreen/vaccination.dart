@@ -35,9 +35,6 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
                 itemCount: widget.selectedUser.vaccinations.length,
                 itemBuilder: (context, index) {
                   return InkWell(
-                      onTap: () {
-                        print(index);
-                      },
                       child: Column(
                         children: [
                           Card(

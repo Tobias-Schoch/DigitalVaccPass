@@ -23,7 +23,7 @@ class _MyQRPageState extends State<MyQRPage> {
         qrData += element.userName;
       }
     });
-    print(qrData);
+    // print(qrData);
     return qrData;
   }
 

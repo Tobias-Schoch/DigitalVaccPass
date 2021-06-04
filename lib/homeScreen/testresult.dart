@@ -7,7 +7,7 @@ class MyTestPage extends StatefulWidget {
   MyTestPage({Key key, this.title, this.selectedUser, this.isFloatingActionButtonVisible}) : super(key: key);
 
   final String title;
-  User selectedUser;
+  final User selectedUser;
   final bool isFloatingActionButtonVisible;
 
   @override
@@ -15,14 +15,6 @@ class MyTestPage extends StatefulWidget {
 }
 
 class _MyTestPageState extends State<MyTestPage> {
-
-  @override
-  void initState() {
-    if (widget.selectedUser == null) {
-      widget.selectedUser = TestData.userListDb.first;
-    }
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
