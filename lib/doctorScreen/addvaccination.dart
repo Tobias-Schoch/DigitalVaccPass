@@ -1,7 +1,7 @@
 import 'package:digital_vac_pass/statisticScreen/statistics.dart';
 import 'package:flutter/material.dart';
-import 'utils/appBar.dart';
-import 'utils/drawer.dart';
+import '../utils/appBar.dart';
+import '../utils/drawer.dart';
 import 'package:intl/intl.dart';
 
 class MyVaccinationAddPage extends StatefulWidget {

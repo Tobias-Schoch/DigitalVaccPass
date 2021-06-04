@@ -1,7 +1,7 @@
 import 'package:digital_vac_pass/main.dart';
 import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/material.dart';
-import 'utils/drawer.dart';
+import '../utils/drawer.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_onboard/flutter_onboard.dart';
 
