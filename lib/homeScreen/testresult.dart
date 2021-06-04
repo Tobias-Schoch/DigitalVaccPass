@@ -2,13 +2,12 @@ import 'package:digital_vac_pass/utils/customWidgets.dart';
 import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import '../utils/drawer.dart';
 
 class MyTestPage extends StatefulWidget {
   MyTestPage({Key key, this.title, this.selectedUser, this.isFloatingActionButtonVisible}) : super(key: key);
 
   final String title;
-  final User selectedUser;
+  User selectedUser;
   final bool isFloatingActionButtonVisible;
 
   @override
@@ -16,6 +15,15 @@ class MyTestPage extends StatefulWidget {
 }
 
 class _MyTestPageState extends State<MyTestPage> {
+
+  @override
+  void initState() {
+    if (widget.selectedUser == null) {
+      widget.selectedUser = TestData.userListDb.first;
+    }
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
