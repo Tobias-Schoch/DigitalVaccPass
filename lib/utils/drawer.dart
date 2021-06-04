@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import '../about.dart';
 import '../addvaccination.dart';
 import '../faq.dart';
+import '../qrScreen/qrScanner.dart';
 import '../homeScreen/home.dart';
 import '../main.dart';
 import '../statisticScreen/statistics.dart';
@@ -174,6 +175,17 @@ class MyDrawer extends StatelessWidget {
             onTap: () {
               Navigator.of(context)
                   .push(MaterialPageRoute(builder: (context) => MyApp()));
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.logout),
+            title: Text(
+              'QR Scanner',
+              style: Theme.of(context).textTheme.headline6,
+            ),
+            onTap: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => QRViewExample()));
             },
           ),
         ],
