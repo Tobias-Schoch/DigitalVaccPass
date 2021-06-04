@@ -2,9 +2,11 @@ import 'dart:io';
 
 import 'package:digital_vac_pass/utils/appBar.dart';
 import 'package:digital_vac_pass/utils/util.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:digital_vac_pass/statisticScreen/statistics.dart';
+
+import '../main.dart';
 
 class QRViewExample extends StatefulWidget {
   @override
@@ -61,7 +63,7 @@ class _QRViewExampleState extends State<QRViewExample> {
           borderColor: PredefinedColors.primaryColor,
           borderRadius: 10,
           borderLength: 30,
-          borderWidth: 10,
+          borderWidth: 15,
           cutOutSize: scanArea),
     );
   }
@@ -73,6 +75,23 @@ class _QRViewExampleState extends State<QRViewExample> {
     controller.scannedDataStream.listen((scanData) {
       setState(() {
         result = scanData;
+        if (result != null) {
+          Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyStatisticPage()));
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              behavior: SnackBarBehavior.floating,
+              width: 320,
+              duration: const Duration(milliseconds: 3000),
+              content: Container(
+                  height: 20,
+                  child: Center(
+                    child: Text(
+                      'Impfung hinzugefügt.', textAlign: TextAlign.center,),
+                  )
+              ),
+            ),
+          );
+        }
       });
     });
   }
