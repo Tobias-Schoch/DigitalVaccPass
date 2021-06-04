@@ -61,8 +61,8 @@ class LastUser {
 
 class TestData {
   static List<User> userListDb = [
-    new User.withData('t', 't', 't', Role.Normal, vaccinationListDb, testsListDb),
-    new User.withData('a', 'a', 'a', Role.Doctor, vaccinationListDb, testsListDb)
+    new User.withData('Luis Nothvogel', 't', 't', Role.Normal, vaccinationListDb, testsListDb),
+    new User.withData('Dr. Anna Mayer', 'a', 'a', Role.Doctor, vaccinationListDb, testsListDb)
   ];
 
   static List<User> familyUserDb = List<User>.generate(5, (int i) {

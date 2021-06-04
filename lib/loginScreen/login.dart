@@ -68,7 +68,6 @@ class _MyLoginPageState extends State<MyLoginPage> {
                 SizedBox(height: 25),
                 TextFormField(
                   controller: myEmailTextController,
-                  autofocus: true,
                   cursorColor: Theme.of(context).primaryColorLight,
                   decoration: new InputDecoration(
                     labelText: "E-Mail",
