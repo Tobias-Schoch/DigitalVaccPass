@@ -2,6 +2,7 @@ import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/material.dart';
 import 'loginScreen/login.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,6 +17,15 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitDown,
     ]);
     return MaterialApp(
+
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate
+      ],
+      supportedLocales: [
+        const Locale('en'),
+        const Locale('de')
+      ],
+
       title: 'Impfpass',
       theme: ThemeData(
         fontFamily: "Inter",
@@ -80,6 +90,7 @@ class MyApp extends StatelessWidget {
         ),
         hoverColor: Colors.transparent,
       ),
+
       home: MyHomePage(title: 'Impfpass'),
     );
   }

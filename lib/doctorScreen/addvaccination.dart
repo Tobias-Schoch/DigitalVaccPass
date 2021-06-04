@@ -1,5 +1,6 @@
 import 'package:digital_vac_pass/qrScreen/qrScanner.dart';
 import 'package:digital_vac_pass/doctorScreen/statistics.dart';
+import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/material.dart';
 import 'package:digital_vac_pass/utils/appBar.dart';
 import 'package:digital_vac_pass/utils/drawer.dart';
@@ -140,19 +141,20 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
   _selectDate(BuildContext context) async {
     DateTime newSelectedDate = await showDatePicker(
         context: context,
+        locale : const Locale("de","DE"),
         initialDate: _selectedDate != null ? _selectedDate : DateTime.now(),
         firstDate: DateTime(2000),
-        lastDate: DateTime(2040),
+        lastDate: DateTime.now(),
         builder: (BuildContext context, Widget child) {
           return Theme(
-            data: ThemeData.dark().copyWith(
-              colorScheme: ColorScheme.dark(
-                primary: Colors.deepPurple,
+            data: ThemeData.light().copyWith(
+              colorScheme: ColorScheme.light(
+                primary: PredefinedColors.primaryColor,
                 onPrimary: Colors.white,
-                surface: Colors.blueGrey,
-                onSurface: Colors.yellow,
+                surface: PredefinedColors.primaryColor,
+                onSurface: PredefinedColors.textColor,
               ),
-              dialogBackgroundColor: Colors.blue[500],
+              dialogBackgroundColor: Colors.white,
             ),
             child: child,
           );
@@ -161,7 +163,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
     if (newSelectedDate != null) {
       _selectedDate = newSelectedDate;
       _textEditingController
-        ..text = DateFormat.yMMMd().format(_selectedDate)
+        ..text = DateFormat('dd.MM.yyyy').format(_selectedDate)
         ..selection = TextSelection.fromPosition(TextPosition(
             offset: _textEditingController.text.length,
             affinity: TextAffinity.upstream));
