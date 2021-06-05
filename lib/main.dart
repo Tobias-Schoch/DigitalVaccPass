@@ -6,6 +6,9 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
   runApp(MyApp());
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    statusBarColor: Color(0x00fafafa),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -17,7 +20,6 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitDown,
     ]);
     return MaterialApp(
-
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate
       ],
