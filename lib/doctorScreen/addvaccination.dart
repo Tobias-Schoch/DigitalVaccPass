@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:digital_vac_pass/qrScreen/qrScanner.dart';
 import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +25,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: MyHeader(),
         elevation: 0,
