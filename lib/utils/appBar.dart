@@ -15,7 +15,7 @@ class MyHeader extends StatelessWidget {
             ),
         ),
         SizedBox(width: 15),
-        Image.asset("assets/images/vaccine.png", width: 60, height: 60),
+        Image.asset("assets/images/vaccine.png", width: 50, height: 50),
       ],
     );
   }
