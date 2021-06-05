@@ -19,6 +19,8 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
   DateTime _selectedDate;
   TextEditingController _textEditingController = TextEditingController();
 
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,118 +32,131 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
         alignment: Alignment.topLeft,
         margin: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
         child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Text("Impfung hinzufügen",
-                  style: Theme.of(context).textTheme.headline4,
-                  textAlign: TextAlign.left),
-              SizedBox(height: 25),
-              new TextFormField(
-                autofocus: true,
-                cursorColor: Theme.of(context).primaryColorLight,
-                decoration: new InputDecoration(
-                  labelText: "Impfung",
-                  fillColor: Theme.of(context).accentColor,
-                  border: new OutlineInputBorder(
-                    borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(
-                        color: Theme.of(context).accentColor, width: 3.0),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Text("Impfung hinzufügen",
+                    style: Theme.of(context).textTheme.headline4,
+                    textAlign: TextAlign.left),
+                SizedBox(height: 25),
+                TextFormField(
+                  autofocus: true,
+                  cursorColor: Theme.of(context).primaryColorLight,
+                  decoration: new InputDecoration(
+                    labelText: "Impfung",
+                    fillColor: Theme.of(context).accentColor,
+                    border: new OutlineInputBorder(
+                      borderRadius: new BorderRadius.circular(12.0),
+                      borderSide: new BorderSide(
+                          color: Theme.of(context).accentColor, width: 3.0),
+                    ),
+                    enabledBorder: new OutlineInputBorder(
+                      borderRadius: new BorderRadius.circular(12.0),
+                      borderSide: new BorderSide(
+                          color: Theme.of(context).primaryColorLight,
+                          width: 3.0),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12.0),
+                        borderSide: BorderSide(
+                            color: Theme.of(context).accentColor, width: 3.0)),
+                    labelStyle: new TextStyle(
+                        color: Theme.of(context).primaryColorLight),
                   ),
-                  enabledBorder: new OutlineInputBorder(
-                    borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(
-                        color: Theme.of(context).primaryColorLight, width: 3.0),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12.0),
-                      borderSide: BorderSide(
-                          color: Theme.of(context).accentColor, width: 3.0)),
-                  labelStyle:
-                      new TextStyle(color: Theme.of(context).primaryColorLight),
-                ),
-                validator: (val) {
-                  if (val.length == 0) {
-                    return "Impfmittel darf nicht leer sein.";
-                  } else {
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Impfmittel darf nicht leer sein.';
+                    }
                     return null;
-                  }
-                },
-              ),
-              SizedBox(height: 25),
-              new TextFormField(
-                cursorColor: Theme.of(context).primaryColorLight,
-                decoration: new InputDecoration(
-                  labelText: "ChargeNr.",
-                  fillColor: Theme.of(context).accentColor,
-                  border: new OutlineInputBorder(
-                    borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(
-                        color: Theme.of(context).accentColor, width: 3.0),
-                  ),
-                  enabledBorder: new OutlineInputBorder(
-                    borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(
-                        color: Theme.of(context).primaryColorLight, width: 3.0),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12.0),
-                      borderSide: BorderSide(
-                          color: Theme.of(context).accentColor, width: 3.0)),
-                  labelStyle:
-                      new TextStyle(color: Theme.of(context).primaryColorLight),
-                ),
-              ),
-              SizedBox(height: 25),
-              new TextFormField(
-                controller: _textEditingController,
-                onTap: () {
-                  FocusScope.of(context).requestFocus(new FocusNode());
-                  _selectDate(context);
-                },
-                cursorColor: Theme.of(context).primaryColorLight,
-                decoration: new InputDecoration(
-                  labelText: "Datum",
-                  fillColor: Theme.of(context).accentColor,
-                  border: new OutlineInputBorder(
-                    borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(
-                        color: Theme.of(context).accentColor, width: 3.0),
-                  ),
-                  enabledBorder: new OutlineInputBorder(
-                    borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(
-                        color: Theme.of(context).primaryColorLight, width: 3.0),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12.0),
-                      borderSide: BorderSide(
-                          color: Theme.of(context).accentColor, width: 3.0)),
-                  labelStyle:
-                      new TextStyle(color: Theme.of(context).primaryColorLight),
-                ),
-                validator: (val) {
-                  if (val.length == 0) {
-                    return "Datum darf nicht leer sein.";
-                  } else {
-                    return null;
-                  }
-                },
-              ),
-              SizedBox(height: 25),
-              ConstrainedBox(
-                constraints: BoxConstraints.tightFor(height: 60),
-                child: ElevatedButton.icon(
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => QRViewExample()));
                   },
-                  label: Text('Hinzufügen', style: new TextStyle(fontSize: 20)),
-                  icon: Icon(Icons.qr_code_scanner),
                 ),
-              ),
-            ],
+                SizedBox(height: 25),
+                TextFormField(
+                  cursorColor: Theme.of(context).primaryColorLight,
+                  decoration: new InputDecoration(
+                    labelText: "ChargeNr.",
+                    fillColor: Theme.of(context).accentColor,
+                    border: new OutlineInputBorder(
+                      borderRadius: new BorderRadius.circular(12.0),
+                      borderSide: new BorderSide(
+                          color: Theme.of(context).accentColor, width: 3.0),
+                    ),
+                    enabledBorder: new OutlineInputBorder(
+                      borderRadius: new BorderRadius.circular(12.0),
+                      borderSide: new BorderSide(
+                          color: Theme.of(context).primaryColorLight,
+                          width: 3.0),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12.0),
+                        borderSide: BorderSide(
+                            color: Theme.of(context).accentColor, width: 3.0)),
+                    labelStyle: new TextStyle(
+                        color: Theme.of(context).primaryColorLight),
+                  ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Chargenummer darf nicht leer sein.';
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(height: 25),
+                TextFormField(
+                  controller: _textEditingController,
+                  onTap: () {
+                    FocusScope.of(context).requestFocus(new FocusNode());
+                    _selectDate(context);
+                  },
+                  cursorColor: Theme.of(context).primaryColorLight,
+                  decoration: new InputDecoration(
+                    labelText: "Datum",
+                    fillColor: Theme.of(context).accentColor,
+                    border: new OutlineInputBorder(
+                      borderRadius: new BorderRadius.circular(12.0),
+                      borderSide: new BorderSide(
+                          color: Theme.of(context).accentColor, width: 3.0),
+                    ),
+                    enabledBorder: new OutlineInputBorder(
+                      borderRadius: new BorderRadius.circular(12.0),
+                      borderSide: new BorderSide(
+                          color: Theme.of(context).primaryColorLight,
+                          width: 3.0),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12.0),
+                        borderSide: BorderSide(
+                            color: Theme.of(context).accentColor, width: 3.0)),
+                    labelStyle: new TextStyle(
+                        color: Theme.of(context).primaryColorLight),
+                  ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Datum darf nicht leer sein.';
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(height: 25),
+                ConstrainedBox(
+                  constraints: BoxConstraints.tightFor(height: 60),
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      if (_formKey.currentState.validate()) {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => QRViewExample()));
+                      }
+                    },
+                    label:
+                        Text('Hinzufügen', style: new TextStyle(fontSize: 20)),
+                    icon: Icon(Icons.qr_code_scanner),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
