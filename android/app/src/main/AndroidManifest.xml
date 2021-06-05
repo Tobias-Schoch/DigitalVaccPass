@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
    <application
-        android:label="digital_vac_pass"
+        android:label="Impfpass"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
