@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Modify this file to customize your launch splash screen -->
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@android:color/white" />
+    <item android:drawable="?android:colorBackground" />
 
     <item>
         <bitmap
             android:gravity="center"
-            android:src="@mipmap/ic_launcher"
-            android:layout_width="200px"
-            android:layout_height="200px" />
+            android:src="@drawable/ic_launcher"/>
     </item>
 </layer-list>
