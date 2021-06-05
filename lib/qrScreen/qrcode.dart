@@ -60,7 +60,6 @@ class _MyQRPageState extends State<MyQRPage> {
                     child: QrImage(
                       data: qrData(LastUser.lastUser),
                       version: QrVersions.auto,
-                      size: 200,
                     ),
                   ),
                   Visibility(
