@@ -1,12 +1,9 @@
 import 'dart:io';
-
 import 'package:digital_vac_pass/utils/appBar.dart';
 import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:digital_vac_pass/doctorScreen/statistics.dart';
-
-import '../main.dart';
 
 class QRViewExample extends StatefulWidget {
   @override

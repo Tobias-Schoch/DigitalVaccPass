@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:digital_vac_pass/aboutScreen/about.dart';
 import 'package:digital_vac_pass/doctorScreen/addvaccination.dart';
 import 'package:digital_vac_pass/aboutScreen/faq.dart';
-import 'package:digital_vac_pass/qrScreen/qrScanner.dart';
 import 'package:digital_vac_pass/homeScreen/home.dart';
 import 'package:digital_vac_pass/main.dart';
 import 'package:digital_vac_pass/doctorScreen/statistics.dart';

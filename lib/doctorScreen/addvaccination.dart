@@ -1,5 +1,4 @@
 import 'package:digital_vac_pass/qrScreen/qrScanner.dart';
-import 'package:digital_vac_pass/doctorScreen/statistics.dart';
 import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/material.dart';
 import 'package:digital_vac_pass/utils/appBar.dart';
