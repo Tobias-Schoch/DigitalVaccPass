@@ -148,6 +148,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                   constraints: BoxConstraints.tightFor(height: 60),
                   child: ElevatedButton.icon(
                     onPressed: () {
+                      FocusScope.of(context).unfocus();
                       if (_formKey.currentState.validate()) {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => QRViewExample()));

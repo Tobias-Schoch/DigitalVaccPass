@@ -12,6 +12,7 @@ class QRViewExample extends StatefulWidget {
 
 class _QRViewExampleState extends State<QRViewExample> {
   Barcode result;
+  String barcodeString;
   QRViewController controller;
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
 
@@ -73,8 +74,10 @@ class _QRViewExampleState extends State<QRViewExample> {
     controller.scannedDataStream.listen((scanData) {
       setState(() {
         result = scanData;
-        if (result != null) {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyStatisticPage()));
+        barcodeString = result.code.toString();
+        if (result != null && barcodeString.contains("@")) {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => MyStatisticPage()));
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               behavior: SnackBarBehavior.floating,
