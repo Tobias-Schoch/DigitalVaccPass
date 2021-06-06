@@ -163,10 +163,10 @@ class _MyLoginPageState extends State<MyLoginPage> {
                   constraints: BoxConstraints.tightFor(height: 60),
                   child: ElevatedButton.icon(
                     onPressed: () {
-                      if (checkIfUserExists(myEmailTextController.text,
+                      if (checkIfUserExists(myEmailTextController.text.toLowerCase(),
                           myPasswordController.text)) {
                         User.loggedInUser = TestData.getMatchingUser(
-                            myEmailTextController.text,
+                            myEmailTextController.text.toLowerCase(),
                             myPasswordController.text);
                         if (User.loggedInUser.userRole == Role.Doctor) {
                           Navigator.of(context).push(MaterialPageRoute(
@@ -177,8 +177,8 @@ class _MyLoginPageState extends State<MyLoginPage> {
                                   MyHomeScreenPage(selectedTabIndex: 0)));
                         }
 
-                        LastUser.lastUser = myEmailTextController.text;
-                      } else if (myEmailTextController.text != "" &&
+                        LastUser.lastUser = myEmailTextController.text.toLowerCase();
+                      } else if (myEmailTextController.text.toLowerCase() != "" &&
                           myPasswordController.text != "") {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
