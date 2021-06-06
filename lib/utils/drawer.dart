@@ -43,7 +43,7 @@ class MyDrawer extends StatelessWidget {
           Visibility(
             visible: isVisible,
             child: ListTile(
-              leading: Icon(Icons.insights_outlined),
+              leading: Icon(Icons.insights_outlined, color: PredefinedColors.textColor,),
               title: Text(
                 'Statistiken',
                 style: Theme.of(context).textTheme.headline6,
@@ -57,7 +57,7 @@ class MyDrawer extends StatelessWidget {
           Visibility(
             visible: isVisible,
             child: ListTile(
-              leading: Icon(Icons.qr_code_scanner_outlined),
+              leading: Icon(Icons.qr_code_scanner_outlined, color: PredefinedColors.textColor),
               title: Text(
                 'Impfung hinzufügen',
                 style: Theme.of(context).textTheme.headline6,
@@ -79,7 +79,7 @@ class MyDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.local_hospital_outlined),
+            leading: Icon(Icons.local_hospital_outlined, color: PredefinedColors.textColor),
             title: Text(
               'Impfpass',
               style: Theme.of(context).textTheme.headline6,
@@ -91,7 +91,7 @@ class MyDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(
-              Icons.masks_outlined,
+              Icons.masks_outlined, color: PredefinedColors.textColor
             ),
             title: Text(
               'Testergebnisse',
@@ -115,7 +115,7 @@ class MyDrawer extends StatelessWidget {
           //   },
           // ),
           ListTile(
-            leading: Icon(Icons.people_outline),
+            leading: Icon(Icons.people_outline, color: PredefinedColors.textColor),
             title: Text(
               'Familienübersicht',
               style: Theme.of(context).textTheme.headline6,
@@ -126,7 +126,7 @@ class MyDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.qr_code_outlined),
+            leading: Icon(Icons.qr_code_outlined, color: PredefinedColors.textColor),
             title: Text(
               'Mein QR-Code',
               style: Theme.of(context).textTheme.headline6,
@@ -144,7 +144,7 @@ class MyDrawer extends StatelessWidget {
             height: 40,
           ),
           ListTile(
-            leading: Icon(Icons.help_center_outlined),
+            leading: Icon(Icons.help_center_outlined, color: PredefinedColors.textColor),
             title: Text(
               'FAQ',
               style: Theme.of(context).textTheme.headline6,
@@ -155,7 +155,7 @@ class MyDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.privacy_tip_outlined),
+            leading: Icon(Icons.privacy_tip_outlined, color: PredefinedColors.textColor),
             title: Text(
               'Über uns',
               style: Theme.of(context).textTheme.headline6,
@@ -166,7 +166,7 @@ class MyDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.logout),
+            leading: Icon(Icons.logout, color: PredefinedColors.textColor),
             title: Text(
               'Logout',
               style: Theme.of(context).textTheme.headline6,
