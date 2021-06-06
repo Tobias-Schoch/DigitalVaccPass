@@ -15,6 +15,12 @@ class MyFamilyPage extends StatefulWidget {
 }
 
 class _MyFamilyPageState extends State<MyFamilyPage> {
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

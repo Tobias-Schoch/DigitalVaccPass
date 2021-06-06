@@ -18,6 +18,11 @@ class _MyOnboardPageState extends State<MyOnboardPage> {
   final PageController _pageController = PageController();
 
   @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     const primeColorAccent = const Color(0xff7577f8);
     return Provider<OnBoardState>(

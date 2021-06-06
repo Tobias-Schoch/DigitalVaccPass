@@ -46,7 +46,6 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                     textAlign: TextAlign.left),
                 SizedBox(height: 25),
                 TextFormField(
-                  autofocus: true,
                   cursorColor: Theme.of(context).primaryColorLight,
                   decoration: new InputDecoration(
                     labelText: "Impfung",
@@ -148,8 +147,9 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                   constraints: BoxConstraints.tightFor(height: 60),
                   child: ElevatedButton.icon(
                     onPressed: () {
-                      FocusScope.of(context).unfocus();
                       if (_formKey.currentState.validate()) {
+                        FocusScope.of(context).unfocus();
+                        sleep(Duration(milliseconds:50));
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => QRViewExample()));
                       }
@@ -199,6 +199,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
             affinity: TextAffinity.upstream));
     }
   }
+
 
   @override
   void dispose() {

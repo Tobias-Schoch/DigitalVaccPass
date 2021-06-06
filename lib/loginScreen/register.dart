@@ -20,6 +20,15 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
 
   final GlobalKey<FormState> _formRegisterKey = GlobalKey<FormState>();
 
+
+  @override
+  void dispose() {
+    super.dispose();
+    myPasswordTextController.dispose();
+    myNameTextController.dispose();
+    myEmailTextController.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

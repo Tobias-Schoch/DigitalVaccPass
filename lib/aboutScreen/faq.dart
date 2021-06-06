@@ -13,6 +13,12 @@ class MyFaqPage extends StatefulWidget {
 }
 
 class _MyFaqPageState extends State<MyFaqPage> {
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

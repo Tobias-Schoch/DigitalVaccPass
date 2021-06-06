@@ -17,6 +17,12 @@ class MyVaccinationPage extends StatefulWidget {
 
 class _MyVaccinationPage extends State<MyVaccinationPage> {
 
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -21,6 +21,11 @@ class MyFamilyHomeScreenPage extends StatefulWidget {
 class _MyFamilyHomeScreenPage extends State<MyFamilyHomeScreenPage> {
 
   @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return DefaultTabController(
         length: 2,
@@ -48,5 +53,4 @@ class _MyFamilyHomeScreenPage extends State<MyFamilyHomeScreenPage> {
         )
     );
   }
-
 }

@@ -72,6 +72,7 @@ class _QRViewExampleState extends State<QRViewExample> {
       this.controller = controller;
     });
     controller.scannedDataStream.listen((scanData) {
+      sleep(Duration(milliseconds:10));
       setState(() {
         result = scanData;
         barcodeString = result.code.toString();

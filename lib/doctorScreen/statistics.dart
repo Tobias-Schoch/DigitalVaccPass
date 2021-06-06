@@ -14,6 +14,12 @@ class MyStatisticPage extends StatefulWidget {
 }
 
 class _MyStatisticPageState extends State<MyStatisticPage> {
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

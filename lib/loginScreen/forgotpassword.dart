@@ -12,6 +12,13 @@ class MyForgotPasswordPage extends StatefulWidget {
 }
 
 class _MyForgotPasswordPageState extends State<MyForgotPasswordPage> {
+
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

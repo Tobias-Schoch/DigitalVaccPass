@@ -16,6 +16,12 @@ class MyTestPage extends StatefulWidget {
 
 class _MyTestPageState extends State<MyTestPage> {
 
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
