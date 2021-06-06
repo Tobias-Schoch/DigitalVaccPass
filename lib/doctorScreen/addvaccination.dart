@@ -24,6 +24,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
 
   @override
   Widget build(BuildContext context) {
+    _textEditingController.text = DateFormat('dd.MM.yyyy').format(DateTime.now()).toString();
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
