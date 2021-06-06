@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:udp/udp.dart';
 
-class receiver {
+class Receiver {
   main() async {
     var receiver = await UDP.bind(Endpoint.loopback(port: Port(65002)));
     print(receiver);
@@ -17,7 +17,7 @@ class receiver {
   }
 }
 
-class sender {
+class Sender {
   main() async {
     var sender = await UDP.bind(Endpoint.any(port: Port(65002)));
     var dataLength = await sender.send(
@@ -28,4 +28,3 @@ class sender {
     sender.close();
   }
 }
-
