@@ -197,4 +197,10 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
             affinity: TextAffinity.upstream));
     }
   }
+
+  @override
+  void dispose() {
+    _textEditingController.dispose();
+    super.dispose();
+  }
 }
