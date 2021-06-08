@@ -1,30 +1,39 @@
-import 'dart:io';
-import 'package:udp/udp.dart';
+import 'package:socket_io_client/socket_io_client.dart' as IO;
+import 'package:socket_io/socket_io.dart';
 
 class Receiver {
-  main() async {
-    var receiver = await UDP.bind(Endpoint.loopback(port: Port(65002)));
-    print(receiver);
-    print(Endpoint.loopback(port: Port(65002)));
-    stdout.write(receiver);
-    stdout.write(Endpoint.loopback(port: Port(65002)));
-    await receiver.listen((datagram) {
-      var str = String.fromCharCodes(datagram.data);
-      stdout.write(str);
-    }, timeout: Duration(seconds: 20));
-
-    receiver.close();
+  main() {
+    // Dart client
+    IO.Socket socket = IO.io('http://localhost:3000');
+    socket.onConnect((_) {
+      print('connect');
+      socket.emit('msg', 'test');
+    });
+    socket.on('event', (data) => print(data));
+    socket.onDisconnect((_) => print('disconnect'));
+    socket.on('fromServer', (_) => print(_));
   }
 }
 
 class Sender {
-  main() async {
-    var sender = await UDP.bind(Endpoint.any(port: Port(65002)));
-    var dataLength = await sender.send(
-        "Hello World!".codeUnits, Endpoint.broadcast(port: Port(65002)));
-
-    stdout.write("${dataLength} bytes sent.");
-
-    sender.close();
+  main() {
+    // Dart server
+    var io = new Server();
+    var nsp = io.of('/some');
+    nsp.on('connection', (client) {
+      print('connection /some');
+      client.on('msg', (data) {
+        print('data from /some => $data');
+        client.emit('fromServer', "ok 2");
+      });
+    });
+    io.on('connection', (client) {
+      print('connection default namespace');
+      client.on('msg', (data) {
+        print('data from default => $data');
+        client.emit('fromServer', "ok");
+      });
+    });
+    io.listen(3000);
   }
 }
