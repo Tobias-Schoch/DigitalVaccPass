@@ -47,17 +47,17 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                 SizedBox(height: 25),
                 TextFormField(
                   cursorColor: Theme.of(context).primaryColorLight,
-                  decoration: new InputDecoration(
+                  decoration: InputDecoration(
                     labelText: "Impfung",
                     fillColor: Theme.of(context).accentColor,
-                    border: new OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(12.0),
-                      borderSide: new BorderSide(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                      borderSide: BorderSide(
                           color: Theme.of(context).accentColor, width: 3.0),
                     ),
-                    enabledBorder: new OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(12.0),
-                      borderSide: new BorderSide(
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                      borderSide: BorderSide(
                           color: Theme.of(context).primaryColorLight,
                           width: 3.0),
                     ),
@@ -65,7 +65,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                         borderRadius: BorderRadius.circular(12.0),
                         borderSide: BorderSide(
                             color: Theme.of(context).accentColor, width: 3.0)),
-                    labelStyle: new TextStyle(
+                    labelStyle: TextStyle(
                         color: Theme.of(context).primaryColorLight),
                   ),
                   validator: (value) {
@@ -78,17 +78,17 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                 SizedBox(height: 25),
                 TextFormField(
                   cursorColor: Theme.of(context).primaryColorLight,
-                  decoration: new InputDecoration(
+                  decoration: InputDecoration(
                     labelText: "ChargeNr.",
                     fillColor: Theme.of(context).accentColor,
-                    border: new OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(12.0),
-                      borderSide: new BorderSide(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                      borderSide: BorderSide(
                           color: Theme.of(context).accentColor, width: 3.0),
                     ),
-                    enabledBorder: new OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(12.0),
-                      borderSide: new BorderSide(
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                      borderSide: BorderSide(
                           color: Theme.of(context).primaryColorLight,
                           width: 3.0),
                     ),
@@ -96,7 +96,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                         borderRadius: BorderRadius.circular(12.0),
                         borderSide: BorderSide(
                             color: Theme.of(context).accentColor, width: 3.0)),
-                    labelStyle: new TextStyle(
+                    labelStyle: TextStyle(
                         color: Theme.of(context).primaryColorLight),
                   ),
                   validator: (value) {
@@ -114,17 +114,17 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                     _selectDate(context);
                   },
                   cursorColor: Theme.of(context).primaryColorLight,
-                  decoration: new InputDecoration(
+                  decoration: InputDecoration(
                     labelText: "Datum",
                     fillColor: Theme.of(context).accentColor,
-                    border: new OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(12.0),
-                      borderSide: new BorderSide(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                      borderSide: BorderSide(
                           color: Theme.of(context).accentColor, width: 3.0),
                     ),
-                    enabledBorder: new OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(12.0),
-                      borderSide: new BorderSide(
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                      borderSide: BorderSide(
                           color: Theme.of(context).primaryColorLight,
                           width: 3.0),
                     ),
@@ -132,7 +132,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                         borderRadius: BorderRadius.circular(12.0),
                         borderSide: BorderSide(
                             color: Theme.of(context).accentColor, width: 3.0)),
-                    labelStyle: new TextStyle(
+                    labelStyle: TextStyle(
                         color: Theme.of(context).primaryColorLight),
                   ),
                   validator: (value) {
@@ -155,7 +155,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                       }
                     },
                     label:
-                        Text('Hinzufügen', style: new TextStyle(fontSize: 20)),
+                        Text('Hinzufügen', style: TextStyle(fontSize: 20)),
                     icon: Icon(Icons.qr_code_scanner),
                   ),
                 ),

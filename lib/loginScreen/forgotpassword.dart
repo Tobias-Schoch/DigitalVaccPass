@@ -38,22 +38,22 @@ class _MyForgotPasswordPageState extends State<MyForgotPasswordPage> {
                   style: Theme.of(context).textTheme.headline4,
                   textAlign: TextAlign.left),
               SizedBox(height: 25),
-              new TextFormField(
+              TextFormField(
                 autofocus: true,
                 cursorColor: Theme.of(context).primaryColorLight,
-                decoration: new InputDecoration(
+                decoration: InputDecoration(
                   labelText: "E-Mail",
                   fillColor: Theme.of(context).accentColor,
-                  border: new OutlineInputBorder(
-                    borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12.0),
+                    borderSide: BorderSide(
                       color: Theme.of(context).accentColor,
                       width: 3.0,
                     ),
                   ),
-                  enabledBorder: new OutlineInputBorder(
-                    borderRadius: new BorderRadius.circular(12.0),
-                    borderSide: new BorderSide(
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12.0),
+                    borderSide: BorderSide(
                       color: Theme.of(context).primaryColorLight,
                       width: 3.0,
                     ),
@@ -64,7 +64,7 @@ class _MyForgotPasswordPageState extends State<MyForgotPasswordPage> {
                         color: Theme.of(context).accentColor,
                         width: 3.0,
                       )),
-                  labelStyle: new TextStyle(color: Theme.of(context).primaryColorLight),
+                  labelStyle: TextStyle(color: Theme.of(context).primaryColorLight),
                 ),
                 validator: (val) {
                   if (val.length == 0) {
@@ -83,7 +83,7 @@ class _MyForgotPasswordPageState extends State<MyForgotPasswordPage> {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => MyLoginPage()));
                   },
-                  label: Flexible(child: Text('Zurücksetzen', style: new TextStyle(fontSize: 20), overflow: TextOverflow.clip,)),
+                  label: Flexible(child: Text('Zurücksetzen', style: TextStyle(fontSize: 20), overflow: TextOverflow.clip,)),
                   icon: Icon(Icons.refresh),
                 ),
               ),

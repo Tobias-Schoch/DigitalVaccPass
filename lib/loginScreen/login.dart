@@ -69,19 +69,19 @@ class _MyLoginPageState extends State<MyLoginPage> {
                 TextFormField(
                   controller: myEmailTextController,
                   cursorColor: Theme.of(context).primaryColorLight,
-                  decoration: new InputDecoration(
+                  decoration: InputDecoration(
                     labelText: "E-Mail",
                     fillColor: Theme.of(context).accentColor,
-                    border: new OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(12.0),
-                      borderSide: new BorderSide(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                      borderSide: BorderSide(
                         color: Theme.of(context).accentColor,
                         width: 3.0,
                       ),
                     ),
-                    enabledBorder: new OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(12.0),
-                      borderSide: new BorderSide(
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                      borderSide: BorderSide(
                         color: Theme.of(context).primaryColorLight,
                         width: 3.0,
                       ),
@@ -92,7 +92,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                           color: Theme.of(context).accentColor,
                           width: 3.0,
                         )),
-                    labelStyle: new TextStyle(
+                    labelStyle: TextStyle(
                         color: Theme.of(context).primaryColorLight),
                   ),
                   keyboardType: TextInputType.emailAddress,
@@ -108,19 +108,19 @@ class _MyLoginPageState extends State<MyLoginPage> {
                 TextFormField(
                   controller: myPasswordController,
                   cursorColor: Theme.of(context).primaryColorLight,
-                  decoration: new InputDecoration(
+                  decoration: InputDecoration(
                     labelText: "Passwort",
                     fillColor: Theme.of(context).accentColor,
-                    border: new OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(12.0),
-                      borderSide: new BorderSide(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                      borderSide: BorderSide(
                         color: Theme.of(context).accentColor,
                         width: 3.0,
                       ),
                     ),
-                    enabledBorder: new OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(12.0),
-                      borderSide: new BorderSide(
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                      borderSide: BorderSide(
                         color: Theme.of(context).primaryColorLight,
                         width: 3.0,
                       ),
@@ -131,7 +131,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                           color: Theme.of(context).accentColor,
                           width: 3.0,
                         )),
-                    labelStyle: new TextStyle(
+                    labelStyle: TextStyle(
                         color: Theme.of(context).primaryColorLight),
                   ),
                   obscureText: true,
@@ -199,7 +199,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     },
                     label: Flexible(
                         child: Text('Einloggen',
-                            style: new TextStyle(fontSize: 20))),
+                            style: TextStyle(fontSize: 20))),
                     icon: Icon(Icons.login),
                   ),
                 ),

@@ -50,23 +50,23 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                     style: Theme.of(context).textTheme.headline4,
                     textAlign: TextAlign.left),
                 SizedBox(height: 25),
-                new TextFormField(
+                TextFormField(
                   controller: myNameTextController,
                   autofocus: true,
                   cursorColor: Theme.of(context).primaryColorLight,
-                  decoration: new InputDecoration(
+                  decoration: InputDecoration(
                     labelText: "Vor- und Nachname",
                     fillColor: Theme.of(context).accentColor,
-                    border: new OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(12.0),
-                      borderSide: new BorderSide(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                      borderSide: BorderSide(
                         color: Theme.of(context).accentColor,
                         width: 3.0,
                       ),
                     ),
-                    enabledBorder: new OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(12.0),
-                      borderSide: new BorderSide(
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                      borderSide: BorderSide(
                         color: Theme.of(context).primaryColorLight,
                         width: 3.0,
                       ),
@@ -77,7 +77,7 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                           color: Theme.of(context).accentColor,
                           width: 3.0,
                         )),
-                    labelStyle: new TextStyle(color: Theme.of(context).primaryColorLight),
+                    labelStyle: TextStyle(color: Theme.of(context).primaryColorLight),
                   ),
                   validator: (value) {
                     if (value.isEmpty) {
@@ -88,22 +88,22 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                   },
                 ),
                 SizedBox(height: 25),
-                new TextFormField(
+                TextFormField(
                   controller: myEmailTextController,
                   cursorColor: Theme.of(context).primaryColorLight,
-                  decoration: new InputDecoration(
+                  decoration: InputDecoration(
                     labelText: "E-Mail",
                     fillColor: Theme.of(context).accentColor,
-                    border: new OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(12.0),
-                      borderSide: new BorderSide(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                      borderSide: BorderSide(
                         color: Theme.of(context).accentColor,
                         width: 3.0,
                       ),
                     ),
-                    enabledBorder: new OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(12.0),
-                      borderSide: new BorderSide(
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                      borderSide: BorderSide(
                         color: Theme.of(context).primaryColorLight,
                         width: 3.0,
                       ),
@@ -114,7 +114,7 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                           color: Theme.of(context).accentColor,
                           width: 3.0,
                         )),
-                    labelStyle: new TextStyle(color: Theme.of(context).primaryColorLight),
+                    labelStyle: TextStyle(color: Theme.of(context).primaryColorLight),
                   ),
                   validator: (value) {
                     if (value.isEmpty) {
@@ -128,22 +128,22 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                   keyboardType: TextInputType.emailAddress,
                 ),
                 SizedBox(height: 25),
-                new TextFormField(
+                TextFormField(
                   controller: myPasswordTextController,
                   cursorColor: Theme.of(context).primaryColorLight,
-                  decoration: new InputDecoration(
+                  decoration: InputDecoration(
                     labelText: "Passwort",
                     fillColor: Theme.of(context).accentColor,
-                    border: new OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(12.0),
-                      borderSide: new BorderSide(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                      borderSide: BorderSide(
                         color: Theme.of(context).accentColor,
                         width: 3.0,
                       ),
                     ),
-                    enabledBorder: new OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(12.0),
-                      borderSide: new BorderSide(
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                      borderSide: BorderSide(
                         color: Theme.of(context).primaryColorLight,
                         width: 3.0,
                       ),
@@ -154,7 +154,7 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                           color: Theme.of(context).accentColor,
                           width: 3.0,
                         )),
-                    labelStyle: new TextStyle(color: Theme.of(context).primaryColorLight),
+                    labelStyle: TextStyle(color: Theme.of(context).primaryColorLight),
                   ),
                   obscureText: true,
                   validator: (value) {
@@ -170,21 +170,21 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                   },
                 ),
                 SizedBox(height: 25),
-                new TextFormField(
+                TextFormField(
                   cursorColor: Theme.of(context).primaryColorLight,
-                  decoration: new InputDecoration(
+                  decoration: InputDecoration(
                     labelText: "Passwort wiederholen",
                     fillColor: Theme.of(context).accentColor,
-                    border: new OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(12.0),
-                      borderSide: new BorderSide(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                      borderSide: BorderSide(
                         color: Theme.of(context).accentColor,
                         width: 3.0,
                       ),
                     ),
-                    enabledBorder: new OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(12.0),
-                      borderSide: new BorderSide(
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                      borderSide: BorderSide(
                         color: Theme.of(context).primaryColorLight,
                         width: 3.0,
                       ),
@@ -195,7 +195,7 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                           color: Theme.of(context).accentColor,
                           width: 3.0,
                         )),
-                    labelStyle: new TextStyle(color: Theme.of(context).primaryColorLight),
+                    labelStyle: TextStyle(color: Theme.of(context).primaryColorLight),
                   ),
                   obscureText: true,
                   validator: (value) {
@@ -220,7 +220,7 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                     },
                     label: Flexible(
                       child: Text('Registrieren',
-                          style: new TextStyle(fontSize: 20)),
+                          style: TextStyle(fontSize: 20)),
                     ),
                     icon: Icon(Icons.how_to_reg),
                   ),
