@@ -83,7 +83,7 @@ class _MyHomeScreenPage extends State<MyHomeScreenPage>
         drawer: MyDrawer(
             isVisible: User.loggedInUser == null
                 ? false
-                : User.loggedInUser.userRole == Role.Doctor
+                : User.loggedInUser.userRole == Role.doctor
                 ? true
                 : false),
       );

@@ -171,7 +171,7 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
         drawer: MyDrawer(
             isVisible: User.loggedInUser == null
                 ? false
-                : User.loggedInUser.userRole == Role.Doctor
+                : User.loggedInUser.userRole == Role.doctor
                     ? true
                     : false),
       );

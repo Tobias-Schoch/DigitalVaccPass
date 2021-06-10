@@ -221,7 +221,7 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                             myNameTextController.text,
                             myEmailTextController.text,
                             myPasswordTextController.text,
-                            Role.Normal));
+                            Role.normal));
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => const MyLoginPage()));
                       },

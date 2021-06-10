@@ -30,33 +30,28 @@ class _QRViewExampleState extends State<QRViewExample> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pop(context),
+  Widget build(BuildContext context) => Scaffold(
+        resizeToAvoidBottomInset: false,
+        appBar: AppBar(
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () => Navigator.pop(context),
+          ),
+          title: const MyHeader(),
+          elevation: 0,
         ),
-        title: const MyHeader(),
-        elevation: 0,
-      ),
-      body: Column(
-        children: <Widget>[
-          Expanded(child: _buildQrView(context)),
-        ],
-      ),
-    );
-  }
+        body: Column(
+          children: <Widget>[
+            Expanded(child: _buildQrView(context)),
+          ],
+        ),
+      );
 
   Widget _buildQrView(BuildContext context) {
-    // For this example we check how width or tall the device is and change the scanArea and overlay accordingly.
     final scanArea = (MediaQuery.of(context).size.width < 400 ||
             MediaQuery.of(context).size.height < 400)
         ? 250.0
         : 300.0;
-    // To ensure the Scanner view is properly sizes after rotation
-    // we need to listen for Flutter SizeChanged notification and update controller
     return QRView(
       key: qrKey,
       onQRViewCreated: _onQRViewCreated,
@@ -78,7 +73,7 @@ class _QRViewExampleState extends State<QRViewExample> {
       setState(() {
         result = scanData;
         barcodeString = result.code.toString();
-        if (result != null && barcodeString.contains("@")) {
+        if (result != null && barcodeString.contains('@')) {
           Navigator.of(context).push(
               MaterialPageRoute(builder: (context) => const MyStatisticPage()));
           ScaffoldMessenger.of(context).showSnackBar(

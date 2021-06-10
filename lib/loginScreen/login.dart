@@ -168,7 +168,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                           User.loggedInUser = TestData.getMatchingUser(
                               myEmailTextController.text.toLowerCase(),
                               myPasswordController.text);
-                          if (User.loggedInUser.userRole == Role.Doctor) {
+                          if (User.loggedInUser.userRole == Role.doctor) {
                             Navigator.of(context).push(MaterialPageRoute(
                                 builder: (context) => const MyStatisticPage()));
                           } else {

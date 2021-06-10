@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:faker/faker.dart';
 
+/// Define vaccinations
 class Vaccination {
   String vaccinationName;
   String chargeNr;
@@ -28,7 +29,7 @@ class Test {
 
   Test.newlyWithoutStatus(
       this.testName, this.testId, this.testDate, this.testDescription)
-      : testStatus = Status.Pending;
+      : testStatus = Status.pending;
 
   Test.newlyToday(
       this.testName, this.testId, this.testStatus, this.testDescription)
@@ -36,7 +37,7 @@ class Test {
 
   Test.newlyTodayWithoutStatus(this.testName, this.testId, this.testDescription)
       : testDate = DateTime.now(),
-        testStatus = Status.Pending;
+        testStatus = Status.pending;
 }
 
 class User {
@@ -70,18 +71,18 @@ class LastUser {
 
 class TestData {
   static List<User> userListDb = [
-    new User.withData('Luis Nothvogel', 't', 't', Role.Normal,
+    new User.withData('Luis Nothvogel', 't', 't', Role.normal,
         vaccinationListDb, testsListDb),
     new User.withData(
-        'Dr. Anna Mayer', 'a', 'a', Role.Doctor, vaccinationListDb, testsListDb)
+        'Dr. Anna Mayer', 'a', 'a', Role.doctor, vaccinationListDb, testsListDb)
   ];
 
   static List<User> familyUserDb = [
-    new User.withData('test', 'test@test.de', 'pw', Role.Normal,
+    new User.withData('test', 'test@test.de', 'pw', Role.normal,
         vaccinationListDb, testsListDb),
-    new User.withData('test1', 'test1@test.de', 'pw1', Role.Normal,
+    new User.withData('test1', 'test1@test.de', 'pw1', Role.normal,
         vaccinationListDb, testsListDb),
-    new User.withData('test2', 'test2@test.de', 'pw2', Role.Normal,
+    new User.withData('test2', 'test2@test.de', 'pw2', Role.normal,
         vaccinationListDb, testsListDb),
   ];
 
@@ -96,11 +97,11 @@ class TestData {
   ];
 
   static List<Test> testsListDb = [
-    new Test('testName', 'testId', DateTime.parse(strDt), Status.Pending,
+    new Test('testName', 'testId', DateTime.parse(strDt), Status.pending,
         'testDescription'),
-    new Test('testName2', 'testId2', DateTime.parse(strDt), Status.Good,
+    new Test('testName2', 'testId2', DateTime.parse(strDt), Status.good,
         'testDescription2'),
-    new Test('testName3', 'testId3', DateTime.parse(strDt), Status.Bad,
+    new Test('testName3', 'testId3', DateTime.parse(strDt), Status.bad,
         'testDescription3')
   ];
 
@@ -139,8 +140,8 @@ class TestData {
   }
 }
 
-enum Login { NotLoggedIn, LoggedIn }
+enum Login { notLoggedIn, loggedIn }
 
-enum Role { Normal, Doctor }
+enum Role { normal, doctor }
 
-enum Status { Good, Bad, Pending }
+enum Status { good, bad, pending }

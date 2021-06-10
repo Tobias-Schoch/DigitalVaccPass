@@ -68,7 +68,7 @@ class _MyAboutPageState extends State<MyAboutPage> {
         drawer: MyDrawer(
             isVisible: User.loggedInUser == null
                 ? false
-                : User.loggedInUser.userRole == Role.Doctor
+                : User.loggedInUser.userRole == Role.doctor
                     ? true
                     : false),
       );

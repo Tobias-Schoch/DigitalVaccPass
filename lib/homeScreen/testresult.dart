@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import '../utils/customWidgets.dart';
+import '../utils/custom_widgets.dart';
 import '../utils/util.dart';
 
 /// Test results
@@ -44,12 +44,12 @@ class _MyTestPageState extends State<MyTestPage> {
                               color: widget.selectedUser.tests
                                           .elementAt(index)
                                           .testStatus ==
-                                      Status.Pending
+                                      Status.pending
                                   ? PredefinedColors.lightOrange
                                   : widget.selectedUser.tests
                                               .elementAt(index)
                                               .testStatus ==
-                                          Status.Good
+                                          Status.good
                                       ? PredefinedColors.lightGreen
                                       : PredefinedColors.lightRed,
                               child: Row(
