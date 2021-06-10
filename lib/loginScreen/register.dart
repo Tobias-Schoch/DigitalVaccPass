@@ -216,7 +216,7 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                       }
                       TestData.userListDb.add(new User(myNameTextController.text, myEmailTextController.text, myPasswordTextController.text, Role.Normal));
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => MyLoginPage()));
+                          builder: (context) => const MyLoginPage()));
                     },
                     label: const Flexible(
                       child: const Text('Registrieren',

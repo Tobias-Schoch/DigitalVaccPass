@@ -9,7 +9,7 @@ Widget myVisibleFloatingActionButton(BuildContext context, bool isVisible) {
         onPressed: () {
           //TODO use HERODialog
           Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => MyQRPage()));
+              .push(MaterialPageRoute(builder: (context) => const MyQRPage()));
         },
         child: const Icon(Icons.add),
         backgroundColor: Theme.of(context).accentColor,

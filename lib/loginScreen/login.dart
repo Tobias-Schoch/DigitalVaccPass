@@ -151,7 +151,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                   ),
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => MyForgotPasswordPage()));
+                        builder: (context) => const MyForgotPasswordPage()));
                   },
                   child: Row(
                     children: <Widget>[
@@ -171,7 +171,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                             myPasswordController.text);
                         if (User.loggedInUser.userRole == Role.Doctor) {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => MyStatisticPage()));
+                              builder: (context) => const MyStatisticPage()));
                         } else {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) =>
@@ -220,7 +220,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     ),
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => MyRegisterPage()));
+                          builder: (context) => const MyRegisterPage()));
                     },
                     label: Flexible(
                         child: Text('Registrieren',

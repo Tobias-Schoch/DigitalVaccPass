@@ -147,7 +147,7 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => MyVaccinationAddPage()));
+              MaterialPageRoute(builder: (context) => const MyVaccinationAddPage()));
         },
         child: const Icon(Icons.qr_code_scanner),
         backgroundColor: Theme.of(context).accentColor,

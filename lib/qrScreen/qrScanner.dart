@@ -77,8 +77,8 @@ class _QRViewExampleState extends State<QRViewExample> {
         result = scanData;
         barcodeString = result.code.toString();
         if (result != null && barcodeString.contains("@")) {
-          Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => MyStatisticPage()));
+          Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => const MyStatisticPage()));
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               behavior: SnackBarBehavior.floating,

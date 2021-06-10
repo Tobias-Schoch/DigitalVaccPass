@@ -52,8 +52,8 @@ class MyDrawer extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline6,
               ),
               onTap: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => MyStatisticPage()));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const MyStatisticPage()));
               },
             ),
           ),
@@ -68,7 +68,7 @@ class MyDrawer extends StatelessWidget {
               ),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => MyVaccinationAddPage()));
+                    builder: (context) => const MyVaccinationAddPage()));
               },
             ),
           ),
@@ -91,7 +91,8 @@ class MyDrawer extends StatelessWidget {
             ),
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => MyHomeScreenPage(selectedTabIndex: 0)));
+                  builder: (context) =>
+                      MyHomeScreenPage(selectedTabIndex: 0)));
             },
           ),
           ListTile(
@@ -103,7 +104,8 @@ class MyDrawer extends StatelessWidget {
             ),
             onTap: () {
               Navigator.of(context).pushReplacement(MaterialPageRoute(
-                builder: (context) => MyHomeScreenPage(selectedTabIndex: 1),
+                builder: (context) =>
+                    MyHomeScreenPage(selectedTabIndex: 1),
               ));
             },
           ),
@@ -126,8 +128,8 @@ class MyDrawer extends StatelessWidget {
               style: Theme.of(context).textTheme.headline6,
             ),
             onTap: () {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => MyFamilyPage()));
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const MyFamilyPage()));
             },
           ),
           ListTile(
@@ -138,8 +140,8 @@ class MyDrawer extends StatelessWidget {
               style: Theme.of(context).textTheme.headline6,
             ),
             onTap: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => MyQRPage()));
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const MyQRPage()));
             },
           ),
           const Divider(
@@ -157,8 +159,8 @@ class MyDrawer extends StatelessWidget {
               style: Theme.of(context).textTheme.headline6,
             ),
             onTap: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => MyFaqPage()));
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const MyFaqPage()));
             },
           ),
           ListTile(
@@ -169,8 +171,8 @@ class MyDrawer extends StatelessWidget {
               style: Theme.of(context).textTheme.headline6,
             ),
             onTap: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => MyAboutPage()));
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const MyAboutPage()));
             },
           ),
           ListTile(
@@ -193,8 +195,8 @@ class MyDrawer extends StatelessWidget {
               style: Theme.of(context).textTheme.headline6,
             ),
             onTap: () {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => StreamSocket()));
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => StreamSocket()));
             },
           ),
         ],

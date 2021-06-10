@@ -164,7 +164,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
           ),
         ),
       ),
-      drawer: MyDrawer(isVisible: true),
+      drawer: const MyDrawer(isVisible: true),
     );
   }
 
