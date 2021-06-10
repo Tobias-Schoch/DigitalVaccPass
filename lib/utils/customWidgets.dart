@@ -11,7 +11,7 @@ Widget myVisibleFloatingActionButton(BuildContext context, bool isVisible) {
           Navigator.of(context)
               .push(MaterialPageRoute(builder: (context) => MyQRPage()));
         },
-        child: const Icon(Icons.qr_code),
+        child: const Icon(Icons.add),
         backgroundColor: Theme.of(context).accentColor,
       )
   );
