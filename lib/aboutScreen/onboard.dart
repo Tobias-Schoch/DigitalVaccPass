@@ -1,9 +1,10 @@
-import 'package:digital_vac_pass/main.dart';
-import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/material.dart';
+import '../main.dart';
+import '../utils/util.dart';
 import '../utils/drawer.dart';
-import 'package:provider/provider.dart';
 import 'package:flutter_onboard/flutter_onboard.dart';
+import 'package:provider/provider.dart';
+
 
 class MyOnboardPage extends StatefulWidget {
   MyOnboardPage({Key key, this.title}) : super(key: key);

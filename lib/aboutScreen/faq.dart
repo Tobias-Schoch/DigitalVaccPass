@@ -1,5 +1,5 @@
-import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/material.dart';
+import '../utils/util.dart';
 import '../utils/appBar.dart';
 import '../utils/drawer.dart';
 

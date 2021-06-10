@@ -1,5 +1,5 @@
-import 'package:digital_vac_pass/qrScreen/qrScanner.dart';
-import 'package:digital_vac_pass/utils/util.dart';
+import '../qrScreen/qrScanner.dart';
+import '../utils/util.dart';
 import 'package:flutter/material.dart';
 import '../utils/appBar.dart';
 import '../utils/drawer.dart';
@@ -50,7 +50,7 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
                               Expanded(
                                 child: Column(
                                   children: <Widget>[
-                                    const SizedBox(height: 18),
+                                    SizedBox(height: 18),
                                     InkWell(
                                       child: ListTile(
                                         title: Text(
@@ -65,14 +65,14 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
                                             builder: (context) => MyFamilyHomeScreenPage(title: TestData.familyUserDb.elementAt(index).userName, selectedUser: TestData.familyUserDb.elementAt(index))));
                                       },
                                     ),
-                                    const SizedBox(height: 18),
+                                    SizedBox(height: 18),
                                   ],
                                 ),
                               ),
                             ],
                           ),
                         ),
-                        const SizedBox(height: 20),
+                        SizedBox(height: 20),
                       ],
                     );
                   }),

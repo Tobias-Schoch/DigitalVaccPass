@@ -1,4 +1,4 @@
-import 'package:digital_vac_pass/qrScreen/qrcode.dart';
+import '../qrScreen/qrcode.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

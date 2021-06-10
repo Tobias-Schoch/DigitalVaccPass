@@ -1,5 +1,5 @@
-import 'package:digital_vac_pass/utils/customWidgets.dart';
-import 'package:digital_vac_pass/utils/util.dart';
+import '../utils/customWidgets.dart';
+import '../utils/util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
