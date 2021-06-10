@@ -1,4 +1,4 @@
-import 'package:digital_vac_pass/utils/util.dart';
+import 'utils/util.dart';
 import 'package:flutter/material.dart';
 import 'package:socket_io_client/socket_io_client.dart';
 import 'aboutScreen/StreamSocket.dart';

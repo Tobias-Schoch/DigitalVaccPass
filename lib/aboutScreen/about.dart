@@ -1,5 +1,5 @@
-import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/material.dart';
+import '../utils/util.dart';
 import '../utils/appBar.dart';
 import '../utils/drawer.dart';
 
@@ -28,7 +28,7 @@ class _MyAboutPageState extends State<MyAboutPage> {
       ),
       body: Container(
         alignment: Alignment.topLeft,
-        margin: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
+        margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,

@@ -1,10 +1,10 @@
 import 'dart:io';
 
-import 'package:digital_vac_pass/qrScreen/qrScanner.dart';
-import 'package:digital_vac_pass/utils/util.dart';
+import '../qrScreen/qrScanner.dart';
+import '../utils/util.dart';
 import 'package:flutter/material.dart';
-import 'package:digital_vac_pass/utils/appBar.dart';
-import 'package:digital_vac_pass/utils/drawer.dart';
+import '../utils/appBar.dart';
+import '../utils/drawer.dart';
 import 'package:intl/intl.dart';
 
 class MyVaccinationAddPage extends StatefulWidget {

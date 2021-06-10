@@ -1,5 +1,5 @@
-import 'package:digital_vac_pass/qrScreen/qrScanner.dart';
-import 'package:digital_vac_pass/utils/util.dart';
+import '../qrScreen/qrScanner.dart';
+import '../utils/util.dart';
 import 'package:flutter/material.dart';
 import '../utils/appBar.dart';
 import '../utils/drawer.dart';
