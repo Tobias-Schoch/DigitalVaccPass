@@ -1,3 +1,4 @@
+import 'package:digital_vac_pass/aboutScreen/StreamSocket.dart';
 import 'package:digital_vac_pass/familyScreen/family.dart';
 import 'package:digital_vac_pass/qrScreen/qrcode.dart';
 import 'package:digital_vac_pass/utils/util.dart';
@@ -174,6 +175,17 @@ class MyDrawer extends StatelessWidget {
             onTap: () {
               Navigator.of(context)
                   .push(MaterialPageRoute(builder: (context) => MyApp()));
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.sailing_outlined, color: PredefinedColors.textColor),
+            title: Text(
+              'SocketTest',
+              style: Theme.of(context).textTheme.headline6,
+            ),
+            onTap: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => StreamSocket()));
             },
           ),
         ],

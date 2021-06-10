@@ -1,8 +1,13 @@
 import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/material.dart';
+import 'package:socket_io_client/socket_io_client.dart';
+import 'aboutScreen/StreamSocket.dart';
 import 'loginScreen/login.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:socket_io_client/socket_io_client.dart' as IO;
+import 'package:socket_io/socket_io.dart';
+import 'package:socket_io_client/socket_io_client.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,32 +25,21 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitDown,
     ]);
     return MaterialApp(
-      localizationsDelegates: [
-        GlobalMaterialLocalizations.delegate
-      ],
-      supportedLocales: [
-        const Locale('en'),
-        const Locale('de')
-      ],
-
+      localizationsDelegates: [GlobalMaterialLocalizations.delegate],
+      supportedLocales: [const Locale('en'), const Locale('de')],
       title: 'Impfpass',
       theme: ThemeData(
         fontFamily: "Inter",
-
         primaryColor: PredefinedColors.accentWhite,
         accentColor: PredefinedColors.primaryColor,
         primaryColorLight: PredefinedColors.textColor,
-
-        textButtonTheme: TextButtonThemeData(
-        ),
-
+        textButtonTheme: TextButtonThemeData(),
         cardTheme: CardTheme(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12.0),
           ),
           elevation: 10,
         ),
-
         snackBarTheme: SnackBarThemeData(
           elevation: 10,
           shape: RoundedRectangleBorder(
@@ -53,7 +47,6 @@ class MyApp extends StatelessWidget {
           ),
           backgroundColor: PredefinedColors.primaryColor,
         ),
-
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             textStyle: const TextStyle(fontSize: 16, fontFamily: "Inter"),
@@ -63,7 +56,6 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
-
         textTheme: TextTheme(
           headline1: TextStyle(
               fontWeight: FontWeight.w700,
@@ -92,10 +84,23 @@ class MyApp extends StatelessWidget {
         ),
         hoverColor: Colors.transparent,
       ),
-
       home: MyHomePage(title: 'Impfpass'),
     );
   }
+}
+
+void connectAndListen() {
+  IO.Socket socket = IO.io('http://localhost:3000',
+      OptionBuilder().setTransports(['websocket']).build());
+
+  socket.onConnect((_) {
+    print('connect');
+    socket.emit('msg', 'test');
+  });
+
+  //When an event recieved from server, data is added to the stream
+  socket.on('event', (data) => streamSocket.addResponse);
+  socket.onDisconnect((_) => print('disconnect'));
 }
 
 class MyHomePage extends StatefulWidget {
@@ -108,7 +113,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   void dispose() {
     super.dispose();

@@ -1,31 +1,33 @@
 import 'dart:async';
 
+import 'package:digital_vac_pass/utils/appBar.dart';
+import 'package:digital_vac_pass/utils/drawer.dart';
 import 'package:digital_vac_pass/utils/util.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../utils/appBar.dart';
-import '../utils/drawer.dart';
-import 'package:qr_flutter/qr_flutter.dart';
 
-class MyQRPage extends StatefulWidget {
-  MyQRPage({Key key, this.title}) : super(key: key);
+class StreamSocket extends StatefulWidget {
+  StreamSocket({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _MyQRPageState createState() => _MyQRPageState();
+  _MyStreamPageState createState() => _MyStreamPageState();
+
+  final _socketResponse = StreamController<String>();
+
+  void Function(String) get addResponse => _socketResponse.sink.add;
+
+  Stream<String> get getResponse => _socketResponse.stream;
+
+  void dispose() {
+    _socketResponse.close();
+  }
 }
 
-class _MyQRPageState extends State<MyQRPage> {
+StreamSocket streamSocket = StreamSocket();
 
-  static String qrData(String email) {
-    String qrData;
-    TestData.userListDb.forEach((element) {
-      if (element.userEmail.compareTo(email) == 0) {
-        qrData = element.userEmail;
-      }
-    });
-    return qrData;
-  }
+class _MyStreamPageState extends State<StreamSocket> {
 
   @override
   void dispose() {
@@ -54,27 +56,20 @@ class _MyQRPageState extends State<MyQRPage> {
           children: <Widget>[
             Flexible(
               child: Text(
-                "Mein QR-Code",
+                "Socket Test",
                 style: Theme.of(context).textTheme.headline4,
                 textAlign: TextAlign.start,
               ),
             ),
             SizedBox(height: 25),
-            Flexible(
-              child: Row(
-                children: [
-                  Visibility(
-                    visible: User.loggedInUser == null ? false : true,
-                    child: QrImage(
-                      data: qrData(LastUser.lastUser),
-                      version: QrVersions.auto,
-                    ),
-                  ),
-                  Visibility(
-                    visible: User.loggedInUser == null ? true : false,
-                    child: Image.asset("assets/images/qr.png", width: 200),
-                  ),
-                ],
+            SingleChildScrollView(
+              child: StreamBuilder(
+                stream: streamSocket.getResponse ,
+                builder: (BuildContext context, AsyncSnapshot<String> snapshot){
+                  return Container(
+                    child: Text(snapshot.data == null ? "abc" : snapshot.data),
+                  );
+                },
               ),
             ),
           ],
@@ -84,8 +79,8 @@ class _MyQRPageState extends State<MyQRPage> {
           isVisible: User.loggedInUser == null
               ? false
               : User.loggedInUser.userRole == Role.Doctor
-                  ? true
-                  : false),
+              ? true
+              : false),
     );
   }
 }
