@@ -1,4 +1,4 @@
-import '../aboutScreen/StreamSocket.dart';
+import '../aboutScreen/streamsocket.dart';
 import '../familyScreen/family.dart';
 import '../qrScreen/qrcode.dart';
 import '../utils/util.dart';

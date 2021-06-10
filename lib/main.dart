@@ -1,7 +1,7 @@
 import 'utils/util.dart';
 import 'package:flutter/material.dart';
 import 'package:socket_io_client/socket_io_client.dart';
-import 'aboutScreen/StreamSocket.dart';
+import 'aboutScreen/streamsocket.dart';
 import 'loginScreen/login.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
