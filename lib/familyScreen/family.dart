@@ -6,9 +6,7 @@ import '../utils/util.dart';
 import 'familyHomeScreen.dart';
 
 class MyFamilyPage extends StatefulWidget {
-  const MyFamilyPage({Key key, this.title}) : super(key: key);
-
-  final String title;
+  const MyFamilyPage({Key key}) : super(key: key);
 
   @override
   _MyFamilyPageState createState() => _MyFamilyPageState();
@@ -66,10 +64,6 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
                                             MaterialPageRoute(
                                                 builder: (context) =>
                                                     MyFamilyHomeScreenPage(
-                                                        title: TestData
-                                                            .familyUserDb
-                                                            .elementAt(index)
-                                                            .userName,
                                                         selectedUser: TestData
                                                             .familyUserDb
                                                             .elementAt(

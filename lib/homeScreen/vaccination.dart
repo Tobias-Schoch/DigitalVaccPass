@@ -7,12 +7,10 @@ import '../utils/util.dart';
 class MyVaccinationPage extends StatefulWidget {
   const MyVaccinationPage(
       {Key key,
-      this.title,
       this.selectedUser,
       this.isFloatingActionButtonVisible})
       : super(key: key);
 
-  final String title;
   final User selectedUser;
   final bool isFloatingActionButtonVisible;
 

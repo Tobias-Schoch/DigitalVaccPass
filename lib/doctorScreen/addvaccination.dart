@@ -7,9 +7,7 @@ import '../utils/appBar.dart';
 import '../utils/drawer.dart';
 
 class MyVaccinationAddPage extends StatefulWidget {
-  const MyVaccinationAddPage({Key key, this.title}) : super(key: key);
-
-  final String title;
+  const MyVaccinationAddPage({Key key}) : super(key: key);
 
   @override
   _MyVaccinationAddPageState createState() => _MyVaccinationAddPageState();
@@ -33,7 +31,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
       ),
       body: Container(
         alignment: Alignment.topLeft,
-        margin: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
+        margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
         child: SingleChildScrollView(
           child: Form(
             key: _formKey,
@@ -51,20 +49,20 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                     labelText: "Impfung",
                     fillColor: Theme.of(context).accentColor,
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12.0),
+                      borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide(
-                          color: Theme.of(context).accentColor, width: 3.0),
+                          color: Theme.of(context).accentColor, width: 3),
                     ),
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12.0),
+                      borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide(
                           color: Theme.of(context).primaryColorLight,
-                          width: 3.0),
+                          width: 3),
                     ),
                     focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12.0),
+                        borderRadius: BorderRadius.circular(12),
                         borderSide: BorderSide(
-                            color: Theme.of(context).accentColor, width: 3.0)),
+                            color: Theme.of(context).accentColor, width: 3)),
                     labelStyle:
                         TextStyle(color: Theme.of(context).primaryColorLight),
                   ),
@@ -82,20 +80,20 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                     labelText: "ChargeNr.",
                     fillColor: Theme.of(context).accentColor,
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12.0),
+                      borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide(
-                          color: Theme.of(context).accentColor, width: 3.0),
+                          color: Theme.of(context).accentColor, width: 3),
                     ),
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12.0),
+                      borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide(
                           color: Theme.of(context).primaryColorLight,
                           width: 3.0),
                     ),
                     focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12.0),
+                        borderRadius: BorderRadius.circular(12),
                         borderSide: BorderSide(
-                            color: Theme.of(context).accentColor, width: 3.0)),
+                            color: Theme.of(context).accentColor, width: 3)),
                     labelStyle:
                         TextStyle(color: Theme.of(context).primaryColorLight),
                   ),
@@ -118,20 +116,20 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                     labelText: 'Datum',
                     fillColor: Theme.of(context).accentColor,
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12.0),
+                      borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide(
-                          color: Theme.of(context).accentColor, width: 3.0),
+                          color: Theme.of(context).accentColor, width: 3),
                     ),
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12.0),
+                      borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide(
                           color: Theme.of(context).primaryColorLight,
-                          width: 3.0),
+                          width: 3),
                     ),
                     focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12.0),
+                        borderRadius: BorderRadius.circular(12),
                         borderSide: BorderSide(
-                            color: Theme.of(context).accentColor, width: 3.0)),
+                            color: Theme.of(context).accentColor, width: 3)),
                     labelStyle:
                         TextStyle(color: Theme.of(context).primaryColorLight),
                   ),

@@ -5,9 +5,7 @@ import '../utils/drawer.dart';
 import '../utils/util.dart';
 
 class MyStatisticPage extends StatefulWidget {
-  const MyStatisticPage({Key key, this.title}) : super(key: key);
-
-  final String title;
+  const MyStatisticPage({Key key}) : super(key: key);
 
   @override
   _MyStatisticPageState createState() => _MyStatisticPageState();

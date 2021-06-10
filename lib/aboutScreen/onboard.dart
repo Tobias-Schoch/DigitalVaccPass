@@ -6,9 +6,7 @@ import '../utils/util.dart';
 import '../utils/drawer.dart';
 
 class MyOnboardPage extends StatefulWidget {
-  const MyOnboardPage({Key key, this.title}) : super(key: key);
-
-  final String title;
+  const MyOnboardPage({Key key}) : super(key: key);
 
   @override
   _MyOnboardPageState createState() => _MyOnboardPageState();

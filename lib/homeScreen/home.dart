@@ -8,9 +8,8 @@ import '../utils/drawer.dart';
 
 class MyHomeScreenPage extends StatefulWidget {
   int selectedTabIndex = 0;
-  final int title;
 
-  MyHomeScreenPage({this.title, this.selectedTabIndex});
+  MyHomeScreenPage({this.selectedTabIndex});
 
   @override
   State<StatefulWidget> createState() => _MyHomeScreenPage();

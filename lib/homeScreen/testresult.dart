@@ -6,12 +6,10 @@ import '../utils/util.dart';
 class MyTestPage extends StatefulWidget {
   const MyTestPage(
       {Key key,
-      this.title,
       this.selectedUser,
       this.isFloatingActionButtonVisible})
       : super(key: key);
 
-  final String title;
   final User selectedUser;
   final bool isFloatingActionButtonVisible;
 

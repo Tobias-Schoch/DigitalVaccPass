@@ -4,9 +4,7 @@ import '../utils/util.dart';
 import '../utils/appBar.dart';
 
 class MyRegisterPage extends StatefulWidget {
-  const MyRegisterPage({Key key, this.title}) : super(key: key);
-
-  final String title;
+  const MyRegisterPage({Key key}) : super(key: key);
 
   @override
   _MyRegisterPageState createState() => _MyRegisterPageState();
@@ -38,7 +36,7 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
       ),
       body: Container(
         alignment: Alignment.topLeft,
-        margin: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
+        margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
         child: SingleChildScrollView(
           child: Form(
             key: _formRegisterKey,
@@ -58,24 +56,24 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                     labelText: "Vor- und Nachname",
                     fillColor: Theme.of(context).accentColor,
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12.0),
+                      borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide(
                         color: Theme.of(context).accentColor,
-                        width: 3.0,
+                        width: 3,
                       ),
                     ),
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12.0),
+                      borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide(
                         color: Theme.of(context).primaryColorLight,
-                        width: 3.0,
+                        width: 3,
                       ),
                     ),
                     focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12.0),
+                        borderRadius: BorderRadius.circular(12),
                         borderSide: BorderSide(
                           color: Theme.of(context).accentColor,
-                          width: 3.0,
+                          width: 3,
                         )),
                     labelStyle: TextStyle(color: Theme.of(context).primaryColorLight),
                   ),
@@ -95,21 +93,21 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                     labelText: "E-Mail",
                     fillColor: Theme.of(context).accentColor,
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12.0),
+                      borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide(
                         color: Theme.of(context).accentColor,
                         width: 3.0,
                       ),
                     ),
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12.0),
+                      borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide(
                         color: Theme.of(context).primaryColorLight,
                         width: 3.0,
                       ),
                     ),
                     focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12.0),
+                        borderRadius: BorderRadius.circular(12),
                         borderSide: BorderSide(
                           color: Theme.of(context).accentColor,
                           width: 3.0,
@@ -135,24 +133,24 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                     labelText: "Passwort",
                     fillColor: Theme.of(context).accentColor,
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12.0),
+                      borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide(
                         color: Theme.of(context).accentColor,
-                        width: 3.0,
+                        width: 3,
                       ),
                     ),
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12.0),
+                      borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide(
                         color: Theme.of(context).primaryColorLight,
-                        width: 3.0,
+                        width: 3,
                       ),
                     ),
                     focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12.0),
+                        borderRadius: BorderRadius.circular(12),
                         borderSide: BorderSide(
                           color: Theme.of(context).accentColor,
-                          width: 3.0,
+                          width: 3,
                         )),
                     labelStyle: TextStyle(color: Theme.of(context).primaryColorLight),
                   ),
@@ -176,24 +174,24 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                     labelText: "Passwort wiederholen",
                     fillColor: Theme.of(context).accentColor,
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12.0),
+                      borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide(
                         color: Theme.of(context).accentColor,
-                        width: 3.0,
+                        width: 3,
                       ),
                     ),
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12.0),
+                      borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide(
                         color: Theme.of(context).primaryColorLight,
-                        width: 3.0,
+                        width: 3,
                       ),
                     ),
                     focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12.0),
                         borderSide: BorderSide(
                           color: Theme.of(context).accentColor,
-                          width: 3.0,
+                          width: 3,
                         )),
                     labelStyle: TextStyle(color: Theme.of(context).primaryColorLight),
                   ),

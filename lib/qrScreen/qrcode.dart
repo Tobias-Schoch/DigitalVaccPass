@@ -5,9 +5,7 @@ import '../utils/appBar.dart';
 import '../utils/drawer.dart';
 
 class MyQRPage extends StatefulWidget {
-  const MyQRPage({Key key, this.title}) : super(key: key);
-
-  final String title;
+  const MyQRPage({Key key}) : super(key: key);
 
   @override
   _MyQRPageState createState() => _MyQRPageState();

@@ -4,9 +4,7 @@ import '../utils/drawer.dart';
 import '../utils/util.dart';
 
 class MyAboutPage extends StatefulWidget {
-  const MyAboutPage({Key key, this.title}) : super(key: key);
-
-  final String title;
+  const MyAboutPage({Key key}) : super(key: key);
 
   @override
   _MyAboutPageState createState() => _MyAboutPageState();
