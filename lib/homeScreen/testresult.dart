@@ -4,7 +4,7 @@ import '../utils/customWidgets.dart';
 import '../utils/util.dart';
 
 class MyTestPage extends StatefulWidget {
-  MyTestPage(
+  const MyTestPage(
       {Key key,
       this.title,
       this.selectedUser,

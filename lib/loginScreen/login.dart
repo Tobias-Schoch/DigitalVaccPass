@@ -7,7 +7,7 @@ import '../utils/appBar.dart';
 import '../loginScreen/forgotpassword.dart';
 
 class MyLoginPage extends StatefulWidget {
-  MyLoginPage({Key key, this.title}) : super(key: key);
+  const MyLoginPage({Key key, this.title}) : super(key: key);
 
   final String title;
 

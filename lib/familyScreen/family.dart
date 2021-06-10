@@ -6,7 +6,7 @@ import '../utils/util.dart';
 import 'familyHomeScreen.dart';
 
 class MyFamilyPage extends StatefulWidget {
-  MyFamilyPage({Key key, this.title}) : super(key: key);
+  const MyFamilyPage({Key key, this.title}) : super(key: key);
 
   final String title;
 

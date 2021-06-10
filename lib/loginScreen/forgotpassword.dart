@@ -3,7 +3,7 @@ import '../utils/appBar.dart';
 import 'login.dart';
 
 class MyForgotPasswordPage extends StatefulWidget {
-  MyForgotPasswordPage({Key key, this.title}) : super(key: key);
+  const MyForgotPasswordPage({Key key, this.title}) : super(key: key);
 
   final String title;
 

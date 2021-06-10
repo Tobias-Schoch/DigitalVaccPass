@@ -7,7 +7,7 @@ import '../utils/appBar.dart';
 import '../utils/drawer.dart';
 
 class MyVaccinationAddPage extends StatefulWidget {
-  MyVaccinationAddPage({Key key, this.title}) : super(key: key);
+  const MyVaccinationAddPage({Key key, this.title}) : super(key: key);
 
   final String title;
 
@@ -169,7 +169,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
   }
 
   _selectDate(BuildContext context) async {
-    DateTime newSelectedDate = await showDatePicker(
+    final DateTime newSelectedDate = await showDatePicker(
         context: context,
         locale: const Locale("de", "DE"),
         initialDate: DateTime.now(),
@@ -178,7 +178,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
         builder: (BuildContext context, Widget child) {
           return Theme(
             data: ThemeData.light().copyWith(
-              colorScheme: ColorScheme.light(
+              colorScheme: const ColorScheme.light(
                 primary: PredefinedColors.primaryColor,
                 onPrimary: Colors.white,
                 surface: PredefinedColors.primaryColor,

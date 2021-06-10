@@ -5,7 +5,7 @@ import '../utils/drawer.dart';
 import '../utils/util.dart';
 
 class MyStatisticPage extends StatefulWidget {
-  MyStatisticPage({Key key, this.title}) : super(key: key);
+  const MyStatisticPage({Key key, this.title}) : super(key: key);
 
   final String title;
 

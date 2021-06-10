@@ -14,7 +14,7 @@ import '../utils/util.dart';
 class MyDrawer extends StatelessWidget {
   final bool isVisible;
 
-  MyDrawer({this.isVisible});
+  const MyDrawer({this.isVisible});
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +74,7 @@ class MyDrawer extends StatelessWidget {
           ),
           Visibility(
             visible: isVisible,
-            child: Divider(
+            child: const Divider(
               thickness: 3.0,
               color: PredefinedColors.primaryColor,
               endIndent: 20.0,
@@ -142,7 +142,7 @@ class MyDrawer extends StatelessWidget {
                   .push(MaterialPageRoute(builder: (context) => MyQRPage()));
             },
           ),
-          Divider(
+          const Divider(
             thickness: 3.0,
             color: PredefinedColors.primaryColor,
             endIndent: 20.0,

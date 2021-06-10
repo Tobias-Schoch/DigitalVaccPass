@@ -5,7 +5,7 @@ import '../utils/customWidgets.dart';
 import '../utils/util.dart';
 
 class MyVaccinationPage extends StatefulWidget {
-  MyVaccinationPage(
+  const MyVaccinationPage(
       {Key key,
       this.title,
       this.selectedUser,

@@ -4,7 +4,7 @@ import '../utils/util.dart';
 import '../utils/appBar.dart';
 
 class MyRegisterPage extends StatefulWidget {
-  MyRegisterPage({Key key, this.title}) : super(key: key);
+  const MyRegisterPage({Key key, this.title}) : super(key: key);
 
   final String title;
 
