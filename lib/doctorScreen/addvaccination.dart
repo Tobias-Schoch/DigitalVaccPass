@@ -115,7 +115,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                   },
                   cursorColor: Theme.of(context).primaryColorLight,
                   decoration: InputDecoration(
-                    labelText: "Datum",
+                    labelText: 'Datum',
                     fillColor: Theme.of(context).accentColor,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12.0),
