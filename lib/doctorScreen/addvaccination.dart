@@ -26,7 +26,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: MyHeader(),
+        title: const MyHeader(),
         elevation: 0,
       ),
       body: Container(
@@ -149,7 +149,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                         FocusScope.of(context).unfocus();
                         sleep(const Duration(milliseconds: 50));
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => QRViewExample()));
+                            builder: (context) => const QRViewExample()));
                       }
                     },
                     label: const Text('Hinzufügen',

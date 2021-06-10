@@ -27,7 +27,7 @@ class _MyFamilyHomeScreenPage extends State<MyFamilyHomeScreenPage> {
         length: 2,
         child: Scaffold(
           appBar: AppBar(
-            title: MyHeader(),
+            title: const MyHeader(),
             elevation: 0,
             bottom: TabBar(
               indicator: UnderlineTabIndicator(

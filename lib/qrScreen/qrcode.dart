@@ -37,7 +37,7 @@ class _MyQRPageState extends State<MyQRPage> {
         //   icon: Icon(Icons.arrow_back),
         //   onPressed: () => Navigator.pop(context),
         // ),
-        title: MyHeader(),
+        title: const MyHeader(),
         elevation: 0,
       ),
       body: Container(

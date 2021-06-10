@@ -22,7 +22,7 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: MyHeader(),
+        title: const MyHeader(),
         elevation: 0,
       ),
       body: Container(
@@ -88,7 +88,7 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => QRViewExample()));
+              .push(MaterialPageRoute(builder: (context) => const QRViewExample()));
         },
         child: const Icon(Icons.add),
         backgroundColor: Theme.of(context).accentColor,

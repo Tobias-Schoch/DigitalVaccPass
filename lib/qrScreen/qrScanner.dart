@@ -38,7 +38,7 @@ class _QRViewExampleState extends State<QRViewExample> {
           icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.pop(context),
         ),
-        title: MyHeader(),
+        title: const MyHeader(),
         elevation: 0,
       ),
       body: Column(

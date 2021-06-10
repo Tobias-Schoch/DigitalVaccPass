@@ -42,7 +42,7 @@ class _MyHomeScreenPage extends State<MyHomeScreenPage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: MyHeader(),
+        title: const MyHeader(),
         elevation: 0,
         bottom: TabBar(
           controller: _tabController,

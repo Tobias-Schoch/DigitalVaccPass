@@ -31,7 +31,7 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: MyHeader(),
+        title: const MyHeader(),
         elevation: 0,
       ),
       body: Container(
