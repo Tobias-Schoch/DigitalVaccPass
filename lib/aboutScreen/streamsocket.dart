@@ -27,7 +27,6 @@ class StreamSocket extends StatefulWidget {
 StreamSocket streamSocket = StreamSocket();
 
 class _MyStreamPageState extends State<StreamSocket> {
-
   @override
   void dispose() {
     super.dispose();
@@ -48,14 +47,13 @@ class _MyStreamPageState extends State<StreamSocket> {
       ),
       body: Container(
         alignment: Alignment.topLeft,
-        margin: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
+        margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Flexible(
               child: Text(
-                "Socket Test",
+                'Socket Test',
                 style: Theme.of(context).textTheme.headline4,
                 textAlign: TextAlign.start,
               ),
@@ -63,8 +61,9 @@ class _MyStreamPageState extends State<StreamSocket> {
             SizedBox(height: 25),
             SingleChildScrollView(
               child: StreamBuilder(
-                stream: streamSocket.getResponse ,
-                builder: (BuildContext context, AsyncSnapshot<String> snapshot){
+                stream: streamSocket.getResponse,
+                builder:
+                    (BuildContext context, AsyncSnapshot<String> snapshot) {
                   return Container(
                     child: Text(snapshot.data == null ? "abc" : snapshot.data),
                   );
@@ -78,8 +77,8 @@ class _MyStreamPageState extends State<StreamSocket> {
           isVisible: User.loggedInUser == null
               ? false
               : User.loggedInUser.userRole == Role.Doctor
-              ? true
-              : false),
+                  ? true
+                  : false),
     );
   }
 }

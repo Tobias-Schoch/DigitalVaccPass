@@ -1,10 +1,10 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
-import 'dart:io';
+import '../doctorScreen/statistics.dart';
 import '../utils/appBar.dart';
 import '../utils/util.dart';
 import '../utils/websocket.dart';
-import '../doctorScreen/statistics.dart';
 
 class QRViewExample extends StatefulWidget {
   @override
@@ -73,7 +73,7 @@ class _QRViewExampleState extends State<QRViewExample> {
       this.controller = controller;
     });
     controller.scannedDataStream.listen((scanData) {
-      sleep(Duration(milliseconds:10));
+      sleep(Duration(milliseconds: 10));
       setState(() {
         result = scanData;
         barcodeString = result.code.toString();
@@ -89,9 +89,10 @@ class _QRViewExampleState extends State<QRViewExample> {
                   height: 20,
                   child: Center(
                     child: Text(
-                      'Impfung hinzugefügt.', textAlign: TextAlign.center,),
-                  )
-              ),
+                      'Impfung hinzugefügt.',
+                      textAlign: TextAlign.center,
+                    ),
+                  )),
             ),
           );
         }

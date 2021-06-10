@@ -12,8 +12,6 @@ class MyForgotPasswordPage extends StatefulWidget {
 }
 
 class _MyForgotPasswordPageState extends State<MyForgotPasswordPage> {
-
-
   @override
   void dispose() {
     super.dispose();
@@ -28,13 +26,12 @@ class _MyForgotPasswordPageState extends State<MyForgotPasswordPage> {
       ),
       body: Container(
         alignment: Alignment.topLeft,
-        margin: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
+        margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              Text("Passwort zurücksetzen",
+              Text('Passwort zurücksetzen',
                   style: Theme.of(context).textTheme.headline4,
                   textAlign: TextAlign.left),
               SizedBox(height: 25),
@@ -42,7 +39,7 @@ class _MyForgotPasswordPageState extends State<MyForgotPasswordPage> {
                 autofocus: true,
                 cursorColor: Theme.of(context).primaryColorLight,
                 decoration: new InputDecoration(
-                  labelText: "E-Mail",
+                  labelText: 'E-Mail',
                   fillColor: Theme.of(context).accentColor,
                   border: new OutlineInputBorder(
                     borderRadius: new BorderRadius.circular(12.0),
@@ -64,11 +61,12 @@ class _MyForgotPasswordPageState extends State<MyForgotPasswordPage> {
                         color: Theme.of(context).accentColor,
                         width: 3.0,
                       )),
-                  labelStyle: new TextStyle(color: Theme.of(context).primaryColorLight),
+                  labelStyle:
+                      new TextStyle(color: Theme.of(context).primaryColorLight),
                 ),
                 validator: (val) {
                   if (val.length == 0) {
-                    return "Emailfeld darf nicht leer sein.";
+                    return 'Emailfeld darf nicht leer sein.';
                   } else {
                     return null;
                   }
@@ -80,10 +78,15 @@ class _MyForgotPasswordPageState extends State<MyForgotPasswordPage> {
                 constraints: BoxConstraints.tightFor(height: 60),
                 child: ElevatedButton.icon(
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => MyLoginPage()));
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => MyLoginPage()));
                   },
-                  label: Flexible(child: Text('Zurücksetzen', style: new TextStyle(fontSize: 20), overflow: TextOverflow.clip,)),
+                  label: Flexible(
+                      child: Text(
+                    'Zurücksetzen',
+                    style: new TextStyle(fontSize: 20),
+                    overflow: TextOverflow.clip,
+                  )),
                   icon: Icon(Icons.refresh),
                 ),
               ),

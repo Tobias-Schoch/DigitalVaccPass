@@ -5,7 +5,12 @@ import '../utils/customWidgets.dart';
 import '../utils/util.dart';
 
 class MyVaccinationPage extends StatefulWidget {
-  MyVaccinationPage({Key key, this.title, this.selectedUser, this.isFloatingActionButtonVisible}) : super(key: key);
+  MyVaccinationPage(
+      {Key key,
+      this.title,
+      this.selectedUser,
+      this.isFloatingActionButtonVisible})
+      : super(key: key);
 
   final String title;
   final User selectedUser;
@@ -16,8 +21,6 @@ class MyVaccinationPage extends StatefulWidget {
 }
 
 class _MyVaccinationPage extends State<MyVaccinationPage> {
-
-
   @override
   void dispose() {
     super.dispose();
@@ -28,10 +31,10 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
     return Scaffold(
       body: Container(
         alignment: Alignment.topLeft,
-        margin: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
+        margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+          children: <Widget>[
             Text(widget.selectedUser.userName,
                 style: Theme.of(context).textTheme.headline4,
                 textAlign: TextAlign.center),
@@ -42,69 +45,68 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
                 itemBuilder: (context, index) {
                   return InkWell(
                       child: Column(
-                        children: [
-                          Card(
-                            child: Row(
-                              children: [
-                                Expanded(
-                                  child: Column(
-                                    children: <Widget>[
-                                      ListTile(
-                                        title: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              SizedBox(height: 18),
-                                              Text(
-                                                  widget
-                                                      .selectedUser.vaccinations
-                                                      .elementAt(index)
-                                                      .vaccinationName,
-                                                  style: Theme.of(context)
-                                                      .textTheme
-                                                      .bodyText1),
-                                            ]),
-                                        subtitle: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            SizedBox(height: 10),
-                                            Text('Datum: ' +
-                                                DateFormat('dd.MM.yyyy').format(
-                                                    widget.selectedUser
-                                                        .vaccinations
-                                                        .elementAt(index)
-                                                        .vaccinationDate)),
-                                            SizedBox(height: 8),
-                                            Text('ChargeNr: ' +
+                    children: <Widget>[
+                      Card(
+                        child: Row(
+                          children: <Widget>[
+                            Expanded(
+                              child: Column(
+                                children: <Widget>[
+                                  ListTile(
+                                    title: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          SizedBox(height: 18),
+                                          Text(
+                                              widget.selectedUser.vaccinations
+                                                  .elementAt(index)
+                                                  .vaccinationName,
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyText1),
+                                        ]),
+                                    subtitle: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        SizedBox(height: 10),
+                                        Text('Datum: ' +
+                                            DateFormat('dd.MM.yyyy').format(
                                                 widget.selectedUser.vaccinations
                                                     .elementAt(index)
-                                                    .chargeNr),
-                                            SizedBox(height: 8),
-                                            Text('Arzt: ' +
-                                                widget.selectedUser.vaccinations
-                                                    .elementAt(index)
-                                                    .doctorSignature),
-                                            SizedBox(height: 18),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
+                                                    .vaccinationDate)),
+                                        SizedBox(height: 8),
+                                        Text('ChargeNr: ' +
+                                            widget.selectedUser.vaccinations
+                                                .elementAt(index)
+                                                .chargeNr),
+                                        SizedBox(height: 8),
+                                        Text('Arzt: ' +
+                                            widget.selectedUser.vaccinations
+                                                .elementAt(index)
+                                                .doctorSignature),
+                                        SizedBox(height: 18),
+                                      ],
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
-                          SizedBox(height: 20),
-                        ],
-                      ));
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                    ],
+                  ));
                 },
               ),
             ),
           ],
         ),
       ),
-      floatingActionButton: myVisibleFloatingActionButton(context, widget.isFloatingActionButtonVisible),
+      floatingActionButton: myVisibleFloatingActionButton(
+          context, widget.isFloatingActionButtonVisible),
     );
   }
 }

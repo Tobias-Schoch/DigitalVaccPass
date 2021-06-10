@@ -5,7 +5,6 @@ import '../main.dart';
 import '../utils/util.dart';
 import '../utils/drawer.dart';
 
-
 class MyOnboardPage extends StatefulWidget {
   MyOnboardPage({Key key, this.title}) : super(key: key);
 
@@ -32,10 +31,8 @@ class _MyOnboardPageState extends State<MyOnboardPage> {
         body: OnBoard(
           pageController: _pageController,
           onSkip: () {
-            print("Skipped");
           },
           onDone: () {
-            print("Done");
           },
           imageWidth: MediaQuery.of(context).size.width * 0.15,
           onBoardData: onBoardData,
@@ -81,7 +78,7 @@ class _MyOnboardPageState extends State<MyOnboardPage> {
                     ),
                   ),
                   child: Text(
-                    state.isLastPage ? "Anleitung beenden" : "Nächste Seite",
+                    state.isLastPage ? 'Anleitung beenden' : 'Nächste Seite',
                     style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -92,7 +89,12 @@ class _MyOnboardPageState extends State<MyOnboardPage> {
             },
           ),
         ),
-        drawer: MyDrawer(isVisible: User.loggedInUser == null ? false : User.loggedInUser.userRole == Role.Doctor ? true : false),
+        drawer: MyDrawer(
+            isVisible: User.loggedInUser == null
+                ? false
+                : User.loggedInUser.userRole == Role.Doctor
+                    ? true
+                    : false),
       ),
     );
   }
@@ -113,21 +115,21 @@ void _onNextTap(OnBoardState onBoardState) {
 
 final List<OnBoardModel> onBoardData = [
   const OnBoardModel(
-    title: "Nie wieder ohne Impfpass!",
+    title: 'Nie wieder ohne Impfpass!',
     description:
-        "Mit dem digitalen Impfpass haben Sie ab jetzt überall ihren Impfpass und ihre negativen Testergebnisse mit dabei.",
+        'Mit dem digitalen Impfpass haben Sie ab jetzt überall ihren Impfpass und ihre negativen Testergebnisse mit dabei.',
     imgUrl: "assets/images/phone.png",
   ),
   const OnBoardModel(
-    title: "Mit Familienübersicht!",
+    title: 'Mit Familienübersicht!',
     description:
-        "Um die Impfungen Ihrer Familie zu verwalten, haben Sie ab jetzt äußerst einfach die Möglichkeit dazu.",
+        'Um die Impfungen Ihrer Familie zu verwalten, haben Sie ab jetzt äußerst einfach die Möglichkeit dazu.',
     imgUrl: 'assets/images/graph.png',
   ),
   const OnBoardModel(
-    title: "Die Daten für Ihren Impfpass haben nur Sie!",
+    title: 'Die Daten für Ihren Impfpass haben nur Sie!',
     description:
-        "Kein Datenschutz von Nöten, da die Daten nur auf Ihrem Endgerät gespeichert werden.",
+        'Kein Datenschutz von Nöten, da die Daten nur auf Ihrem Endgerät gespeichert werden.',
     imgUrl: 'assets/images/weight.png',
   ),
 ];

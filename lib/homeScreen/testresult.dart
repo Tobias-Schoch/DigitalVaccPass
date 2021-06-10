@@ -4,7 +4,12 @@ import '../utils/customWidgets.dart';
 import '../utils/util.dart';
 
 class MyTestPage extends StatefulWidget {
-  MyTestPage({Key key, this.title, this.selectedUser, this.isFloatingActionButtonVisible}) : super(key: key);
+  MyTestPage(
+      {Key key,
+      this.title,
+      this.selectedUser,
+      this.isFloatingActionButtonVisible})
+      : super(key: key);
 
   final String title;
   final User selectedUser;
@@ -15,8 +20,6 @@ class MyTestPage extends StatefulWidget {
 }
 
 class _MyTestPageState extends State<MyTestPage> {
-
-
   @override
   void dispose() {
     super.dispose();
@@ -27,10 +30,10 @@ class _MyTestPageState extends State<MyTestPage> {
     return Scaffold(
       body: Container(
         alignment: Alignment.topLeft,
-        margin: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
+        margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+          children: <Widget>[
             Text(widget.selectedUser.userName,
                 style: Theme.of(context).textTheme.headline4,
                 textAlign: TextAlign.center),
@@ -40,7 +43,7 @@ class _MyTestPageState extends State<MyTestPage> {
                   itemCount: widget.selectedUser.tests.length,
                   itemBuilder: (context, index) {
                     return Column(
-                      children: [
+                      children: <Widget>[
                         Card(
                           color: widget.selectedUser.tests
                                       .elementAt(index)
@@ -54,7 +57,7 @@ class _MyTestPageState extends State<MyTestPage> {
                                   ? PredefinedColors.lightGreen
                                   : PredefinedColors.lightRed,
                           child: Row(
-                            children: [
+                            children: <Widget>[
                               Expanded(
                                 child: Column(
                                   children: <Widget>[
@@ -62,7 +65,7 @@ class _MyTestPageState extends State<MyTestPage> {
                                       title: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
-                                        children: [
+                                        children: <Widget>[
                                           SizedBox(height: 18),
                                           Text(
                                             widget.selectedUser.tests
@@ -77,7 +80,7 @@ class _MyTestPageState extends State<MyTestPage> {
                                       subtitle: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
-                                        children: [
+                                        children: <Widget>[
                                           SizedBox(height: 10),
                                           Text('Datum.: ' +
                                               DateFormat('dd.MM.yyyy').format(
@@ -119,7 +122,8 @@ class _MyTestPageState extends State<MyTestPage> {
           ],
         ),
       ),
-      floatingActionButton: myVisibleFloatingActionButton(context, widget.isFloatingActionButtonVisible),
+      floatingActionButton: myVisibleFloatingActionButton(
+          context, widget.isFloatingActionButtonVisible),
     );
   }
 }

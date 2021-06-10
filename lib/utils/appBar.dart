@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class MyHeader extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -9,13 +8,13 @@ class MyHeader extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         Flexible(
-            child: Text(
-              "Impfpass",
-              style: Theme.of(context).textTheme.headline1,
-            ),
+          child: Text(
+            'Impfpass',
+            style: Theme.of(context).textTheme.headline1,
+          ),
         ),
         SizedBox(width: 15),
-        Image.asset("assets/images/vaccine.png", width: 50, height: 50),
+        Image.asset('assets/images/vaccine.png', width: 50, height: 50),
       ],
     );
   }

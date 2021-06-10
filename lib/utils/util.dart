@@ -8,9 +8,12 @@ class Vaccination {
   String doctorSignature;
   String vaccinationDescription;
 
-  Vaccination(this.vaccinationName, this.chargeNr, this.vaccinationDate, this.doctorSignature, this.vaccinationDescription);
+  Vaccination(this.vaccinationName, this.chargeNr, this.vaccinationDate,
+      this.doctorSignature, this.vaccinationDescription);
 
-  Vaccination.today(this.vaccinationName, this.chargeNr, this.doctorSignature, this.vaccinationDescription) : vaccinationDate = DateTime.now();
+  Vaccination.today(this.vaccinationName, this.chargeNr, this.doctorSignature,
+      this.vaccinationDescription)
+      : vaccinationDate = DateTime.now();
 }
 
 class Test {
@@ -20,13 +23,20 @@ class Test {
   Status testStatus;
   String testDescription;
 
-  Test(this.testName, this.testId, this.testDate, this.testStatus, this.testDescription);
+  Test(this.testName, this.testId, this.testDate, this.testStatus,
+      this.testDescription);
 
-  Test.newlyWithoutStatus(this.testName, this.testId, this.testDate, this.testDescription) : testStatus = Status.Pending;
+  Test.newlyWithoutStatus(
+      this.testName, this.testId, this.testDate, this.testDescription)
+      : testStatus = Status.Pending;
 
-  Test.newlyToday(this.testName, this.testId, this.testStatus, this.testDescription) : testDate = DateTime.now();
+  Test.newlyToday(
+      this.testName, this.testId, this.testStatus, this.testDescription)
+      : testDate = DateTime.now();
 
-  Test.newlyTodayWithoutStatus(this.testName, this.testId, this.testDescription) : testDate = DateTime.now(), testStatus = Status.Pending;
+  Test.newlyTodayWithoutStatus(this.testName, this.testId, this.testDescription)
+      : testDate = DateTime.now(),
+        testStatus = Status.Pending;
 }
 
 class User {
@@ -41,8 +51,8 @@ class User {
 
   User(this.userName, this.userEmail, this.userPassword, this.userRole);
 
-  User.withData(this.userName, this.userEmail, this.userPassword, this.userRole, this.vaccinations, this.tests);
-
+  User.withData(this.userName, this.userEmail, this.userPassword, this.userRole,
+      this.vaccinations, this.tests);
 }
 
 class PredefinedColors {
@@ -60,24 +70,39 @@ class LastUser {
 
 class TestData {
   static List<User> userListDb = [
-    new User.withData('Luis Nothvogel', 't', 't', Role.Normal, vaccinationListDb, testsListDb),
-    new User.withData('Dr. Anna Mayer', 'a', 'a', Role.Doctor, vaccinationListDb, testsListDb)
+    new User.withData('Luis Nothvogel', 't', 't', Role.Normal,
+        vaccinationListDb, testsListDb),
+    new User.withData(
+        'Dr. Anna Mayer', 'a', 'a', Role.Doctor, vaccinationListDb, testsListDb)
   ];
 
   static List<User> familyUserDb = [
-    new User.withData('test', 'test@test.de', 'pw', Role.Normal, vaccinationListDb, testsListDb),
-    new User.withData('test1', 'test1@test.de', 'pw1', Role.Normal, vaccinationListDb, testsListDb),
-    new User.withData('test2', 'test2@test.de', 'pw2', Role.Normal, vaccinationListDb, testsListDb),
+    new User.withData('test', 'test@test.de', 'pw', Role.Normal,
+        vaccinationListDb, testsListDb),
+    new User.withData('test1', 'test1@test.de', 'pw1', Role.Normal,
+        vaccinationListDb, testsListDb),
+    new User.withData('test2', 'test2@test.de', 'pw2', Role.Normal,
+        vaccinationListDb, testsListDb),
   ];
 
-  static String strDt = "2021-05-28";
-  static List<Vaccination> vaccinationListDb = [new Vaccination("covid", "0001", DateTime.parse(strDt), "kekDoctor", "beschreibung"),
-    new Vaccination("covid2", "0002", DateTime.parse(strDt), "kekDoctor2", "beschreibung2"),
-    new Vaccination("covid3", "0003", DateTime.parse(strDt), "kekDoctor3", "beschreibung3")];
+  static String strDt = '2021-05-28';
+  static List<Vaccination> vaccinationListDb = [
+    new Vaccination(
+        'covid', '0001', DateTime.parse(strDt), 'kekDoctor', 'beschreibung'),
+    new Vaccination(
+        'covid2', '0002', DateTime.parse(strDt), 'kekDoctor2', 'beschreibung2'),
+    new Vaccination(
+        'covid3', '0003', DateTime.parse(strDt), 'kekDoctor3', 'beschreibung3')
+  ];
 
-  static List<Test> testsListDb = [new Test("testName", "testId", DateTime.parse(strDt), Status.Pending, "testDescription")
-  , new Test("testName2", "testId2", DateTime.parse(strDt), Status.Good, "testDescription2")
-  , new Test("testName3", "testId3", DateTime.parse(strDt), Status.Bad, "testDescription3")];
+  static List<Test> testsListDb = [
+    new Test('testName', 'testId', DateTime.parse(strDt), Status.Pending,
+        'testDescription'),
+    new Test('testName2', 'testId2', DateTime.parse(strDt), Status.Good,
+        'testDescription2'),
+    new Test('testName3', 'testId3', DateTime.parse(strDt), Status.Bad,
+        'testDescription3')
+  ];
 
   static List<Vaccination> generateVaccList(int size) {
     return List<Vaccination>.generate(size, (int i) {
@@ -104,7 +129,8 @@ class TestData {
   static User getMatchingUser(String email, String pw) {
     User matchingUser;
     userListDb.forEach((element) {
-      if (matchingUser == null && element.userEmail.compareTo(email) == 0 &&
+      if (matchingUser == null &&
+          element.userEmail.compareTo(email) == 0 &&
           element.userPassword.compareTo(pw) == 0) {
         matchingUser = element;
       }
@@ -113,18 +139,8 @@ class TestData {
   }
 }
 
-enum Login {
-  NotLoggedIn,
-  LoggedIn
-}
+enum Login { NotLoggedIn, LoggedIn }
 
-enum Role {
-  Normal,
-  Doctor
-}
+enum Role { Normal, Doctor }
 
-enum Status {
-  Good,
-  Bad,
-  Pending
-}
+enum Status { Good, Bad, Pending }

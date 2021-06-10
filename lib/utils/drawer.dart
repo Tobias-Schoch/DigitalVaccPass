@@ -1,18 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../aboutScreen/streamsocket.dart';
-import '../familyScreen/family.dart';
-import '../qrScreen/qrcode.dart';
-import '../utils/util.dart';
 import '../aboutScreen/about.dart';
-import '../doctorScreen/addvaccination.dart';
 import '../aboutScreen/faq.dart';
+import '../aboutScreen/streamsocket.dart';
+import '../doctorScreen/addvaccination.dart';
+import '../doctorScreen/statistics.dart';
+import '../familyScreen/family.dart';
 import '../homeScreen/home.dart';
 import '../main.dart';
-import '../doctorScreen/statistics.dart';
+import '../qrScreen/qrcode.dart';
+import '../utils/util.dart';
 
 class MyDrawer extends StatelessWidget {
-
   final bool isVisible;
 
   MyDrawer({this.isVisible});
@@ -31,11 +30,11 @@ class MyDrawer extends StatelessWidget {
               child: Row(
                 children: <Widget>[
                   Text(
-                    "Impfpass",
+                    'Impfpass',
                     style: Theme.of(context).textTheme.headline5,
                   ),
                   SizedBox(width: 10),
-                  Image.asset("assets/images/vaccine.png",
+                  Image.asset('assets/images/vaccine.png',
                       width: 40, height: 40),
                 ],
               ),
@@ -44,7 +43,10 @@ class MyDrawer extends StatelessWidget {
           Visibility(
             visible: isVisible,
             child: ListTile(
-              leading: Icon(Icons.insights_outlined, color: PredefinedColors.textColor,),
+              leading: Icon(
+                Icons.insights_outlined,
+                color: PredefinedColors.textColor,
+              ),
               title: Text(
                 'Statistiken',
                 style: Theme.of(context).textTheme.headline6,
@@ -58,7 +60,8 @@ class MyDrawer extends StatelessWidget {
           Visibility(
             visible: isVisible,
             child: ListTile(
-              leading: Icon(Icons.qr_code_scanner_outlined, color: PredefinedColors.textColor),
+              leading: Icon(Icons.qr_code_scanner_outlined,
+                  color: PredefinedColors.textColor),
               title: Text(
                 'Impfung hinzufügen',
                 style: Theme.of(context).textTheme.headline6,
@@ -80,7 +83,8 @@ class MyDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.local_hospital_outlined, color: PredefinedColors.textColor),
+            leading: Icon(Icons.local_hospital_outlined,
+                color: PredefinedColors.textColor),
             title: Text(
               'Impfpass',
               style: Theme.of(context).textTheme.headline6,
@@ -91,9 +95,8 @@ class MyDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(
-              Icons.masks_outlined, color: PredefinedColors.textColor
-            ),
+            leading:
+                Icon(Icons.masks_outlined, color: PredefinedColors.textColor),
             title: Text(
               'Testergebnisse',
               style: Theme.of(context).textTheme.headline6,
@@ -116,7 +119,8 @@ class MyDrawer extends StatelessWidget {
           //   },
           // ),
           ListTile(
-            leading: Icon(Icons.people_outline, color: PredefinedColors.textColor),
+            leading:
+                Icon(Icons.people_outline, color: PredefinedColors.textColor),
             title: Text(
               'Familienübersicht',
               style: Theme.of(context).textTheme.headline6,
@@ -127,7 +131,8 @@ class MyDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.qr_code_outlined, color: PredefinedColors.textColor),
+            leading:
+                Icon(Icons.qr_code_outlined, color: PredefinedColors.textColor),
             title: Text(
               'Mein QR-Code',
               style: Theme.of(context).textTheme.headline6,
@@ -145,7 +150,8 @@ class MyDrawer extends StatelessWidget {
             height: 40,
           ),
           ListTile(
-            leading: Icon(Icons.help_center_outlined, color: PredefinedColors.textColor),
+            leading: Icon(Icons.help_center_outlined,
+                color: PredefinedColors.textColor),
             title: Text(
               'FAQ',
               style: Theme.of(context).textTheme.headline6,
@@ -156,7 +162,8 @@ class MyDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.privacy_tip_outlined, color: PredefinedColors.textColor),
+            leading: Icon(Icons.privacy_tip_outlined,
+                color: PredefinedColors.textColor),
             title: Text(
               'Über uns',
               style: Theme.of(context).textTheme.headline6,
@@ -184,8 +191,8 @@ class MyDrawer extends StatelessWidget {
               style: Theme.of(context).textTheme.headline6,
             ),
             onTap: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => StreamSocket()));
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => StreamSocket()));
             },
           ),
         ],

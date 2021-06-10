@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../utils/util.dart';
 import '../utils/appBar.dart';
 import '../utils/drawer.dart';
+import '../utils/util.dart';
 
 class MyAboutPage extends StatefulWidget {
   MyAboutPage({Key key, this.title}) : super(key: key);
@@ -13,7 +13,6 @@ class MyAboutPage extends StatefulWidget {
 }
 
 class _MyAboutPageState extends State<MyAboutPage> {
-
   @override
   void dispose() {
     super.dispose();
@@ -31,44 +30,48 @@ class _MyAboutPageState extends State<MyAboutPage> {
         margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
         child: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                "About",
+                'About',
                 style: Theme.of(context).textTheme.headline4,
               ),
               SizedBox(height: 25),
               Card(
                   child:
                       Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-                    ListTile(
-                        title: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SizedBox(height: 18),
-                              Text("Digitaler Impfpass",
-                                  style: Theme.of(context).textTheme.bodyText1,
-                                  textAlign: TextAlign.left),
-                            ]),
-                        subtitle: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SizedBox(height: 10),
-                            Text("Version 0.0.0.2", textAlign: TextAlign.left),
-                            SizedBox(height: 2),
-                            Text("© 2021 Luis Nothvogel & Tobias Schoch",
-                                textAlign: TextAlign.left),
-                            SizedBox(height: 18),
-                          ],
-                        ))
-                  ])),
+                ListTile(
+                    title: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          SizedBox(height: 18),
+                          Text('Digitaler Impfpass',
+                              style: Theme.of(context).textTheme.bodyText1,
+                              textAlign: TextAlign.left),
+                        ]),
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        SizedBox(height: 10),
+                        Text('Version 0.0.0.2', textAlign: TextAlign.left),
+                        SizedBox(height: 2),
+                        Text('© 2021 Luis Nothvogel & Tobias Schoch',
+                            textAlign: TextAlign.left),
+                        SizedBox(height: 18),
+                      ],
+                    ))
+              ])),
               SizedBox(height: 25),
             ],
           ),
         ),
       ),
-      drawer: MyDrawer(isVisible: User.loggedInUser == null ? false : User.loggedInUser.userRole == Role.Doctor ? true : false),
+      drawer: MyDrawer(
+          isVisible: User.loggedInUser == null
+              ? false
+              : User.loggedInUser.userRole == Role.Doctor
+                  ? true
+                  : false),
     );
   }
 }

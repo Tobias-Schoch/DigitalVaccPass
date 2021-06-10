@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import '../doctorScreen/statistics.dart';
-import '../utils/util.dart';
 import '../homeScreen/home.dart';
+import '../loginScreen/forgotpassword.dart';
 import '../loginScreen/register.dart';
 import '../utils/appBar.dart';
-import '../loginScreen/forgotpassword.dart';
+import '../utils/util.dart';
+
 
 class MyLoginPage extends StatefulWidget {
   MyLoginPage({Key key, this.title}) : super(key: key);
@@ -16,7 +17,6 @@ class MyLoginPage extends StatefulWidget {
 }
 
 class _MyLoginPageState extends State<MyLoginPage> {
-
   final myEmailTextController = TextEditingController();
   final myPasswordController = TextEditingController();
 
@@ -54,15 +54,14 @@ class _MyLoginPageState extends State<MyLoginPage> {
       ),
       body: Container(
         alignment: Alignment.topLeft,
-        margin: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
+        margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
         child: SingleChildScrollView(
           child: Form(
             key: _formKey,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                Text("Login",
+                Text('Login',
                     style: Theme.of(context).textTheme.headline4,
                     textAlign: TextAlign.left),
                 SizedBox(height: 25),
@@ -70,7 +69,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                   controller: myEmailTextController,
                   cursorColor: Theme.of(context).primaryColorLight,
                   decoration: new InputDecoration(
-                    labelText: "E-Mail",
+                    labelText: 'E-Mail',
                     fillColor: Theme.of(context).accentColor,
                     border: new OutlineInputBorder(
                       borderRadius: new BorderRadius.circular(12.0),
@@ -109,7 +108,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                   controller: myPasswordController,
                   cursorColor: Theme.of(context).primaryColorLight,
                   decoration: new InputDecoration(
-                    labelText: "Passwort",
+                    labelText: 'Passwort',
                     fillColor: Theme.of(context).accentColor,
                     border: new OutlineInputBorder(
                       borderRadius: new BorderRadius.circular(12.0),
@@ -164,7 +163,8 @@ class _MyLoginPageState extends State<MyLoginPage> {
                   constraints: BoxConstraints.tightFor(height: 60),
                   child: ElevatedButton.icon(
                     onPressed: () {
-                      if (checkIfUserExists(myEmailTextController.text.toLowerCase(),
+                      if (checkIfUserExists(
+                          myEmailTextController.text.toLowerCase(),
                           myPasswordController.text)) {
                         User.loggedInUser = TestData.getMatchingUser(
                             myEmailTextController.text.toLowerCase(),
@@ -178,8 +178,10 @@ class _MyLoginPageState extends State<MyLoginPage> {
                                   MyHomeScreenPage(selectedTabIndex: 0)));
                         }
 
-                        LastUser.lastUser = myEmailTextController.text.toLowerCase();
-                      } else if (myEmailTextController.text.toLowerCase() != "" &&
+                        LastUser.lastUser =
+                            myEmailTextController.text.toLowerCase();
+                      } else if (myEmailTextController.text.toLowerCase() !=
+                              "" &&
                           myPasswordController.text != "") {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
@@ -187,12 +189,13 @@ class _MyLoginPageState extends State<MyLoginPage> {
                             width: 320,
                             duration: const Duration(milliseconds: 3000),
                             content: Container(
-                              height: 20,
-                              child: Center(
-                                child: Text(
-                                  'E-Mail und Passwort stimmen nicht überein.', textAlign: TextAlign.center,),
-                              )
-                            ),
+                                height: 20,
+                                child: Center(
+                                  child: Text(
+                                    'E-Mail und Passwort stimmen nicht überein.',
+                                    textAlign: TextAlign.center,
+                                  ),
+                                )),
                           ),
                         );
                       }

@@ -1,10 +1,9 @@
+import 'dart:async';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/material.dart';
-import 'dart:async';
 import '../utils/appBar.dart';
 import '../utils/drawer.dart';
-
 
 class MyQRPage extends StatefulWidget {
   MyQRPage({Key key, this.title}) : super(key: key);
@@ -16,7 +15,6 @@ class MyQRPage extends StatefulWidget {
 }
 
 class _MyQRPageState extends State<MyQRPage> {
-
   static String qrData(String email) {
     String qrData;
     TestData.userListDb.forEach((element) {
@@ -47,14 +45,13 @@ class _MyQRPageState extends State<MyQRPage> {
       ),
       body: Container(
         alignment: Alignment.topLeft,
-        margin: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
+        margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Flexible(
               child: Text(
-                "Mein QR-Code",
+                'Mein QR-Code',
                 style: Theme.of(context).textTheme.headline4,
                 textAlign: TextAlign.start,
               ),
@@ -62,7 +59,7 @@ class _MyQRPageState extends State<MyQRPage> {
             SizedBox(height: 25),
             Flexible(
               child: Row(
-                children: [
+                children: <Widget>[
                   Visibility(
                     visible: User.loggedInUser == null ? false : true,
                     child: QrImage(
@@ -72,7 +69,7 @@ class _MyQRPageState extends State<MyQRPage> {
                   ),
                   Visibility(
                     visible: User.loggedInUser == null ? true : false,
-                    child: Image.asset("assets/images/qr.png", width: 200),
+                    child: Image.asset('assets/images/qr.png', width: 200),
                   ),
                 ],
               ),

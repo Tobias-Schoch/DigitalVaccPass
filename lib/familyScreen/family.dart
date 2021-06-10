@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../qrScreen/qrScanner.dart';
-import '../utils/util.dart';
 import '../utils/appBar.dart';
 import '../utils/drawer.dart';
+import '../utils/util.dart';
 import 'familyHomeScreen.dart';
 
 class MyFamilyPage extends StatefulWidget {
@@ -15,7 +15,6 @@ class MyFamilyPage extends StatefulWidget {
 }
 
 class _MyFamilyPageState extends State<MyFamilyPage> {
-
   @override
   void dispose() {
     super.dispose();
@@ -30,11 +29,11 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
       ),
       body: Container(
         alignment: Alignment.topLeft,
-        margin: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
+        margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text("Familienübersicht",
+          children: <Widget>[
+            Text('Familienübersicht',
                 style: Theme.of(context).textTheme.headline4,
                 textAlign: TextAlign.left),
             SizedBox(height: 25),
@@ -43,10 +42,10 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
                   itemCount: TestData.familyUserDb.length,
                   itemBuilder: (context, index) {
                     return Column(
-                      children: [
+                      children: <Widget>[
                         Card(
                           child: Row(
-                            children: [
+                            children: <Widget>[
                               Expanded(
                                 child: Column(
                                   children: <Widget>[
@@ -54,15 +53,27 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
                                     InkWell(
                                       child: ListTile(
                                         title: Text(
-                                          TestData.familyUserDb.elementAt(index).userName,
+                                          TestData.familyUserDb
+                                              .elementAt(index)
+                                              .userName,
                                           style: Theme.of(context)
                                               .textTheme
                                               .bodyText1,
                                         ),
                                       ),
                                       onTap: () {
-                                        Navigator.of(context).push(MaterialPageRoute(
-                                            builder: (context) => MyFamilyHomeScreenPage(title: TestData.familyUserDb.elementAt(index).userName, selectedUser: TestData.familyUserDb.elementAt(index))));
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    MyFamilyHomeScreenPage(
+                                                        title: TestData
+                                                            .familyUserDb
+                                                            .elementAt(index)
+                                                            .userName,
+                                                        selectedUser: TestData
+                                                            .familyUserDb
+                                                            .elementAt(
+                                                                index))));
                                       },
                                     ),
                                     SizedBox(height: 18),
@@ -89,7 +100,11 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
         backgroundColor: Theme.of(context).accentColor,
       ),
       drawer: MyDrawer(
-          isVisible: User.loggedInUser == null ? false : User.loggedInUser.userRole == Role.Doctor ? true : false),
+          isVisible: User.loggedInUser == null
+              ? false
+              : User.loggedInUser.userRole == Role.Doctor
+                  ? true
+                  : false),
     );
   }
 }
