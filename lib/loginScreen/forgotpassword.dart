@@ -37,7 +37,7 @@ class _MyForgotPasswordPageState extends State<MyForgotPasswordPage> {
               Text("Passwort zurücksetzen",
                   style: Theme.of(context).textTheme.headline4,
                   textAlign: TextAlign.left),
-              SizedBox(height: 25),
+              const SizedBox(height: 25),
               TextFormField(
                 autofocus: true,
                 cursorColor: Theme.of(context).primaryColorLight,
@@ -75,7 +75,7 @@ class _MyForgotPasswordPageState extends State<MyForgotPasswordPage> {
                 },
                 keyboardType: TextInputType.emailAddress,
               ),
-              SizedBox(height: 25),
+              const SizedBox(height: 25),
               ConstrainedBox(
                 constraints: BoxConstraints.tightFor(height: 60),
                 child: ElevatedButton.icon(
@@ -87,7 +87,7 @@ class _MyForgotPasswordPageState extends State<MyForgotPasswordPage> {
                   icon: Icon(Icons.refresh),
                 ),
               ),
-              SizedBox(height: 25),
+              const SizedBox(height: 25),
             ],
           ),
         ),

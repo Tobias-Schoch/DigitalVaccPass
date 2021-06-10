@@ -44,7 +44,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                 Text("Impfung hinzufügen",
                     style: Theme.of(context).textTheme.headline4,
                     textAlign: TextAlign.left),
-                SizedBox(height: 25),
+                const SizedBox(height: 25),
                 TextFormField(
                   cursorColor: Theme.of(context).primaryColorLight,
                   decoration: InputDecoration(
@@ -75,7 +75,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                     return null;
                   },
                 ),
-                SizedBox(height: 25),
+                const SizedBox(height: 25),
                 TextFormField(
                   cursorColor: Theme.of(context).primaryColorLight,
                   decoration: InputDecoration(
@@ -106,7 +106,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                     return null;
                   },
                 ),
-                SizedBox(height: 25),
+                const SizedBox(height: 25),
                 TextFormField(
                   controller: _textEditingController,
                   onTap: () {
@@ -142,7 +142,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                     return null;
                   },
                 ),
-                SizedBox(height: 25),
+                const SizedBox(height: 25),
                 ConstrainedBox(
                   constraints: BoxConstraints.tightFor(height: 60),
                   child: ElevatedButton.icon(

@@ -55,7 +55,7 @@ class _MyQRPageState extends State<MyQRPage> {
                 textAlign: TextAlign.start,
               ),
             ),
-            SizedBox(height: 25),
+            const SizedBox(height: 25),
             Flexible(
               child: Row(
                 children: <Widget>[

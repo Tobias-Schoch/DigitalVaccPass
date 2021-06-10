@@ -36,7 +36,7 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
             Text('Familienübersicht',
                 style: Theme.of(context).textTheme.headline4,
                 textAlign: TextAlign.left),
-            SizedBox(height: 25),
+            const SizedBox(height: 25),
             Expanded(
               child: ListView.builder(
                   itemCount: TestData.familyUserDb.length,
@@ -49,7 +49,7 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
                               Expanded(
                                 child: Column(
                                   children: <Widget>[
-                                    SizedBox(height: 18),
+                                    const SizedBox(height: 18),
                                     InkWell(
                                       child: ListTile(
                                         title: Text(
@@ -76,14 +76,14 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
                                                                 index))));
                                       },
                                     ),
-                                    SizedBox(height: 18),
+                                    const SizedBox(height: 18),
                                   ],
                                 ),
                               ),
                             ],
                           ),
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                       ],
                     );
                   }),

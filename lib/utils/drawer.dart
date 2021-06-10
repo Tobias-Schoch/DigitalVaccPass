@@ -33,7 +33,7 @@ class MyDrawer extends StatelessWidget {
                     'Impfpass',
                     style: Theme.of(context).textTheme.headline5,
                   ),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   Image.asset('assets/images/vaccine.png',
                       width: 40, height: 40),
                 ],

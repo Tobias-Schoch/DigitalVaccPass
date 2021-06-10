@@ -37,7 +37,7 @@ class _MyTestPageState extends State<MyTestPage> {
             Text(widget.selectedUser.userName,
                 style: Theme.of(context).textTheme.headline4,
                 textAlign: TextAlign.center),
-            SizedBox(height: 25),
+            const SizedBox(height: 25),
             Expanded(
               child: ListView.builder(
                   itemCount: widget.selectedUser.tests.length,
@@ -66,7 +66,7 @@ class _MyTestPageState extends State<MyTestPage> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: <Widget>[
-                                          SizedBox(height: 18),
+                                          const SizedBox(height: 18),
                                           Text(
                                             widget.selectedUser.tests
                                                 .elementAt(index)
@@ -81,18 +81,18 @@ class _MyTestPageState extends State<MyTestPage> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: <Widget>[
-                                          SizedBox(height: 10),
+                                          const SizedBox(height: 10),
                                           Text('Datum.: ' +
                                               DateFormat('dd.MM.yyyy').format(
                                                   widget.selectedUser.tests
                                                       .elementAt(index)
                                                       .testDate)),
-                                          SizedBox(height: 8),
+                                          const SizedBox(height: 8),
                                           Text('Test-ID: ' +
                                               widget.selectedUser.tests
                                                   .elementAt(index)
                                                   .testId),
-                                          SizedBox(height: 8),
+                                          const SizedBox(height: 8),
                                           Text(widget.selectedUser.tests
                                               .elementAt(index)
                                               .testStatus
@@ -104,7 +104,7 @@ class _MyTestPageState extends State<MyTestPage> {
                                                       .toString()
                                                       .indexOf('.') +
                                                   1)),
-                                          SizedBox(height: 18),
+                                          const SizedBox(height: 18),
                                         ],
                                       ),
                                     )
@@ -114,7 +114,7 @@ class _MyTestPageState extends State<MyTestPage> {
                             ],
                           ),
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                       ],
                     );
                   }),

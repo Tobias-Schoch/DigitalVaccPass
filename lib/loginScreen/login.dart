@@ -65,7 +65,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                 Text("Login",
                     style: Theme.of(context).textTheme.headline4,
                     textAlign: TextAlign.left),
-                SizedBox(height: 25),
+                const SizedBox(height: 25),
                 TextFormField(
                   controller: myEmailTextController,
                   cursorColor: Theme.of(context).primaryColorLight,
@@ -104,7 +104,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     }
                   },
                 ),
-                SizedBox(height: 25),
+                const SizedBox(height: 25),
                 TextFormField(
                   controller: myPasswordController,
                   cursorColor: Theme.of(context).primaryColorLight,
@@ -143,7 +143,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     }
                   },
                 ),
-                SizedBox(height: 25),
+                const SizedBox(height: 25),
                 TextButton(
                   style: TextButton.styleFrom(
                     textStyle: const TextStyle(fontSize: 16),
@@ -159,7 +159,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     ],
                   ),
                 ),
-                SizedBox(height: 25),
+                const SizedBox(height: 25),
                 ConstrainedBox(
                   constraints: BoxConstraints.tightFor(height: 60),
                   child: ElevatedButton.icon(
@@ -203,7 +203,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     icon: Icon(Icons.login),
                   ),
                 ),
-                SizedBox(height: 25),
+                const SizedBox(height: 25),
                 ConstrainedBox(
                   constraints: BoxConstraints.tightFor(height: 60),
                   child: ElevatedButton.icon(
@@ -231,7 +231,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     ),
                   ),
                 ),
-                SizedBox(height: 25),
+                const SizedBox(height: 25),
               ],
             ),
           ),

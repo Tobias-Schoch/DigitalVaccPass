@@ -36,7 +36,7 @@ class _MyAboutPageState extends State<MyAboutPage> {
                 'About',
                 style: Theme.of(context).textTheme.headline4,
               ),
-              SizedBox(height: 25),
+              const SizedBox(height: 25),
               Card(
                   child:
                       Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
@@ -44,7 +44,7 @@ class _MyAboutPageState extends State<MyAboutPage> {
                     title: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          SizedBox(height: 18),
+                          const SizedBox(height: 18),
                           Text('Digitaler Impfpass',
                               style: Theme.of(context).textTheme.bodyText1,
                               textAlign: TextAlign.left),
@@ -52,16 +52,16 @@ class _MyAboutPageState extends State<MyAboutPage> {
                     subtitle: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: const <Widget>[
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Text('Version 0.0.0.2', textAlign: TextAlign.left),
-                        SizedBox(height: 2),
+                        const SizedBox(height: 2),
                         Text('© 2021 Luis Nothvogel & Tobias Schoch',
                             textAlign: TextAlign.left),
-                        SizedBox(height: 18),
+                        const SizedBox(height: 18),
                       ],
                     ))
               ])),
-              SizedBox(height: 25),
+              const SizedBox(height: 25),
             ],
           ),
         ),

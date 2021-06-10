@@ -38,7 +38,7 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
             Text(widget.selectedUser.userName,
                 style: Theme.of(context).textTheme.headline4,
                 textAlign: TextAlign.center),
-            SizedBox(height: 25),
+            const SizedBox(height: 25),
             Expanded(
               child: ListView.builder(
                 itemCount: widget.selectedUser.vaccinations.length,
@@ -57,7 +57,7 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: <Widget>[
-                                          SizedBox(height: 18),
+                                          const SizedBox(height: 18),
                                           Text(
                                               widget.selectedUser.vaccinations
                                                   .elementAt(index)
@@ -70,23 +70,23 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: <Widget>[
-                                        SizedBox(height: 10),
+                                        const SizedBox(height: 10),
                                         Text('Datum: ' +
                                             DateFormat('dd.MM.yyyy').format(
                                                 widget.selectedUser.vaccinations
                                                     .elementAt(index)
                                                     .vaccinationDate)),
-                                        SizedBox(height: 8),
+                                        const SizedBox(height: 8),
                                         Text('ChargeNr: ' +
                                             widget.selectedUser.vaccinations
                                                 .elementAt(index)
                                                 .chargeNr),
-                                        SizedBox(height: 8),
+                                        const SizedBox(height: 8),
                                         Text('Arzt: ' +
                                             widget.selectedUser.vaccinations
                                                 .elementAt(index)
                                                 .doctorSignature),
-                                        SizedBox(height: 18),
+                                        const SizedBox(height: 18),
                                       ],
                                     ),
                                   ),
@@ -96,7 +96,7 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
                           ],
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                     ],
                   ));
                 },

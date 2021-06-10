@@ -49,7 +49,7 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                 Text("Registrierung",
                     style: Theme.of(context).textTheme.headline4,
                     textAlign: TextAlign.left),
-                SizedBox(height: 25),
+                const SizedBox(height: 25),
                 TextFormField(
                   controller: myNameTextController,
                   autofocus: true,
@@ -87,7 +87,7 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                     }
                   },
                 ),
-                SizedBox(height: 25),
+                const SizedBox(height: 25),
                 TextFormField(
                   controller: myEmailTextController,
                   cursorColor: Theme.of(context).primaryColorLight,
@@ -127,7 +127,7 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                   },
                   keyboardType: TextInputType.emailAddress,
                 ),
-                SizedBox(height: 25),
+                const SizedBox(height: 25),
                 TextFormField(
                   controller: myPasswordTextController,
                   cursorColor: Theme.of(context).primaryColorLight,
@@ -169,7 +169,7 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                     }
                   },
                 ),
-                SizedBox(height: 25),
+                const SizedBox(height: 25),
                 TextFormField(
                   cursorColor: Theme.of(context).primaryColorLight,
                   decoration: InputDecoration(
@@ -206,7 +206,7 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                     }
                   },
                 ),
-                SizedBox(height: 25),
+                const SizedBox(height: 25),
                 ConstrainedBox(
                   constraints: BoxConstraints.tightFor(height: 60),
                   child: ElevatedButton.icon(
