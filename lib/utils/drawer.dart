@@ -178,7 +178,7 @@ class MyDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.sailing_outlined, color: PredefinedColors.textColor),
+            leading: Icon(Icons.accessible, color: PredefinedColors.textColor),
             title: Text(
               'SocketTest',
               style: Theme.of(context).textTheme.headline6,

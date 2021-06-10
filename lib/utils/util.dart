@@ -65,10 +65,11 @@ class TestData {
     new User.withData('Dr. Anna Mayer', 'a', 'a', Role.Doctor, vaccinationListDb, testsListDb)
   ];
 
-  static List<User> familyUserDb = List<User>.generate(5, (int i) {
-    return User.withData(faker.person.name(), faker.lorem.sentence(), faker.lorem.word(),
-        Role.Normal, vaccinationListDb, testsListDb);
-  });
+  static List<User> familyUserDb = [
+    new User.withData('test', 'test@test.de', 'pw', Role.Normal, vaccinationListDb, testsListDb),
+    new User.withData('test1', 'test1@test.de', 'pw1', Role.Normal, vaccinationListDb, testsListDb),
+    new User.withData('test2', 'test2@test.de', 'pw2', Role.Normal, vaccinationListDb, testsListDb),
+  ];
 
   static String strDt = "2021-05-28";
   static List<Vaccination> vaccinationListDb = [new Vaccination("covid", "0001", DateTime.parse(strDt), "kekDoctor", "beschreibung"),
