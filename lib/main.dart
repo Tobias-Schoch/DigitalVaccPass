@@ -5,7 +5,7 @@ import 'loginScreen/login.dart';
 import 'utils/util.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: const Color(0x00fafafa),
   ));
@@ -80,7 +80,7 @@ class MyApp extends StatelessWidget {
         ),
         hoverColor: Colors.transparent,
       ),
-      home: MyHomePage(title: 'Impfpass'),
+      home: const MyHomePage(title: 'Impfpass'),
     );
   }
 }

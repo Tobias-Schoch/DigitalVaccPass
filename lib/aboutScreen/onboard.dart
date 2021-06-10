@@ -54,7 +54,7 @@ class _MyOnboardPageState extends State<MyOnboardPage> {
           skipButton: TextButton(
             onPressed: () {
               Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => MyApp()));
+                  .push(MaterialPageRoute(builder: (context) => const MyApp()));
             },
             child: const Text(
               "Skip",
