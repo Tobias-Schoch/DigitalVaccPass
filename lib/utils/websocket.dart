@@ -31,7 +31,7 @@ class Sender {
       print('connection default namespace');
       client.on('msg', (data) {
         print('data from default => $data');
-        client.emit('fromServer', "ok");
+        client.emit('fromServer', 'ok');
       });
     });
     io.listen(3000);

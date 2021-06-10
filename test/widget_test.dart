@@ -8,6 +8,7 @@
 import 'package:digital_vac_pass/aboutScreen/about.dart';
 import 'package:digital_vac_pass/doctorScreen/addvaccination.dart';
 import 'package:digital_vac_pass/familyScreen/family.dart';
+import 'package:digital_vac_pass/qrScreen/qrScanner.dart';
 import 'package:digital_vac_pass/utils/appBar.dart';
 import 'package:digital_vac_pass/utils/drawer.dart';
 import 'package:digital_vac_pass/aboutScreen/faq.dart';
@@ -65,6 +66,19 @@ void main() {
       );
     await tester.pumpDeviceBuilder(builder);
     await screenMatchesGolden(tester, 'registerScreen');
+  });
+
+  testGoldens('Password Screen Test', (tester) async {
+    final builder = DeviceBuilder()
+      ..overrideDevicesForAllScenarios(
+        devices: devicesWithDifferentTextScales,
+      )
+      ..addScenario(
+          widget: MyRegisterPage(),
+          name: 'forgot page'
+      );
+    await tester.pumpDeviceBuilder(builder);
+    await screenMatchesGolden(tester, 'forgotScreen');
   });
 
   testGoldens('forgot Password Screen Test', (tester) async {

@@ -59,17 +59,7 @@ class _MyStreamPageState extends State<StreamSocket> {
               ),
             ),
             const SizedBox(height: 25),
-            SingleChildScrollView(
-              child: StreamBuilder(
-                stream: streamSocket.getResponse,
-                builder:
-                    (BuildContext context, AsyncSnapshot<String> snapshot) {
-                  return Container(
-                    child: Text(snapshot.data == null ? "abc" : snapshot.data),
-                  );
-                },
-              ),
-            ),
+            SingleChildScrollView(),
           ],
         ),
       ),

@@ -34,7 +34,7 @@ class _MyForgotPasswordPageState extends State<MyForgotPasswordPage> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              Text("Passwort zurücksetzen",
+              Text('Passwort zurücksetzen',
                   style: Theme.of(context).textTheme.headline4,
                   textAlign: TextAlign.left),
               const SizedBox(height: 25),
@@ -42,7 +42,7 @@ class _MyForgotPasswordPageState extends State<MyForgotPasswordPage> {
                 autofocus: true,
                 cursorColor: Theme.of(context).primaryColorLight,
                 decoration: InputDecoration(
-                  labelText: "E-Mail",
+                  labelText: 'E-Mail',
                   fillColor: Theme.of(context).accentColor,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12.0),
