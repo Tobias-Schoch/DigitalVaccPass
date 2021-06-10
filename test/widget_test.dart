@@ -8,7 +8,6 @@
 import 'package:digital_vac_pass/aboutScreen/about.dart';
 import 'package:digital_vac_pass/doctorScreen/addvaccination.dart';
 import 'package:digital_vac_pass/familyScreen/family.dart';
-import 'package:digital_vac_pass/qrScreen/qrScanner.dart';
 import 'package:digital_vac_pass/utils/appBar.dart';
 import 'package:digital_vac_pass/utils/drawer.dart';
 import 'package:digital_vac_pass/aboutScreen/faq.dart';
