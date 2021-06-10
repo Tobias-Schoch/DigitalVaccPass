@@ -208,7 +208,7 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                 ),
                 const SizedBox(height: 25),
                 ConstrainedBox(
-                  constraints: BoxConstraints.tightFor(height: 60),
+                  constraints: const BoxConstraints.tightFor(height: 60),
                   child: ElevatedButton.icon(
                     onPressed: () {
                       if (!_formRegisterKey.currentState.validate()) {
@@ -218,11 +218,11 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => MyLoginPage()));
                     },
-                    label: Flexible(
-                      child: Text('Registrieren',
-                          style: TextStyle(fontSize: 20)),
+                    label: const Flexible(
+                      child: const Text('Registrieren',
+                          style: const TextStyle(fontSize: 20)),
                     ),
-                    icon: Icon(Icons.how_to_reg),
+                    icon: const Icon(Icons.how_to_reg),
                   ),
                 ),
               ],

@@ -50,8 +50,8 @@ class _MyOnboardPageState extends State<MyOnboardPage> {
             width: 100,
             inactiveColor: primeColorAccent,
             activeColor: Theme.of(context).accentColor,
-            inactiveSize: Size(8, 8),
-            activeSize: Size(12, 12),
+            inactiveSize: const Size(8, 8),
+            activeSize: const Size(12, 12),
           ),
           skipButton: TextButton(
             onPressed: () {

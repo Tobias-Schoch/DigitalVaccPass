@@ -52,11 +52,11 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         const SizedBox(height: 10),
-                        Text('Impfungen: 68', textAlign: TextAlign.left),
+                        const Text('Impfungen: 68', textAlign: TextAlign.left),
                         const SizedBox(height: 8),
-                        Text('Corona Impfungen: 65', textAlign: TextAlign.left),
+                        const Text('Corona Impfungen: 65', textAlign: TextAlign.left),
                         const SizedBox(height: 8),
-                        Text('Corona Tests: 149', textAlign: TextAlign.left),
+                        const Text('Corona Tests: 149', textAlign: TextAlign.left),
                         const SizedBox(height: 18),
                       ],
                     ))
@@ -77,12 +77,12 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         const SizedBox(height: 10),
-                        Text('Impfungen: 248', textAlign: TextAlign.left),
+                        const Text('Impfungen: 248', textAlign: TextAlign.left),
                         const SizedBox(height: 8),
-                        Text('Corona Impfungen: 230',
+                        const Text('Corona Impfungen: 230',
                             textAlign: TextAlign.left),
                         const SizedBox(height: 8),
-                        Text('Corona Tests: 1370', textAlign: TextAlign.left),
+                        const Text('Corona Tests: 1370', textAlign: TextAlign.left),
                         const SizedBox(height: 18),
                       ],
                     ))
@@ -103,12 +103,12 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         const SizedBox(height: 10),
-                        Text('Impfungen: 735', textAlign: TextAlign.left),
+                        const Text('Impfungen: 735', textAlign: TextAlign.left),
                         const SizedBox(height: 8),
-                        Text('Corona Impfungen: 710',
+                        const Text('Corona Impfungen: 710',
                             textAlign: TextAlign.left),
                         const SizedBox(height: 8),
-                        Text('Corona Tests: 7299', textAlign: TextAlign.left),
+                        const Text('Corona Tests: 7299', textAlign: TextAlign.left),
                         const SizedBox(height: 18),
                       ],
                     ))
@@ -129,12 +129,12 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         const SizedBox(height: 10),
-                        Text('Impfungen: 1720', textAlign: TextAlign.left),
+                        const Text('Impfungen: 1720', textAlign: TextAlign.left),
                         const SizedBox(height: 8),
-                        Text('Corona Impfungen: 1599',
+                        const Text('Corona Impfungen: 1599',
                             textAlign: TextAlign.left),
                         const SizedBox(height: 8),
-                        Text('Corona Tests: 14682', textAlign: TextAlign.left),
+                        const Text('Corona Tests: 14682', textAlign: TextAlign.left),
                         const SizedBox(height: 18),
                       ],
                     ))

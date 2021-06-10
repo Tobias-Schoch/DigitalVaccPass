@@ -77,14 +77,14 @@ class _MyForgotPasswordPageState extends State<MyForgotPasswordPage> {
               ),
               const SizedBox(height: 25),
               ConstrainedBox(
-                constraints: BoxConstraints.tightFor(height: 60),
+                constraints: const BoxConstraints.tightFor(height: 60),
                 child: ElevatedButton.icon(
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => MyLoginPage()));
                   },
-                  label: Flexible(child: Text('Zurücksetzen', style: TextStyle(fontSize: 20), overflow: TextOverflow.clip,)),
-                  icon: Icon(Icons.refresh),
+                  label: const Flexible(child: const Text('Zurücksetzen', style: TextStyle(fontSize: 20), overflow: TextOverflow.clip,)),
+                  icon: const Icon(Icons.refresh),
                 ),
               ),
               const SizedBox(height: 25),

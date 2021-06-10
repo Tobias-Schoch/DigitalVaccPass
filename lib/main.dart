@@ -9,8 +9,8 @@ import 'utils/util.dart';
 
 void main() {
   runApp(MyApp());
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    statusBarColor: Color(0x00fafafa),
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    statusBarColor: const Color(0x00fafafa),
   ));
 }
 
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         primaryColor: PredefinedColors.accentWhite,
         accentColor: PredefinedColors.primaryColor,
         primaryColorLight: PredefinedColors.textColor,
-        textButtonTheme: TextButtonThemeData(),
+        textButtonTheme: const TextButtonThemeData(),
         cardTheme: CardTheme(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12.0),
@@ -54,28 +54,28 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
-        textTheme: TextTheme(
-          headline1: TextStyle(
+        textTheme: const TextTheme(
+          headline1: const TextStyle(
               fontWeight: FontWeight.w700,
               fontSize: 35,
               color: PredefinedColors.textColor),
-          headline4: TextStyle(
+          headline4: const TextStyle(
               fontWeight: FontWeight.w700,
               fontSize: 30,
               color: PredefinedColors.textColor),
-          headline5: TextStyle(
+          headline5: const TextStyle(
               fontWeight: FontWeight.w500,
               fontSize: 20,
               color: PredefinedColors.textColor),
-          headline6: TextStyle(
+          headline6: const TextStyle(
               fontWeight: FontWeight.w500,
               fontSize: 15,
               color: PredefinedColors.textColor),
-          bodyText1: TextStyle(
+          bodyText1: const TextStyle(
               fontWeight: FontWeight.w700,
               fontSize: 24,
               color: PredefinedColors.textColor),
-          bodyText2: TextStyle(
+          bodyText2: const TextStyle(
               fontWeight: FontWeight.w400,
               fontSize: 20,
               color: PredefinedColors.textColor),
@@ -88,7 +88,7 @@ class MyApp extends StatelessWidget {
 }
 
 void connectAndListen() {
-  IO.Socket socket = IO.io('http://localhost:3000',
+  final IO.Socket socket = IO.io('http://localhost:3000',
       OptionBuilder().setTransports(['websocket']).build());
 
   socket.onConnect((_) {

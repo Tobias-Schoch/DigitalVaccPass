@@ -34,7 +34,7 @@ class _MyFamilyHomeScreenPage extends State<MyFamilyHomeScreenPage> {
               indicator: UnderlineTabIndicator(
                   borderSide: BorderSide(
                       width: 3.0, color: Theme.of(context).accentColor),
-                  insets: EdgeInsets.symmetric(horizontal: 60.0)),
+                  insets: const EdgeInsets.symmetric(horizontal: 60.0)),
               tabs: [
                 Tab(
                     icon: Icon(Icons.local_hospital_outlined,

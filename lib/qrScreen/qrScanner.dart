@@ -33,7 +33,7 @@ class _QRViewExampleState extends State<QRViewExample> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.pop(context),
         ),
         title: MyHeader(),
@@ -49,7 +49,7 @@ class _QRViewExampleState extends State<QRViewExample> {
 
   Widget _buildQrView(BuildContext context) {
     // For this example we check how width or tall the device is and change the scanArea and overlay accordingly.
-    var scanArea = (MediaQuery.of(context).size.width < 400 ||
+    final scanArea = (MediaQuery.of(context).size.width < 400 ||
             MediaQuery.of(context).size.height < 400)
         ? 250.0
         : 300.0;
@@ -72,7 +72,7 @@ class _QRViewExampleState extends State<QRViewExample> {
       this.controller = controller;
     });
     controller.scannedDataStream.listen((scanData) {
-      sleep(Duration(milliseconds: 10));
+      sleep(const Duration(milliseconds: 10));
       setState(() {
         result = scanData;
         barcodeString = result.code.toString();
@@ -86,8 +86,8 @@ class _QRViewExampleState extends State<QRViewExample> {
               duration: const Duration(milliseconds: 3000),
               content: Container(
                   height: 20,
-                  child: Center(
-                    child: Text(
+                  child: const Center(
+                    child: const Text(
                       'Impfung hinzugefügt.',
                       textAlign: TextAlign.center,
                     ),

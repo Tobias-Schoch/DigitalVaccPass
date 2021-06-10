@@ -155,13 +155,13 @@ class _MyLoginPageState extends State<MyLoginPage> {
                   },
                   child: Row(
                     children: <Widget>[
-                      Flexible(child: const Text('Passwort vergessen?')),
+                      const Flexible(child: const Text('Passwort vergessen?')),
                     ],
                   ),
                 ),
                 const SizedBox(height: 25),
                 ConstrainedBox(
-                  constraints: BoxConstraints.tightFor(height: 60),
+                  constraints: const BoxConstraints.tightFor(height: 60),
                   child: ElevatedButton.icon(
                     onPressed: () {
                       if (checkIfUserExists(myEmailTextController.text.toLowerCase(),
@@ -188,8 +188,8 @@ class _MyLoginPageState extends State<MyLoginPage> {
                             duration: const Duration(milliseconds: 3000),
                             content: Container(
                               height: 20,
-                              child: Center(
-                                child: Text(
+                              child: const Center(
+                                child: const Text(
                                   'E-Mail und Passwort stimmen nicht überein.', textAlign: TextAlign.center,),
                               )
                             ),
@@ -197,19 +197,19 @@ class _MyLoginPageState extends State<MyLoginPage> {
                         );
                       }
                     },
-                    label: Flexible(
-                        child: Text('Einloggen',
-                            style: TextStyle(fontSize: 20))),
-                    icon: Icon(Icons.login),
+                    label: const Flexible(
+                        child: const Text('Einloggen',
+                            style: const TextStyle(fontSize: 20))),
+                    icon: const Icon(Icons.login),
                   ),
                 ),
                 const SizedBox(height: 25),
                 ConstrainedBox(
-                  constraints: BoxConstraints.tightFor(height: 60),
+                  constraints: const BoxConstraints.tightFor(height: 60),
                   child: ElevatedButton.icon(
                     style: ElevatedButton.styleFrom(
                       textStyle: const TextStyle(fontSize: 16),
-                      primary: Color(0xFFFFFFFF),
+                      primary: const Color(0xFFFFFFFF),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
                         side: BorderSide(

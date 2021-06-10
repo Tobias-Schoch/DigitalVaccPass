@@ -6,7 +6,6 @@ import '../utils/util.dart';
 import '../utils/appBar.dart';
 import '../utils/drawer.dart';
 
-
 class MyVaccinationAddPage extends StatefulWidget {
   MyVaccinationAddPage({Key key, this.title}) : super(key: key);
 
@@ -18,13 +17,14 @@ class MyVaccinationAddPage extends StatefulWidget {
 
 class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
   DateTime _selectedDate;
-  TextEditingController _textEditingController = TextEditingController();
+  final TextEditingController _textEditingController = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    _textEditingController.text = DateFormat('dd.MM.yyyy').format(DateTime.now()).toString();
+    _textEditingController.text =
+        DateFormat('dd.MM.yyyy').format(DateTime.now()).toString();
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
@@ -65,8 +65,8 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                         borderRadius: BorderRadius.circular(12.0),
                         borderSide: BorderSide(
                             color: Theme.of(context).accentColor, width: 3.0)),
-                    labelStyle: TextStyle(
-                        color: Theme.of(context).primaryColorLight),
+                    labelStyle:
+                        TextStyle(color: Theme.of(context).primaryColorLight),
                   ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -96,8 +96,8 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                         borderRadius: BorderRadius.circular(12.0),
                         borderSide: BorderSide(
                             color: Theme.of(context).accentColor, width: 3.0)),
-                    labelStyle: TextStyle(
-                        color: Theme.of(context).primaryColorLight),
+                    labelStyle:
+                        TextStyle(color: Theme.of(context).primaryColorLight),
                   ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -132,8 +132,8 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                         borderRadius: BorderRadius.circular(12.0),
                         borderSide: BorderSide(
                             color: Theme.of(context).accentColor, width: 3.0)),
-                    labelStyle: TextStyle(
-                        color: Theme.of(context).primaryColorLight),
+                    labelStyle:
+                        TextStyle(color: Theme.of(context).primaryColorLight),
                   ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -144,19 +144,19 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                 ),
                 const SizedBox(height: 25),
                 ConstrainedBox(
-                  constraints: BoxConstraints.tightFor(height: 60),
+                  constraints: const BoxConstraints.tightFor(height: 60),
                   child: ElevatedButton.icon(
                     onPressed: () {
                       if (_formKey.currentState.validate()) {
                         FocusScope.of(context).unfocus();
-                        sleep(Duration(milliseconds:50));
+                        sleep(const Duration(milliseconds: 50));
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => QRViewExample()));
                       }
                     },
-                    label:
-                        Text('Hinzufügen', style: TextStyle(fontSize: 20)),
-                    icon: Icon(Icons.qr_code_scanner),
+                    label: const Text('Hinzufügen',
+                        style: TextStyle(fontSize: 20)),
+                    icon: const Icon(Icons.qr_code_scanner),
                   ),
                 ),
               ],
@@ -199,7 +199,6 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
             affinity: TextAffinity.upstream));
     }
   }
-
 
   @override
   void dispose() {

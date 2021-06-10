@@ -24,7 +24,7 @@ class MyDrawer extends StatelessWidget {
           Container(
             height: 90,
             child: DrawerHeader(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.white,
               ),
               child: Row(
@@ -43,7 +43,7 @@ class MyDrawer extends StatelessWidget {
           Visibility(
             visible: isVisible,
             child: ListTile(
-              leading: Icon(
+              leading: const Icon(
                 Icons.insights_outlined,
                 color: PredefinedColors.textColor,
               ),
@@ -60,7 +60,7 @@ class MyDrawer extends StatelessWidget {
           Visibility(
             visible: isVisible,
             child: ListTile(
-              leading: Icon(Icons.qr_code_scanner_outlined,
+              leading: const Icon(Icons.qr_code_scanner_outlined,
                   color: PredefinedColors.textColor),
               title: Text(
                 'Impfung hinzufügen',
@@ -83,7 +83,7 @@ class MyDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.local_hospital_outlined,
+            leading: const Icon(Icons.local_hospital_outlined,
                 color: PredefinedColors.textColor),
             title: Text(
               'Impfpass',
@@ -95,8 +95,8 @@ class MyDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading:
-                Icon(Icons.masks_outlined, color: PredefinedColors.textColor),
+            leading: const Icon(Icons.masks_outlined,
+                color: PredefinedColors.textColor),
             title: Text(
               'Testergebnisse',
               style: Theme.of(context).textTheme.headline6,
@@ -119,8 +119,8 @@ class MyDrawer extends StatelessWidget {
           //   },
           // ),
           ListTile(
-            leading:
-                Icon(Icons.people_outline, color: PredefinedColors.textColor),
+            leading: const Icon(Icons.people_outline,
+                color: PredefinedColors.textColor),
             title: Text(
               'Familienübersicht',
               style: Theme.of(context).textTheme.headline6,
@@ -131,8 +131,8 @@ class MyDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading:
-                Icon(Icons.qr_code_outlined, color: PredefinedColors.textColor),
+            leading: const Icon(Icons.qr_code_outlined,
+                color: PredefinedColors.textColor),
             title: Text(
               'Mein QR-Code',
               style: Theme.of(context).textTheme.headline6,
@@ -150,7 +150,7 @@ class MyDrawer extends StatelessWidget {
             height: 40,
           ),
           ListTile(
-            leading: Icon(Icons.help_center_outlined,
+            leading: const Icon(Icons.help_center_outlined,
                 color: PredefinedColors.textColor),
             title: Text(
               'FAQ',
@@ -162,7 +162,7 @@ class MyDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.privacy_tip_outlined,
+            leading: const Icon(Icons.privacy_tip_outlined,
                 color: PredefinedColors.textColor),
             title: Text(
               'Über uns',
@@ -174,7 +174,8 @@ class MyDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.logout, color: PredefinedColors.textColor),
+            leading:
+                const Icon(Icons.logout, color: PredefinedColors.textColor),
             title: Text(
               'Logout',
               style: Theme.of(context).textTheme.headline6,
@@ -185,7 +186,8 @@ class MyDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.accessible, color: PredefinedColors.textColor),
+            leading:
+                const Icon(Icons.accessible, color: PredefinedColors.textColor),
             title: Text(
               'SocketTest',
               style: Theme.of(context).textTheme.headline6,

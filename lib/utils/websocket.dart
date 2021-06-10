@@ -4,7 +4,7 @@ import 'package:socket_io/socket_io.dart';
 class Receiver {
   main() {
     // Dart client
-    IO.Socket socket = IO.io('http://localhost:3000');
+    final IO.Socket socket = IO.io('http://localhost:3000');
     socket.onConnect((_) {
       print('connect');
       socket.emit('msg', 'test');
@@ -18,8 +18,8 @@ class Receiver {
 class Sender {
   main() {
     // Dart server
-    var io = new Server();
-    var nsp = io.of('/some');
+    final io = new Server();
+    final nsp = io.of('/some');
     nsp.on('connection', (client) {
       print('connection /some');
       client.on('msg', (data) {

@@ -53,7 +53,7 @@ class _MyFaqPageState extends State<MyFaqPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         const SizedBox(height: 10),
-                        Text(
+                        const Text(
                             'Datenschutz liegt uns sehr am Herzen, daher speichern wir keine Daten. Die Daten werden lediglich auf ihrem Handy gespeichert und können nur von Ihnen eingesehen werden.',
                             textAlign: TextAlign.left),
                         const SizedBox(height: 18),
@@ -100,7 +100,7 @@ class _MyFaqPageState extends State<MyFaqPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         const SizedBox(height: 10),
-                        Text(
+                        const Text(
                             'Innerhalb weniger Sekunden nach Scannung des QR-Codes ist die Impfung durch den Arzt übertragen.',
                             textAlign: TextAlign.left),
                         const SizedBox(height: 18),
