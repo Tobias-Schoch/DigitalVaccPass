@@ -1,0 +1,112 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import '../utils/customWidgets.dart';
+import '../utils/util.dart';
+
+class MyVaccinationPage extends StatefulWidget {
+  MyVaccinationPage(
+      {Key key,
+      this.title,
+      this.selectedUser,
+      this.isFloatingActionButtonVisible})
+      : super(key: key);
+
+  final String title;
+  final User selectedUser;
+  final bool isFloatingActionButtonVisible;
+
+  @override
+  State<StatefulWidget> createState() => _MyVaccinationPage();
+}
+
+class _MyVaccinationPage extends State<MyVaccinationPage> {
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        alignment: Alignment.topLeft,
+        margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(widget.selectedUser.userName,
+                style: Theme.of(context).textTheme.headline4,
+                textAlign: TextAlign.center),
+            const SizedBox(height: 25),
+            Expanded(
+              child: ListView.builder(
+                itemCount: widget.selectedUser.vaccinations.length,
+                itemBuilder: (context, index) {
+                  return InkWell(
+                      child: Column(
+                    children: <Widget>[
+                      Card(
+                        child: Row(
+                          children: <Widget>[
+                            Expanded(
+                              child: Column(
+                                children: <Widget>[
+                                  ListTile(
+                                    title: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          const SizedBox(height: 18),
+                                          Text(
+                                              widget.selectedUser.vaccinations
+                                                  .elementAt(index)
+                                                  .vaccinationName,
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyText1),
+                                        ]),
+                                    subtitle: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        const SizedBox(height: 10),
+                                        Text('Datum: ' +
+                                            DateFormat('dd.MM.yyyy').format(
+                                                widget.selectedUser.vaccinations
+                                                    .elementAt(index)
+                                                    .vaccinationDate)),
+                                        const SizedBox(height: 8),
+                                        Text('ChargeNr: ' +
+                                            widget.selectedUser.vaccinations
+                                                .elementAt(index)
+                                                .chargeNr),
+                                        const SizedBox(height: 8),
+                                        Text('Arzt: ' +
+                                            widget.selectedUser.vaccinations
+                                                .elementAt(index)
+                                                .doctorSignature),
+                                        const SizedBox(height: 18),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                    ],
+                  ));
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: myVisibleFloatingActionButton(
+          context, widget.isFloatingActionButtonVisible),
+    );
+  }
+}
