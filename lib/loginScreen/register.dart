@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import '../loginScreen/login.dart';
-import '../utils/appBar.dart';
 import '../utils/util.dart';
-
+import '../utils/appBar.dart';
 
 class MyRegisterPage extends StatefulWidget {
   MyRegisterPage({Key key, this.title}) : super(key: key);
@@ -14,11 +13,13 @@ class MyRegisterPage extends StatefulWidget {
 }
 
 class _MyRegisterPageState extends State<MyRegisterPage> {
+
   final myPasswordTextController = TextEditingController();
   final myNameTextController = TextEditingController();
   final myEmailTextController = TextEditingController();
 
   final GlobalKey<FormState> _formRegisterKey = GlobalKey<FormState>();
+
 
   @override
   void dispose() {
@@ -37,34 +38,35 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
       ),
       body: Container(
         alignment: Alignment.topLeft,
-        margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
+        margin: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
         child: SingleChildScrollView(
           child: Form(
             key: _formRegisterKey,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                Text('Registrierung',
+                Text("Registrierung",
                     style: Theme.of(context).textTheme.headline4,
                     textAlign: TextAlign.left),
                 SizedBox(height: 25),
-                new TextFormField(
+                TextFormField(
                   controller: myNameTextController,
                   autofocus: true,
                   cursorColor: Theme.of(context).primaryColorLight,
-                  decoration: new InputDecoration(
-                    labelText: 'Vor- und Nachname',
+                  decoration: InputDecoration(
+                    labelText: "Vor- und Nachname",
                     fillColor: Theme.of(context).accentColor,
-                    border: new OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(12.0),
-                      borderSide: new BorderSide(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                      borderSide: BorderSide(
                         color: Theme.of(context).accentColor,
                         width: 3.0,
                       ),
                     ),
-                    enabledBorder: new OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(12.0),
-                      borderSide: new BorderSide(
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                      borderSide: BorderSide(
                         color: Theme.of(context).primaryColorLight,
                         width: 3.0,
                       ),
@@ -75,34 +77,33 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                           color: Theme.of(context).accentColor,
                           width: 3.0,
                         )),
-                    labelStyle: new TextStyle(
-                        color: Theme.of(context).primaryColorLight),
+                    labelStyle: TextStyle(color: Theme.of(context).primaryColorLight),
                   ),
                   validator: (value) {
                     if (value.isEmpty) {
-                      return 'Can´t be empty!';
+                      return "Can´t be empty!";
                     } else {
                       return null;
                     }
                   },
                 ),
                 SizedBox(height: 25),
-                new TextFormField(
+                TextFormField(
                   controller: myEmailTextController,
                   cursorColor: Theme.of(context).primaryColorLight,
-                  decoration: new InputDecoration(
-                    labelText: 'E-Mail',
+                  decoration: InputDecoration(
+                    labelText: "E-Mail",
                     fillColor: Theme.of(context).accentColor,
-                    border: new OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(12.0),
-                      borderSide: new BorderSide(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                      borderSide: BorderSide(
                         color: Theme.of(context).accentColor,
                         width: 3.0,
                       ),
                     ),
-                    enabledBorder: new OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(12.0),
-                      borderSide: new BorderSide(
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                      borderSide: BorderSide(
                         color: Theme.of(context).primaryColorLight,
                         width: 3.0,
                       ),
@@ -113,12 +114,11 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                           color: Theme.of(context).accentColor,
                           width: 3.0,
                         )),
-                    labelStyle: new TextStyle(
-                        color: Theme.of(context).primaryColorLight),
+                    labelStyle: TextStyle(color: Theme.of(context).primaryColorLight),
                   ),
                   validator: (value) {
                     if (value.isEmpty) {
-                      return 'Emailfeld darf nicht leer sein.';
+                      return "Emailfeld darf nicht leer sein.";
                     } else if (!value.contains('@')) {
                       return 'not a valid email';
                     } else {
@@ -128,22 +128,22 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                   keyboardType: TextInputType.emailAddress,
                 ),
                 SizedBox(height: 25),
-                new TextFormField(
+                TextFormField(
                   controller: myPasswordTextController,
                   cursorColor: Theme.of(context).primaryColorLight,
-                  decoration: new InputDecoration(
-                    labelText: 'Passwort',
+                  decoration: InputDecoration(
+                    labelText: "Passwort",
                     fillColor: Theme.of(context).accentColor,
-                    border: new OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(12.0),
-                      borderSide: new BorderSide(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                      borderSide: BorderSide(
                         color: Theme.of(context).accentColor,
                         width: 3.0,
                       ),
                     ),
-                    enabledBorder: new OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(12.0),
-                      borderSide: new BorderSide(
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                      borderSide: BorderSide(
                         color: Theme.of(context).primaryColorLight,
                         width: 3.0,
                       ),
@@ -154,8 +154,7 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                           color: Theme.of(context).accentColor,
                           width: 3.0,
                         )),
-                    labelStyle: new TextStyle(
-                        color: Theme.of(context).primaryColorLight),
+                    labelStyle: TextStyle(color: Theme.of(context).primaryColorLight),
                   ),
                   obscureText: true,
                   validator: (value) {
@@ -171,21 +170,21 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                   },
                 ),
                 SizedBox(height: 25),
-                new TextFormField(
+                TextFormField(
                   cursorColor: Theme.of(context).primaryColorLight,
-                  decoration: new InputDecoration(
-                    labelText: 'Passwort wiederholen',
+                  decoration: InputDecoration(
+                    labelText: "Passwort wiederholen",
                     fillColor: Theme.of(context).accentColor,
-                    border: new OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(12.0),
-                      borderSide: new BorderSide(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                      borderSide: BorderSide(
                         color: Theme.of(context).accentColor,
                         width: 3.0,
                       ),
                     ),
-                    enabledBorder: new OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(12.0),
-                      borderSide: new BorderSide(
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                      borderSide: BorderSide(
                         color: Theme.of(context).primaryColorLight,
                         width: 3.0,
                       ),
@@ -196,17 +195,14 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                           color: Theme.of(context).accentColor,
                           width: 3.0,
                         )),
-                    labelStyle: new TextStyle(
-                        color: Theme.of(context).primaryColorLight),
+                    labelStyle: TextStyle(color: Theme.of(context).primaryColorLight),
                   ),
                   obscureText: true,
                   validator: (value) {
-                    if (myPasswordTextController.value.text.compareTo(value) !=
-                            0 ||
-                        value.isEmpty) {
+                    if (myPasswordTextController.value.text.compareTo(value) != 0 || value.isEmpty) {
                       return 'password not the same';
                     } else {
-                      return null;
+                      return null; 
                     }
                   },
                 ),
@@ -218,17 +214,13 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                       if (!_formRegisterKey.currentState.validate()) {
                         return;
                       }
-                      TestData.userListDb.add(new User(
-                          myNameTextController.text,
-                          myEmailTextController.text,
-                          myPasswordTextController.text,
-                          Role.Normal));
+                      TestData.userListDb.add(new User(myNameTextController.text, myEmailTextController.text, myPasswordTextController.text, Role.Normal));
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => MyLoginPage()));
                     },
                     label: Flexible(
                       child: Text('Registrieren',
-                          style: new TextStyle(fontSize: 20)),
+                          style: TextStyle(fontSize: 20)),
                     ),
                     icon: Icon(Icons.how_to_reg),
                   ),
