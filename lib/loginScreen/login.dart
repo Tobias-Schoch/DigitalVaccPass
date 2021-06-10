@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:digital_vac_pass/doctorScreen/statistics.dart';
-import 'package:digital_vac_pass/utils/util.dart';
-import 'package:digital_vac_pass/homeScreen/home.dart';
-import 'package:digital_vac_pass/loginScreen/register.dart';
-import 'package:digital_vac_pass/utils/appBar.dart';
-import 'package:digital_vac_pass/loginScreen/forgotpassword.dart';
+import '../doctorScreen/statistics.dart';
+import '../utils/util.dart';
+import '../homeScreen/home.dart';
+import '../loginScreen/register.dart';
+import '../utils/appBar.dart';
+import '../loginScreen/forgotpassword.dart';
 
 class MyLoginPage extends StatefulWidget {
   MyLoginPage({Key key, this.title}) : super(key: key);

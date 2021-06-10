@@ -1,8 +1,7 @@
 import 'dart:async';
-
-import 'package:digital_vac_pass/utils/appBar.dart';
-import 'package:digital_vac_pass/utils/drawer.dart';
-import 'package:digital_vac_pass/utils/util.dart';
+import '../utils/appBar.dart';
+import '../utils/drawer.dart';
+import '../utils/util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
