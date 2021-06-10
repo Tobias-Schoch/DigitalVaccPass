@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/material.dart';

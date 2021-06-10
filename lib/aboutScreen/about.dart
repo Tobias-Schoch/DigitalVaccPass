@@ -51,7 +51,7 @@ class _MyAboutPageState extends State<MyAboutPage> {
                         ]),
                     subtitle: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
+                      children: const <Widget>[
                         SizedBox(height: 10),
                         Text('Version 0.0.0.2', textAlign: TextAlign.left),
                         SizedBox(height: 2),

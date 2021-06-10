@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
-import 'package:socket_io/socket_io.dart';
-import 'package:socket_io_client/socket_io_client.dart';
 import 'package:socket_io_client/socket_io_client.dart';
 import 'aboutScreen/streamsocket.dart';
 import 'loginScreen/login.dart';

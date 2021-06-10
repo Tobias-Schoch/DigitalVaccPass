@@ -17,13 +17,10 @@ import 'package:digital_vac_pass/qrScreen/qrcode.dart';
 import 'package:digital_vac_pass/doctorScreen/statistics.dart';
 import 'package:digital_vac_pass/utils/util.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
-
 import 'package:digital_vac_pass/homeScreen/testresult.dart';
 import 'package:digital_vac_pass/homeScreen/vaccination.dart';
 import 'package:digital_vac_pass/loginScreen/forgotpassword.dart';
 import 'package:digital_vac_pass/loginScreen/register.dart';
-import 'package:digital_vac_pass/utils/util.dart';
-
 import 'util.dart';
 
 void main() {
