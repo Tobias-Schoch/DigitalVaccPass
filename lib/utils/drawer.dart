@@ -1,9 +1,9 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import '../aboutScreen/streamsocket.dart';
 import '../familyScreen/family.dart';
 import '../qrScreen/qrcode.dart';
 import '../utils/util.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import '../aboutScreen/about.dart';
 import '../doctorScreen/addvaccination.dart';
 import '../aboutScreen/faq.dart';

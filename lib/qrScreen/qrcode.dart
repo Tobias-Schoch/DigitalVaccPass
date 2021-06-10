@@ -1,10 +1,10 @@
-import 'dart:async';
-
+import 'package:qr_flutter/qr_flutter.dart';
 import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/material.dart';
+import 'dart:async';
 import '../utils/appBar.dart';
 import '../utils/drawer.dart';
-import 'package:qr_flutter/qr_flutter.dart';
+
 
 class MyQRPage extends StatefulWidget {
   MyQRPage({Key key, this.title}) : super(key: key);

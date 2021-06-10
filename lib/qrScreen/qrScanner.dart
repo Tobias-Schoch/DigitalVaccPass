@@ -1,9 +1,9 @@
+import 'package:flutter/material.dart';
+import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'dart:io';
 import '../utils/appBar.dart';
 import '../utils/util.dart';
 import '../utils/websocket.dart';
-import 'package:flutter/material.dart';
-import 'package:qr_code_scanner/qr_code_scanner.dart';
 import '../doctorScreen/statistics.dart';
 
 class QRViewExample extends StatefulWidget {

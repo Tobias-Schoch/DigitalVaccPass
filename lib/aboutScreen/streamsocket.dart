@@ -1,9 +1,9 @@
 import 'dart:async';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import '../utils/appBar.dart';
 import '../utils/drawer.dart';
 import '../utils/util.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 class StreamSocket extends StatefulWidget {
   StreamSocket({Key key, this.title}) : super(key: key);

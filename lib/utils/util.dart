@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:faker/faker.dart';
 
 class Vaccination {

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_onboard/flutter_onboard.dart';
+import 'package:provider/provider.dart';
 import '../main.dart';
 import '../utils/util.dart';
 import '../utils/drawer.dart';
-import 'package:flutter_onboard/flutter_onboard.dart';
-import 'package:provider/provider.dart';
 
 
 class MyOnboardPage extends StatefulWidget {

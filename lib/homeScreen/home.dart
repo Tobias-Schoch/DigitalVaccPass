@@ -3,7 +3,6 @@ import 'package:digital_vac_pass/homeScreen/vaccination.dart';
 import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../utils/appBar.dart';
 import '../utils/drawer.dart';
 

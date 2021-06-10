@@ -1,6 +1,6 @@
+import 'package:flutter/material.dart';
 import '../qrScreen/qrScanner.dart';
 import '../utils/util.dart';
-import 'package:flutter/material.dart';
 import '../utils/appBar.dart';
 import '../utils/drawer.dart';
 import 'familyHomeScreen.dart';

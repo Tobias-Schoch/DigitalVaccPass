@@ -1,8 +1,8 @@
-import '../utils/customWidgets.dart';
-import '../utils/util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import '../utils/customWidgets.dart';
+import '../utils/util.dart';
 
 class MyVaccinationPage extends StatefulWidget {
   MyVaccinationPage({Key key, this.title, this.selectedUser, this.isFloatingActionButtonVisible}) : super(key: key);

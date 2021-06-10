@@ -1,11 +1,11 @@
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'dart:io';
-
 import '../qrScreen/qrScanner.dart';
 import '../utils/util.dart';
-import 'package:flutter/material.dart';
 import '../utils/appBar.dart';
 import '../utils/drawer.dart';
-import 'package:intl/intl.dart';
+
 
 class MyVaccinationAddPage extends StatefulWidget {
   MyVaccinationAddPage({Key key, this.title}) : super(key: key);
