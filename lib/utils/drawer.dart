@@ -11,9 +11,8 @@ import '../qrScreen/qrcode.dart';
 import '../utils/util.dart';
 
 class MyDrawer extends StatelessWidget {
+  const MyDrawer({Key key, this.isVisible}) : super(key: key);
   final bool isVisible;
-
-  const MyDrawer({this.isVisible});
 
   @override
   Widget build(BuildContext context) {

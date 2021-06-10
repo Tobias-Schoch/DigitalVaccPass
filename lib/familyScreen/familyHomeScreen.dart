@@ -9,7 +9,7 @@ import '../utils/util.dart';
 class MyFamilyHomeScreenPage extends StatefulWidget {
   final User selectedUser;
 
-  MyFamilyHomeScreenPage({this.selectedUser});
+  MyFamilyHomeScreenPage({Key key, this.selectedUser});
 
   @override
   State<StatefulWidget> createState() => _MyFamilyHomeScreenPage();

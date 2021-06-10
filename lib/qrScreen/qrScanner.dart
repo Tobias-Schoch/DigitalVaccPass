@@ -6,6 +6,8 @@ import '../utils/appBar.dart';
 import '../utils/util.dart';
 
 class QRViewExample extends StatefulWidget {
+  const QRViewExample({Key key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() => _QRViewExampleState();
 }
