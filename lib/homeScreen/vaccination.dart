@@ -4,11 +4,11 @@ import 'package:intl/intl.dart';
 import '../utils/customWidgets.dart';
 import '../utils/util.dart';
 
+/// Vaccination overview
 class MyVaccinationPage extends StatefulWidget {
+  /// Vaccination overview
   const MyVaccinationPage(
-      {Key key,
-      this.selectedUser,
-      this.isFloatingActionButtonVisible})
+      {Key key, this.selectedUser, this.isFloatingActionButtonVisible})
       : super(key: key);
 
   final User selectedUser;
@@ -25,23 +25,21 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        alignment: Alignment.topLeft,
-        margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(widget.selectedUser.userName,
-                style: Theme.of(context).textTheme.headline4,
-                textAlign: TextAlign.center),
-            const SizedBox(height: 25),
-            Expanded(
-              child: ListView.builder(
-                itemCount: widget.selectedUser.vaccinations.length,
-                itemBuilder: (context, index) {
-                  return InkWell(
+  Widget build(BuildContext context) => Scaffold(
+        body: Container(
+          alignment: Alignment.topLeft,
+          margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(widget.selectedUser.userName,
+                  style: Theme.of(context).textTheme.headline4,
+                  textAlign: TextAlign.center),
+              const SizedBox(height: 25),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: widget.selectedUser.vaccinations.length,
+                  itemBuilder: (context, index) => InkWell(
                       child: Column(
                     children: <Widget>[
                       Card(
@@ -96,15 +94,13 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
                       ),
                       const SizedBox(height: 20),
                     ],
-                  ));
-                },
+                  )),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
-      floatingActionButton: myVisibleFloatingActionButton(
-          context, widget.isFloatingActionButtonVisible),
-    );
-  }
+        floatingActionButton: myVisibleFloatingActionButton(
+            context, widget.isFloatingActionButtonVisible),
+      );
 }

@@ -1,12 +1,14 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'dart:io';
-import '../qrScreen/qrScanner.dart';
-import '../utils/util.dart';
-import '../utils/appBar.dart';
+import '../qrScreen/qr_scanner.dart';
+import '../utils/app_bar.dart';
 import '../utils/drawer.dart';
+import '../utils/util.dart';
 
+/// add vaccination
 class MyVaccinationAddPage extends StatefulWidget {
+  /// add vaccination
   const MyVaccinationAddPage({Key key}) : super(key: key);
 
   @override
@@ -37,16 +39,15 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
             key: _formKey,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                Text("Impfung hinzufügen",
+                Text('Impfung hinzufügen',
                     style: Theme.of(context).textTheme.headline4,
                     textAlign: TextAlign.left),
                 const SizedBox(height: 25),
                 TextFormField(
                   cursorColor: Theme.of(context).primaryColorLight,
                   decoration: InputDecoration(
-                    labelText: "Impfung",
+                    labelText: 'Impfung',
                     fillColor: Theme.of(context).accentColor,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
@@ -56,8 +57,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide(
-                          color: Theme.of(context).primaryColorLight,
-                          width: 3),
+                          color: Theme.of(context).primaryColorLight, width: 3),
                     ),
                     focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -66,7 +66,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                     labelStyle:
                         TextStyle(color: Theme.of(context).primaryColorLight),
                   ),
-                  validator: (value) {
+                  validator: (String value) {
                     if (value == null || value.isEmpty) {
                       return 'Impfmittel darf nicht leer sein.';
                     }
@@ -77,7 +77,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                 TextFormField(
                   cursorColor: Theme.of(context).primaryColorLight,
                   decoration: InputDecoration(
-                    labelText: "ChargeNr.",
+                    labelText: 'ChargeNr.',
                     fillColor: Theme.of(context).accentColor,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
@@ -87,8 +87,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide(
-                          color: Theme.of(context).primaryColorLight,
-                          width: 3.0),
+                          color: Theme.of(context).primaryColorLight, width: 3),
                     ),
                     focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -97,7 +96,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                     labelStyle:
                         TextStyle(color: Theme.of(context).primaryColorLight),
                   ),
-                  validator: (value) {
+                  validator: (String value) {
                     if (value == null || value.isEmpty) {
                       return 'Chargenummer darf nicht leer sein.';
                     }
@@ -108,7 +107,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                 TextFormField(
                   controller: _textEditingController,
                   onTap: () {
-                    FocusScope.of(context).requestFocus(new FocusNode());
+                    FocusScope.of(context).requestFocus(FocusNode());
                     _selectDate(context);
                   },
                   cursorColor: Theme.of(context).primaryColorLight,
@@ -123,8 +122,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide(
-                          color: Theme.of(context).primaryColorLight,
-                          width: 3),
+                          color: Theme.of(context).primaryColorLight, width: 3),
                     ),
                     focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -133,7 +131,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                     labelStyle:
                         TextStyle(color: Theme.of(context).primaryColorLight),
                   ),
-                  validator: (value) {
+                  validator: (String value) {
                     if (value == null || value.isEmpty) {
                       return 'Datum darf nicht leer sein.';
                     }
@@ -169,24 +167,22 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
   _selectDate(BuildContext context) async {
     final DateTime newSelectedDate = await showDatePicker(
         context: context,
-        locale: const Locale("de", "DE"),
+        locale: const Locale('de', 'DE'),
         initialDate: DateTime.now(),
         firstDate: DateTime(2000),
         lastDate: DateTime.now(),
-        builder: (BuildContext context, Widget child) {
-          return Theme(
-            data: ThemeData.light().copyWith(
-              colorScheme: const ColorScheme.light(
-                primary: PredefinedColors.primaryColor,
-                onPrimary: Colors.white,
-                surface: PredefinedColors.primaryColor,
-                onSurface: PredefinedColors.textColor,
+        builder: (BuildContext context, Widget child) => Theme(
+              data: ThemeData.light().copyWith(
+                colorScheme: const ColorScheme.light(
+                  primary: PredefinedColors.primaryColor,
+                  onPrimary: Colors.white,
+                  surface: PredefinedColors.primaryColor,
+                  onSurface: PredefinedColors.textColor,
+                ),
+                dialogBackgroundColor: Colors.white,
               ),
-              dialogBackgroundColor: Colors.white,
-            ),
-            child: child,
-          );
-        });
+              child: child,
+            ));
 
     if (newSelectedDate != null) {
       _selectedDate = newSelectedDate;

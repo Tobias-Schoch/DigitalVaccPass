@@ -3,11 +3,11 @@ import 'package:intl/intl.dart';
 import '../utils/customWidgets.dart';
 import '../utils/util.dart';
 
+/// Test results
 class MyTestPage extends StatefulWidget {
+  /// Test results
   const MyTestPage(
-      {Key key,
-      this.selectedUser,
-      this.isFloatingActionButtonVisible})
+      {Key key, this.selectedUser, this.isFloatingActionButtonVisible})
       : super(key: key);
 
   final User selectedUser;
@@ -24,104 +24,101 @@ class _MyTestPageState extends State<MyTestPage> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        alignment: Alignment.topLeft,
-        margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(widget.selectedUser.userName,
-                style: Theme.of(context).textTheme.headline4,
-                textAlign: TextAlign.center),
-            const SizedBox(height: 25),
-            Expanded(
-              child: ListView.builder(
-                  itemCount: widget.selectedUser.tests.length,
-                  itemBuilder: (context, index) {
-                    return Column(
-                      children: <Widget>[
-                        Card(
-                          color: widget.selectedUser.tests
-                                      .elementAt(index)
-                                      .testStatus ==
-                                  Status.Pending
-                              ? PredefinedColors.lightOrange
-                              : widget.selectedUser.tests
+  Widget build(BuildContext context) => Scaffold(
+        body: Container(
+          alignment: Alignment.topLeft,
+          margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(widget.selectedUser.userName,
+                  style: Theme.of(context).textTheme.headline4,
+                  textAlign: TextAlign.center),
+              const SizedBox(height: 25),
+              Expanded(
+                child: ListView.builder(
+                    itemCount: widget.selectedUser.tests.length,
+                    itemBuilder: (context, index) => Column(
+                          children: <Widget>[
+                            Card(
+                              color: widget.selectedUser.tests
                                           .elementAt(index)
                                           .testStatus ==
-                                      Status.Good
-                                  ? PredefinedColors.lightGreen
-                                  : PredefinedColors.lightRed,
-                          child: Row(
-                            children: <Widget>[
-                              Expanded(
-                                child: Column(
-                                  children: <Widget>[
-                                    ListTile(
-                                      title: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: <Widget>[
-                                          const SizedBox(height: 18),
-                                          Text(
-                                            widget.selectedUser.tests
-                                                .elementAt(index)
-                                                .testName,
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyText1,
+                                      Status.Pending
+                                  ? PredefinedColors.lightOrange
+                                  : widget.selectedUser.tests
+                                              .elementAt(index)
+                                              .testStatus ==
+                                          Status.Good
+                                      ? PredefinedColors.lightGreen
+                                      : PredefinedColors.lightRed,
+                              child: Row(
+                                children: <Widget>[
+                                  Expanded(
+                                    child: Column(
+                                      children: <Widget>[
+                                        ListTile(
+                                          title: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: <Widget>[
+                                              const SizedBox(height: 18),
+                                              Text(
+                                                widget.selectedUser.tests
+                                                    .elementAt(index)
+                                                    .testName,
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodyText1,
+                                              ),
+                                            ],
                                           ),
-                                        ],
-                                      ),
-                                      subtitle: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: <Widget>[
-                                          const SizedBox(height: 10),
-                                          Text('Datum.: ' +
-                                              DateFormat('dd.MM.yyyy').format(
+                                          subtitle: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: <Widget>[
+                                              const SizedBox(height: 10),
+                                              Text('Datum.: ' +
+                                                  DateFormat('dd.MM.yyyy')
+                                                      .format(widget
+                                                          .selectedUser.tests
+                                                          .elementAt(index)
+                                                          .testDate)),
+                                              const SizedBox(height: 8),
+                                              Text('Test-ID: ' +
                                                   widget.selectedUser.tests
                                                       .elementAt(index)
-                                                      .testDate)),
-                                          const SizedBox(height: 8),
-                                          Text('Test-ID: ' +
-                                              widget.selectedUser.tests
+                                                      .testId),
+                                              const SizedBox(height: 8),
+                                              Text(widget.selectedUser.tests
                                                   .elementAt(index)
-                                                  .testId),
-                                          const SizedBox(height: 8),
-                                          Text(widget.selectedUser.tests
-                                              .elementAt(index)
-                                              .testStatus
-                                              .toString()
-                                              .substring(widget
-                                                      .selectedUser.tests
-                                                      .elementAt(index)
-                                                      .testStatus
-                                                      .toString()
-                                                      .indexOf('.') +
-                                                  1)),
-                                          const SizedBox(height: 18),
-                                        ],
-                                      ),
-                                    )
-                                  ],
-                                ),
+                                                  .testStatus
+                                                  .toString()
+                                                  .substring(widget
+                                                          .selectedUser.tests
+                                                          .elementAt(index)
+                                                          .testStatus
+                                                          .toString()
+                                                          .indexOf('.') +
+                                                      1)),
+                                              const SizedBox(height: 18),
+                                            ],
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(height: 20),
-                      ],
-                    );
-                  }),
-            ),
-          ],
+                            ),
+                            const SizedBox(height: 20),
+                          ],
+                        )),
+              ),
+            ],
+          ),
         ),
-      ),
-      floatingActionButton: myVisibleFloatingActionButton(
-          context, widget.isFloatingActionButtonVisible),
-    );
-  }
+        floatingActionButton: myVisibleFloatingActionButton(
+            context, widget.isFloatingActionButtonVisible),
+      );
 }

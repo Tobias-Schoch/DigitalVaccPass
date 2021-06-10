@@ -8,11 +8,10 @@
 import 'package:digital_vac_pass/aboutScreen/about.dart';
 import 'package:digital_vac_pass/doctorScreen/addvaccination.dart';
 import 'package:digital_vac_pass/familyScreen/family.dart';
-import 'package:digital_vac_pass/utils/appBar.dart';
+import 'package:digital_vac_pass/utils/app_bar.dart';
 import 'package:digital_vac_pass/utils/drawer.dart';
 import 'package:digital_vac_pass/aboutScreen/faq.dart';
 import 'package:digital_vac_pass/loginScreen/login.dart';
-import 'package:digital_vac_pass/aboutScreen/onboard.dart';
 import 'package:digital_vac_pass/qrScreen/qrcode.dart';
 import 'package:digital_vac_pass/doctorScreen/statistics.dart';
 import 'package:digital_vac_pass/utils/util.dart';
@@ -207,19 +206,6 @@ void main() {
       );
     await tester.pumpDeviceBuilder(builder);
     await screenMatchesGolden(tester, 'faqScreen');
-  });
-
-  testGoldens('Onboard Screen Test', (tester) async {
-    final builder = DeviceBuilder()
-      ..overrideDevicesForAllScenarios(
-        devices: devicesWithDifferentTextScales,
-      )
-      ..addScenario(
-          widget: MyOnboardPage(),
-          name: 'onboard page'
-      );
-    await tester.pumpDeviceBuilder(builder);
-    await screenMatchesGolden(tester, 'onboardScreen');
   });
 
   testGoldens('Qrcode Screen Test', (tester) async {

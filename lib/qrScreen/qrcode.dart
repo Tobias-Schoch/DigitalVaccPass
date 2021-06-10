@@ -1,7 +1,7 @@
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/material.dart';
-import '../utils/appBar.dart';
+import '../utils/app_bar.dart';
 import '../utils/drawer.dart';
 
 class MyQRPage extends StatefulWidget {

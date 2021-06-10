@@ -11,8 +11,11 @@ void main() {
   ));
 }
 
+/// Main startpoint
 class MyApp extends StatelessWidget {
+  /// Main startpoint
   const MyApp({Key key}) : super(key: key);
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -25,27 +28,27 @@ class MyApp extends StatelessWidget {
       supportedLocales: [const Locale('en'), const Locale('de')],
       title: 'Impfpass',
       theme: ThemeData(
-        fontFamily: "Inter",
+        fontFamily: 'Inter',
         primaryColor: PredefinedColors.accentWhite,
         accentColor: PredefinedColors.primaryColor,
         primaryColorLight: PredefinedColors.textColor,
         textButtonTheme: const TextButtonThemeData(),
         cardTheme: CardTheme(
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12.0),
+            borderRadius: BorderRadius.circular(12),
           ),
           elevation: 10,
         ),
         snackBarTheme: SnackBarThemeData(
           elevation: 10,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12.0),
+            borderRadius: BorderRadius.circular(12),
           ),
           backgroundColor: PredefinedColors.primaryColor,
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            textStyle: const TextStyle(fontSize: 16, fontFamily: "Inter"),
+            textStyle: const TextStyle(fontSize: 16, fontFamily: 'Inter'),
             primary: PredefinedColors.primaryColor,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12), // <-- Radius
@@ -85,7 +88,9 @@ class MyApp extends StatelessWidget {
   }
 }
 
+/// set startpoint for app
 class MyHomePage extends StatefulWidget {
+  /// set startpoint for app
   const MyHomePage({Key key, this.title}) : super(key: key);
 
   final String title;
@@ -101,9 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: const MyLoginPage(),
-    );
-  }
+  Widget build(BuildContext context) => const Scaffold(
+        body: const MyLoginPage(),
+      );
 }

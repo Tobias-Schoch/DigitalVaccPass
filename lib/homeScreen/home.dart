@@ -1,15 +1,16 @@
-import 'package:digital_vac_pass/homeScreen/testresult.dart';
-import 'package:digital_vac_pass/homeScreen/vaccination.dart';
-import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../utils/appBar.dart';
+import '../homeScreen/testresult.dart';
+import '../homeScreen/vaccination.dart';
+import '../utils/app_bar.dart';
 import '../utils/drawer.dart';
+import '../utils/util.dart';
 
+/// Home screen to chose between vaccinations and tests
 class MyHomeScreenPage extends StatefulWidget {
-  int selectedTabIndex = 0;
-
+  /// Home screen to chose between vaccinations and tests
   MyHomeScreenPage({Key key, this.selectedTabIndex}) : super(key: key);
+  int selectedTabIndex = 0;
 
   @override
   State<StatefulWidget> createState() => _MyHomeScreenPage();
@@ -39,46 +40,51 @@ class _MyHomeScreenPage extends State<MyHomeScreenPage>
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const MyHeader(),
-        elevation: 0,
-        bottom: TabBar(
+  Widget build(BuildContext context) =>
+      Scaffold(
+        appBar: AppBar(
+          title: const MyHeader(),
+          elevation: 0,
+          bottom: TabBar(
+            controller: _tabController,
+            indicator: UnderlineTabIndicator(
+                borderSide:
+                BorderSide(width: 3, color: Theme
+                    .of(context)
+                    .accentColor),
+                insets: const EdgeInsets.symmetric(horizontal: 60)),
+            tabs: [
+              Tab(
+                  icon: Icon(Icons.local_hospital_outlined,
+                      color: Theme
+                          .of(context)
+                          .accentColor),
+                  text: 'Impfpass'),
+              Tab(
+                  icon: Icon(Icons.masks_outlined,
+                      color: Theme
+                          .of(context)
+                          .accentColor),
+                  text: 'Testergebnisse'),
+            ],
+          ),
+        ),
+        body: TabBarView(
           controller: _tabController,
-          indicator: UnderlineTabIndicator(
-              borderSide:
-                  BorderSide(width: 3.0, color: Theme.of(context).accentColor),
-              insets: const EdgeInsets.symmetric(horizontal: 60.0)),
-          tabs: [
-            Tab(
-                icon: Icon(Icons.local_hospital_outlined,
-                    color: Theme.of(context).accentColor),
-                text: 'Impfpass'),
-            Tab(
-                icon: Icon(Icons.masks_outlined,
-                    color: Theme.of(context).accentColor),
-                text: 'Testergebnisse'),
+          children: <Widget>[
+            MyVaccinationPage(
+                selectedUser: User.loggedInUser,
+                isFloatingActionButtonVisible: true),
+            MyTestPage(
+                selectedUser: User.loggedInUser,
+                isFloatingActionButtonVisible: true),
           ],
         ),
-      ),
-      body: TabBarView(
-        controller: _tabController,
-        children: <Widget>[
-          MyVaccinationPage(
-              selectedUser: User.loggedInUser,
-              isFloatingActionButtonVisible: true),
-          MyTestPage(
-              selectedUser: User.loggedInUser,
-              isFloatingActionButtonVisible: true),
-        ],
-      ),
-      drawer: MyDrawer(
-          isVisible: User.loggedInUser == null
-              ? false
-              : User.loggedInUser.userRole == Role.Doctor
-                  ? true
-                  : false),
-    );
-  }
+        drawer: MyDrawer(
+            isVisible: User.loggedInUser == null
+                ? false
+                : User.loggedInUser.userRole == Role.Doctor
+                ? true
+                : false),
+      );
 }
