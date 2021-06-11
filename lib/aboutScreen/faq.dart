@@ -18,7 +18,11 @@ class _MyFaqPageState extends State<MyFaqPage> {
     super.dispose();
   }
 
-  bool isDoctor = User.loggedInUser.userRole == Role.doctor ? true : false;
+  bool isDoctor = User.loggedInUser == null
+      ? false
+      : User.loggedInUser.userRole == Role.doctor
+      ? true
+      : false;
 
   @override
   Widget build(BuildContext context) => Scaffold(

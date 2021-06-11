@@ -20,7 +20,11 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
   final TextEditingController _textEditingController = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
-  bool isDoctor = User.loggedInUser.userRole == Role.doctor ? true : false;
+  bool isDoctor = User.loggedInUser == null
+      ? false
+      : User.loggedInUser.userRole == Role.doctor
+      ? true
+      : false;
 
   @override
   Widget build(BuildContext context) {
