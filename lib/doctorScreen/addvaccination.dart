@@ -6,9 +6,9 @@ import '../utils/app_bar.dart';
 import '../utils/drawer.dart';
 import '../utils/util.dart';
 
-/// add vaccination
+/// add vaccinationn
 class MyVaccinationAddPage extends StatefulWidget {
-  /// add vaccination
+  /// add vaccinationn
   const MyVaccinationAddPage({Key key}) : super(key: key);
 
   @override
