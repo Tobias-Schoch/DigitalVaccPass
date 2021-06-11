@@ -71,37 +71,37 @@ class LastUser {
 
 class TestData {
   static List<User> userListDb = [
-    new User.withData('Luis Nothvogel', 't', 't', Role.normal,
+    User.withData('Luis Nothvogel', 't', 't', Role.normal,
         vaccinationListDb, testsListDb),
-    new User.withData(
+    User.withData(
         'Dr. Anna Mayer', 'a', 'a', Role.doctor, vaccinationListDb, testsListDb)
   ];
 
   static List<User> familyUserDb = [
-    new User.withData('test', 'test@test.de', 'pw', Role.normal,
+    User.withData('test', 'test@test.de', 'pw', Role.normal,
         vaccinationListDb, testsListDb),
-    new User.withData('test1', 'test1@test.de', 'pw1', Role.normal,
+    User.withData('test1', 'test1@test.de', 'pw1', Role.normal,
         vaccinationListDb, testsListDb),
-    new User.withData('test2', 'test2@test.de', 'pw2', Role.normal,
+    User.withData('test2', 'test2@test.de', 'pw2', Role.normal,
         vaccinationListDb, testsListDb),
   ];
 
   static String strDt = '2021-05-28';
   static List<Vaccination> vaccinationListDb = [
-    new Vaccination(
+    Vaccination(
         'covid', '0001', DateTime.parse(strDt), 'kekDoctor', 'beschreibung'),
-    new Vaccination(
+    Vaccination(
         'covid2', '0002', DateTime.parse(strDt), 'kekDoctor2', 'beschreibung2'),
-    new Vaccination(
+    Vaccination(
         'covid3', '0003', DateTime.parse(strDt), 'kekDoctor3', 'beschreibung3')
   ];
 
   static List<Test> testsListDb = [
-    new Test('testName', 'testId', DateTime.parse(strDt), Status.pending,
+    Test('testName', 'testId', DateTime.parse(strDt), Status.pending,
         'testDescription'),
-    new Test('testName2', 'testId2', DateTime.parse(strDt), Status.good,
+    Test('testName2', 'testId2', DateTime.parse(strDt), Status.good,
         'testDescription2'),
-    new Test('testName3', 'testId3', DateTime.parse(strDt), Status.bad,
+    Test('testName3', 'testId3', DateTime.parse(strDt), Status.bad,
         'testDescription3')
   ];
 

@@ -29,57 +29,57 @@ class _MyQRPageState extends State<MyQRPage> {
     super.dispose();
   }
 
+  bool isDoctor = User.loggedInUser == null
+      ? false
+      : User.loggedInUser.userRole == Role.doctor
+      ? true
+      : false;
+
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-          // Change icon and action for qrcode, for better ui
-          // Check from where coming & (de-) activate leading
-          // leading: IconButton(
-          //   icon: Icon(Icons.arrow_back),
-          //   onPressed: () => Navigator.pop(context),
-          // ),
-          title: const MyHeader(),
-          elevation: 0,
-        ),
-        body: Container(
-          alignment: Alignment.topLeft,
-          margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Flexible(
-                child: Text(
-                  'Mein QR-Code',
-                  style: Theme.of(context).textTheme.headline4,
-                  textAlign: TextAlign.start,
-                ),
+      appBar: AppBar(
+        // Change icon and action for qrcode, for better ui
+        // Check from where coming & (de-) activate leading
+        // leading: IconButton(
+        //   icon: Icon(Icons.arrow_back),
+        //   onPressed: () => Navigator.pop(context),
+        // ),
+        title: const MyHeader(),
+        elevation: 0,
+      ),
+      body: Container(
+        alignment: Alignment.topLeft,
+        margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Flexible(
+              child: Text(
+                'Mein QR-Code',
+                style: Theme.of(context).textTheme.headline4,
+                textAlign: TextAlign.start,
               ),
-              const SizedBox(height: 25),
-              Flexible(
-                child: Row(
-                  children: <Widget>[
-                    Visibility(
-                      visible: User.loggedInUser == null ? false : true,
-                      child: QrImage(
-                        data: qrData(LastUser.lastUser),
-                        version: QrVersions.auto,
-                      ),
+            ),
+            const SizedBox(height: 25),
+            Flexible(
+              child: Row(
+                children: <Widget>[
+                  Visibility(
+                    visible: User.loggedInUser == null ? false : true,
+                    child: QrImage(
+                      data: qrData(LastUser.lastUser),
+                      version: QrVersions.auto,
                     ),
-                    Visibility(
-                      visible: User.loggedInUser == null ? true : false,
-                      child: Image.asset('assets/images/qr.png', width: 200),
-                    ),
-                  ],
-                ),
+                  ),
+                  Visibility(
+                    visible: User.loggedInUser == null ? true : false,
+                    child: Image.asset('assets/images/qr.png', width: 200),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
-        drawer: MyDrawer(
-            isVisible: User.loggedInUser == null
-                ? false
-                : User.loggedInUser.userRole == Role.doctor
-                    ? true
-                    : false),
-      );
+      ),
+      drawer: MyDrawer(isVisible: isDoctor));
 }
