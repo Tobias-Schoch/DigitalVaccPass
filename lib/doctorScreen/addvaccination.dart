@@ -175,7 +175,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
               data: ThemeData.light().copyWith(
                 colorScheme: const ColorScheme.light(
                   primary: PredefinedColors.primaryColor,
-                  //onPrimary: Colors.white,
+                  onPrimary: Colors.white,
                   surface: PredefinedColors.primaryColor,
                   onSurface: PredefinedColors.textColor,
                 ),
