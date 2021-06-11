@@ -25,7 +25,7 @@ pipeline {
                 sh "git stash pop"
                 sh "git reset --soft"
                 sh "git add test/"
-                sh "git diff-index --quiet HEAD || (git commit -m 'Added Golden Screenshots from Build 1.0' \
+                sh "(git commit -m 'Added Golden Screenshots from Build 1.0' \
                 		  && git push https://gitlab-ci-token:2LDK9QYHeQYzT57zGD-9@gitlab.in.htwg-konstanz.de/lehre/rschimka/mobile/g-mobile-sose21/04-mobile-sose21.git master:screenshots-build-1.0)"
             }
         }
