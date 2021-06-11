@@ -20,6 +20,8 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
     super.dispose();
   }
 
+  bool isDoctor = User.loggedInUser.userRole == Role.doctor ? true : false;
+
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
@@ -94,10 +96,5 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
           child: const Icon(Icons.add),
         ),
         drawer: MyDrawer(
-            isVisible: User.loggedInUser == null
-                ? false
-                : User.loggedInUser.userRole == Role.doctor
-                    ? true
-                    : false),
-      );
+            isVisible: isDoctor));
 }
