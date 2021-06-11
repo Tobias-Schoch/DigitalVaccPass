@@ -164,7 +164,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
     );
   }
 
-  void _selectDate(BuildContext context) async {
+  _selectDate(BuildContext context) async {
     final DateTime newSelectedDate = await showDatePicker(
         context: context,
         locale: const Locale('de', 'DE'),
