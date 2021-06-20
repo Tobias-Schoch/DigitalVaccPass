@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Update Screenshots in Git') {
                     steps {
-                        sh "'
+                        sh "
                             if [ 'git diff-index --quiet HEAD' ]
                             then
                                 exit 0
@@ -34,7 +34,7 @@ pipeline {
                                 git push https://gitlab-ci-token:2LDK9QYHeQYzT57zGD-9@gitlab.in.htwg-konstanz.de/lehre/rschimka/mobile/g-mobile-sose21/04-mobile-sose21.git master:screenshots-build-1.0
 
                             fi
-                        '"
+                        "
                     }
         }
         stage('SonarQube Analysis') {
