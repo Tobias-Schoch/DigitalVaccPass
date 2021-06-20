@@ -1,8 +1,9 @@
+import 'package:digital_vac_pass/utils/user.dart';
 import 'package:flutter/material.dart';
+
 import '../doctorScreen/addvaccination.dart';
 import '../utils/app_bar.dart';
 import '../utils/drawer.dart';
-import '../utils/util.dart';
 
 /// Statistics for doctor
 class MyStatisticPage extends StatefulWidget {

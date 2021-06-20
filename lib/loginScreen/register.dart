@@ -1,7 +1,9 @@
+import 'package:digital_vac_pass/database/user_DAO.dart';
+import 'package:digital_vac_pass/utils/user.dart';
 import 'package:flutter/material.dart';
+
 import '../loginScreen/login.dart';
 import '../utils/app_bar.dart';
-import '../utils/util.dart';
 
 /// Register page
 class MyRegisterPage extends StatefulWidget {
@@ -213,15 +215,16 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                   ConstrainedBox(
                     constraints: const BoxConstraints.tightFor(height: 60),
                     child: ElevatedButton.icon(
-                      onPressed: () {
+                      onPressed: () async {
                         if (!_formRegisterKey.currentState.validate()) {
                           return;
                         }
-                        TestData.userListDb.add(User(
-                            myNameTextController.text,
-                            myEmailTextController.text,
-                            myPasswordTextController.text,
-                            Role.normal));
+                        UserDAO.create(myNameTextController.text, myEmailTextController.text, myPasswordTextController.text, Role.normal);
+                        // TestData.userListDb.add(User(
+                        //     myNameTextController.text,
+                        //     myEmailTextController.text,
+                        //     myPasswordTextController.text,
+                        //     Role.normal));
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => const MyLoginPage()));
                       },

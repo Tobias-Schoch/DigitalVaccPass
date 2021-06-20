@@ -1,60 +1,9 @@
 import 'dart:ui';
+
+import 'package:digital_vac_pass/utils/test.dart';
+import 'package:digital_vac_pass/utils/user.dart';
+import 'package:digital_vac_pass/utils/vaccination.dart';
 import 'package:faker/faker.dart';
-
-/// Define vaccinations
-class Vaccination {
-  String vaccinationName;
-  String chargeNr;
-  DateTime vaccinationDate;
-  String doctorSignature;
-  String vaccinationDescription;
-
-  Vaccination(this.vaccinationName, this.chargeNr, this.vaccinationDate,
-      this.doctorSignature, this.vaccinationDescription);
-
-  Vaccination.today(this.vaccinationName, this.chargeNr, this.doctorSignature,
-      this.vaccinationDescription)
-      : vaccinationDate = DateTime.now();
-}
-
-class Test {
-  String testName;
-  String testId;
-  DateTime testDate;
-  Status testStatus;
-  String testDescription;
-
-  Test(this.testName, this.testId, this.testDate, this.testStatus,
-      this.testDescription);
-
-  Test.newlyWithoutStatus(
-      this.testName, this.testId, this.testDate, this.testDescription)
-      : testStatus = Status.pending;
-
-  Test.newlyToday(
-      this.testName, this.testId, this.testStatus, this.testDescription)
-      : testDate = DateTime.now();
-
-  Test.newlyTodayWithoutStatus(this.testName, this.testId, this.testDescription)
-      : testDate = DateTime.now(),
-        testStatus = Status.pending;
-}
-
-class User {
-  String userName;
-  String userEmail;
-  String userPassword;
-  Role userRole;
-  List<Vaccination> vaccinations;
-  List<Test> tests;
-
-  static User loggedInUser;
-
-  User(this.userName, this.userEmail, this.userPassword, this.userRole);
-
-  User.withData(this.userName, this.userEmail, this.userPassword, this.userRole,
-      this.vaccinations, this.tests);
-}
 
 class PredefinedColors {
   static const lightOrange = const Color(0xffFFFACC);
@@ -139,9 +88,3 @@ class TestData {
     return matchingUser;
   }
 }
-
-enum Login { notLoggedIn, loggedIn }
-
-enum Role { normal, doctor }
-
-enum Status { good, bad, pending }

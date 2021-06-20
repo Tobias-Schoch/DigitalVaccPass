@@ -1,6 +1,9 @@
 import 'dart:io';
+
+import 'package:digital_vac_pass/utils/user.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
 import '../qrScreen/qr_scanner.dart';
 import '../utils/app_bar.dart';
 import '../utils/drawer.dart';

@@ -1,4 +1,7 @@
+import 'package:digital_vac_pass/database/user_DAO.dart';
+import 'package:digital_vac_pass/utils/user.dart';
 import 'package:flutter/material.dart';
+
 import '../doctorScreen/statistics.dart';
 import '../homeScreen/home.dart';
 import '../loginScreen/forgotpassword.dart';
@@ -21,19 +24,19 @@ class _MyLoginPageState extends State<MyLoginPage> {
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  bool checkIfUserExists(String email, String pw) {
+  Future<bool> checkIfUserExists(String email, String pw) async {
     if (!_formKey.currentState.validate()) {
       return false;
     }
-    bool exists = false;
-    TestData.userListDb.forEach((element) {
-      if (!exists) {
-        if (element.userEmail.compareTo(email) == 0 &&
-            element.userPassword.compareTo(pw) == 0) {
-          exists = true;
-        }
-      }
-    });
+    bool exists = await UserDAO.userLoginCheck(email, pw);
+    // TestData.userListDb.forEach((element) {
+    //   if (!exists) {
+    //     if (element.userEmail.compareTo(email) == 0 &&
+    //         element.userPassword.compareTo(pw) == 0) {
+    //       exists = true;
+    //     }
+    //   }
+    // });
     return exists;
   }
 
@@ -161,14 +164,15 @@ class _MyLoginPageState extends State<MyLoginPage> {
                   ConstrainedBox(
                     constraints: const BoxConstraints.tightFor(height: 60),
                     child: ElevatedButton.icon(
-                      onPressed: () {
-                        if (checkIfUserExists(
+                      onPressed: () async {
+                        if (await checkIfUserExists(
                             myEmailTextController.text.toLowerCase(),
                             myPasswordController.text)) {
-                          User.loggedInUser = TestData.getMatchingUser(
-                              myEmailTextController.text.toLowerCase(),
-                              myPasswordController.text);
-                          if (User.loggedInUser.userRole == Role.doctor) {
+                          // User.loggedInUser = TestData.getMatchingUser(
+                          //     myEmailTextController.text.toLowerCase(),
+                          //     myPasswordController.text);
+                          User.loggedInUser = await UserDAO.getUserByEmail(myEmailTextController.text.toLowerCase());
+                          if (User.loggedInUser != null && User.loggedInUser.userRole == Role.doctor) {
                             Navigator.of(context).push(MaterialPageRoute(
                                 builder: (context) => const MyStatisticPage()));
                           } else {
