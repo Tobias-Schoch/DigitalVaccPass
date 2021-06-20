@@ -1,3 +1,4 @@
+import 'package:digital_vac_pass/database/family_DAO.dart';
 import 'package:digital_vac_pass/utils/user.dart';
 import 'package:flutter/material.dart';
 
@@ -45,50 +46,54 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
                   textAlign: TextAlign.left),
               const SizedBox(height: 25),
               Expanded(
-                child: ListView.builder(
-                    itemCount: TestData.familyUserDb.length,
-                    itemBuilder: (context, index) => Column(
-                          children: <Widget>[
-                            Card(
-                              child: Row(
-                                children: <Widget>[
-                                  Expanded(
-                                    child: Column(
-                                      children: <Widget>[
-                                        const SizedBox(height: 18),
-                                        InkWell(
-                                          onTap: () {
-                                            Navigator.of(context).push(
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        MyFamilyHomeScreenPage(
-                                                            selectedUser:
-                                                            TestData
-                                                                .familyUserDb
-                                                                .elementAt(
-                                                                    index))));
-                                          },
-                                          child: ListTile(
-                                            title: Text(
-                                              TestData.familyUserDb
-                                                  .elementAt(index)
-                                                  .userName,
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .bodyText1,
+                child:
+                  FutureBuilder<List>(
+                    future: FamilyDAO.getAllFamilyMembers(),
+                    builder: (context, snapshot) {
+                      return snapshot.hasData
+                          ? new ListView.builder(
+                          itemCount: snapshot.data.length,
+                          itemBuilder: (context, index) => Column(
+                            children: <Widget>[
+                              Card(
+                                child: Row(
+                                  children: <Widget>[
+                                    Expanded(
+                                      child: Column(
+                                        children: <Widget>[
+                                          const SizedBox(height: 18),
+                                          InkWell(
+                                            onTap: () {
+                                              Navigator.of(context).push(
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          MyFamilyHomeScreenPage(
+                                                              selectedUser:
+                                                              snapshot.data[index])));
+                                            },
+                                            child: ListTile(
+                                              title: Text(
+                                                snapshot.data[index]
+                                                    .userName,
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodyText1,
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                        const SizedBox(height: 18),
-                                      ],
+                                          const SizedBox(height: 18),
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
-                            const SizedBox(height: 20),
-                          ],
-                        )),
+                              const SizedBox(height: 20),
+                            ],
+                          )
+                      ) : Center(child: CircularProgressIndicator());
+                    },
+                  ),
               ),
             ],
           ),

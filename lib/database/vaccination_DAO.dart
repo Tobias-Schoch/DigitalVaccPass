@@ -19,7 +19,7 @@ class VaccinationDAO {
     final list = await dbClient.rawQuery("SELECT * FROM " + DatabaseHelper.vaccinesTable + " WHERE USER_ID = ?", [userId]);
 
     List<Vaccination> vaccList = list.isNotEmpty
-      ? list.map((Map<String, Object> e) => Vaccination.fromMap(e)).toList()
+      ? list.map((e) => Vaccination.fromMap(e)).toList()
         : List<Vaccination>.empty();
 
     return vaccList;

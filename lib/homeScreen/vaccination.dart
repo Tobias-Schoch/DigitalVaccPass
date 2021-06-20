@@ -40,8 +40,10 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
               const SizedBox(height: 25),
               Expanded(
                 child: FutureBuilder<List>(
-                  future: VaccinationDAO.getAllVaccinesForUser(
-                      widget.selectedUser.userDbId),
+                  future:
+                      widget.isFloatingActionButtonVisible
+                          ? VaccinationDAO.getAllVaccinesForUser(widget.selectedUser.userDbId)
+                          : VaccinationDAO.getAllVaccinesForFamilyUser(widget.selectedUser.userDbId),
                   builder: (context, snapshot) {
                     return snapshot.hasData
                         ? new ListView.builder(
@@ -85,7 +87,7 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
                                                   const SizedBox(height: 8),
                                                   Text('Arzt: ' +
                                                       snapshot.data[index]
-                                                          .doctorSignature),
+                                                          .doctorSignature.toString()),
                                                   const SizedBox(height: 18),
                                                 ],
                                               ),

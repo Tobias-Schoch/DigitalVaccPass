@@ -21,7 +21,8 @@ class Test {
       this.testName, this.testIdNr, this.testStatus, this.testDescription)
       : testDate = DateTime.now();
 
-  Test.newlyTodayWithoutStatus(this.testName, this.testIdNr, this.testDescription)
+  Test.newlyTodayWithoutStatus(
+      this.testName, this.testIdNr, this.testDescription)
       : testDate = DateTime.now(),
         testStatus = Status.pending;
 
@@ -40,19 +41,23 @@ class Test {
     return map;
   }
 
-  factory Test.fromMap(Map<String, dynamic> data) => new Test(
-    data["TEST_NAME"],
-    data["TEST_ID_NR"],
-    Util.getDateTimeFromString(data["TEST_DATE"]),
-    getStatusFromString(data["TEST_STATUS"]),
-    data["TEST_DESCRIPTION"]
-  );
+  factory Test.fromMap(Map<String, dynamic> data) => new Test.forDb(
+      data["TEST_NAME"],
+      data["TEST_ID_NR"],
+      Util.getDateTimeFromString(data["TEST_DATE"]),
+      getStatusFromString(data["TEST_STATUS"]),
+      data["TEST_DESCRIPTION"],
+      data["USER_ID"],
+      data["FAMILY_ID"]);
 
   static Status getStatusFromString(String data) {
     switch (data) {
-      case "Status.good": return Status.good;
-      case "Status.bad": return Status.bad;
-      default: return Status.pending;
+      case "Status.good":
+        return Status.good;
+      case "Status.bad":
+        return Status.bad;
+      default:
+        return Status.pending;
     }
   }
 }

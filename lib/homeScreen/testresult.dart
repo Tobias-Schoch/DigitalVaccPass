@@ -42,7 +42,9 @@ class _MyTestPageState extends State<MyTestPage> {
               Expanded(
                 child: FutureBuilder<List>(
                   future:
-                      TestDAO.getAllTestsForUser(widget.selectedUser.userDbId),
+                      widget.isFloatingActionButtonVisible
+                    ? TestDAO.getAllTestsForUser(widget.selectedUser.userDbId)
+                    : TestDAO.getAllTestsForFamilyUser(widget.selectedUser.userDbId),
                   builder: (context, snapshot) {
                     return snapshot.hasData
                         ? new ListView.builder(

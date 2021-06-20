@@ -33,12 +33,14 @@ class Vaccination {
     return map;
   }
 
-  factory Vaccination.fromMap(Map<String, dynamic> data) => new Vaccination(
+  factory Vaccination.fromMap(Map<String, dynamic> data) => new Vaccination.forDb(
     data["VACCINE_NAME"],
     data["CHARGE_NR"],
     Util.getDateTimeFromString(data["VACCINE_DATE"]),
-    data["doctorSignature"],
-    data["vaccinationDescription"]
+    data["DOCTOR_SIGNATURE"],
+    data["VACCINE_DESCRIPTION"],
+    data["USER_ID"],
+    data["FAMILY_ID"]
   );
 
 }
