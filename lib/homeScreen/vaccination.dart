@@ -1,3 +1,4 @@
+import 'package:digital_vac_pass/database/vaccination_DAO.dart';
 import 'package:digital_vac_pass/utils/user.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -38,64 +39,69 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
                   textAlign: TextAlign.center),
               const SizedBox(height: 25),
               Expanded(
-                child: ListView.builder(
-                  itemCount: widget.selectedUser.vaccinations.length,
-                  itemBuilder: (context, index) => InkWell(
-                      child: Column(
-                    children: <Widget>[
-                      Card(
-                        child: Row(
-                          children: <Widget>[
-                            Expanded(
-                              child: Column(
-                                children: <Widget>[
-                                  ListTile(
-                                    title: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: <Widget>[
-                                          const SizedBox(height: 18),
-                                          Text(
-                                              widget.selectedUser.vaccinations
-                                                  .elementAt(index)
-                                                  .vaccinationName,
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .bodyText1),
-                                        ]),
-                                    subtitle: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: <Widget>[
-                                        const SizedBox(height: 10),
-                                        Text('Datum: ' +
-                                            DateFormat('dd.MM.yyyy').format(
-                                                widget.selectedUser.vaccinations
-                                                    .elementAt(index)
-                                                    .vaccinationDate)),
-                                        const SizedBox(height: 8),
-                                        Text('ChargeNr: ' +
-                                            widget.selectedUser.vaccinations
-                                                .elementAt(index)
-                                                .chargeNr),
-                                        const SizedBox(height: 8),
-                                        Text('Arzt: ' +
-                                            widget.selectedUser.vaccinations
-                                                .elementAt(index)
-                                                .doctorSignature),
-                                        const SizedBox(height: 18),
-                                      ],
-                                    ),
+                child: FutureBuilder<List>(
+                  future: VaccinationDAO.getAllVaccinesForUser(
+                      widget.selectedUser.userDbId),
+                  builder: (context, snapshot) {
+                    return snapshot.hasData
+                        ? new ListView.builder(
+                            itemCount: snapshot.data.length,
+                            itemBuilder: (context, index) => InkWell(
+                                child: Column(
+                              children: <Widget>[
+                                Card(
+                                  child: Row(
+                                    children: <Widget>[
+                                      Expanded(
+                                        child: Column(
+                                          children: <Widget>[
+                                            ListTile(
+                                              title: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: <Widget>[
+                                                    const SizedBox(height: 18),
+                                                    Text(
+                                                        snapshot.data[index]
+                                                            .vaccinationName,
+                                                        style: Theme.of(context)
+                                                            .textTheme
+                                                            .bodyText1),
+                                                  ]),
+                                              subtitle: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: <Widget>[
+                                                  const SizedBox(height: 10),
+                                                  Text('Datum: ' +
+                                                      DateFormat('dd.MM.yyyy')
+                                                          .format(snapshot
+                                                              .data[index]
+                                                              .vaccinationDate)),
+                                                  const SizedBox(height: 8),
+                                                  Text('ChargeNr: ' +
+                                                      snapshot.data[index]
+                                                          .chargeNr),
+                                                  const SizedBox(height: 8),
+                                                  Text('Arzt: ' +
+                                                      snapshot.data[index]
+                                                          .doctorSignature),
+                                                  const SizedBox(height: 18),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                    ],
-                  )),
+                                ),
+                                const SizedBox(height: 20),
+                              ],
+                            )),
+                          )
+                        : Center(child: CircularProgressIndicator());
+                  },
                 ),
               ),
             ],

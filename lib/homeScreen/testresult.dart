@@ -1,3 +1,4 @@
+import 'package:digital_vac_pass/database/test_DAO.dart';
 import 'package:digital_vac_pass/utils/test.dart';
 import 'package:digital_vac_pass/utils/user.dart';
 import 'package:flutter/material.dart';
@@ -39,84 +40,90 @@ class _MyTestPageState extends State<MyTestPage> {
                   textAlign: TextAlign.center),
               const SizedBox(height: 25),
               Expanded(
-                child: ListView.builder(
-                    itemCount: widget.selectedUser.tests.length,
-                    itemBuilder: (context, index) => Column(
-                          children: <Widget>[
-                            Card(
-                              color: widget.selectedUser.tests
-                                          .elementAt(index)
-                                          .testStatus ==
-                                      Status.pending
-                                  ? PredefinedColors.lightOrange
-                                  : widget.selectedUser.tests
-                                              .elementAt(index)
-                                              .testStatus ==
-                                          Status.good
-                                      ? PredefinedColors.lightGreen
-                                      : PredefinedColors.lightRed,
-                              child: Row(
-                                children: <Widget>[
-                                  Expanded(
-                                    child: Column(
-                                      children: <Widget>[
-                                        ListTile(
-                                          title: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: <Widget>[
-                                              const SizedBox(height: 18),
-                                              Text(
-                                                widget.selectedUser.tests
-                                                    .elementAt(index)
-                                                    .testName,
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .bodyText1,
-                                              ),
-                                            ],
-                                          ),
-                                          subtitle: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: <Widget>[
-                                              const SizedBox(height: 10),
-                                              Text('Datum.: ' +
-                                                  DateFormat('dd.MM.yyyy')
-                                                      .format(widget
-                                                          .selectedUser.tests
-                                                          .elementAt(index)
-                                                          .testDate)),
-                                              const SizedBox(height: 8),
-                                              Text('Test-ID: ' +
-                                                  widget.selectedUser.tests
-                                                      .elementAt(index)
-                                                      .testId),
-                                              const SizedBox(height: 8),
-                                              Text(widget.selectedUser.tests
-                                                  .elementAt(index)
-                                                  .testStatus
-                                                  .toString()
-                                                  .substring(widget
-                                                          .selectedUser.tests
-                                                          .elementAt(index)
+                child: FutureBuilder<List>(
+                  future:
+                      TestDAO.getAllTestsForUser(widget.selectedUser.userDbId),
+                  builder: (context, snapshot) {
+                    return snapshot.hasData
+                        ? new ListView.builder(
+                            itemCount: snapshot.data.length,
+                            itemBuilder: (context, index) => Column(
+                                  children: <Widget>[
+                                    Card(
+                                      color: snapshot.data[index]
+                                                  .testStatus ==
+                                              Status.pending
+                                          ? PredefinedColors.lightOrange
+                                          :snapshot.data[index]
+                                                      .testStatus ==
+                                                  Status.good
+                                              ? PredefinedColors.lightGreen
+                                              : PredefinedColors.lightRed,
+                                      child: Row(
+                                        children: <Widget>[
+                                          Expanded(
+                                            child: Column(
+                                              children: <Widget>[
+                                                ListTile(
+                                                  title: Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: <Widget>[
+                                                      const SizedBox(
+                                                          height: 18),
+                                                      Text(
+                                                        snapshot.data[index]
+                                                            .testName,
+                                                        style: Theme.of(context)
+                                                            .textTheme
+                                                            .bodyText1,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  subtitle: Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: <Widget>[
+                                                      const SizedBox(
+                                                          height: 10),
+                                                      Text('Datum.: ' +
+                                                          DateFormat(
+                                                                  'dd.MM.yyyy')
+                                                              .format(snapshot.data[index]
+                                                                  .testDate)),
+                                                      const SizedBox(height: 8),
+                                                      Text('Test-ID: ' +
+                                                          snapshot.data[index]
+                                                              .testIdNr),
+                                                      const SizedBox(height: 8),
+                                                      Text(snapshot.data[index]
                                                           .testStatus
                                                           .toString()
-                                                          .indexOf('.') +
-                                                      1)),
-                                              const SizedBox(height: 18),
-                                            ],
+                                                          .substring(snapshot.data[index]
+                                                                  .testStatus
+                                                                  .toString()
+                                                                  .indexOf(
+                                                                      '.') +
+                                                              1)),
+                                                      const SizedBox(
+                                                          height: 18),
+                                                    ],
+                                                  ),
+                                                )
+                                              ],
+                                            ),
                                           ),
-                                        )
-                                      ],
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            const SizedBox(height: 20),
-                          ],
-                        )),
+                                    const SizedBox(height: 20),
+                                  ],
+                                ))
+                        : Center(child: CircularProgressIndicator());
+                  },
+                ),
               ),
             ],
           ),

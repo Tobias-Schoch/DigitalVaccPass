@@ -7,6 +7,7 @@ class User {
   String userEmail;
   String userPassword;
   Role userRole;
+  // TODO Might not need those 2 lists, because of db
   List<Vaccination> vaccinations;
   List<Test> tests;
 
@@ -41,7 +42,7 @@ class User {
 
   static Role getRoleFromString(String data) {
     switch (data) {
-      case "doctor": return Role.doctor;
+      case "Role.doctor": return Role.doctor;
       default: return Role.normal;
     }
   }

@@ -5,6 +5,14 @@ import 'package:digital_vac_pass/utils/user.dart';
 import 'package:digital_vac_pass/utils/vaccination.dart';
 import 'package:faker/faker.dart';
 
+class Util {
+
+  static DateTime getDateTimeFromString(String dateTimeString) {
+    return DateTime.parse(dateTimeString);
+  }
+
+}
+
 class PredefinedColors {
   static const lightOrange = const Color(0xffFFFACC);
   static const lightRed = const Color(0xffFEC3C3);
@@ -88,3 +96,5 @@ class TestData {
     return matchingUser;
   }
 }
+
+
