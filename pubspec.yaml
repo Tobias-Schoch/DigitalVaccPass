@@ -36,7 +36,6 @@ dependencies:
   socket_io_client: ^1.0.1
   socket_io: ^1.0.0
   sqflite: ^2.0.0+3
-  path_provider: ^0.5.0+1
 
 dev_dependencies:
   flutter_test:
