@@ -17,12 +17,10 @@ pipeline {
         }
         stage('Update Screenshots in Git') {
             steps {
-                sh "
-                    if [ 'git diff-index --quiet HEAD' ]
+                sh "if [ 'git diff-index --quiet HEAD' ]
                     then
                         exit 0
-                    fi
-                   "
+                    fi"
                 sh "git config user.email 'jenkins@f776e35e-dd5a-47aa-8cb8-5826c98b5ed0.ma.bw-cloud-instance.org'"
                 sh "git config user.name 'jenkins'"
                 sh "git add -A"
