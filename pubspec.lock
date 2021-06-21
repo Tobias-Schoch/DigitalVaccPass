@@ -64,6 +64,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.3"
+  dots_indicator:
+    dependency: "direct main"
+    description:
+      name: dots_indicator
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   fake_async:
     dependency: transitive
     description:
@@ -102,13 +109,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_onboard:
-    dependency: "direct main"
-    description:
-      name: flutter_onboard
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -147,6 +147,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.17.0"
+  introduction_screen:
+    dependency: "direct main"
+    description:
+      name: introduction_screen
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.0"
   js:
     dependency: transitive
     description:
@@ -179,13 +186,6 @@ packages:
     dependency: transitive
     description:
       name: mime
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.0"
-  nested:
-    dependency: transitive
-    description:
-      name: nested
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
@@ -252,13 +252,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.2.1"
-  provider:
-    dependency: transitive
-    description:
-      name: provider
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "5.0.0"
   qr:
     dependency: transitive
     description:

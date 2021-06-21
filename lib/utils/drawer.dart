@@ -4,6 +4,7 @@ import 'package:page_transition/page_transition.dart';
 
 import '../aboutScreen/about.dart';
 import '../aboutScreen/faq.dart';
+import '../aboutScreen/onboard.dart';
 import '../doctorScreen/addvaccination.dart';
 import '../doctorScreen/statistics.dart';
 import '../familyScreen/family.dart';
@@ -220,6 +221,22 @@ class MyDrawer extends StatelessWidget {
                         type: PageTransitionType.size,
                         alignment: Alignment.bottomCenter,
                         child: const MyApp()));
+              },
+            ),
+            ListTile(
+              leading:
+              const Icon(Icons.sailing_outlined, color: PredefinedColors.textColor),
+              title: Text(
+                'OnBoard',
+                style: Theme.of(context).textTheme.headline6,
+              ),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    PageTransition(
+                        type: PageTransitionType.size,
+                        alignment: Alignment.bottomCenter,
+                        child: OnBoardingPage()));
               },
             ),
           ],
