@@ -61,13 +61,6 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
             image: _buildImage('img3.png'),
             decoration: pageDecoration,
           ),
-          PageViewModel(
-            title: 'Kids and teens',
-            body:
-            'Kids and teens can track their stocks 24/7 and place trades that you approve.',
-            image: _buildImage('img4.png'),
-            decoration: pageDecoration,
-          ),
         ],
         onDone: () => _onIntroEnd(context),
         onSkip: () => _onIntroEnd(context),

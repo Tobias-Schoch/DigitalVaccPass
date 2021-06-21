@@ -115,6 +115,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future checkFirstSeen() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool('firstStart', false);
     bool _seen = (prefs.getBool('firstStart') ?? false);
     if (_seen) {
       Navigator.of(context).pushReplacement(
