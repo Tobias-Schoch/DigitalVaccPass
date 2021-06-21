@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../aboutScreen/about.dart';
 import '../aboutScreen/faq.dart';
+import '../doctorScreen/addtest.dart';
 import '../doctorScreen/addvaccination.dart';
 import '../doctorScreen/statistics.dart';
 import '../familyScreen/family.dart';
@@ -69,6 +70,21 @@ class MyDrawer extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const MyVaccinationAddPage()));
+                },
+              ),
+            ),
+            Visibility(
+              visible: isVisible,
+              child: ListTile(
+                leading: const Icon(Icons.qr_code_scanner_outlined,
+                    color: PredefinedColors.textColor),
+                title: Text(
+                  'Test hinzufügen',
+                  style: Theme.of(context).textTheme.headline6,
+                ),
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const MyTestAddPage()));
                 },
               ),
             ),
