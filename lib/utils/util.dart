@@ -1,16 +1,14 @@
 import 'dart:ui';
 
-import 'package:digital_vac_pass/utils/test.dart';
-import 'package:digital_vac_pass/utils/user.dart';
-import 'package:digital_vac_pass/utils/vaccination.dart';
 import 'package:faker/faker.dart';
 
+import '../utils/user.dart';
+import '../utils/test.dart';
+import '../utils/vaccination.dart';
+
 class Util {
-
-  static DateTime getDateTimeFromString(String dateTimeString) {
-    return DateTime.parse(dateTimeString);
-  }
-
+  static DateTime getDateTimeFromString(String dateTimeString) =>
+      DateTime.parse(dateTimeString);
 }
 
 class PredefinedColors {
@@ -23,7 +21,7 @@ class PredefinedColors {
 }
 
 class LastUser {
-  static String lastUser = "";
+  static String lastUser = '';
 }
 
 class TestData {
@@ -62,27 +60,25 @@ class TestData {
         'testDescription3')
   ];
 
-  static List<Vaccination> generateVaccList(int size) {
-    return List<Vaccination>.generate(size, (int i) {
-      return Vaccination(
-          faker.food.dish(),
-          faker.randomGenerator.decimal().toString(),
-          faker.date.dateTime(),
-          faker.person.name(),
-          faker.lorem.sentence());
-    });
-  }
+  static List<Vaccination> generateVaccList(
+          int size) =>
+      List<Vaccination>.generate(
+          size,
+          (int i) => Vaccination(
+              faker.food.dish(),
+              faker.randomGenerator.decimal().toString(),
+              faker.date.dateTime(),
+              faker.person.name(),
+              faker.lorem.sentence()));
 
-  static List<Test> generateTestsList(int size) {
-    return List<Test>.generate(size, (int i) {
-      return Test(
+  static List<Test> generateTestsList(int size) => List<Test>.generate(
+      size,
+      (int i) => Test(
           faker.lorem.word(),
           faker.randomGenerator.decimal().toString(),
           faker.date.dateTime(),
           faker.randomGenerator.element(Status.values),
-          faker.lorem.sentence());
-    });
-  }
+          faker.lorem.sentence()));
 
   static User getMatchingUser(String email, String pw) {
     User matchingUser;
@@ -96,5 +92,3 @@ class TestData {
     return matchingUser;
   }
 }
-
-

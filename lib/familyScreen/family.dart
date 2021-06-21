@@ -1,12 +1,11 @@
-import 'package:digital_vac_pass/database/family_DAO.dart';
-import 'package:digital_vac_pass/utils/user.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
+import '../database/family_DAO.dart';
 import '../qrScreen/qr_scanner.dart';
 import '../utils/app_bar.dart';
 import '../utils/drawer.dart';
-import '../utils/util.dart';
+import '../utils/user.dart';
 import 'family_home_screen.dart';
 
 /// Family overview
@@ -49,56 +48,53 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
             Expanded(
               child: FutureBuilder<List>(
                 future: FamilyDAO.getAllFamilyMembers(),
-                builder: (context, snapshot) {
-                  return snapshot.hasData
-                      ? new ListView.builder(
-                          itemCount: snapshot.data.length,
-                          itemBuilder: (context, index) => Column(
-                                children: <Widget>[
-                                  Card(
-                                    child: Row(
-                                      children: <Widget>[
-                                        Expanded(
-                                          child: Column(
-                                            children: <Widget>[
-                                              const SizedBox(height: 18),
-                                              InkWell(
-                                                onTap: () {
-                                                  Navigator.push(
-                                                      context,
-                                                      PageTransition(
-                                                          type:
-                                                              PageTransitionType
-                                                                  .size,
-                                                          alignment: Alignment
-                                                              .bottomCenter,
-                                                          child: MyFamilyHomeScreenPage(
-                                                              selectedUser:
-                                                                  snapshot.data[
-                                                                      index])));
-                                                },
-                                                child: ListTile(
-                                                  title: Text(
-                                                    snapshot
-                                                        .data[index].userName,
-                                                    style: Theme.of(context)
-                                                        .textTheme
-                                                        .bodyText1,
-                                                  ),
+                builder: (context, snapshot) => snapshot.hasData
+                    ? new ListView.builder(
+                        itemCount: snapshot.data.length,
+                        itemBuilder: (context, index) => Column(
+                              children: <Widget>[
+                                Card(
+                                  child: Row(
+                                    children: <Widget>[
+                                      Expanded(
+                                        child: Column(
+                                          children: <Widget>[
+                                            const SizedBox(height: 18),
+                                            InkWell(
+                                              onTap: () {
+                                                Navigator.push(
+                                                    context,
+                                                    PageTransition(
+                                                        type: PageTransitionType
+                                                            .size,
+                                                        alignment: Alignment
+                                                            .bottomCenter,
+                                                        child:
+                                                        MyFamilyHomeScreenPage(
+                                                            selectedUser:
+                                                                snapshot.data[
+                                                                    index])));
+                                              },
+                                              child: ListTile(
+                                                title: Text(
+                                                  snapshot.data[index].userName,
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .bodyText1,
                                                 ),
                                               ),
-                                              const SizedBox(height: 18),
-                                            ],
-                                          ),
+                                            ),
+                                            const SizedBox(height: 18),
+                                          ],
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   ),
-                                  const SizedBox(height: 20),
-                                ],
-                              ))
-                      : const Center(child: CircularProgressIndicator());
-                },
+                                ),
+                                const SizedBox(height: 20),
+                              ],
+                            ))
+                    : const Center(child: CircularProgressIndicator()),
               ),
             ),
           ],

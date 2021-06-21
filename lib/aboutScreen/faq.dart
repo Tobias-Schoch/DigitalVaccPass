@@ -1,8 +1,8 @@
-import 'package:digital_vac_pass/utils/user.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/app_bar.dart';
 import '../utils/drawer.dart';
+import '../utils/user.dart';
 
 /// FAQ Page
 class MyFaqPage extends StatefulWidget {

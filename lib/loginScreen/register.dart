@@ -1,10 +1,10 @@
-import 'package:digital_vac_pass/database/user_DAO.dart';
-import 'package:digital_vac_pass/utils/user.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
+import '../database/user_DAO.dart';
 import '../loginScreen/login.dart';
 import '../utils/app_bar.dart';
+import '../utils/user.dart';
 
 /// Register page
 class MyRegisterPage extends StatefulWidget {

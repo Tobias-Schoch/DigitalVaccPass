@@ -1,4 +1,3 @@
-import 'package:digital_vac_pass/utils/user.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -6,6 +5,7 @@ import '../homeScreen/testresult.dart';
 import '../homeScreen/vaccination.dart';
 import '../utils/app_bar.dart';
 import '../utils/drawer.dart';
+import '../utils/user.dart';
 
 /// Home screen to chose between vaccinations and tests
 class MyHomeScreenPage extends StatefulWidget {

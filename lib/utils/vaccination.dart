@@ -22,25 +22,25 @@ class Vaccination {
       this.doctorSignature, this.vaccinationDescription, this.userId, this.familyId);
 
   Map<String, dynamic> toMap() {
-    final map = new Map<String, dynamic>();
-    map["VACCINE_NAME"] = vaccinationName;
-    map["CHARGE_NR"] = chargeNr;
-    map["VACCINE_DATE"] = vaccinationDate.toString();
-    map["DOCTOR_SIGNATURE"] = doctorSignature;
-    map["VACCINE_DESCRIPTION"] = vaccinationDescription;
-    map["USER_ID"] = userId;
-    map["FAMILY_ID"] = familyId;
+    final map = Map<String, dynamic>();
+    map['VACCINE_NAME'] = vaccinationName;
+    map['CHARGE_NR'] = chargeNr;
+    map['VACCINE_DATE'] = vaccinationDate.toString();
+    map['DOCTOR_SIGNATURE'] = doctorSignature;
+    map['VACCINE_DESCRIPTION'] = vaccinationDescription;
+    map['USER_ID'] = userId;
+    map['FAMILY_ID'] = familyId;
     return map;
   }
 
-  factory Vaccination.fromMap(Map<String, dynamic> data) => new Vaccination.forDb(
-    data["VACCINE_NAME"],
-    data["CHARGE_NR"],
-    Util.getDateTimeFromString(data["VACCINE_DATE"]),
-    data["DOCTOR_SIGNATURE"],
-    data["VACCINE_DESCRIPTION"],
-    data["USER_ID"],
-    data["FAMILY_ID"]
+  factory Vaccination.fromMap(Map<String, dynamic> data) => Vaccination.forDb(
+    data['VACCINE_NAME'],
+    data['CHARGE_NR'],
+    Util.getDateTimeFromString(data['VACCINE_DATE']),
+    data['DOCTOR_SIGNATURE'],
+    data['VACCINE_DESCRIPTION'],
+    data['USER_ID'],
+    data['FAMILY_ID']
   );
 
 }

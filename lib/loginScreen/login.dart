@@ -1,13 +1,13 @@
-import 'package:digital_vac_pass/database/user_DAO.dart';
-import 'package:digital_vac_pass/utils/user.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
+import '../database/user_DAO.dart';
 import '../doctorScreen/statistics.dart';
 import '../homeScreen/home.dart';
 import '../loginScreen/forgotpassword.dart';
 import '../loginScreen/register.dart';
 import '../utils/app_bar.dart';
+import '../utils/user.dart';
 import '../utils/util.dart';
 
 /// Login page
@@ -192,7 +192,8 @@ class _MyLoginPageState extends State<MyLoginPage> {
                                 PageTransition(
                                     type: PageTransitionType.size,
                                     alignment: Alignment.bottomCenter,
-                                    child: MyHomeScreenPage(selectedTabIndex: 0)));
+                                    child:
+                                        MyHomeScreenPage(selectedTabIndex: 0)));
                           }
 
                           LastUser.lastUser =

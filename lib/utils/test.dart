@@ -1,4 +1,4 @@
-import 'package:digital_vac_pass/utils/util.dart';
+import '../utils/util.dart';
 
 class Test {
   String testName;
@@ -30,31 +30,31 @@ class Test {
       this.testDescription, this.userId, this.familyId);
 
   Map<String, dynamic> toMap() {
-    final map = new Map<String, dynamic>();
-    map["TEST_NAME"] = testName;
-    map["TEST_ID_NR"] = testIdNr;
-    map["TEST_DATE"] = testDate.toString();
-    map["TEST_STATUS"] = testStatus.toString();
-    map["TEST_DESCRIPTION"] = testDescription;
-    map["USER_ID"] = userId;
-    map["FAMILY_ID"] = familyId;
+    final map = Map<String, dynamic>();
+    map['TEST_NAME'] = testName;
+    map['TEST_ID_NR'] = testIdNr;
+    map['TEST_DATE'] = testDate.toString();
+    map['TEST_STATUS'] = testStatus.toString();
+    map['TEST_DESCRIPTION'] = testDescription;
+    map['USER_ID'] = userId;
+    map['FAMILY_ID'] = familyId;
     return map;
   }
 
-  factory Test.fromMap(Map<String, dynamic> data) => new Test.forDb(
-      data["TEST_NAME"],
-      data["TEST_ID_NR"],
-      Util.getDateTimeFromString(data["TEST_DATE"]),
-      getStatusFromString(data["TEST_STATUS"]),
-      data["TEST_DESCRIPTION"],
-      data["USER_ID"],
-      data["FAMILY_ID"]);
+  factory Test.fromMap(Map<String, dynamic> data) => Test.forDb(
+      data['TEST_NAME'],
+      data['TEST_ID_NR'],
+      Util.getDateTimeFromString(data['TEST_DATE']),
+      getStatusFromString(data['TEST_STATUS']),
+      data['TEST_DESCRIPTION'],
+      data['USER_ID'],
+      data['FAMILY_ID']);
 
   static Status getStatusFromString(String data) {
     switch (data) {
-      case "Status.good":
+      case 'Status.good':
         return Status.good;
-      case "Status.bad":
+      case 'Status.bad':
         return Status.bad;
       default:
         return Status.pending;

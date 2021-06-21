@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:digital_vac_pass/utils/user.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:page_transition/page_transition.dart';
@@ -8,6 +7,7 @@ import 'package:page_transition/page_transition.dart';
 import '../qrScreen/qr_scanner.dart';
 import '../utils/app_bar.dart';
 import '../utils/drawer.dart';
+import '../utils/user.dart';
 import '../utils/util.dart';
 
 /// add vaccinationn
@@ -192,7 +192,6 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
               data: ThemeData.light().copyWith(
                 colorScheme: const ColorScheme.light(
                   primary: PredefinedColors.primaryColor,
-                  onPrimary: Colors.white,
                   surface: PredefinedColors.primaryColor,
                   onSurface: PredefinedColors.textColor,
                 ),
