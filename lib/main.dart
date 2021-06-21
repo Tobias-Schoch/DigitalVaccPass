@@ -115,12 +115,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future checkFirstSeen() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    bool _seen = (prefs.getBool('see') ?? false);
+    bool _seen = (prefs.getBool('firstStart') ?? false);
     if (_seen) {
       Navigator.of(context).pushReplacement(
           new MaterialPageRoute(builder: (context) => MyLoginPage()));
     } else {
-      prefs.setBool('see', true);
+      prefs.setBool('firstStart', true);
       Navigator.of(context).pushReplacement(
           new MaterialPageRoute(builder: (context) => OnBoardingPage()));
     }

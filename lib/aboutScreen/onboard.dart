@@ -45,21 +45,28 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
             title: "Fractional shares",
             body: "Instead of having to buy an entire share, "
                 "invest any amount you want.",
-            image: _buildImage('img1.jpg'),
+            image: _buildImage('img1.png'),
             decoration: pageDecoration,
           ),
           PageViewModel(
             title: "Learn as you go",
             body:
                 "Download the Stockpile app and master the market with our mini-lesson.",
-            image: _buildImage('img2.jpg'),
+            image: _buildImage('img2.png'),
             decoration: pageDecoration,
           ),
           PageViewModel(
             title: "Kids and teens",
             body:
                 "Kids and teens can track their stocks 24/7 and place trades that you approve.",
-            image: _buildImage('img3.jpg'),
+            image: _buildImage('img3.png'),
+            decoration: pageDecoration,
+          ),
+          PageViewModel(
+            title: "Kids and teens",
+            body:
+            "Kids and teens can track their stocks 24/7 and place trades that you approve.",
+            image: _buildImage('img4.png'),
             decoration: pageDecoration,
           ),
         ],
