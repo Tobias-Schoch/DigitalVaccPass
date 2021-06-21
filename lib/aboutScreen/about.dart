@@ -18,7 +18,7 @@ class _MyAboutPageState extends State<MyAboutPage> {
   void dispose() {
     super.dispose();
   }
-
+  
   bool isDoctor = User.loggedInUser == null
       ? false
       : User.loggedInUser.userRole == Role.doctor

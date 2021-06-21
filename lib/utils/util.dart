@@ -28,15 +28,15 @@ class LastUser {
 
 class TestData {
   static List<User> userListDb = [
-    User.withData('Luis Nothvogel', 't', 't', Role.normal,
-        vaccinationListDb, testsListDb),
+    User.withData('Luis Nothvogel', 't', 't', Role.normal, vaccinationListDb,
+        testsListDb),
     User.withData(
         'Dr. Anna Mayer', 'a', 'a', Role.doctor, vaccinationListDb, testsListDb)
   ];
 
   static List<User> familyUserDb = [
-    User.withData('test', 'test@test.de', 'pw', Role.normal,
-        vaccinationListDb, testsListDb),
+    User.withData('test', 'test@test.de', 'pw', Role.normal, vaccinationListDb,
+        testsListDb),
     User.withData('test1', 'test1@test.de', 'pw1', Role.normal,
         vaccinationListDb, testsListDb),
     User.withData('test2', 'test2@test.de', 'pw2', Role.normal,

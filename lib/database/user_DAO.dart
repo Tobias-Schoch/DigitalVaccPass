@@ -10,13 +10,13 @@ class UserDAO {
   static Future<int> create(String userName, String userEmail, String userPassword, Role userRole) async {
     final Database dbClient = await con.db;
     final insertUser = new User(userName, userEmail, userPassword, userRole);
-    int id = await dbClient.insert(DatabaseHelper.userTable, insertUser.toMap());
+    final int id = await dbClient.insert(DatabaseHelper.userTable, insertUser.toMap());
     return id;
   }
 
   static Future<User> getUserByEmail(String userEmail) async {
     final Database dbClient = await con.db;
-    List<Map> list = await dbClient.rawQuery("SELECT * FROM " + DatabaseHelper.userTable + " WHERE USER_EMAIL = ?", [userEmail]);
+    final List<Map> list = await dbClient.rawQuery("SELECT * FROM " + DatabaseHelper.userTable + " WHERE USER_EMAIL = ?", [userEmail]);
     if (list.isNotEmpty) {
       return User.fromMap(list[0]);
     } else {
@@ -26,7 +26,7 @@ class UserDAO {
 
   static Future<bool> userLoginCheck(String userEmail, userPassword) async {
     final Database dbClient = await con.db;
-    List<Map> list = await dbClient.rawQuery("SELECT USER_ID FROM " + DatabaseHelper.userTable + " WHERE USER_EMAIL = ? AND PASSWORD = ?", [userEmail, userPassword]);
+    final List<Map> list = await dbClient.rawQuery("SELECT USER_ID FROM " + DatabaseHelper.userTable + " WHERE USER_EMAIL = ? AND PASSWORD = ?", [userEmail, userPassword]);
     if (list.isNotEmpty) {
       return true;
     } else {

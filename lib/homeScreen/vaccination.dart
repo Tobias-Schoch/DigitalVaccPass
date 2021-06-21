@@ -102,7 +102,7 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
                               ],
                             )),
                           )
-                        : Center(child: CircularProgressIndicator());
+                        : Center(child: const CircularProgressIndicator());
                   },
                 ),
               ),

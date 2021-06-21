@@ -78,7 +78,7 @@ class _MyForgotPasswordPageState extends State<MyForgotPasswordPage> {
                   constraints: const BoxConstraints.tightFor(height: 60),
                   child: ElevatedButton.icon(
                     onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
+                      Navigator.of(context).push(new MaterialPageRoute(
                           builder: (context) => const MyLoginPage()));
                     },
                     label: const Flexible(

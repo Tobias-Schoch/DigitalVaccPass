@@ -28,7 +28,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
     if (!_formKey.currentState.validate()) {
       return false;
     }
-    bool exists = await UserDAO.userLoginCheck(email, pw);
+    final bool exists = await UserDAO.userLoginCheck(email, pw);
     // TestData.userListDb.forEach((element) {
     //   if (!exists) {
     //     if (element.userEmail.compareTo(email) == 0 &&
@@ -171,12 +171,14 @@ class _MyLoginPageState extends State<MyLoginPage> {
                           // User.loggedInUser = TestData.getMatchingUser(
                           //     myEmailTextController.text.toLowerCase(),
                           //     myPasswordController.text);
-                          User.loggedInUser = await UserDAO.getUserByEmail(myEmailTextController.text.toLowerCase());
-                          if (User.loggedInUser != null && User.loggedInUser.userRole == Role.doctor) {
-                            Navigator.of(context).push(MaterialPageRoute(
+                          User.loggedInUser = await UserDAO.getUserByEmail(
+                              myEmailTextController.text.toLowerCase());
+                          if (User.loggedInUser != null &&
+                              User.loggedInUser.userRole == Role.doctor) {
+                            Navigator.of(context).push(new MaterialPageRoute(
                                 builder: (context) => const MyStatisticPage()));
                           } else {
-                            Navigator.of(context).push(MaterialPageRoute(
+                            Navigator.of(context).push(new MaterialPageRoute(
                                 builder: (context) =>
                                     MyHomeScreenPage(selectedTabIndex: 0)));
                           }

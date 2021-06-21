@@ -5,7 +5,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'loginScreen/login.dart';
 import 'utils/util.dart';
 
-void main() async {
+main() async {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
