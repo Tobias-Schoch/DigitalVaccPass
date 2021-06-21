@@ -7,10 +7,10 @@ import 'utils/util.dart';
 
 main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const MyApp());
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: const Color(0x00fafafa),
   ));
+  runApp(const MyApp());
 }
 
 /// Main startpoint
@@ -112,7 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   @override
-  Widget build(BuildContext context) => const Scaffold(
-        body: const MyLoginPage(),
-      );
+  Widget build(BuildContext context) =>
+      const Scaffold(
+          body: const MyLoginPage());
 }

@@ -220,13 +220,13 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                         if (!_formRegisterKey.currentState.validate()) {
                           return;
                         }
-                        UserDAO.create(myNameTextController.text, myEmailTextController.text, myPasswordTextController.text, Role.normal);
+                        await UserDAO.create(myNameTextController.text, myEmailTextController.text, myPasswordTextController.text, Role.normal);
                         // TestData.userListDb.add(User(
                         //     myNameTextController.text,
                         //     myEmailTextController.text,
                         //     myPasswordTextController.text,
                         //     Role.normal));
-                        Navigator.push(
+                        await Navigator.push(
                             context,
                             PageTransition(
                                 type: PageTransitionType.size,

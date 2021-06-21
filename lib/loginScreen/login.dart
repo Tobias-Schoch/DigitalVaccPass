@@ -180,14 +180,14 @@ class _MyLoginPageState extends State<MyLoginPage> {
                               myEmailTextController.text.toLowerCase());
                           if (User.loggedInUser != null &&
                               User.loggedInUser.userRole == Role.doctor) {
-                            Navigator.push(
+                            await Navigator.push(
                                 context,
                                 PageTransition(
                                     type: PageTransitionType.size,
                                     alignment: Alignment.bottomCenter,
                                     child: const MyStatisticPage()));
                           } else {
-                            Navigator.push(
+                            await Navigator.push(
                                 context,
                                 PageTransition(
                                     type: PageTransitionType.size,
