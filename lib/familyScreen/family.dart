@@ -91,7 +91,7 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
                               const SizedBox(height: 20),
                             ],
                           )
-                      ) : Center(child: const CircularProgressIndicator());
+                      ) : const Center(child: CircularProgressIndicator());
                     },
                   ),
               ),

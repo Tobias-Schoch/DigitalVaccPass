@@ -123,7 +123,7 @@ class _MyTestPageState extends State<MyTestPage> {
                                     const SizedBox(height: 20),
                                   ],
                                 ))
-                        : Center(child: const CircularProgressIndicator());
+                        : const Center(child: CircularProgressIndicator());
                   },
                 ),
               ),
