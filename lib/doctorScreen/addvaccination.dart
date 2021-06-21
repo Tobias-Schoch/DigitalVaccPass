@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:digital_vac_pass/utils/user.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../qrScreen/qr_scanner.dart';
 import '../utils/app_bar.dart';
@@ -26,8 +27,8 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
   bool isDoctor = User.loggedInUser == null
       ? false
       : User.loggedInUser.userRole == Role.doctor
-      ? true
-      : false;
+          ? true
+          : false;
 
   @override
   Widget build(BuildContext context) {
@@ -157,8 +158,12 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                         if (_formKey.currentState.validate()) {
                           FocusScope.of(context).unfocus();
                           sleep(const Duration(milliseconds: 50));
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const QRViewExample()));
+                          Navigator.push(
+                              context,
+                              PageTransition(
+                                  type: PageTransitionType.size,
+                                  alignment: Alignment.bottomCenter,
+                                  child: QRViewExample()));
                         }
                       },
                       label: const Text('Hinzufügen',

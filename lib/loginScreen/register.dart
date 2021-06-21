@@ -1,6 +1,7 @@
 import 'package:digital_vac_pass/database/user_DAO.dart';
 import 'package:digital_vac_pass/utils/user.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../loginScreen/login.dart';
 import '../utils/app_bar.dart';
@@ -225,8 +226,12 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                         //     myEmailTextController.text,
                         //     myPasswordTextController.text,
                         //     Role.normal));
-                        Navigator.of(context).push(new MaterialPageRoute(
-                            builder: (context) => const MyLoginPage()));
+                        Navigator.push(
+                            context,
+                            PageTransition(
+                                type: PageTransitionType.size,
+                                alignment: Alignment.bottomCenter,
+                                child: MyLoginPage()));
                       },
                       label: const Flexible(
                         child: const Text('Registrieren',

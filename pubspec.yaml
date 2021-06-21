@@ -37,6 +37,7 @@ dependencies:
   socket_io: ^1.0.0
   sqflite: ^2.0.0+3
   pedantic: ^1.11.1
+  page_transition: ^2.0.2
 
 dev_dependencies:
   flutter_test:

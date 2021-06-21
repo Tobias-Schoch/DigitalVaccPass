@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../utils/app_bar.dart';
 import 'login.dart';
@@ -78,8 +79,12 @@ class _MyForgotPasswordPageState extends State<MyForgotPasswordPage> {
                   constraints: const BoxConstraints.tightFor(height: 60),
                   child: ElevatedButton.icon(
                     onPressed: () {
-                      Navigator.of(context).push(new MaterialPageRoute(
-                          builder: (context) => const MyLoginPage()));
+                      Navigator.push(
+                          context,
+                          PageTransition(
+                              type: PageTransitionType.size,
+                              alignment: Alignment.bottomCenter,
+                              child: MyLoginPage()));
                     },
                     label: const Flexible(
                         child: const Text(

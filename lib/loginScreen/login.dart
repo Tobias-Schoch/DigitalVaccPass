@@ -1,6 +1,7 @@
 import 'package:digital_vac_pass/database/user_DAO.dart';
 import 'package:digital_vac_pass/utils/user.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../doctorScreen/statistics.dart';
 import '../homeScreen/home.dart';
@@ -150,8 +151,12 @@ class _MyLoginPageState extends State<MyLoginPage> {
                       primary: Theme.of(context).primaryColorLight,
                     ),
                     onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const MyForgotPasswordPage()));
+                      Navigator.push(
+                          context,
+                          PageTransition(
+                              type: PageTransitionType.size,
+                              alignment: Alignment.bottomCenter,
+                              child: MyForgotPasswordPage()));
                     },
                     child: Row(
                       children: const <Widget>[
@@ -175,12 +180,19 @@ class _MyLoginPageState extends State<MyLoginPage> {
                               myEmailTextController.text.toLowerCase());
                           if (User.loggedInUser != null &&
                               User.loggedInUser.userRole == Role.doctor) {
-                            Navigator.of(context).push(new MaterialPageRoute(
-                                builder: (context) => const MyStatisticPage()));
+                            Navigator.push(
+                                context,
+                                PageTransition(
+                                    type: PageTransitionType.size,
+                                    alignment: Alignment.bottomCenter,
+                                    child: MyStatisticPage()));
                           } else {
-                            Navigator.of(context).push(new MaterialPageRoute(
-                                builder: (context) =>
-                                    MyHomeScreenPage(selectedTabIndex: 0)));
+                            Navigator.push(
+                                context,
+                                PageTransition(
+                                    type: PageTransitionType.size,
+                                    alignment: Alignment.bottomCenter,
+                                    child: MyHomeScreenPage(selectedTabIndex: 0)));
                           }
 
                           LastUser.lastUser =
@@ -227,8 +239,12 @@ class _MyLoginPageState extends State<MyLoginPage> {
                         ),
                       ),
                       onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const MyRegisterPage()));
+                        Navigator.push(
+                            context,
+                            PageTransition(
+                                type: PageTransitionType.size,
+                                alignment: Alignment.bottomCenter,
+                                child: MyRegisterPage()));
                       },
                       label: Flexible(
                           child: Text('Registrieren',

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../qrScreen/qrcode.dart';
 
@@ -9,8 +10,12 @@ Widget myVisibleFloatingActionButton(BuildContext context, bool isVisible) =>
         visible: isVisible,
         child: FloatingActionButton(
           onPressed: () {
-            Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => const MyQRPage()));
+            Navigator.push(
+                context,
+                PageTransition(
+                    type: PageTransitionType.size,
+                    alignment: Alignment.bottomCenter,
+                    child: MyQRPage()));
           },
           backgroundColor: Theme.of(context).accentColor,
           child: const Icon(Icons.add),

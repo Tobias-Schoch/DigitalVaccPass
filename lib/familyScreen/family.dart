@@ -1,6 +1,7 @@
 import 'package:digital_vac_pass/database/family_DAO.dart';
 import 'package:digital_vac_pass/utils/user.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../qrScreen/qr_scanner.dart';
 import '../utils/app_bar.dart';
@@ -26,86 +27,94 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
   bool isDoctor = User.loggedInUser == null
       ? false
       : User.loggedInUser.userRole == Role.doctor
-      ? true
-      : false;
+          ? true
+          : false;
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-          title: const MyHeader(),
-          elevation: 0,
-        ),
-        body: Container(
-          alignment: Alignment.topLeft,
-          margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text('Familienübersicht',
-                  style: Theme.of(context).textTheme.headline4,
-                  textAlign: TextAlign.left),
-              const SizedBox(height: 25),
-              Expanded(
-                child:
-                  FutureBuilder<List>(
-                    future: FamilyDAO.getAllFamilyMembers(),
-                    builder: (context, snapshot) {
-                      return snapshot.hasData
-                          ? new ListView.builder(
+      appBar: AppBar(
+        title: const MyHeader(),
+        elevation: 0,
+      ),
+      body: Container(
+        alignment: Alignment.topLeft,
+        margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text('Familienübersicht',
+                style: Theme.of(context).textTheme.headline4,
+                textAlign: TextAlign.left),
+            const SizedBox(height: 25),
+            Expanded(
+              child: FutureBuilder<List>(
+                future: FamilyDAO.getAllFamilyMembers(),
+                builder: (context, snapshot) {
+                  return snapshot.hasData
+                      ? new ListView.builder(
                           itemCount: snapshot.data.length,
                           itemBuilder: (context, index) => Column(
-                            children: <Widget>[
-                              Card(
-                                child: Row(
-                                  children: <Widget>[
-                                    Expanded(
-                                      child: Column(
-                                        children: <Widget>[
-                                          const SizedBox(height: 18),
-                                          InkWell(
-                                            onTap: () {
-                                              Navigator.of(context).push(
-                                                  MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          MyFamilyHomeScreenPage(
+                                children: <Widget>[
+                                  Card(
+                                    child: Row(
+                                      children: <Widget>[
+                                        Expanded(
+                                          child: Column(
+                                            children: <Widget>[
+                                              const SizedBox(height: 18),
+                                              InkWell(
+                                                onTap: () {
+                                                  Navigator.push(
+                                                      context,
+                                                      PageTransition(
+                                                          type:
+                                                              PageTransitionType
+                                                                  .size,
+                                                          alignment: Alignment
+                                                              .bottomCenter,
+                                                          child: MyFamilyHomeScreenPage(
                                                               selectedUser:
-                                                              snapshot.data[index])));
-                                            },
-                                            child: ListTile(
-                                              title: Text(
-                                                snapshot.data[index]
-                                                    .userName,
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .bodyText1,
+                                                                  snapshot.data[
+                                                                      index])));
+                                                },
+                                                child: ListTile(
+                                                  title: Text(
+                                                    snapshot
+                                                        .data[index].userName,
+                                                    style: Theme.of(context)
+                                                        .textTheme
+                                                        .bodyText1,
+                                                  ),
+                                                ),
                                               ),
-                                            ),
+                                              const SizedBox(height: 18),
+                                            ],
                                           ),
-                                          const SizedBox(height: 18),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
-                                  ],
-                                ),
-                              ),
-                              const SizedBox(height: 20),
-                            ],
-                          )
-                      ) : const Center(child: CircularProgressIndicator());
-                    },
-                  ),
+                                  ),
+                                  const SizedBox(height: 20),
+                                ],
+                              ))
+                      : const Center(child: CircularProgressIndicator());
+                },
               ),
-            ],
-          ),
+            ),
+          ],
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => const QRViewExample()));
-          },
-          backgroundColor: Theme.of(context).accentColor,
-          child: const Icon(Icons.add),
-        ),
-        drawer: MyDrawer(
-            isVisible: isDoctor));
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+              context,
+              PageTransition(
+                  type: PageTransitionType.size,
+                  alignment: Alignment.bottomCenter,
+                  child: QRViewExample()));
+        },
+        backgroundColor: Theme.of(context).accentColor,
+        child: const Icon(Icons.add),
+      ),
+      drawer: MyDrawer(isVisible: isDoctor));
 }

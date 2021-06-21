@@ -1,5 +1,6 @@
 import 'package:digital_vac_pass/utils/user.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../doctorScreen/addvaccination.dart';
 import '../utils/app_bar.dart';
@@ -158,8 +159,12 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => const MyVaccinationAddPage()));
+          Navigator.push(
+              context,
+              PageTransition(
+                  type: PageTransitionType.size,
+                  alignment: Alignment.bottomCenter,
+                  child: MyVaccinationAddPage()));
         },
         backgroundColor: Theme.of(context).accentColor,
         child: const Icon(Icons.add),

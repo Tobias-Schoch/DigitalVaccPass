@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 import '../doctorScreen/statistics.dart';
@@ -37,7 +38,11 @@ class _QRViewExampleState extends State<QRViewExample> {
         appBar: AppBar(
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
-            onPressed: () => Navigator.pop(context),
+            onPressed: () => Navigator.pop(
+                context,
+                PageTransition(
+                    type: PageTransitionType.size,
+                    alignment: Alignment.bottomCenter))
           ),
           title: const MyHeader(),
           elevation: 0,
@@ -76,8 +81,12 @@ class _QRViewExampleState extends State<QRViewExample> {
         result = scanData;
         barcodeString = result.code.toString();
         if (result != null && barcodeString.contains('@')) {
-          Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => const MyStatisticPage()));
+          Navigator.push(
+              context,
+              PageTransition(
+                  type: PageTransitionType.size,
+                  alignment: Alignment.bottomCenter,
+                  child: MyStatisticPage()));
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               behavior: SnackBarBehavior.floating,
