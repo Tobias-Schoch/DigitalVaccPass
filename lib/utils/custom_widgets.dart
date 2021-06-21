@@ -15,7 +15,7 @@ Widget myVisibleFloatingActionButton(BuildContext context, bool isVisible) =>
                 PageTransition(
                     type: PageTransitionType.size,
                     alignment: Alignment.bottomCenter,
-                    child: MyQRPage()));
+                    child: const MyQRPage()));
           },
           backgroundColor: Theme.of(context).accentColor,
           child: const Icon(Icons.add),

@@ -164,7 +164,7 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
               PageTransition(
                   type: PageTransitionType.size,
                   alignment: Alignment.bottomCenter,
-                  child: MyVaccinationAddPage()));
+                  child: const MyVaccinationAddPage()));
         },
         backgroundColor: Theme.of(context).accentColor,
         child: const Icon(Icons.add),

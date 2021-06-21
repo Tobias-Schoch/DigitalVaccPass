@@ -111,7 +111,7 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
               PageTransition(
                   type: PageTransitionType.size,
                   alignment: Alignment.bottomCenter,
-                  child: QRViewExample()));
+                  child: const QRViewExample()));
         },
         backgroundColor: Theme.of(context).accentColor,
         child: const Icon(Icons.add),

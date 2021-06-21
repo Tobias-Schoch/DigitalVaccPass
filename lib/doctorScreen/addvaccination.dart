@@ -163,7 +163,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                               PageTransition(
                                   type: PageTransitionType.size,
                                   alignment: Alignment.bottomCenter,
-                                  child: QRViewExample()));
+                                  child: const QRViewExample()));
                         }
                       },
                       label: const Text('Hinzufügen',

@@ -231,7 +231,7 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                             PageTransition(
                                 type: PageTransitionType.size,
                                 alignment: Alignment.bottomCenter,
-                                child: MyLoginPage()));
+                                child: const MyLoginPage()));
                       },
                       label: const Flexible(
                         child: const Text('Registrieren',

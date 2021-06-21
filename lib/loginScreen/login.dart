@@ -156,7 +156,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                           PageTransition(
                               type: PageTransitionType.size,
                               alignment: Alignment.bottomCenter,
-                              child: MyForgotPasswordPage()));
+                              child: const MyForgotPasswordPage()));
                     },
                     child: Row(
                       children: const <Widget>[
@@ -185,7 +185,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                                 PageTransition(
                                     type: PageTransitionType.size,
                                     alignment: Alignment.bottomCenter,
-                                    child: MyStatisticPage()));
+                                    child: const MyStatisticPage()));
                           } else {
                             Navigator.push(
                                 context,
@@ -244,7 +244,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                             PageTransition(
                                 type: PageTransitionType.size,
                                 alignment: Alignment.bottomCenter,
-                                child: MyRegisterPage()));
+                                child: const MyRegisterPage()));
                       },
                       label: Flexible(
                           child: Text('Registrieren',

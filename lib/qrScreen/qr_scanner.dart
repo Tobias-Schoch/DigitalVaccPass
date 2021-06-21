@@ -86,7 +86,7 @@ class _QRViewExampleState extends State<QRViewExample> {
               PageTransition(
                   type: PageTransitionType.size,
                   alignment: Alignment.bottomCenter,
-                  child: MyStatisticPage()));
+                  child: const MyStatisticPage()));
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               behavior: SnackBarBehavior.floating,

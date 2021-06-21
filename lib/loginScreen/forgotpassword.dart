@@ -84,7 +84,7 @@ class _MyForgotPasswordPageState extends State<MyForgotPasswordPage> {
                           PageTransition(
                               type: PageTransitionType.size,
                               alignment: Alignment.bottomCenter,
-                              child: MyLoginPage()));
+                              child: const MyLoginPage()));
                     },
                     label: const Flexible(
                         child: const Text(

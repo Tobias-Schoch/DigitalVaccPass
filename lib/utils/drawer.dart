@@ -58,7 +58,7 @@ class MyDrawer extends StatelessWidget {
                       PageTransition(
                           type: PageTransitionType.size,
                           alignment: Alignment.bottomCenter,
-                          child: MyStatisticPage()));
+                          child: const MyStatisticPage()));
                 },
               ),
             ),
@@ -77,7 +77,7 @@ class MyDrawer extends StatelessWidget {
                       PageTransition(
                           type: PageTransitionType.size,
                           alignment: Alignment.bottomCenter,
-                          child: MyVaccinationAddPage()));
+                          child: const MyVaccinationAddPage()));
                 },
               ),
             ),
@@ -147,7 +147,7 @@ class MyDrawer extends StatelessWidget {
                     PageTransition(
                         type: PageTransitionType.size,
                         alignment: Alignment.bottomCenter,
-                        child: MyFamilyPage()));
+                        child: const MyFamilyPage()));
               },
             ),
             ListTile(
@@ -163,7 +163,7 @@ class MyDrawer extends StatelessWidget {
                     PageTransition(
                         type: PageTransitionType.size,
                         alignment: Alignment.bottomCenter,
-                        child: MyQRPage()));
+                        child: const MyQRPage()));
               },
             ),
             const Divider(
@@ -186,7 +186,7 @@ class MyDrawer extends StatelessWidget {
                     PageTransition(
                         type: PageTransitionType.size,
                         alignment: Alignment.bottomCenter,
-                        child: MyFaqPage()));
+                        child: const MyFaqPage()));
               },
             ),
             ListTile(
@@ -202,7 +202,7 @@ class MyDrawer extends StatelessWidget {
                     PageTransition(
                         type: PageTransitionType.size,
                         alignment: Alignment.bottomCenter,
-                        child: MyAboutPage()));
+                        child: const MyAboutPage()));
               },
             ),
             ListTile(
@@ -218,7 +218,7 @@ class MyDrawer extends StatelessWidget {
                     PageTransition(
                         type: PageTransitionType.size,
                         alignment: Alignment.bottomCenter,
-                        child: MyApp()));
+                        child: const MyApp()));
               },
             ),
           ],
