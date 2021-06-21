@@ -35,11 +35,9 @@ dependencies:
   socket_io_client: ^1.0.1
   socket_io: ^1.0.0
   sqflite: ^2.0.0+3
-  pedantic: ^1.11.1
   page_transition: ^2.0.2
   introduction_screen: ^2.1.0
   dots_indicator: ^2.0.0
-  after_layout: ^1.1.0
 
 dev_dependencies:
   flutter_test:
@@ -53,6 +51,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+    - assets/i18n/
 
   fonts:
     - family: Inter

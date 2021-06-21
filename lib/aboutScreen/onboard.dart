@@ -1,10 +1,10 @@
-import 'package:digital_vac_pass/loginScreen/login.dart';
-import 'package:digital_vac_pass/main.dart';
-import 'package:digital_vac_pass/utils/app_bar.dart';
-import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+
+import '../loginScreen/login.dart';
+import '../utils/app_bar.dart';
+import '../utils/util.dart';
 
 class OnBoardingPage extends StatefulWidget {
   const OnBoardingPage({Key key}) : super(key: key);
@@ -42,30 +42,29 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
         key: introKey,
         pages: [
           PageViewModel(
-            title: "Fractional shares",
-            body: "Instead of having to buy an entire share, "
-                "invest any amount you want.",
+            title: 'Dein Impfpass',
+            body: 'Hole dir jetzt deinen digitalen Impfpass und vergiss ihn nie wieder.',
             image: _buildImage('img1.png'),
             decoration: pageDecoration,
           ),
           PageViewModel(
-            title: "Learn as you go",
+            title: 'Familienübersicht',
             body:
-                "Download the Stockpile app and master the market with our mini-lesson.",
+                'Verwalte die Impfungen für die kleinsten in der Familie.',
             image: _buildImage('img2.png'),
             decoration: pageDecoration,
           ),
           PageViewModel(
-            title: "Kids and teens",
+            title: 'Dir gehören deine Daten',
             body:
-                "Kids and teens can track their stocks 24/7 and place trades that you approve.",
+                'Deine Daten gehören nur dir. Deshalb werden die Daten nur auf deinem Handy gespeichert.',
             image: _buildImage('img3.png'),
             decoration: pageDecoration,
           ),
           PageViewModel(
-            title: "Kids and teens",
+            title: 'Kids and teens',
             body:
-            "Kids and teens can track their stocks 24/7 and place trades that you approve.",
+            'Kids and teens can track their stocks 24/7 and place trades that you approve.',
             image: _buildImage('img4.png'),
             decoration: pageDecoration,
           ),
