@@ -1,3 +1,4 @@
+import 'package:digital_vac_pass/loginScreen/login.dart';
 import 'package:digital_vac_pass/main.dart';
 import 'package:digital_vac_pass/utils/app_bar.dart';
 import 'package:digital_vac_pass/utils/util.dart';
@@ -16,7 +17,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
 
   void _onIntroEnd(context) {
     Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => const MyApp()),
+      MaterialPageRoute(builder: (_) => const MyLoginPage()),
     );
   }
 
@@ -64,7 +65,6 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
         ],
         onDone: () => _onIntroEnd(context),
         onSkip: () => _onIntroEnd(context),
-        // You can override onSkip callback
         showSkipButton: true,
         skipFlex: 0,
         nextFlex: 0,
