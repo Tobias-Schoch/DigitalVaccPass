@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
 class OnBoardingPage extends StatefulWidget {
+  const OnBoardingPage({Key key}) : super(key: key);
   @override
   _OnBoardingPageState createState() => _OnBoardingPageState();
 }
@@ -15,7 +16,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
 
   void _onIntroEnd(context) {
     Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => MyApp()),
+      MaterialPageRoute(builder: (_) => const MyApp()),
     );
   }
 
