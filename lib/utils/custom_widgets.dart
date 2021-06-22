@@ -22,7 +22,7 @@ Widget myVisibleFloatingActionButton(BuildContext context, bool isVisible) =>
           child: const Icon(Icons.add),
         ));
 
-Widget myVisibleFloatingActionButtonForQrScanner(BuildContext context, bool isVisible) =>
+Widget myVisibleFloatingActionButtonForQrScanner(BuildContext context, bool isVisible, String calledFromWidget) =>
     Visibility(
         visible: isVisible,
         child: FloatingActionButton(
@@ -32,7 +32,7 @@ Widget myVisibleFloatingActionButtonForQrScanner(BuildContext context, bool isVi
                 PageTransition(
                     type: PageTransitionType.size,
                     alignment: Alignment.bottomCenter,
-                    child: const QRViewExample()));
+                    child: QRViewExample(calledFrom: calledFromWidget)));
           },
           backgroundColor: Theme.of(context).accentColor,
           child: const Icon(Icons.add),

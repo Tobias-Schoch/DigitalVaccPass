@@ -1,3 +1,4 @@
+import 'package:digital_vac_pass/utils/custom_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -100,17 +101,7 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-              context,
-              PageTransition(
-                  type: PageTransitionType.size,
-                  alignment: Alignment.bottomCenter,
-                  child: const QRViewExample()));
-        },
-        backgroundColor: Theme.of(context).accentColor,
-        child: const Icon(Icons.add),
-      ),
+      floatingActionButton: myVisibleFloatingActionButtonForQrScanner(
+          context, true, "FAMILY"),
       drawer: MyDrawer(isVisible: isDoctor));
 }

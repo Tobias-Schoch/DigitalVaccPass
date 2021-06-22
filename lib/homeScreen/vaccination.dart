@@ -109,7 +109,7 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
             ],
           ),
         ),
-        floatingActionButton: myVisibleFloatingActionButton(
-            context, widget.isFloatingActionButtonVisible),
+        floatingActionButton: myVisibleFloatingActionButtonForQrScanner(
+            context, widget.isFloatingActionButtonVisible, "VACCINE"),
       );
 }

@@ -122,6 +122,6 @@ class _MyTestPageState extends State<MyTestPage> {
           ),
         ),
         floatingActionButton: myVisibleFloatingActionButtonForQrScanner(
-            context, widget.isFloatingActionButtonVisible),
+            context, widget.isFloatingActionButtonVisible, "TEST"),
       );
 }

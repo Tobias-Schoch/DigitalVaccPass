@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 import '../qrScreen/qr_scanner.dart';
 import '../utils/app_bar.dart';
@@ -20,8 +21,11 @@ class MyVaccinationAddPage extends StatefulWidget {
 }
 
 class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
+
   DateTime _selectedDate;
   final TextEditingController _textEditingController = TextEditingController();
+  final TextEditingController _vaccineTextEditingController = TextEditingController();
+  final TextEditingController _chargeNrTextEditingController = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
   bool isDoctor = User.loggedInUser == null
@@ -29,6 +33,42 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
       : User.loggedInUser.userRole == Role.doctor
           ? true
           : false;
+
+  bool isQrVisible = false;
+  String qrData = "";
+
+  GlobalKey _qrGloablKey = new GlobalKey();
+
+  void _buildQrData() {
+    qrData = "";
+    if (_vaccineTextEditingController.text.isNotEmpty) {
+      qrData += "VACCINE: " + _vaccineTextEditingController.text + "\r\n";
+    } else {
+      qrData = null;
+      return;
+    }
+
+    if (_chargeNrTextEditingController.text.isNotEmpty) {
+      qrData += "CHARGENR: " + _chargeNrTextEditingController.text + "\r\n";
+    } else {
+      qrData = null;
+      return;
+    }
+
+    if (_textEditingController.text.isNotEmpty) {
+      qrData += "DATE: " + _textEditingController.text + "\r\n";
+    }  else {
+      qrData = null;
+      return;
+    }
+
+    if (User.loggedInUser != null) {
+      qrData += "DOCTOR: " + User.loggedInUser.userName + "\r\n";
+    } else {
+      qrData = null;
+      return;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +94,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                       textAlign: TextAlign.left),
                   const SizedBox(height: 25),
                   TextFormField(
+                    controller: _vaccineTextEditingController,
                     cursorColor: Theme.of(context).primaryColorLight,
                     decoration: InputDecoration(
                       labelText: 'Impfung',
@@ -85,6 +126,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                   ),
                   const SizedBox(height: 25),
                   TextFormField(
+                    controller: _chargeNrTextEditingController,
                     cursorColor: Theme.of(context).primaryColorLight,
                     decoration: InputDecoration(
                       labelText: 'ChargeNr.',
@@ -158,18 +200,25 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                         if (_formKey.currentState.validate()) {
                           FocusScope.of(context).unfocus();
                           sleep(const Duration(milliseconds: 50));
-                          Navigator.push(
-                              context,
-                              PageTransition(
-                                  type: PageTransitionType.size,
-                                  alignment: Alignment.bottomCenter,
-                                  child: const QRViewExample()));
+                          _buildQrData();
+                          if (qrData != null && qrData.isNotEmpty) {
+                            isQrVisible = true;
+                          } else {
+                            isQrVisible = false;
+                          }
                         }
                       },
-                      label: const Text('Hinzufügen',
+                      label: const Text('Generieren',
                           style: TextStyle(fontSize: 20)),
                       icon: const Icon(Icons.qr_code_scanner),
                     ),
+                  ),
+                  Visibility(
+                    visible: isQrVisible,
+                      child: QrImage(
+                        data: qrData,
+                        version: QrVersions.auto,
+                      )
                   ),
                 ],
               ),
