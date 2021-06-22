@@ -223,22 +223,22 @@ class MyDrawer extends StatelessWidget {
                         child: const MyApp()));
               },
             ),
-            ListTile(
-              leading:
-              const Icon(Icons.sailing_outlined, color: PredefinedColors.textColor),
-              title: Text(
-                'OnBoard',
-                style: Theme.of(context).textTheme.headline6,
-              ),
-              onTap: () {
-                Navigator.push(
-                    context,
-                    PageTransition(
-                        type: PageTransitionType.size,
-                        alignment: Alignment.bottomCenter,
-                        child: OnBoardingPage()));
-              },
-            ),
+            // ListTile(
+            //   leading:
+            //   const Icon(Icons.accessible, color: PredefinedColors.textColor),
+            //   title: Text(
+            //     'OnBoard',
+            //     style: Theme.of(context).textTheme.headline6,
+            //   ),
+            //   onTap: () {
+            //     Navigator.push(
+            //         context,
+            //         PageTransition(
+            //             type: PageTransitionType.size,
+            //             alignment: Alignment.bottomCenter,
+            //             child: OnBoardingPage()));
+            //   },
+            // ),
           ],
         ),
       );
