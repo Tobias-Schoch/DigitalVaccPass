@@ -122,7 +122,8 @@ class _QRViewExampleState extends State<QRViewExample> {
                     'Impfung hinzugefügt.',
                     textAlign: TextAlign.center,
                   ),
-                )),
+                )
+            ),
           ),
         );
       }
@@ -131,12 +132,14 @@ class _QRViewExampleState extends State<QRViewExample> {
 
   void _calledFromTest(result) {
     if (result != null) {
+      barcodeString = result.code.toString();
 
     }
   }
 
   void _calledFromFamily(result) {
     if (result != null) {
+      barcodeString = result.code.toString();
 
     }
   }

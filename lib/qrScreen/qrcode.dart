@@ -1,3 +1,7 @@
+import 'package:digital_vac_pass/database/test_DAO.dart';
+import 'package:digital_vac_pass/database/vaccination_DAO.dart';
+import 'package:digital_vac_pass/utils/test.dart';
+import 'package:digital_vac_pass/utils/vaccination.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
@@ -17,12 +21,43 @@ class MyQRPage extends StatefulWidget {
 
 class _MyQRPageState extends State<MyQRPage> {
   static String qrData(String email) {
-    String qrData;
-    TestData.userListDb.forEach((element) {
-      if (element.userEmail.compareTo(email) == 0) {
-        qrData = element.userEmail;
-      }
-    });
+    String qrData = "";
+
+    // if (User.loggedInUser != null) {
+    //   List<Vaccination> vaccList = VaccinationDAO.getAllVaccinesForUser(User.loggedInUser.userDbId);
+    //   List<Test> testList = TestDAO.getAllTestsForUser(User.loggedInUser.userDbId);
+    //   qrData += "EMAIL: " + User.loggedInUser.userEmail + "\r\n";
+    //   qrData += "NAME: " + User.loggedInUser.userName + "\r\n";
+    //
+    //   if (vaccList.isNotEmpty) {
+    //     qrData += "VACCINES[";
+    //     vaccList.forEach((element) {
+    //       qrData += "VACCINE[";
+    //       qrData += "NAME: " + element.vaccinationName + "\r\n";
+    //       qrData += "CHARGENR: " + element.chargeNr + "\r\n";
+    //       qrData += "DATE: " + element.vaccinationDate.toString() + "\r\n";
+    //       qrData += "DOC: " + element.doctorSignature + "\r\n";
+    //       qrData += "DESCR: " + element.vaccinationDescription + "\r\n";
+    //       qrData += "]";
+    //     });
+    //     qrData += "]";
+    //   }
+    //   if (testList.isNotEmpty) {
+    //     qrData += "TESTS[";
+    //     testList.forEach((element) {
+    //       qrData += "TEST[";
+    //       qrData += "NAME: " + element.testName + "\r\n";
+    //       qrData += "IDNR: " + element.testIdNr + "\r\n";
+    //       qrData += "DATE: " + element.testDate.toString() + "\r\n";
+    //       qrData += "STATUS: " + element.testStatus.toString() + "\r\n";
+    //       qrData += "DESCR: " + element.testDescription + "\r\n";
+    //       qrData += "FAMILY_ID: " + element.familyId.toString() + "\r\n";
+    //       qrData += "]";
+    //     });
+    //     qrData += "]";
+    //   }
+    // }
+
     return qrData;
   }
 
@@ -68,7 +103,7 @@ class _MyQRPageState extends State<MyQRPage> {
                 children: <Widget>[
                   Visibility(
                     visible: User.loggedInUser == null ? false : true,
-                    child: QrImage(
+                    child: QrImage (
                       data: qrData(LastUser.lastUser),
                       version: QrVersions.auto,
                       size: 200,
