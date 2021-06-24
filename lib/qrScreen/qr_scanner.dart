@@ -1,5 +1,8 @@
 import 'dart:io';
 
+import 'package:digital_vac_pass/database/vaccination_DAO.dart';
+import 'package:digital_vac_pass/homeScreen/vaccination.dart';
+import 'package:digital_vac_pass/utils/user.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
@@ -11,7 +14,9 @@ import '../utils/util.dart';
 /// QR Scanner
 class QRViewExample extends StatefulWidget {
   /// QR Scanner
-  const QRViewExample({Key key}) : super(key: key);
+  const QRViewExample({Key key, this.calledFrom}) : super(key: key);
+
+  final String calledFrom;
 
   @override
   State<StatefulWidget> createState() => _QRViewExampleState();
@@ -78,33 +83,65 @@ class _QRViewExampleState extends State<QRViewExample> {
     controller.scannedDataStream.listen((scanData) {
       sleep(const Duration(milliseconds: 10));
       setState(() {
-        result = scanData;
-        barcodeString = result.code.toString();
-        if (result != null && barcodeString.contains('@')) {
-          Navigator.push(
-              context,
-              PageTransition(
-                  type: PageTransitionType.size,
-                  alignment: Alignment.bottomCenter,
-                  child: const MyStatisticPage()));
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              behavior: SnackBarBehavior.floating,
-              width: 320,
-              duration: const Duration(milliseconds: 3000),
-              content: Container(
-                  height: 20,
-                  child: const Center(
-                    child: const Text(
-                      'Impfung hinzugefügt.',
-                      textAlign: TextAlign.center,
-                    ),
-                  )),
-            ),
-          );
+        switch (widget.calledFrom) {
+          case "VACCINE": _calledFromVaccine(scanData); break;
+          case "TEST": _calledFromTest(scanData); break;
+          case "FAMILY": _calledFromFamily(scanData); break;
+          default: break;
         }
       });
     });
+  }
+
+  void _calledFromVaccine(result) {
+    if (result != null) {
+      barcodeString = result.code.toString();
+      if (barcodeString.contains('VACCINE:') && barcodeString.contains('CHARGENR:') && barcodeString.contains('DATE:') && barcodeString.contains('DOCTOR:')) {
+        String vaccineName = barcodeString.substring(barcodeString.indexOf("VACCINE:") + 8, barcodeString.indexOf("\r\nCHARGENR:"));
+        String chargeNr = barcodeString.substring(barcodeString.indexOf("CHARGENR:") + 9, barcodeString.indexOf("\r\nDATE:"));
+        String dateAsString = barcodeString.substring(barcodeString.indexOf("DATE:") + 5, barcodeString.indexOf("\r\nDOCTOR:"));
+        List<String> c = dateAsString.split(".");
+        String doctorName = barcodeString.substring(barcodeString.indexOf("DOCTOR:") + 7);
+        DateTime date = DateTime.utc(int.parse(c.elementAt(2)), int.parse(c.elementAt(1)), int.parse(c.elementAt(0)));
+        VaccinationDAO.create(vaccineName, chargeNr, date, doctorName, null, User.loggedInUser.userDbId, null);
+        Navigator.push(
+            context,
+            PageTransition(
+                type: PageTransitionType.size,
+                alignment: Alignment.bottomCenter,
+                child: MyVaccinationPage(isFloatingActionButtonVisible: true, selectedUser: User.loggedInUser)));
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            behavior: SnackBarBehavior.floating,
+            width: 320,
+            duration: const Duration(milliseconds: 3000),
+            content: Container(
+                height: 20,
+                child: const Center(
+                  child: const Text(
+                    'Impfung hinzugefügt.',
+                    textAlign: TextAlign.center,
+                  ),
+                )
+            ),
+          ),
+        );
+      }
+    }
+  }
+
+  void _calledFromTest(result) {
+    if (result != null) {
+      barcodeString = result.code.toString();
+
+    }
+  }
+
+  void _calledFromFamily(result) {
+    if (result != null) {
+      barcodeString = result.code.toString();
+
+    }
   }
 
   @override

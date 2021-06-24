@@ -17,17 +17,23 @@ class VaccinationDAO {
       int userId,
       int familyId) async {
     final Database dbClient = await con.db;
-    final Vaccination insertVaccine = Vaccination.forDb(
-        vaccinationName,
-        chargeNr,
-        vaccinationDate,
-        doctorSignature,
-        vaccinationDescription,
-        userId,
-        familyId);
-    final int id = await dbClient.insert(
-        DatabaseHelper.vaccinesTable, insertVaccine.toMap());
-    return id;
+    if (vaccinationName != null &&
+        vaccinationName.isNotEmpty &&
+        chargeNr != null &&
+        chargeNr.isNotEmpty) {
+      final Vaccination insertVaccine = Vaccination.forDb(
+          vaccinationName,
+          chargeNr,
+          vaccinationDate,
+          doctorSignature,
+          vaccinationDescription,
+          userId,
+          familyId);
+      final int id = await dbClient.insert(
+          DatabaseHelper.vaccinesTable, insertVaccine.toMap());
+      return id;
+    }
+    return null;
   }
 
   static Future<List<Vaccination>> getAllVaccinesForUser(int userId) async {

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../database/vaccination_DAO.dart';
 import '../utils/custom_widgets.dart';
@@ -75,7 +76,7 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
                                                   CrossAxisAlignment.start,
                                               children: <Widget>[
                                                 const SizedBox(height: 10),
-                                                Text('Datum: ' +
+                                                Text(AppLocalizations.of(context).helloWorld + 'Datum: ' +
                                                     DateFormat('dd.MM.yyyy')
                                                         .format(snapshot
                                                             .data[index]
@@ -109,7 +110,7 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
             ],
           ),
         ),
-        floatingActionButton: myVisibleFloatingActionButton(
-            context, widget.isFloatingActionButtonVisible),
+        floatingActionButton: myVisibleFloatingActionButtonForQrScanner(
+            context, widget.isFloatingActionButtonVisible, "VACCINE"),
       );
 }
