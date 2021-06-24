@@ -4,6 +4,8 @@ import '../utils/app_bar.dart';
 import '../utils/drawer.dart';
 import '../utils/user.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 /// Informations about the app
 class MyAboutPage extends StatefulWidget {
   /// Informations about the app
@@ -39,7 +41,7 @@ class _MyAboutPageState extends State<MyAboutPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                'About',
+                AppLocalizations.of(context).aboutUs,
                 style: Theme.of(context).textTheme.headline4,
               ),
               const SizedBox(height: 25),
@@ -51,7 +53,7 @@ class _MyAboutPageState extends State<MyAboutPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           const SizedBox(height: 18),
-                          Text('Digitaler Impfpass',
+                          Text(AppLocalizations.of(context).digitalVaccPass,
                               style: Theme.of(context).textTheme.bodyText1,
                               textAlign: TextAlign.left),
                         ]),
@@ -59,7 +61,7 @@ class _MyAboutPageState extends State<MyAboutPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: const <Widget>[
                         const SizedBox(height: 10),
-                        Text('Version 0.0.0.2', textAlign: TextAlign.left),
+                        Text('Version 1.0', textAlign: TextAlign.left),
                         const SizedBox(height: 2),
                         Text('© 2021 Luis Nothvogel & Tobias Schoch',
                             textAlign: TextAlign.left),

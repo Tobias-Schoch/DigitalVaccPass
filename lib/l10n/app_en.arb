@@ -1,202 +1,202 @@
 {
-  "Date": "Date: ",
-  "@Date": {
+  "date": "Date: ",
+  "@dateTr": {
     "description": ""
   },
-  "ChargeNr": "ChargeNr: ",
-  "@ChargeNr": {
+  "chargeNr": "ChargeNr: ",
+  "@chargeNr": {
     "description": ""
   },
-  "Doctor": "Doctor: ",
-  "@Doctor": {
+  "doctor": "Doctor: ",
+  "@doctor": {
     "description": ""
   },
-  "Test-ID": "Test-ID: ",
-  "@Test-ID": {
+  "testID": "Test-ID: ",
+  "@testID": {
     "description": ""
   },
-  "Digital-Vacc-Pass": "Digital Vaccine Pass ",
-  "@Digital-Vacc-Pass": {
+  "digitalVaccPass": "Digital Vaccine Pass ",
+  "@digitalVaccPass": {
     "description": ""
   },
-  "Vacc-Pass": "Vaccine Pass",
-  "@Vacc-Pass": {
+  "vaccPass": "Vaccine Pass",
+  "@vaccPass": {
     "description": ""
   },
-  "Testresults": "Test results",
-  "@Testresults": {
+  "testresults": "Test results",
+  "@testresults": {
     "description": ""
   },
-  "FAQ-WhatHappensWithMyData": "How is my data used?",
-  "@FAQ-WhatHappensWithMyData" : {
+  "fAQWhatHappensWithMyData": "How is my data used?",
+  "@fAQWhatHappensWithMyData" : {
     "description": ""
   },
-  "FAQ-DataAnswer": "Data privacy is very important to us. That is why we don´t save any of your Data. They are just saved on your Mobile and can only be accessed by you",
-  "@FAQ-DataAnswer" : {
+  "fAQDataAnswer": "Data privacy is very important to us. That is why we don´t save any of your Data. They are just saved on your Mobile and can only be accessed by you",
+  "@fAQDataAnswer" : {
     "description": ""
   },
-  "FAQ-VaccPassSafe?": "Is it safe?",
-  "@FAQ-VaccPassSafe" : {
+  "fAQVaccPassSafe": "Is it safe?",
+  "@fAQVaccPassSafe" : {
     "description": ""
   },
-  "FAQ-VaccPassSafeAnswer": "Yes it is. The App was developed by Experts and Professors that specialize in that Field",
-  "@FAQ-VaccPassSafeAnswer" : {
+  "fAQVaccPassSafeAnswer": "Yes it is. The App was developed by Experts and Professors that specialize in that Field",
+  "@fAQVaccPassSafeAnswer" : {
     "description": ""
   },
-  "FAQ-HowFastCanISeeNewVaccines": "How fast can I see new Vaccines",
-  "@FAQ-HowFastCanISeeNewVaccines" : {
+  "fAQHowFastCanISeeNewVaccines": "How fast can I see new Vaccines",
+  "@fAQHowFastCanISeeNewVaccines" : {
     "description": ""
   },
-  "FAQ-HowFastAnswer": "Almost immediately after scanning the QR-Code from your Doctor",
-  "@FAQ-HowFastAnswer" : {
+  "fAQHowFastAnswer": "Almost immediately after scanning the QR-Code from your Doctor",
+  "@fAQHowFastAnswer" : {
     "description": ""
   },
-  "Your-VaccPass": "Your Vaccine Pass",
-  "@Your-VaccPass" : {
+  "yourVaccPass": "Your Vaccine Pass",
+  "@yourVaccPass" : {
     "description": ""
   },
-  "Get-Your-VaccPass": "Get your digital Vaccine Pass now and you cant loose it anymore",
-  "@Get-Your-VaccPass" : {
+  "getYourVaccPass": "Get your digital Vaccine Pass now and you cant loose it anymore",
+  "@getYourVaccPass" : {
     "description": ""
   },
-  "FamilyOverview": "Family Overview",
-  "@FamilyOverview" : {
+  "familyOverview": "Family Overview",
+  "@familyOverview" : {
     "description": ""
   },
-  "OnBoardScreenManageVaccineForFamily": "Manage the Vaccine Pass for your Family Members",
-  "@OnBoardScreenManageVaccineForFamily" : {
+  "onBoardScreenManageVaccineForFamily": "Manage the Vaccine Pass for your Family Members",
+  "@onBoardScreenManageVaccineForFamily" : {
     "description": ""
   },
-  "DataIsYours": "Your data belongs to you",
-  "@DataIsYours" : {
+  "dataIsYours": "Your data belongs to you",
+  "@dataIsYours" : {
     "description": ""
   },
-  "DataIsYourSavedOnlyOnMobile": "Your data belongs to you. That´s why your data is only saved on your mobile",
-  "@DataIsYourSavedOnlyOnMobile" : {
+  "dataIsYourSavedOnlyOnMobile": "Your data belongs to you. That´s why your data is only saved on your mobile",
+  "@dataIsYourSavedOnlyOnMobile" : {
     "description": ""
   },
-  "Skip": "Skip",
-  "@Skip" : {
+  "skip": "Skip",
+  "@skip" : {
     "description": ""
   },
-  "Done": "Done",
-  "@Done" : {
+  "done": "Done",
+  "@done" : {
     "description": ""
   },
-  "AddVaccine": "Add vaccine",
-  "@AddVaccine" : {
+  "addVaccine": "Add vaccine",
+  "@addVaccine" : {
     "description": ""
   },
-  "Vaccine": "Vaccine",
-  "@Vaccine" : {
+  "vaccine": "Vaccine",
+  "@vaccine" : {
     "description": ""
   },
-  "VaccineCantBeEmpty": "Vaccine name can´t be empty!",
-  "@VaccineCantBeEmpty" : {
+  "vaccineCantBeEmpty": "Vaccine name can´t be empty!",
+  "@vaccineCantBeEmpty" : {
     "description": ""
   },
-  "ChargeNrCantBeEmpty": "ChargeNr can´t be empty",
-  "@ChargeNrCantBeEmpty" : {
+  "chargeNrCantBeEmpty": "ChargeNr can´t be empty",
+  "@chargeNrCantBeEmpty" : {
     "description": ""
   },
-  "DateCantBeEmpty": "Date can´t be empty",
-  "@DateCantBeEmpty" : {
+  "dateCantBeEmpty": "Date can´t be empty",
+  "@dateCantBeEmpty" : {
     "description": ""
   },
-  "GenerateQr": "Generate QR-Code",
-  "@GenerateQr" : {
+  "generateQr": "Generate QR-Code",
+  "@generateQr" : {
     "description": ""
   },
-  "Statistic": "Statistic",
-  "@Statistic" : {
+  "statistic": "Statistic",
+  "@statistic" : {
     "description": ""
   },
-  "ResetPassword": "Reset password",
-  "@ResetPassword" : {
+  "resetPassword": "Reset password",
+  "@resetPassword" : {
     "description": ""
   },
-  "Email": "E-mail",
-  "@Email" : {
+  "email": "E-mail",
+  "@email" : {
     "description": ""
   },
-  "EmailCantBeEmpty": "E-Mail can´t be empty",
-  "@EmailCantBeEmpty" : {
+  "emailCantBeEmpty": "E-Mail can´t be empty",
+  "@emailCantBeEmpty" : {
     "description": ""
   },
-  "Reset": "Reset",
-  "@Reset" : {
+  "reset": "Reset",
+  "@reset" : {
     "description": ""
   },
-  "Login": "Login",
-  "@Login" : {
+  "login": "Login",
+  "@login" : {
     "description": ""
   },
-  "Password": "Password",
-  "@Password" : {
+  "password": "Password",
+  "@password" : {
     "description": ""
   },
-  "PasswordCantBeEmpty": "Password can´t be empty",
-  "@PasswordCantBeEmpty" : {
+  "passwordCantBeEmpty": "Password can´t be empty",
+  "@passwordCantBeEmpty" : {
     "description": ""
   },
-  "ForgotPassword": "Forgot password?",
-  "@ForgotPassword" : {
+  "forgotPassword": "Forgot password?",
+  "@forgotPassword" : {
     "description": ""
   },
-  "EmailAndPwDontMatch": "E-mail and Password are wrong",
-  "@EmailAndPwDontMatch" : {
+  "emailAndPwDontMatch": "E-mail and Password are wrong",
+  "@emailAndPwDontMatch" : {
     "description": ""
   },
-  "Register": "Register",
-  "@Register" : {
+  "register": "Register",
+  "@register" : {
     "description": ""
   },
-  "FirstLastName": "First and Last name",
-  "@FirstLastName" : {
+  "firstLastName": "First and Last name",
+  "@firstLastName" : {
     "description": ""
   },
-  "NameCantBeEmpty": "Name can´t be empty",
-  "@NameCantBeEmpty" : {
+  "nameCantBeEmpty": "Name can´t be empty",
+  "@nameCantBeEmpty" : {
     "description": ""
   },
-  "NotAValidEmail": "Not a valid E-mail address",
-  "@NotAValidEmail" : {
+  "notAValidEmail": "Not a valid E-mail address",
+  "@notAValidEmail" : {
     "description": ""
   },
-  "PasswordErrLength": "Password is too short, must be at least 8 characters",
-  "@PasswordErrLength" : {
+  "passwordErrLength": "Password is too short, must be at least 8 characters",
+  "@passwordErrLength" : {
     "description": ""
   },
-  "PasswordErrNumber": "Password must contain a number",
-  "@PasswordErrNumber" : {
+  "passwordErrNumber": "Password must contain a number",
+  "@passwordErrNumber" : {
     "description": ""
   },
-  "RepeatPassword": "Repeat password",
-  "@RepeatPassword" : {
+  "repeatPassword": "Repeat password",
+  "@repeatPassword" : {
     "description": ""
   },
-  "PasswordErrDontMatch": "Passwords don´t match",
-  "@PasswordErrDontMatch" : {
+  "passwordErrDontMatch": "Passwords don´t match",
+  "@passwordErrDontMatch" : {
     "description": ""
   },
-  "VaccineAdded": "Vaccine added",
-  "@VaccineAdded" : {
+  "vaccineAdded": "Vaccine added",
+  "@vaccineAdded" : {
     "description": ""
   },
-  "MyQRCode": "My QR-Code",
-  "@MyQRCode" : {
+  "myQRCode": "My QR-Code",
+  "@myQRCode" : {
     "description": ""
   },
-  "FAQ": "FAQ",
-  "@FAQ" : {
+  "fAQ": "FAQ",
+  "@fAQ" : {
     "description": ""
   },
-  "AboutUs": "About us",
-  "@AboutUs" : {
+  "aboutUs": "About us",
+  "@aboutUs" : {
     "description": ""
   },
-  "Logout": "Logout",
-  "@Logout" : {
+  "logout": "Logout",
+  "@logout" : {
     "description": ""
   }
 }

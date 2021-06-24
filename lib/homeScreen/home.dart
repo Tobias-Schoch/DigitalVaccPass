@@ -6,6 +6,7 @@ import '../homeScreen/vaccination.dart';
 import '../utils/app_bar.dart';
 import '../utils/drawer.dart';
 import '../utils/user.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 /// Home screen to chose between vaccinations and tests
 class MyHomeScreenPage extends StatefulWidget {
@@ -61,11 +62,11 @@ class _MyHomeScreenPage extends State<MyHomeScreenPage>
             Tab(
                 icon: Icon(Icons.local_hospital_outlined,
                     color: Theme.of(context).accentColor),
-                text: 'Impfpass'),
+                text: AppLocalizations.of(context).vaccPass),
             Tab(
                 icon: Icon(Icons.masks_outlined,
                     color: Theme.of(context).accentColor),
-                text: 'Testergebnisse'),
+                text: AppLocalizations.of(context).testresults),
           ],
         ),
       ),

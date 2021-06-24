@@ -76,17 +76,17 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
                                                   CrossAxisAlignment.start,
                                               children: <Widget>[
                                                 const SizedBox(height: 10),
-                                                Text(AppLocalizations.of(context).helloWorld + 'Datum: ' +
+                                                Text(AppLocalizations.of(context).date +
                                                     DateFormat('dd.MM.yyyy')
                                                         .format(snapshot
                                                             .data[index]
                                                             .vaccinationDate)),
                                                 const SizedBox(height: 8),
-                                                Text('ChargeNr: ' +
+                                                Text(AppLocalizations.of(context).chargeNr +
                                                     snapshot
                                                         .data[index].chargeNr),
                                                 const SizedBox(height: 8),
-                                                Text('Arzt: ' +
+                                                Text(AppLocalizations.of(context).doctor +
                                                     snapshot.data[index]
                                                         .doctorSignature
                                                         .toString()),

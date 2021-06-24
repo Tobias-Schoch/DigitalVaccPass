@@ -1,6 +1,7 @@
 import 'package:digital_vac_pass/utils/custom_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../database/family_DAO.dart';
 import '../qrScreen/qr_scanner.dart';
@@ -42,7 +43,7 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text('Familienübersicht',
+            Text(AppLocalizations.of(context).familyOverview,
                 style: Theme.of(context).textTheme.headline4,
                 textAlign: TextAlign.left),
             const SizedBox(height: 25),

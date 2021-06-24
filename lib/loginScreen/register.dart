@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../database/user_DAO.dart';
 import '../loginScreen/login.dart';
@@ -54,7 +55,7 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                     autofocus: true,
                     cursorColor: Theme.of(context).primaryColorLight,
                     decoration: InputDecoration(
-                      labelText: 'Vor- und Nachname',
+                      labelText: AppLocalizations.of(context).firstLastName,
                       fillColor: Theme.of(context).accentColor,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -81,7 +82,7 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                     ),
                     validator: (String value) {
                       if (value.isEmpty) {
-                        return 'Name can´t be empty!';
+                        return AppLocalizations.of(context).nameCantBeEmpty;
                       } else {
                         return null;
                       }
@@ -92,7 +93,7 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                     controller: myEmailTextController,
                     cursorColor: Theme.of(context).primaryColorLight,
                     decoration: InputDecoration(
-                      labelText: 'E-Mail',
+                      labelText: AppLocalizations.of(context).email,
                       fillColor: Theme.of(context).accentColor,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -119,9 +120,9 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                     ),
                     validator: (String value) {
                       if (value.isEmpty) {
-                        return 'Emailfeld darf nicht leer sein.';
+                        return AppLocalizations.of(context).emailCantBeEmpty;
                       } else if (!value.contains('@')) {
-                        return 'not a valid email';
+                        return AppLocalizations.of(context).notAValidEmail;
                       } else {
                         return null;
                       }
@@ -133,7 +134,7 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                     controller: myPasswordTextController,
                     cursorColor: Theme.of(context).primaryColorLight,
                     decoration: InputDecoration(
-                      labelText: 'Passwort',
+                      labelText: AppLocalizations.of(context).password,
                       fillColor: Theme.of(context).accentColor,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -161,11 +162,11 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                     obscureText: true,
                     validator: (String value) {
                       if (value.isEmpty) {
-                        return 'password can´t be empty';
+                        return AppLocalizations.of(context).passwordCantBeEmpty;
                       } else if (value.length < 8) {
-                        return 'password too short, needs to be > 7';
+                        return AppLocalizations.of(context).passwordErrLength;
                       } else if (!value.contains(RegExp(r'[0-9]'))) {
-                        return 'password must contain a number';
+                        return AppLocalizations.of(context).passwordErrNumber;
                       } else {
                         return null;
                       }
@@ -206,7 +207,7 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                                   .compareTo(value) !=
                               0 ||
                           value.isEmpty) {
-                        return 'password not the same';
+                        return AppLocalizations.of(context).passwordErrDontMatch;
                       } else {
                         return null;
                       }
@@ -233,8 +234,8 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                                 alignment: Alignment.bottomCenter,
                                 child: const MyLoginPage()));
                       },
-                      label: const Flexible(
-                        child: const Text('Registrieren',
+                      label: Flexible(
+                        child: Text(AppLocalizations.of(context).register,
                             style: const TextStyle(fontSize: 20)),
                       ),
                       icon: const Icon(Icons.how_to_reg),

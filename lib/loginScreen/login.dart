@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../database/user_DAO.dart';
 import '../doctorScreen/statistics.dart';
@@ -63,7 +64,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Text('Login',
+                  Text(AppLocalizations.of(context).login,
                       style: Theme.of(context).textTheme.headline4,
                       textAlign: TextAlign.left),
                   const SizedBox(height: 25),
@@ -71,7 +72,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     controller: myEmailTextController,
                     cursorColor: Theme.of(context).primaryColorLight,
                     decoration: InputDecoration(
-                      labelText: 'E-Mail',
+                      labelText: AppLocalizations.of(context).email,
                       fillColor: Theme.of(context).accentColor,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -101,7 +102,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                       if (value.isNotEmpty) {
                         return null;
                       } else {
-                        return 'E-Mail darf nicht leer sein.';
+                        return AppLocalizations.of(context).emailCantBeEmpty;
                       }
                     },
                   ),
@@ -110,7 +111,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     controller: myPasswordController,
                     cursorColor: Theme.of(context).primaryColorLight,
                     decoration: InputDecoration(
-                      labelText: 'Passwort',
+                      labelText: AppLocalizations.of(context).password,
                       fillColor: Theme.of(context).accentColor,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -140,7 +141,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                       if (value.isNotEmpty) {
                         return null;
                       } else {
-                        return 'Passwort darf nicht leer sein.';
+                        return AppLocalizations.of(context).passwordCantBeEmpty;
                       }
                     },
                   ),
@@ -159,9 +160,9 @@ class _MyLoginPageState extends State<MyLoginPage> {
                               child: const MyForgotPasswordPage()));
                     },
                     child: Row(
-                      children: const <Widget>[
-                        const Flexible(
-                            child: const Text('Passwort vergessen?')),
+                      children: <Widget>[
+                        Flexible(
+                            child: Text(AppLocalizations.of(context).forgotPassword)),
                       ],
                     ),
                   ),
@@ -208,9 +209,8 @@ class _MyLoginPageState extends State<MyLoginPage> {
                               duration: const Duration(milliseconds: 3000),
                               content: Container(
                                   height: 20,
-                                  child: const Center(
-                                    child: const Text(
-                                      'E-Mail und Passwort stimmen nicht überein.',
+                                  child: Center(
+                                    child: Text(AppLocalizations.of(context).emailAndPwDontMatch,
                                       textAlign: TextAlign.center,
                                     ),
                                   )),
@@ -218,8 +218,8 @@ class _MyLoginPageState extends State<MyLoginPage> {
                           );
                         }
                       },
-                      label: const Flexible(
-                          child: const Text('Einloggen',
+                      label: Flexible(
+                          child: Text(AppLocalizations.of(context).login,
                               style: const TextStyle(fontSize: 20))),
                       icon: const Icon(Icons.login),
                     ),
@@ -248,7 +248,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                                 child: const MyRegisterPage()));
                       },
                       label: Flexible(
-                          child: Text('Registrieren',
+                          child: Text(AppLocalizations.of(context).register,
                               style: Theme.of(context).textTheme.bodyText2)),
                       icon: Icon(
                         Icons.how_to_reg,

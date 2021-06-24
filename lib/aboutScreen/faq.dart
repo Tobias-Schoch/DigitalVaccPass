@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../utils/app_bar.dart';
 import '../utils/drawer.dart';
 import '../utils/user.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 /// FAQ Page
 class MyFaqPage extends StatefulWidget {
@@ -39,7 +40,7 @@ class _MyFaqPageState extends State<MyFaqPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                'FAQ',
+                AppLocalizations.of(context).fAQ,
                 style: Theme.of(context).textTheme.headline4,
               ),
               const SizedBox(height: 25),
@@ -51,20 +52,16 @@ class _MyFaqPageState extends State<MyFaqPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           const SizedBox(height: 18),
-                          Text('Was passiert mit meinen Daten?',
+                          Text(AppLocalizations.of(context).fAQWhatHappensWithMyData,
                               style: Theme.of(context).textTheme.bodyText1,
                               textAlign: TextAlign.left),
                         ]),
                     subtitle: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const <Widget>[
+                      children: <Widget>[
                         const SizedBox(height: 10),
-                        const Text(
-                            'Datenschutz liegt uns sehr am Herzen, daher '
-                            'speichern wir keine Daten. Die Daten '
-                            'werden lediglich auf ihrem Handy '
-                            'gespeichert und können nur von Ihnen '
-                            'eingesehen werden.',
+                        Text(
+                            AppLocalizations.of(context).fAQDataAnswer,
                             textAlign: TextAlign.left),
                         const SizedBox(height: 18),
                       ],
@@ -79,17 +76,14 @@ class _MyFaqPageState extends State<MyFaqPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           const SizedBox(height: 18),
-                          Text('Ist der Impfpass sicher?',
+                          Text(AppLocalizations.of(context).fAQVaccPassSafe,
                               style: Theme.of(context).textTheme.bodyText1),
                         ]),
                     subtitle: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const <Widget>[
+                      children: <Widget>[
                         const SizedBox(height: 10),
-                        Text(
-                            'Ja, diese App wurde mit Professoren und '
-                            'Experten entwickelt, die sich extrem gut'
-                            ' auskennen mit der Materie',
+                        Text(AppLocalizations.of(context).fAQVaccPassSafeAnswer,
                             textAlign: TextAlign.left),
                         const SizedBox(height: 18),
                       ],
@@ -104,18 +98,15 @@ class _MyFaqPageState extends State<MyFaqPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           const SizedBox(height: 18),
-                          Text('Wie schnell sehe ich neue Impfungen?',
+                          Text(AppLocalizations.of(context).fAQHowFastCanISeeNewVaccines,
                               style: Theme.of(context).textTheme.bodyText1,
                               textAlign: TextAlign.left),
                         ]),
                     subtitle: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const <Widget>[
+                      children: <Widget>[
                         const SizedBox(height: 10),
-                        const Text(
-                            'Innerhalb weniger Sekunden nach Scannung des'
-                            ' QR-Codes ist die Impfung durch den Arzt'
-                            ' übertragen.',
+                        Text(AppLocalizations.of(context).fAQHowFastAnswer,
                             textAlign: TextAlign.left),
                         const SizedBox(height: 18),
                       ],

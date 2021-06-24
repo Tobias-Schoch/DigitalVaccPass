@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../utils/app_bar.dart';
 import 'login.dart';
@@ -32,7 +33,7 @@ class _MyForgotPasswordPageState extends State<MyForgotPasswordPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                Text('Passwort zurücksetzen',
+                Text(AppLocalizations.of(context).resetPassword,
                     style: Theme.of(context).textTheme.headline4,
                     textAlign: TextAlign.left),
                 const SizedBox(height: 25),
@@ -40,7 +41,7 @@ class _MyForgotPasswordPageState extends State<MyForgotPasswordPage> {
                   autofocus: true,
                   cursorColor: Theme.of(context).primaryColorLight,
                   decoration: InputDecoration(
-                    labelText: 'E-Mail',
+                    labelText: AppLocalizations.of(context).email,
                     fillColor: Theme.of(context).accentColor,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
@@ -67,7 +68,7 @@ class _MyForgotPasswordPageState extends State<MyForgotPasswordPage> {
                   ),
                   validator: (String val) {
                     if (val.isEmpty) {
-                      return 'Emailfeld darf nicht leer sein.';
+                      return AppLocalizations.of(context).emailCantBeEmpty;
                     } else {
                       return null;
                     }
@@ -86,9 +87,9 @@ class _MyForgotPasswordPageState extends State<MyForgotPasswordPage> {
                               alignment: Alignment.bottomCenter,
                               child: const MyLoginPage()));
                     },
-                    label: const Flexible(
-                        child: const Text(
-                      'Zurücksetzen',
+                    label: Flexible(
+                        child: Text(
+                          AppLocalizations.of(context).reset,
                       style: TextStyle(fontSize: 20),
                       overflow: TextOverflow.clip,
                     )),

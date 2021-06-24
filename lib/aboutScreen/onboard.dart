@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../loginScreen/login.dart';
 import '../utils/app_bar.dart';
@@ -42,22 +43,20 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
         key: introKey,
         pages: [
           PageViewModel(
-            title: 'Dein Impfpass',
-            body: 'Hole dir jetzt deinen digitalen Impfpass und vergiss ihn nie wieder.',
+            title: AppLocalizations.of(context).yourVaccPass,
+            body: AppLocalizations.of(context).getYourVaccPass,
             image: _buildImage('img1.png'),
             decoration: pageDecoration,
           ),
           PageViewModel(
-            title: 'Familienübersicht',
-            body:
-                'Verwalte die Impfungen für die kleinsten in der Familie.',
+            title: AppLocalizations.of(context).familyOverview,
+            body: AppLocalizations.of(context).onBoardScreenManageVaccineForFamily,
             image: _buildImage('img2.png'),
             decoration: pageDecoration,
           ),
           PageViewModel(
-            title: 'Dir gehören deine Daten',
-            body:
-                'Deine Daten gehören nur dir. Deshalb werden die Daten nur auf deinem Handy gespeichert.',
+            title: AppLocalizations.of(context).dataIsYours,
+            body: AppLocalizations.of(context).dataIsYourSavedOnlyOnMobile,
             image: _buildImage('img3.png'),
             decoration: pageDecoration,
           ),
@@ -67,11 +66,11 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
         showSkipButton: true,
         skipFlex: 0,
         nextFlex: 0,
-        skip: const Text('Überspringen',
+        skip: Text(AppLocalizations.of(context).skip,
             style: TextStyle(color: PredefinedColors.textColor)),
         next:
             const Icon(Icons.arrow_forward, color: PredefinedColors.textColor),
-        done: const Text('Fertig',
+        done: Text(AppLocalizations.of(context).done,
             style: TextStyle(
                 fontWeight: FontWeight.w600,
                 color: PredefinedColors.textColor)),

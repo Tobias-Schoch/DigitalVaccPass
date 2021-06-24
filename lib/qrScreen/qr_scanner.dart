@@ -8,6 +8,7 @@ import 'package:page_transition/page_transition.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 import '../doctorScreen/statistics.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../utils/app_bar.dart';
 import '../utils/util.dart';
 
@@ -117,9 +118,9 @@ class _QRViewExampleState extends State<QRViewExample> {
             duration: const Duration(milliseconds: 3000),
             content: Container(
                 height: 20,
-                child: const Center(
-                  child: const Text(
-                    'Impfung hinzugefügt.',
+                child: Center(
+                  child:  Text(
+                    AppLocalizations.of(context).vaccineAdded,
                     textAlign: TextAlign.center,
                   ),
                 )

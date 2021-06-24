@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../database/test_DAO.dart';
 import '../utils/custom_widgets.dart';
@@ -83,13 +84,13 @@ class _MyTestPageState extends State<MyTestPage> {
                                                       CrossAxisAlignment.start,
                                                   children: <Widget>[
                                                     const SizedBox(height: 10),
-                                                    Text('Datum.: ' +
+                                                    Text(AppLocalizations.of(context).date +
                                                         DateFormat('dd.MM.yyyy')
                                                             .format(snapshot
                                                                 .data[index]
                                                                 .testDate)),
                                                     const SizedBox(height: 8),
-                                                    Text('Test-ID: ' +
+                                                    Text(AppLocalizations.of(context).testID +
                                                         snapshot.data[index]
                                                             .testIdNr),
                                                     const SizedBox(height: 8),

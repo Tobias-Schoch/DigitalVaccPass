@@ -2,10 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:page_transition/page_transition.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
-import '../qrScreen/qr_scanner.dart';
 import '../utils/app_bar.dart';
 import '../utils/drawer.dart';
 import '../utils/user.dart';
@@ -36,8 +35,6 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
 
   bool isQrVisible = false;
   String qrData = "";
-
-  GlobalKey _qrGloablKey = new GlobalKey();
 
   void _buildQrData() {
     qrData = "";
@@ -89,7 +86,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Text('Impfung hinzufügen',
+                  Text(AppLocalizations.of(context).addVaccine,
                       style: Theme.of(context).textTheme.headline4,
                       textAlign: TextAlign.left),
                   const SizedBox(height: 25),
@@ -97,7 +94,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                     controller: _vaccineTextEditingController,
                     cursorColor: Theme.of(context).primaryColorLight,
                     decoration: InputDecoration(
-                      labelText: 'Impfung',
+                      labelText: AppLocalizations.of(context).vaccine,
                       fillColor: Theme.of(context).accentColor,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -119,7 +116,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                     ),
                     validator: (String value) {
                       if (value == null || value.isEmpty) {
-                        return 'Impfmittel darf nicht leer sein.';
+                        return AppLocalizations.of(context).vaccineCantBeEmpty;
                       }
                       return null;
                     },
@@ -129,7 +126,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                     controller: _chargeNrTextEditingController,
                     cursorColor: Theme.of(context).primaryColorLight,
                     decoration: InputDecoration(
-                      labelText: 'ChargeNr.',
+                      labelText: AppLocalizations.of(context).chargeNr,
                       fillColor: Theme.of(context).accentColor,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -151,7 +148,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                     ),
                     validator: (String value) {
                       if (value == null || value.isEmpty) {
-                        return 'Chargenummer darf nicht leer sein.';
+                        return AppLocalizations.of(context).chargeNrCantBeEmpty;
                       }
                       return null;
                     },
@@ -165,7 +162,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                     },
                     cursorColor: Theme.of(context).primaryColorLight,
                     decoration: InputDecoration(
-                      labelText: 'Datum',
+                      labelText: AppLocalizations.of(context).date,
                       fillColor: Theme.of(context).accentColor,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -187,7 +184,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                     ),
                     validator: (String value) {
                       if (value == null || value.isEmpty) {
-                        return 'Datum darf nicht leer sein.';
+                        return AppLocalizations.of(context).dateCantBeEmpty;
                       }
                       return null;
                     },
@@ -208,7 +205,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                           }
                         }
                       },
-                      label: const Text('Generieren',
+                      label: Text(AppLocalizations.of(context).generateQr,
                           style: TextStyle(fontSize: 20)),
                       icon: const Icon(Icons.qr_code_scanner),
                     ),

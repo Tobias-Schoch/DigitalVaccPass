@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../homeScreen/testresult.dart';
 import '../homeScreen/vaccination.dart';
@@ -38,11 +39,11 @@ class _MyFamilyHomeScreenPage extends State<MyFamilyHomeScreenPage> {
               Tab(
                   icon: Icon(Icons.local_hospital_outlined,
                       color: Theme.of(context).accentColor),
-                  text: 'Impfpass'),
+                  text: AppLocalizations.of(context).vaccPass),
               Tab(
                   icon: Icon(Icons.masks_outlined,
                       color: Theme.of(context).accentColor),
-                  text: 'Testergebnisse'),
+                  text: AppLocalizations.of(context).testresults),
             ],
           ),
         ),

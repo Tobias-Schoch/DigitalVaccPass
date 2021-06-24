@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../doctorScreen/addvaccination.dart';
 import '../utils/app_bar.dart';
@@ -40,7 +41,7 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text('Statistik',
+              Text(AppLocalizations.of(context).statistic,
                   style: Theme.of(context).textTheme.headline4,
                   textAlign: TextAlign.left),
               const SizedBox(height: 25),
