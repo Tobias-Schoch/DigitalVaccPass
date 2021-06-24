@@ -1,8 +1,10 @@
-import 'dart:html';
 import 'dart:ui';
 
 import 'package:digital_vac_pass/aboutScreen/onboard.dart';
+import 'package:digital_vac_pass/homeScreen/home.dart';
+import 'package:digital_vac_pass/homeScreen/vaccination.dart';
 import 'package:digital_vac_pass/loginScreen/login.dart';
+import 'package:digital_vac_pass/main.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -17,12 +19,9 @@ class Util {
 
   static Future checkFirstSeen(context) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    bool _seen = (prefs.getBool('firstStart') ?? false);
-    if (_seen) {
-      Navigator.of(context).pushReplacement(
-          new MaterialPageRoute(builder: (context) => MyLoginPage()));
-    } else {
-      prefs.setBool('firstStart', true);
+    bool _seen = (prefs.getBool('firstStartabc') ?? false);
+    if (!_seen) {
+      prefs.setBool('firstStartabc', true);
       Navigator.of(context).pushReplacement(
           new MaterialPageRoute(builder: (context) => OnBoardingPage()));
     }
