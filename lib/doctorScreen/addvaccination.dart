@@ -233,6 +233,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
   _selectDate(BuildContext context) async {
     final DateTime newSelectedDate = await showDatePicker(
         context: context,
+        //TODO might not need this anymore
         locale: const Locale('de', 'DE'),
         initialDate: DateTime.now(),
         firstDate: DateTime(2000),

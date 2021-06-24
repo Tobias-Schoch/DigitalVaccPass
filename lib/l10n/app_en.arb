@@ -1,6 +1,202 @@
 {
-    "helloWorld": "Hello World!",
-    "@helloWorld": {
-      "description": "The conventional newborn programmer greeting"
-    }
+  "Date": "Date: ",
+  "@Date": {
+    "description": ""
+  },
+  "ChargeNr": "ChargeNr: ",
+  "@ChargeNr": {
+    "description": ""
+  },
+  "Doctor": "Doctor: ",
+  "@Doctor": {
+    "description": ""
+  },
+  "Test-ID": "Test-ID: ",
+  "@Test-ID": {
+    "description": ""
+  },
+  "Digital-Vacc-Pass": "Digital Vaccine Pass ",
+  "@Digital-Vacc-Pass": {
+    "description": ""
+  },
+  "Vacc-Pass": "Vaccine Pass",
+  "@Vacc-Pass": {
+    "description": ""
+  },
+  "Testresults": "Test results",
+  "@Testresults": {
+    "description": ""
+  },
+  "FAQ-WhatHappensWithMyData": "How is my data used?",
+  "@FAQ-WhatHappensWithMyData" : {
+    "description": ""
+  },
+  "FAQ-DataAnswer": "Data privacy is very important to us. That is why we don´t save any of your Data. They are just saved on your Mobile and can only be accessed by you",
+  "@FAQ-DataAnswer" : {
+    "description": ""
+  },
+  "FAQ-VaccPassSafe?": "Is it safe?",
+  "@FAQ-VaccPassSafe" : {
+    "description": ""
+  },
+  "FAQ-VaccPassSafeAnswer": "Yes it is. The App was developed by Experts and Professors that specialize in that Field",
+  "@FAQ-VaccPassSafeAnswer" : {
+    "description": ""
+  },
+  "FAQ-HowFastCanISeeNewVaccines": "How fast can I see new Vaccines",
+  "@FAQ-HowFastCanISeeNewVaccines" : {
+    "description": ""
+  },
+  "FAQ-HowFastAnswer": "Almost immediately after scanning the QR-Code from your Doctor",
+  "@FAQ-HowFastAnswer" : {
+    "description": ""
+  },
+  "Your-VaccPass": "Your Vaccine Pass",
+  "@Your-VaccPass" : {
+    "description": ""
+  },
+  "Get-Your-VaccPass": "Get your digital Vaccine Pass now and you cant loose it anymore",
+  "@Get-Your-VaccPass" : {
+    "description": ""
+  },
+  "FamilyOverview": "Family Overview",
+  "@FamilyOverview" : {
+    "description": ""
+  },
+  "OnBoardScreenManageVaccineForFamily": "Manage the Vaccine Pass for your Family Members",
+  "@OnBoardScreenManageVaccineForFamily" : {
+    "description": ""
+  },
+  "DataIsYours": "Your data belongs to you",
+  "@DataIsYours" : {
+    "description": ""
+  },
+  "DataIsYourSavedOnlyOnMobile": "Your data belongs to you. That´s why your data is only saved on your mobile",
+  "@DataIsYourSavedOnlyOnMobile" : {
+    "description": ""
+  },
+  "Skip": "Skip",
+  "@Skip" : {
+    "description": ""
+  },
+  "Done": "Done",
+  "@Done" : {
+    "description": ""
+  },
+  "AddVaccine": "Add vaccine",
+  "@AddVaccine" : {
+    "description": ""
+  },
+  "Vaccine": "Vaccine",
+  "@Vaccine" : {
+    "description": ""
+  },
+  "VaccineCantBeEmpty": "Vaccine name can´t be empty!",
+  "@VaccineCantBeEmpty" : {
+    "description": ""
+  },
+  "ChargeNrCantBeEmpty": "ChargeNr can´t be empty",
+  "@ChargeNrCantBeEmpty" : {
+    "description": ""
+  },
+  "DateCantBeEmpty": "Date can´t be empty",
+  "@DateCantBeEmpty" : {
+    "description": ""
+  },
+  "GenerateQr": "Generate QR-Code",
+  "@GenerateQr" : {
+    "description": ""
+  },
+  "Statistic": "Statistic",
+  "@Statistic" : {
+    "description": ""
+  },
+  "ResetPassword": "Reset password",
+  "@ResetPassword" : {
+    "description": ""
+  },
+  "Email": "E-mail",
+  "@Email" : {
+    "description": ""
+  },
+  "EmailCantBeEmpty": "E-Mail can´t be empty",
+  "@EmailCantBeEmpty" : {
+    "description": ""
+  },
+  "Reset": "Reset",
+  "@Reset" : {
+    "description": ""
+  },
+  "Login": "Login",
+  "@Login" : {
+    "description": ""
+  },
+  "Password": "Password",
+  "@Password" : {
+    "description": ""
+  },
+  "PasswordCantBeEmpty": "Password can´t be empty",
+  "@PasswordCantBeEmpty" : {
+    "description": ""
+  },
+  "ForgotPassword": "Forgot password?",
+  "@ForgotPassword" : {
+    "description": ""
+  },
+  "EmailAndPwDontMatch": "E-mail and Password are wrong",
+  "@EmailAndPwDontMatch" : {
+    "description": ""
+  },
+  "Register": "Register",
+  "@Register" : {
+    "description": ""
+  },
+  "FirstLastName": "First and Last name",
+  "@FirstLastName" : {
+    "description": ""
+  },
+  "NameCantBeEmpty": "Name can´t be empty",
+  "@NameCantBeEmpty" : {
+    "description": ""
+  },
+  "NotAValidEmail": "Not a valid E-mail address",
+  "@NotAValidEmail" : {
+    "description": ""
+  },
+  "PasswordErrLength": "Password is too short, must be at least 8 characters",
+  "@PasswordErrLength" : {
+    "description": ""
+  },
+  "PasswordErrNumber": "Password must contain a number",
+  "@PasswordErrNumber" : {
+    "description": ""
+  },
+  "RepeatPassword": "Repeat password",
+  "@RepeatPassword" : {
+    "description": ""
+  },
+  "PasswordErrDontMatch": "Passwords don´t match",
+  "@PasswordErrDontMatch" : {
+    "description": ""
+  },
+  "VaccineAdded": "Vaccine added",
+  "@VaccineAdded" : {
+    "description": ""
+  },
+  "MyQRCode": "My QR-Code",
+  "@MyQRCode" : {
+    "description": ""
+  },
+  "FAQ": "FAQ",
+  "@FAQ" : {
+    "description": ""
+  },
+  "AboutUs": "About us",
+  "@AboutUs" : {
+    "description": ""
+  },
+  "Logout": "Logout",
+  "@Logout" : {
+    "description": ""
+  }
 }

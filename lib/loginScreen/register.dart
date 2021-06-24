@@ -81,7 +81,7 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                     ),
                     validator: (String value) {
                       if (value.isEmpty) {
-                        return 'Can´t be empty!';
+                        return 'Name can´t be empty!';
                       } else {
                         return null;
                       }
@@ -161,7 +161,7 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                     obscureText: true,
                     validator: (String value) {
                       if (value.isEmpty) {
-                        return 'Can´t be empty';
+                        return 'password can´t be empty';
                       } else if (value.length < 8) {
                         return 'password too short, needs to be > 7';
                       } else if (!value.contains(RegExp(r'[0-9]'))) {

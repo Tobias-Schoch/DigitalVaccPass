@@ -101,7 +101,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                       if (value.isNotEmpty) {
                         return null;
                       } else {
-                        return 'Darf nicht leer sein.';
+                        return 'E-Mail darf nicht leer sein.';
                       }
                     },
                   ),
@@ -140,7 +140,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                       if (value.isNotEmpty) {
                         return null;
                       } else {
-                        return 'Darf nicht leer sein.';
+                        return 'Passwort darf nicht leer sein.';
                       }
                     },
                   ),
