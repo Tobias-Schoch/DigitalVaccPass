@@ -48,5 +48,6 @@
     "myQRCode": "Mein QR-Code",
     "fAQ": "FAQ",
     "aboutUs": "Über uns",
-    "logout": "Abmelden"
+    "logout": "Abmelden",
+    "registration": "Registrierung"
 }

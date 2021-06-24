@@ -198,5 +198,9 @@
   "logout": "Logout",
   "@logout" : {
     "description": ""
+  },
+  "registration": "Registration",
+  "@registration" : {
+    "description": ""
   }
 }

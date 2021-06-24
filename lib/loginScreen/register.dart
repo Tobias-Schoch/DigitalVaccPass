@@ -46,7 +46,7 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Text('Registrierung',
+                  Text(AppLocalizations.of(context).registration,
                       style: Theme.of(context).textTheme.headline4,
                       textAlign: TextAlign.left),
                   const SizedBox(height: 25),
