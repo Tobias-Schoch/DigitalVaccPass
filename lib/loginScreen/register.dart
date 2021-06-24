@@ -1,3 +1,4 @@
+import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -19,6 +20,7 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
   final myPasswordTextController = TextEditingController();
   final myNameTextController = TextEditingController();
   final myEmailTextController = TextEditingController();
+  bool selectedDoctor = false;
 
   final GlobalKey<FormState> _formRegisterKey = GlobalKey<FormState>();
 
@@ -213,6 +215,23 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                     },
                   ),
                   const SizedBox(height: 25),
+                  Row(children: <Widget>[
+                    Checkbox(
+                      checkColor: PredefinedColors.accentWhite,
+                      activeColor: PredefinedColors.primaryColor,
+                      value: selectedDoctor,
+                      onChanged: (bool value) {
+                        setState(() {
+                          selectedDoctor =
+                              selectedDoctor == true ? false : true;
+                        });
+                      },
+                    ),
+                    const SizedBox(width: 25),
+                    Text(
+                        'Als Doktor registrieren'),
+                  ]),
+                  const SizedBox(height: 25),
                   ConstrainedBox(
                     constraints: const BoxConstraints.tightFor(height: 60),
                     child: ElevatedButton.icon(
@@ -220,7 +239,11 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                         if (!_formRegisterKey.currentState.validate()) {
                           return;
                         }
-                        await UserDAO.create(myNameTextController.text, myEmailTextController.text, myPasswordTextController.text, Role.normal);
+                        await UserDAO.create(
+                            myNameTextController.text,
+                            myEmailTextController.text,
+                            myPasswordTextController.text,
+                            selectedDoctor == true ? Role.doctor : Role.normal);
                         // TestData.userListDb.add(User(
                         //     myNameTextController.text,
                         //     myEmailTextController.text,

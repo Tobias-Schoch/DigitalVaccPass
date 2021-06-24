@@ -1,14 +1,10 @@
 import 'dart:ui';
 
-import 'package:digital_vac_pass/aboutScreen/onboard.dart';
-import 'package:digital_vac_pass/homeScreen/home.dart';
-import 'package:digital_vac_pass/homeScreen/vaccination.dart';
-import 'package:digital_vac_pass/loginScreen/login.dart';
-import 'package:digital_vac_pass/main.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../aboutScreen/onboard.dart';
 import '../utils/user.dart';
 import '../utils/test.dart';
 import '../utils/vaccination.dart';
