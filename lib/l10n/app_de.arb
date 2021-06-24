@@ -27,6 +27,7 @@
     "dateCantBeEmpty": "Datum darf nicht leer sein",
     "generateQr": "QR-Code generieren",
     "statistic": "Statistik",
+    "statistics": "Statistiken",
     "resetPassword": "Passwort zurücksetzen",
     "email": "E-Mail",
     "emailCantBeEmpty": "E-Mail darf nicht leer sein",

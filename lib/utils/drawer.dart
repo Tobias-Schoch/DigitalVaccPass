@@ -4,7 +4,7 @@ import 'package:page_transition/page_transition.dart';
 
 import '../aboutScreen/about.dart';
 import '../aboutScreen/faq.dart';
-import '../aboutScreen/onboard.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../doctorScreen/addvaccination.dart';
 import '../doctorScreen/statistics.dart';
 import '../familyScreen/family.dart';
@@ -32,7 +32,7 @@ class MyDrawer extends StatelessWidget {
                 child: Row(
                   children: <Widget>[
                     Text(
-                      'Impfpass',
+                      AppLocalizations.of(context).vaccPass,
                       style: Theme.of(context).textTheme.headline5,
                     ),
                     const SizedBox(width: 10),
@@ -50,7 +50,7 @@ class MyDrawer extends StatelessWidget {
                   color: PredefinedColors.textColor,
                 ),
                 title: Text(
-                  'Statistiken',
+                  AppLocalizations.of(context).statistics,
                   style: Theme.of(context).textTheme.headline6,
                 ),
                 onTap: () {
@@ -69,7 +69,7 @@ class MyDrawer extends StatelessWidget {
                 leading: const Icon(Icons.qr_code_scanner_outlined,
                     color: PredefinedColors.textColor),
                 title: Text(
-                  'Impfung hinzufügen',
+                  AppLocalizations.of(context).addVaccine,
                   style: Theme.of(context).textTheme.headline6,
                 ),
                 onTap: () {
@@ -96,7 +96,7 @@ class MyDrawer extends StatelessWidget {
               leading: const Icon(Icons.local_hospital_outlined,
                   color: PredefinedColors.textColor),
               title: Text(
-                'Impfpass',
+                AppLocalizations.of(context).vaccPass,
                 style: Theme.of(context).textTheme.headline6,
               ),
               onTap: () {
@@ -112,7 +112,7 @@ class MyDrawer extends StatelessWidget {
               leading: const Icon(Icons.masks_outlined,
                   color: PredefinedColors.textColor),
               title: Text(
-                'Testergebnisse',
+                AppLocalizations.of(context).testresults,
                 style: Theme.of(context).textTheme.headline6,
               ),
               onTap: () {
@@ -140,7 +140,7 @@ class MyDrawer extends StatelessWidget {
               leading: const Icon(Icons.people_outline,
                   color: PredefinedColors.textColor),
               title: Text(
-                'Familienübersicht',
+                AppLocalizations.of(context).familyOverview,
                 style: Theme.of(context).textTheme.headline6,
               ),
               onTap: () {
@@ -156,7 +156,7 @@ class MyDrawer extends StatelessWidget {
               leading: const Icon(Icons.qr_code_outlined,
                   color: PredefinedColors.textColor),
               title: Text(
-                'Mein QR-Code',
+                AppLocalizations.of(context).myQRCode,
                 style: Theme.of(context).textTheme.headline6,
               ),
               onTap: () {
@@ -179,7 +179,7 @@ class MyDrawer extends StatelessWidget {
               leading: const Icon(Icons.help_center_outlined,
                   color: PredefinedColors.textColor),
               title: Text(
-                'FAQ',
+                AppLocalizations.of(context).fAQ,
                 style: Theme.of(context).textTheme.headline6,
               ),
               onTap: () {
@@ -195,7 +195,7 @@ class MyDrawer extends StatelessWidget {
               leading: const Icon(Icons.privacy_tip_outlined,
                   color: PredefinedColors.textColor),
               title: Text(
-                'Über uns',
+                AppLocalizations.of(context).aboutUs,
                 style: Theme.of(context).textTheme.headline6,
               ),
               onTap: () {
@@ -211,7 +211,7 @@ class MyDrawer extends StatelessWidget {
               leading:
                   const Icon(Icons.logout, color: PredefinedColors.textColor),
               title: Text(
-                'Logout',
+                AppLocalizations.of(context).logout,
                 style: Theme.of(context).textTheme.headline6,
               ),
               onTap: () {

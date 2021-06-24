@@ -202,5 +202,9 @@
   "registration": "Registration",
   "@registration" : {
     "description": ""
+  },
+  "statistics": "Statistics",
+  "@statistics" : {
+    "description": ""
   }
 }
