@@ -30,6 +30,7 @@ class PredefinedColors {
   static const lightGreen = const Color(0xffDEFFDB);
   static const primaryColor = const Color(0xff5D5FEF);
   static const textColor = const Color(0xff263238);
+  static const backgroundTextColor = const Color(0xffcbcbf3);
   static const accentWhite = const Color(0xfffafafa);
 }
 
