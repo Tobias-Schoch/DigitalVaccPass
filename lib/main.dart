@@ -5,6 +5,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import 'loginScreen/login.dart';
 import 'utils/util.dart';
 
 main() async {
@@ -125,5 +126,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) =>
-      const Scaffold();
+      const Scaffold(
+        body: const MyLoginPage(),
+      );
 }
