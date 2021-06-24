@@ -1,7 +1,10 @@
 import 'dart:ui';
 
 import 'package:faker/faker.dart';
+import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
+import '../aboutScreen/onboard.dart';
 import '../utils/user.dart';
 import '../utils/test.dart';
 import '../utils/vaccination.dart';
@@ -9,6 +12,16 @@ import '../utils/vaccination.dart';
 class Util {
   static DateTime getDateTimeFromString(String dateTimeString) =>
       DateTime.parse(dateTimeString);
+
+  static Future checkFirstSeen(context) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool _seen = (prefs.getBool('firstStartabc') ?? false);
+    if (!_seen) {
+      prefs.setBool('firstStartabc', true);
+      Navigator.of(context).pushReplacement(
+          new MaterialPageRoute(builder: (context) => OnBoardingPage()));
+    }
+  }
 }
 
 class PredefinedColors {

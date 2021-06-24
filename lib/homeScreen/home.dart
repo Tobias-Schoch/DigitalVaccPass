@@ -6,6 +6,7 @@ import '../homeScreen/vaccination.dart';
 import '../utils/app_bar.dart';
 import '../utils/drawer.dart';
 import '../utils/user.dart';
+import '../utils/util.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 /// Home screen to chose between vaccinations and tests
@@ -28,6 +29,7 @@ class _MyHomeScreenPage extends State<MyHomeScreenPage>
     super.initState();
     _tabController = TabController(vsync: this, length: 2, initialIndex: 0);
     selectTab(widget.selectedTabIndex);
+    Util.checkFirstSeen(context);
   }
 
   @override

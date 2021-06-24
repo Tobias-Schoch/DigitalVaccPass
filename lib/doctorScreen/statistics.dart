@@ -6,6 +6,7 @@ import '../doctorScreen/addvaccination.dart';
 import '../utils/app_bar.dart';
 import '../utils/drawer.dart';
 import '../utils/user.dart';
+import '../utils/util.dart';
 
 /// Statistics for doctor
 class MyStatisticPage extends StatefulWidget {
@@ -21,6 +22,13 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
   void dispose() {
     super.dispose();
   }
+
+  @override
+  void initState() {
+    super.initState();
+    Util.checkFirstSeen(context);
+  }
+
 
   bool isDoctor = User.loggedInUser == null
       ? false

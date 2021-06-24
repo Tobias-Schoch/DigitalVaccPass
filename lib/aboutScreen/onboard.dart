@@ -1,10 +1,11 @@
+import 'package:digital_vac_pass/homeScreen/home.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../loginScreen/login.dart';
 import '../utils/app_bar.dart';
+import '../homeScreen/vaccination.dart';
 import '../utils/util.dart';
 
 class OnBoardingPage extends StatefulWidget {
@@ -17,8 +18,8 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
   final introKey = GlobalKey<IntroductionScreenState>();
 
   void _onIntroEnd(context) {
-    Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => const MyLoginPage()),
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(builder: (_) => MyHomeScreenPage(selectedTabIndex: 0,)),
     );
   }
 
