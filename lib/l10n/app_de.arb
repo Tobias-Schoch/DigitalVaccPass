@@ -50,5 +50,6 @@
     "fAQ": "FAQ",
     "aboutUs": "Über uns",
     "logout": "Abmelden",
-    "registration": "Registrierung"
+    "registration": "Registrierung",
+    "noVaccinesAvailable": "Keine Impfungen hinzugefügt."
 }

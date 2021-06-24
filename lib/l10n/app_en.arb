@@ -206,5 +206,9 @@
   "statistics": "Statistics",
   "@statistics" : {
     "description": ""
+  },
+  "noVaccinesAvailable": "No vaccines added yet.",
+  "@noVaccinesAvailable" : {
+    "description": ""
   }
 }
