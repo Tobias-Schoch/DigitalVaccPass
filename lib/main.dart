@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-import 'aboutScreen/onboard.dart';
-import 'loginScreen/login.dart';
 import 'utils/util.dart';
 
 main() async {
@@ -113,23 +110,9 @@ class _MyHomePageState extends State<MyHomePage> {
     super.dispose();
   }
 
-  Future checkFirstSeen() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    bool _seen = (prefs.getBool('firstStart') ?? false);
-    if (_seen) {
-      Navigator.of(context).pushReplacement(
-          new MaterialPageRoute(builder: (context) => MyLoginPage()));
-    } else {
-      prefs.setBool('firstStart', true);
-      Navigator.of(context).pushReplacement(
-          new MaterialPageRoute(builder: (context) => OnBoardingPage()));
-    }
-  }
-
   @override
   void initState() {
     super.initState();
-    checkFirstSeen();
   }
 
   @override
