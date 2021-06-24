@@ -1,5 +1,5 @@
 {
-    "dateTr": "Datum: ",
+    "date": "Datum: ",
     "chargeNr": "ChargeNr: ",
     "doctor": "Arzt: ",
     "testID": "Test-ID: ",
