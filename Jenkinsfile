@@ -9,8 +9,6 @@ pipeline {
                 sh "flutter doctor -v"
             }
         }
-
-
         stage('SonarQube Analysis') {
             steps {
                 sh "flutter pub get"
