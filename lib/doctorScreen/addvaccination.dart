@@ -217,7 +217,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                           },
                           label: Text(AppLocalizations.of(context).generateQr,
                               style: TextStyle(fontSize: 20)),
-                          icon: const Icon(Icons.qr_code_scanner),
+                          icon: const Icon(Icons.qr_code_2),
                         ),
                       ),
                     ),
@@ -235,7 +235,6 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
   _selectDate(BuildContext context) async {
     final DateTime newSelectedDate = await showDatePicker(
         context: context,
-        //TODO might not need this anymore
         locale: const Locale('de', 'DE'),
         initialDate: DateTime.now(),
         firstDate: DateTime(2000),

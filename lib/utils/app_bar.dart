@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 /// Appbar
 class MyHeader extends StatelessWidget {
   /// Appbar
@@ -11,7 +11,7 @@ class MyHeader extends StatelessWidget {
         children: <Widget>[
           Flexible(
             child: Text(
-              'Impfpass',
+              AppLocalizations.of(context).vacPass,
               style: Theme.of(context).textTheme.headline1,
             ),
           ),

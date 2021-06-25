@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../utils/app_bar.dart';
 import '../utils/drawer.dart';
 import '../utils/user.dart';
 
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 /// Informations about the app
 class MyAboutPage extends StatefulWidget {

@@ -234,5 +234,22 @@
   "tests": "Tests",
   "@tests" : {
     "description": ""
-  }
+  },
+  "vacPass": "Vac Pass",
+  "@vacPass" : {
+    "description": ""
+  },
+  "noTestsAvailable": "No Tests added yet",
+  "@noTestsAvailable" : {
+    "description": ""
+  },
+  "addPerson": "Add person",
+  "@addPerson" : {
+    "description": ""
+  },
+  "addedPersonSuccess": "Person was added succesfully",
+  "@addedPersonSuccess" : {
+    "description": ""
+  },
+
 }

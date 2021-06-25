@@ -5,7 +5,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../homeScreen/home.dart';
 import '../utils/app_bar.dart';
-import '../utils/util.dart';
 
 class OnBoardingPage extends StatefulWidget {
   const OnBoardingPage({Key key}) : super(key: key);
@@ -67,29 +66,29 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
         skipFlex: 0,
         nextFlex: 0,
         skip: Text(AppLocalizations.of(context).skip,
-            style: TextStyle(color: PredefinedColors.textColor)),
+            style: TextStyle(color: Theme.of(context).accentColor)),
         next:
-            const Icon(Icons.arrow_forward, color: PredefinedColors.textColor),
+            Icon(Icons.arrow_forward, color: Theme.of(context).primaryColorLight),
         done: Text(AppLocalizations.of(context).done,
             style: TextStyle(
                 fontWeight: FontWeight.w600,
-                color: PredefinedColors.textColor)),
+                color: Theme.of(context).primaryColorLight)),
         curve: Curves.fastLinearToSlowEaseIn,
         controlsMargin: const EdgeInsets.all(16),
         controlsPadding: kIsWeb
             ? const EdgeInsets.all(12.0)
             : const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
-        dotsDecorator: const DotsDecorator(
+        dotsDecorator: DotsDecorator(
           size: Size(10.0, 10.0),
-          color: PredefinedColors.textColor,
-          activeColor: PredefinedColors.primaryColor,
+          color: Theme.of(context).primaryColorLight,
+          activeColor: Theme.of(context).accentColor,
           activeSize: Size(22.0, 10.0),
           activeShape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(25.0)),
           ),
         ),
-        dotsContainerDecorator: const ShapeDecoration(
-          color: PredefinedColors.accentWhite,
+        dotsContainerDecorator: ShapeDecoration(
+          color: Theme.of(context).primaryColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(8.0)),
           ),

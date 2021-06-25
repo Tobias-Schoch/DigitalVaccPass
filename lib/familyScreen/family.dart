@@ -1,10 +1,8 @@
 import 'package:digital_vac_pass/utils/custom_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../database/family_DAO.dart';
-import '../qrScreen/qr_scanner.dart';
 import '../utils/app_bar.dart';
 import '../utils/drawer.dart';
 import '../utils/user.dart';

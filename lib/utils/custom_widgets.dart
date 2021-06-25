@@ -1,7 +1,6 @@
 import 'package:digital_vac_pass/qrScreen/qr_scanner.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:page_transition/page_transition.dart';
 
 import '../qrScreen/qrcode.dart';
 

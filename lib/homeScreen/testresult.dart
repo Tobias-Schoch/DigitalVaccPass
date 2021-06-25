@@ -58,7 +58,7 @@ class _MyTestPageState extends State<MyTestPage> {
                               children: <Widget>[
                                 Visibility(
                                     visible: snapshot.data,
-                                    child: Text('Keine Tests vorhanden',
+                                    child: Text(AppLocalizations.of(context).noTestsAvailable,
                                         style: TextStyle(
                                             fontWeight: FontWeight.w700,
                                             fontSize: 24,

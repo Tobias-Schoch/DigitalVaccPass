@@ -1,7 +1,3 @@
-import 'package:digital_vac_pass/database/test_DAO.dart';
-import 'package:digital_vac_pass/database/vaccination_DAO.dart';
-import 'package:digital_vac_pass/utils/test.dart';
-import 'package:digital_vac_pass/utils/vaccination.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 

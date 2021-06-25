@@ -6,22 +6,16 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:digital_vac_pass/aboutScreen/about.dart';
-import 'package:digital_vac_pass/database/database_helper.dart';
 import 'package:digital_vac_pass/doctorScreen/addvaccination.dart';
-import 'package:digital_vac_pass/familyScreen/family.dart';
 import 'package:digital_vac_pass/utils/app_bar.dart';
 import 'package:digital_vac_pass/utils/drawer.dart';
 import 'package:digital_vac_pass/aboutScreen/faq.dart';
 import 'package:digital_vac_pass/loginScreen/login.dart';
 import 'package:digital_vac_pass/qrScreen/qrcode.dart';
 import 'package:digital_vac_pass/doctorScreen/statistics.dart';
-import 'package:digital_vac_pass/utils/util.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
-import 'package:digital_vac_pass/homeScreen/testresult.dart';
-import 'package:digital_vac_pass/homeScreen/vaccination.dart';
 import 'package:digital_vac_pass/loginScreen/forgotpassword.dart';
 import 'package:digital_vac_pass/loginScreen/register.dart';
-import 'package:sqflite/sqflite.dart';
 import 'util.dart';
 
 Future<void> main() async {
