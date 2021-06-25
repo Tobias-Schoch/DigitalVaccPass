@@ -14,13 +14,15 @@ import '../utils/util.dart';
 class MyHomeScreenPage extends StatefulWidget {
   /// Home screen to chose between vaccinations and tests
   MyHomeScreenPage({Key key, this.selectedTabIndex}) : super(key: key);
+
   /// Selected tab (vaccinations, tests)
   int selectedTabIndex = 0;
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<int>('selectedTabIndex', selectedTabIndex));
+    properties.add(
+        DiagnosticsProperty<int>('selectedTabIndex_home', selectedTabIndex));
   }
 
   @override
@@ -53,8 +55,8 @@ class _MyHomeScreenPage extends State<MyHomeScreenPage>
   bool isDoctor = User.loggedInUser == null
       ? false
       : User.loggedInUser.userRole == Role.doctor
-      ? true
-      : false;
+          ? true
+          : false;
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -93,9 +95,10 @@ class _MyHomeScreenPage extends State<MyHomeScreenPage>
       drawer: MyDrawer(
         isVisible: isDoctor,
       ));
+
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<bool>('isDoctor', isDoctor));
+    properties.add(DiagnosticsProperty<bool>('isDoctor_home', isDoctor));
   }
 }

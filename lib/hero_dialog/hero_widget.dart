@@ -47,6 +47,6 @@ class PopupCard extends StatelessWidget {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<String>('qrData', qrData));
+    properties.add(DiagnosticsProperty<String>('qrData_hero', qrData));
   }
 }

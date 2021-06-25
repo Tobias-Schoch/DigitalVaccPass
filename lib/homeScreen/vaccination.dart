@@ -24,9 +24,11 @@ class MyVaccinationPage extends StatefulWidget {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<User>('selectedUser', selectedUser));
+    properties.add(DiagnosticsProperty<User>('selectedUser_vaccination'
+        , selectedUser));
     properties.add(
-        DiagnosticsProperty<bool>('isFloatingActionButtonVisible', isFloatingActionButtonVisible));
+        DiagnosticsProperty<bool>('isFloatingActionButtonVisible_vaccination',
+            isFloatingActionButtonVisible));
   }
 
   @override

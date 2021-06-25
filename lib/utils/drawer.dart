@@ -22,7 +22,7 @@ class MyDrawer extends StatefulWidget {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<bool>('isVisible', isVisible));
+    properties.add(DiagnosticsProperty<bool>('isVisible_drawer', isVisible));
   }
 
   @override

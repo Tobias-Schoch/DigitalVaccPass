@@ -113,7 +113,7 @@ class MyHomePage extends StatefulWidget {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<String>('title', title));
+    properties.add(DiagnosticsProperty<String>('title_main', title));
   }
 
   @override

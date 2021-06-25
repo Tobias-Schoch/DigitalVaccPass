@@ -68,7 +68,10 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
                                                     Navigator.of(context).push(
                                                         MaterialPageRoute(
                                                             builder: (BuildContextcontext) =>
-                                                                MyFamilyHomeScreenPage(selectedUser: snapshot.data[index])));
+                                                                MyFamilyHomeScreenPage(
+                                                                    selectedUser:
+                                                                        snapshot
+                                                                            .data[index])));
                                                   },
                                                   child: ListTile(
                                                     title: Text(
@@ -103,6 +106,6 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<bool>('isDoctor', isDoctor));
+    properties.add(DiagnosticsProperty<bool>('isDoctor_family', isDoctor));
   }
 }

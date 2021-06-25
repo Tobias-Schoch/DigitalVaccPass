@@ -273,11 +273,12 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties.add(DiagnosticsProperty<TextEditingController>(
-        'myPasswordTextController', myPasswordTextController));
+        'myPasswordTextController_register', myPasswordTextController));
     properties.add(DiagnosticsProperty<TextEditingController>(
-        'myNameTextController', myNameTextController));
+        'myNameTextController_register', myNameTextController));
     properties.add(DiagnosticsProperty<TextEditingController>(
-        'myEmailTextController', myEmailTextController));
-    properties.add(DiagnosticsProperty<bool>('selectedDoctor', selectedDoctor));
+        'myEmailTextController_register', myEmailTextController));
+    properties.add(
+        DiagnosticsProperty<bool>('selectedDoctor_register', selectedDoctor));
   }
 }

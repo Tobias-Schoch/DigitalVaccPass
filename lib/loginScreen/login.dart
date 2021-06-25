@@ -258,8 +258,8 @@ class _MyLoginPageState extends State<MyLoginPage> {
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties.add(DiagnosticsProperty<TextEditingController>(
-        'myEmailTextController', myEmailTextController));
+        'myEmailTextController_login', myEmailTextController));
     properties.add(DiagnosticsProperty<TextEditingController>(
-        'myPasswordController', myPasswordController));
+        'myPasswordController_login', myPasswordController));
   }
 }

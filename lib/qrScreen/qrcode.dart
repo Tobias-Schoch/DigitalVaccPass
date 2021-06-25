@@ -122,6 +122,6 @@ class _MyQRPageState extends State<MyQRPage> {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<bool>('isDoctor', isDoctor));
+    properties.add(DiagnosticsProperty<bool>('isDoctor_qrcode', isDoctor));
   }
 }

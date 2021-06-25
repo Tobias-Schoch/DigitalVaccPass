@@ -276,8 +276,9 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<bool>('isDoctor', isDoctor));
-    properties.add(DiagnosticsProperty<bool>('isQrVisible', isQrVisible));
-    properties.add(DiagnosticsProperty<String>('qrData', qrData));
+    properties.add(DiagnosticsProperty<bool>('isDoctor_addvac', isDoctor));
+    properties
+        .add(DiagnosticsProperty<bool>('isQrVisible_addvac', isQrVisible));
+    properties.add(DiagnosticsProperty<String>('qrData_addvac', qrData));
   }
 }

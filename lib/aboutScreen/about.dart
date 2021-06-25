@@ -81,6 +81,6 @@ class _MyAboutPageState extends State<MyAboutPage> {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<bool>('isDoctor', isDoctor));
+    properties.add(DiagnosticsProperty<bool>('isDoctor_about', isDoctor));
   }
 }

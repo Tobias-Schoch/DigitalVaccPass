@@ -22,7 +22,8 @@ class QRViewExample extends StatefulWidget {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<String>('calledFrom', calledFrom));
+    properties
+        .add(DiagnosticsProperty<String>('calledFrom_qr_scanner', calledFrom));
   }
 
   @override
@@ -169,10 +170,11 @@ class _QRViewExampleState extends State<QRViewExample> {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<Barcode>('result', result));
-    properties.add(DiagnosticsProperty<String>('barcodeString', barcodeString));
-    properties
-        .add(DiagnosticsProperty<QRViewController>('controller', controller));
-    properties.add(DiagnosticsProperty<GlobalKey>('qrKey', qrKey));
+    properties.add(DiagnosticsProperty<Barcode>('result_qr_scanner', result));
+    properties.add(
+        DiagnosticsProperty<String>('barcodeString_qr_scanner', barcodeString));
+    properties.add(DiagnosticsProperty<QRViewController>(
+        'controller_qr_scanner', controller));
+    properties.add(DiagnosticsProperty<GlobalKey>('qrKey_qr_scanner', qrKey));
   }
 }

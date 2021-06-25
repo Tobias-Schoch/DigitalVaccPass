@@ -19,7 +19,8 @@ class MyFamilyHomeScreenPage extends StatefulWidget {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<User>('selectedUser', selectedUser));
+    properties.add(
+        DiagnosticsProperty<User>('selectedUser_familyhome', selectedUser));
   }
 
   @override
@@ -41,8 +42,8 @@ class _MyFamilyHomeScreenPage extends State<MyFamilyHomeScreenPage> {
           elevation: 0,
           bottom: TabBar(
             indicator: UnderlineTabIndicator(
-                borderSide: BorderSide(
-                    width: 3, color: Theme.of(context).accentColor),
+                borderSide:
+                    BorderSide(width: 3, color: Theme.of(context).accentColor),
                 insets: const EdgeInsets.symmetric(horizontal: 60)),
             tabs: [
               Tab(

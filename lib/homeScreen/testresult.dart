@@ -22,9 +22,11 @@ class MyTestPage extends StatefulWidget {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<User>('selectedUser', selectedUser));
+    properties.add(DiagnosticsProperty<User>('selectedUser_testresult',
+        selectedUser));
     properties.add(DiagnosticsProperty<bool>(
-        'isFloatingActionButtonVisible', isFloatingActionButtonVisible));
+        'isFloatingActionButtonVisible_testresult',
+        isFloatingActionButtonVisible));
   }
 
   @override
@@ -119,7 +121,8 @@ class _MyTestPageState extends State<MyTestPage> {
                                                              testName,
                                                              style:
                                                              Theme.of(context).
-                                                             textTheme.bodyText1,
+                                                             textTheme
+                                                                 .bodyText1,
                                                            ),
                                                          ],
                                                        ),
