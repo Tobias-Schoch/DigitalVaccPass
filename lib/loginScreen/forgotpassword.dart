@@ -85,7 +85,7 @@ class _MyForgotPasswordPageState extends State<MyForgotPasswordPage> {
                     label: Flexible(
                         child: Text(
                           AppLocalizations.of(context).reset,
-                      style: TextStyle(fontSize: 20),
+                      style: const TextStyle(fontSize: 20),
                       overflow: TextOverflow.clip,
                     )),
                     icon: const Icon(Icons.refresh),

@@ -14,12 +14,12 @@ class Util {
       DateTime.parse(dateTimeString);
 
   static Future checkFirstSeen(context) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    bool _seen = (prefs.getBool('firstStartabc') ?? false);
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final bool _seen = (prefs.getBool('firstStartabc') ?? false);
     if (!_seen) {
       prefs.setBool('firstStartabc', true);
       Navigator.of(context).pushReplacement(
-          new MaterialPageRoute(builder: (context) => OnBoardingPage()));
+          new MaterialPageRoute(builder: (context) => const OnBoardingPage()));
     }
   }
 }

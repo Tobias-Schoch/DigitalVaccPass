@@ -17,7 +17,7 @@ class MyQRPage extends StatefulWidget {
 
 class _MyQRPageState extends State<MyQRPage> {
   static String qrData(String email) {
-    String qrData = "";
+    final String qrData = "";
 
     // if (User.loggedInUser != null) {
     //   List<Vaccination> vaccList = VaccinationDAO.getAllVaccinesForUser(User.loggedInUser.userDbId);

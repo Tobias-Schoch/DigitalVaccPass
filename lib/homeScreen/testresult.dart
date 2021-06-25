@@ -29,7 +29,7 @@ class _MyTestPageState extends State<MyTestPage> {
   }
 
   Future<bool> testNotEmpty() async {
-    List<Test> tests =
+    final List<Test> tests =
         await TestDAO.getAllTestsForUser(User.loggedInUser.userDbId);
     return Future<bool>.value(tests.isEmpty);
   }
@@ -51,7 +51,7 @@ class _MyTestPageState extends State<MyTestPage> {
                       future: testNotEmpty(),
                       builder: (context, snapshot) {
                         if (snapshot.data == null) {
-                          return Container(child: CircularProgressIndicator());
+                          return Container(child: const CircularProgressIndicator());
                         } else if (snapshot.data == true) {
                           return Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -59,7 +59,7 @@ class _MyTestPageState extends State<MyTestPage> {
                                 Visibility(
                                     visible: snapshot.data,
                                     child: Text(AppLocalizations.of(context).noTestsAvailable,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontWeight: FontWeight.w700,
                                             fontSize: 24,
                                             color: PredefinedColors

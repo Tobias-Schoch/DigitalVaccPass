@@ -30,7 +30,7 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
   }
 
   Future<bool> vaccinationNotEmpty() async {
-    List<Vaccination> vaccines =
+    final List<Vaccination> vaccines =
         await VaccinationDAO.getAllVaccinesForUser(User.loggedInUser.userDbId);
     return Future<bool>.value(vaccines.isEmpty);
   }
@@ -52,7 +52,7 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
                     future: vaccinationNotEmpty(),
                     builder: (context, snapshot) {
                       if (snapshot.data == null) {
-                        return Container(child: CircularProgressIndicator());
+                        return Container(child: const CircularProgressIndicator());
                       } else if (snapshot.data == true) {
                         return Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -60,7 +60,7 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
                               Visibility(
                                   visible: snapshot.data,
                                   child: Text(AppLocalizations.of(context).noVaccinesAvailable,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontWeight: FontWeight.w700,
                                           fontSize: 24,
                                           color: PredefinedColors

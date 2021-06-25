@@ -222,7 +222,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                             }
                           },
                           label: Text(AppLocalizations.of(context).generateQr,
-                              style: TextStyle(fontSize: 20)),
+                              style: const TextStyle(fontSize: 20)),
                           icon: const Icon(Icons.qr_code_2),
                         ),
                       ),

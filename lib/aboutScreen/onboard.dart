@@ -79,18 +79,18 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
             ? const EdgeInsets.all(12.0)
             : const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
         dotsDecorator: DotsDecorator(
-          size: Size(10.0, 10.0),
+          size: const Size(10.0, 10.0),
           color: Theme.of(context).primaryColorLight,
           activeColor: Theme.of(context).accentColor,
-          activeSize: Size(22.0, 10.0),
-          activeShape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(25.0)),
+          activeSize: const Size(22.0, 10.0),
+          activeShape: const RoundedRectangleBorder(
+            borderRadius: const BorderRadius.all(Radius.circular(25.0)),
           ),
         ),
         dotsContainerDecorator: ShapeDecoration(
           color: Theme.of(context).primaryColor,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(8.0)),
+          shape: const RoundedRectangleBorder(
+            borderRadius: const BorderRadius.all(Radius.circular(8.0)),
           ),
         ),
       ));

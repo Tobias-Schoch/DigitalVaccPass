@@ -104,19 +104,19 @@ class _QRViewExampleState extends State<QRViewExample> {
           barcodeString.contains('CHARGENR:') &&
           barcodeString.contains('DATE:') &&
           barcodeString.contains('DOCTOR:')) {
-        String vaccineName = barcodeString.substring(
+        final String vaccineName = barcodeString.substring(
             barcodeString.indexOf("VACCINE:") + 8,
             barcodeString.indexOf("\r\nCHARGENR:"));
-        String chargeNr = barcodeString.substring(
+        final String chargeNr = barcodeString.substring(
             barcodeString.indexOf("CHARGENR:") + 9,
             barcodeString.indexOf("\r\nDATE:"));
-        String dateAsString = barcodeString.substring(
+        final String dateAsString = barcodeString.substring(
             barcodeString.indexOf("DATE:") + 5,
             barcodeString.indexOf("\r\nDOCTOR:"));
-        List<String> c = dateAsString.split(".");
-        String doctorName =
+        final List<String> c = dateAsString.split(".");
+        final String doctorName =
             barcodeString.substring(barcodeString.indexOf("DOCTOR:") + 7);
-        DateTime date = DateTime.utc(int.parse(c.elementAt(2)),
+        final DateTime date = DateTime.utc(int.parse(c.elementAt(2)),
             int.parse(c.elementAt(1)), int.parse(c.elementAt(0)));
         VaccinationDAO.create(vaccineName, chargeNr, date, doctorName, null,
             User.loggedInUser.userDbId, null);
