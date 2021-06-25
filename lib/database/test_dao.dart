@@ -8,6 +8,8 @@ final DatabaseHelper con = DatabaseHelper();
 
 /// TestDAO
 class TestDAO {
+
+  /// Add test
   static Future<int> create(
       String testName,
       String testIdNr,
@@ -17,13 +19,14 @@ class TestDAO {
       int userId,
       int familyId) async {
     final Database dbClient = await con.db;
-    final insertTest = Test.forDb(testName, testIdNr, testDate, testStatus,
+    final Test insertTest = Test.forDb(testName, testIdNr, testDate, testStatus,
         testDescription, userId, familyId);
     final int id =
         await dbClient.insert(DatabaseHelper.vaccinesTable, insertTest.toMap());
     return id;
   }
 
+  /// Get all tests for current user
   static Future<List<Test>> getAllTestsForUser(int userId) async {
     final Database dbClient = await con.db;
     final List<Map> list = await dbClient.rawQuery(
@@ -37,6 +40,7 @@ class TestDAO {
     return vaccList;
   }
 
+  /// Get all tests for specific family member
   static Future<List<Test>> getAllTestsForFamilyUser(int familyId) async {
     final Database dbClient = await con.db;
     final List<Map> list = await dbClient.rawQuery(

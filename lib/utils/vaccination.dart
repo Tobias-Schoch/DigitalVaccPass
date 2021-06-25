@@ -2,20 +2,13 @@ import '../utils/util.dart';
 
 /// Define vaccinations
 class Vaccination {
-  /// vaccinationName
   String vaccinationName;
-  /// chargeNr
   String chargeNr;
-  /// vaccinationDate
   DateTime vaccinationDate;
-  /// doctorSignature
   String doctorSignature;
-  /// vaccinationDescription
   String vaccinationDescription;
 
-  /// userId
   int userId;
-  /// familyId
   int familyId;
 
   /// single vaccination

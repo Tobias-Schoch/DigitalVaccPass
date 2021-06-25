@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -133,10 +134,15 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => const MyVaccinationAddPage()));
+              builder: (BuildContext context) => const MyVaccinationAddPage()));
         },
         backgroundColor: Theme.of(context).accentColor,
         child: const Icon(Icons.add),
       ),
       drawer: MyDrawer(isVisible: isDoctor));
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty<bool>('absorbing', isDoctor));
+  }
 }

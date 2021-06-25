@@ -18,7 +18,7 @@ class OnBoardingPage extends StatefulWidget {
 class _OnBoardingPageState extends State<OnBoardingPage> {
   final introKey = GlobalKey<IntroductionScreenState>();
 
-  void _onIntroEnd(context) {
+  void _onIntroEnd(BuildContext context) {
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
           builder: (_) => MyHomeScreenPage(

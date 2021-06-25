@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
@@ -30,7 +31,9 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
   final TextEditingController _chargeNrTextEditingController =
       TextEditingController();
 
-  final _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  /// Check if user is logged in and if he has doctor role
   bool isDoctor = User.loggedInUser == null
       ? false
       : User.loggedInUser.userRole == Role.doctor
@@ -41,8 +44,8 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
   String qrData = '';
 
   void _buildQrData() {
-    final privateKey = RSAPrivateKey.fromPEM(privateKeyPem);
-    final publicKey = privateKey.toPublicKey;
+    final RSAPrivateKey privateKey = RSAPrivateKey.fromPEM(privateKeyPem);
+    final RSAPublicKey publicKey = privateKey.toPublicKey;
     qrData = '';
 
     if (_vaccineTextEditingController.text.isNotEmpty) {
@@ -202,7 +205,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                     onTap: () {},
                     child: Hero(
                       tag: 'show-qr-hero',
-                      createRectTween: (begin, end) =>
+                      createRectTween: (Rect begin, Rect end) =>
                           CustomRectTween(begin: begin, end: end),
                       child: ConstrainedBox(
                         constraints: const BoxConstraints.tightFor(height: 60),
@@ -213,7 +216,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                               sleep(const Duration(milliseconds: 50));
                               _buildQrData();
                               Navigator.of(context).push(HeroDialogRoute(
-                                builder: (context) => AddTodoPopupCard(qrData),
+                                builder: (BuildContext context) => AddTodoPopupCard(qrData),
                               ));
                             }
                           },
@@ -234,7 +237,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
         ));
   }
 
-  _selectDate(BuildContext context) async {
+  void _selectDate(BuildContext context) async {
     final DateTime newSelectedDate = await showDatePicker(
         context: context,
         locale: const Locale('de', 'DE'),
@@ -267,5 +270,13 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
   void dispose() {
     _textEditingController.dispose();
     super.dispose();
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty<bool>('absorbing', isDoctor));
+    properties.add(DiagnosticsProperty<bool>('absorbing', isQrVisible));
+    properties.add(DiagnosticsProperty<String>('absorbing', qrData));
   }
 }
