@@ -8,6 +8,7 @@ class DatabaseHelper {
   DatabaseHelper.privateConstructor();
 
   static final DatabaseHelper _instance = DatabaseHelper.privateConstructor();
+
   /// Database instance
   factory DatabaseHelper() => _instance;
   static Database _db;
@@ -19,7 +20,7 @@ class DatabaseHelper {
 
   /// call initDb
   Future<Database> get db async {
-    if (_db != null)  {
+    if (_db != null) {
       return _db;
     }
     _db = await initDb();
@@ -69,48 +70,49 @@ class DatabaseHelper {
 
   Future<void> _initTestData(Database db) async {
     final Batch batch = db.batch();
-    TestData.userListDb.forEach(
-        (element) => {batch.insert(DatabaseHelper.userTable, element.toMap())});
+    for (var element in TestData.userListDb) {
+      batch.insert(DatabaseHelper.userTable, element.toMap());
+    }
     await batch.commit(noResult: true);
 
     final Batch familyBatch = db.batch();
-    TestData.familyUserDb.forEach((element) {
+    for (var element in TestData.familyUserDb) {
       familyBatch.insert(
           DatabaseHelper.familyTable, element.toFamilyMemberMap());
-    });
+    }
     await familyBatch.commit(noResult: true);
 
     final Batch vaccBatch = db.batch();
     for (int i = 1; i < 6; i++) {
       if (i < 3) {
-        TestData.vaccinationListDb.forEach((element) {
+        for (var element in TestData.vaccinationListDb) {
           element.userId = i;
           element.familyId = null;
           vaccBatch.insert(DatabaseHelper.vaccinesTable, element.toMap());
-        });
+        }
       }
-      TestData.vaccinationListDb.forEach((element) {
+      for (var element in TestData.vaccinationListDb) {
         element.userId = null;
         element.familyId = i;
         vaccBatch.insert(DatabaseHelper.vaccinesTable, element.toMap());
-      });
+      }
     }
     await vaccBatch.commit(noResult: true);
 
     final Batch testBatch = db.batch();
     for (int i = 1; i < 6; i++) {
       if (i < 3) {
-        TestData.testsListDb.forEach((element) {
+        for (var element in TestData.testsListDb) {
           element.userId = i;
           element.familyId = null;
           testBatch.insert(DatabaseHelper.testsTable, element.toMap());
-        });
+        }
       }
-      TestData.testsListDb.forEach((element) {
+      for (var element in TestData.testsListDb) {
         element.userId = null;
         element.familyId = i;
         testBatch.insert(DatabaseHelper.testsTable, element.toMap());
-      });
+      }
     }
     await testBatch.commit(noResult: true);
   }

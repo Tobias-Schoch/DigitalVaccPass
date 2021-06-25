@@ -17,7 +17,7 @@ import 'user.dart';
 /// Drawer
 class MyDrawer extends StatefulWidget {
   /// Drawer
-  MyDrawer({Key key}) : super(key: key);
+  const MyDrawer({Key key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() => _MyDrawer();
