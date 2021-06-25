@@ -19,6 +19,13 @@ class MyHomeScreenPage extends StatefulWidget {
   int selectedTabIndex = 0;
 
   @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty<int>('selectedTabIndex', selectedTabIndex));
+  }
+
+  @override
   State<StatefulWidget> createState() => _MyHomeScreenPage();
 }
 

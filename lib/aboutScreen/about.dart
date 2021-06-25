@@ -21,7 +21,7 @@ class _MyAboutPageState extends State<MyAboutPage> {
     super.dispose();
   }
 
-  final String date = getDate.getYear();
+  final String year = getDate.getYear();
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -59,7 +59,7 @@ class _MyAboutPageState extends State<MyAboutPage> {
                         const SizedBox(height: 10),
                         const Text('Version 1.0', textAlign: TextAlign.left),
                         const SizedBox(height: 2),
-                        Text('© ${date} Luis Nothvogel & Tobias Schoch',
+                        Text('© ${year} Luis Nothvogel & Tobias Schoch',
                             textAlign: TextAlign.left),
                         const SizedBox(height: 18),
                       ],
@@ -71,4 +71,10 @@ class _MyAboutPageState extends State<MyAboutPage> {
         ),
       ),
       drawer: const MyDrawer());
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty<String>('year', year));
+  }
 }
