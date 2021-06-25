@@ -18,8 +18,8 @@ class TestDAO {
       int userId,
       int familyId) async {
     final Database dbClient = await con.db;
-    final Test insertTest = Test.forDb(familyId, testDate, testDescription,
-        testIdNr, testName, testStatus, userId);
+    final Test insertTest = Test.forDb(testName, testIdNr, testDate, testStatus,
+        testDescription, userId, familyId);
     final int id =
         await dbClient.insert(DatabaseHelper.vaccinesTable, insertTest.toMap());
     return id;

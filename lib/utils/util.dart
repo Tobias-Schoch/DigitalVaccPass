@@ -18,9 +18,9 @@ class Util {
   /// Save and load shared preference and check if first start
   static Future<void> checkFirstSeen(BuildContext context) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    final bool _seen = prefs.getBool('firstStartabc') ?? false;
+    final bool _seen = prefs.getBool('firstStarter') ?? false;
     if (!_seen) {
-      await prefs.setBool('firstStartabc', true);
+      await prefs.setBool('firstStarter', true);
       await Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (BuildContext context) => const OnBoardingPage()));
     }
@@ -61,20 +61,20 @@ class LastUser {
 class TestData {
   /// user logins
   static List<User> userListDb = [
-    User.withData(testsListDb, 't', 'Luis Nothvogel', 't', Role.normal,
-        vaccinationListDb),
+    User.withData('Luis Nothvogel', 't', 't', Role.normal, vaccinationListDb,
+        testsListDb),
     User.withData(
-        testsListDb, 'a', 'Dr. Anna Mayer', 'a', Role.doctor, vaccinationListDb)
+        'Dr. Anna Mayer', 'a', 'a', Role.doctor, vaccinationListDb, testsListDb)
   ];
 
   /// family member
   static List<User> familyUserDb = [
-    User.withData(testsListDb, 'test@test.de', 'test', 'pw', Role.normal,
-        vaccinationListDb),
-    User.withData(testsListDb, 'test1@test.de', 'test1', 'pw1', Role.normal,
-        vaccinationListDb),
-    User.withData(testsListDb, 'test2@test.de', 'test2', 'pw2', Role.normal,
-        vaccinationListDb),
+    User.withData('test', 'test@test.de', 'pw', Role.normal, vaccinationListDb,
+        testsListDb),
+    User.withData('test1', 'test1@test.de', 'pw1', Role.normal,
+        vaccinationListDb, testsListDb),
+    User.withData('test2', 'test2@test.de', 'pw2', Role.normal,
+        vaccinationListDb, testsListDb),
   ];
 
   /// Example date
@@ -92,12 +92,12 @@ class TestData {
 
   /// example tests
   static List<Test> testsListDb = [
-    Test(DateTime.parse(strDt), 'testDescription', 'testId', 'testName',
-        Status.pending),
-    Test(DateTime.parse(strDt), 'testDescription2', 'testId2', 'testName2',
-        Status.good),
-    Test(DateTime.parse(strDt), 'testDescription3', 'testId3', 'testName3',
-        Status.bad),
+    Test('testName', 'testId', DateTime.parse(strDt), Status.pending,
+        'testDescription'),
+    Test('testName2', 'testId2', DateTime.parse(strDt), Status.good,
+        'testDescription2'),
+    Test('testName3', 'testId3', DateTime.parse(strDt), Status.bad,
+        'testDescription3')
   ];
 
   /// Generate data for vaccination list with faker
@@ -116,12 +116,11 @@ class TestData {
   static List<Test> generateTestsList(int size) => List<Test>.generate(
       size,
       (int i) => Test(
-            faker.date.dateTime(),
-            faker.lorem.word(),
-            faker.lorem.sentence(),
-            faker.randomGenerator.decimal().toString(),
-            faker.randomGenerator.element(Status.values),
-          ));
+          faker.lorem.word(),
+          faker.randomGenerator.decimal().toString(),
+          faker.date.dateTime(),
+          faker.randomGenerator.element(Status.values),
+          faker.lorem.sentence()));
 
   /// Check if user is existing
   static User getMatchingUser(String email, String pw) {

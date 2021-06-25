@@ -24,61 +24,51 @@ class Test {
   int familyId;
 
   /// Single Test
-  Test(this.testDate, this.testDescription, this.testIdNr, this.testName,
-      this.testStatus);
+  Test(this.testName, this.testIdNr, this.testDate, this.testStatus,
+      this.testDescription);
 
   /// Single test without state
   Test.newlyWithoutStatus(
-      this.testDate, this.testDescription, this.testIdNr, this.testName)
+      this.testName, this.testIdNr, this.testDate, this.testDescription)
       : testStatus = Status.pending;
 
   /// Test for today
   Test.newlyToday(
-    this.testDescription,
-    this.testIdNr,
-    this.testName,
-    this.testStatus,
-  ) : testDate = DateTime.now();
+      this.testName, this.testIdNr, this.testStatus, this.testDescription)
+      : testDate = DateTime.now();
 
   /// Test for today without state
   Test.newlyTodayWithoutStatus(
-      this.testDescription, this.testIdNr, this.testName)
+      this.testName, this.testIdNr, this.testDescription)
       : testDate = DateTime.now(),
         testStatus = Status.pending;
 
   /// Test database
-  Test.forDb(
-    this.familyId,
-    this.testDate,
-    this.testDescription,
-    this.testIdNr,
-    this.testName,
-    this.testStatus,
-    this.userId,
-  );
+  Test.forDb(this.testName, this.testIdNr, this.testDate, this.testStatus,
+      this.testDescription, this.userId, this.familyId);
 
   /// Map test
   Map<String, dynamic> toMap() {
     final Map<String, dynamic> map = <String, dynamic>{};
-    map['FAMILY_ID'] = familyId;
-    map['TEST_DATE'] = testDate.toString();
-    map['TEST_DESCRIPTION'] = testDescription;
-    map['TEST_ID_NR'] = testIdNr;
     map['TEST_NAME'] = testName;
+    map['TEST_ID_NR'] = testIdNr;
+    map['TEST_DATE'] = testDate.toString();
     map['TEST_STATUS'] = testStatus.toString();
+    map['TEST_DESCRIPTION'] = testDescription;
     map['USER_ID'] = userId;
+    map['FAMILY_ID'] = familyId;
     return map;
   }
 
   /// Get test from map
   factory Test.fromMap(Map<String, dynamic> data) => Test.forDb(
-      data['FAMILY_ID'],
-      Util.getDateTimeFromString(data['TEST_DATE']),
-      data['TEST_DESCRIPTION'],
-      data['TEST_ID_NR'],
       data['TEST_NAME'],
+      data['TEST_ID_NR'],
+      Util.getDateTimeFromString(data['TEST_DATE']),
       getStatusFromString(data['TEST_STATUS']),
-      data['USER_ID']);
+      data['TEST_DESCRIPTION'],
+      data['USER_ID'],
+      data['FAMILY_ID']);
 
   /// Get status of test
   static Status getStatusFromString(String data) {

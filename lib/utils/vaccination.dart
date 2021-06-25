@@ -24,47 +24,45 @@ class Vaccination {
   int familyId;
 
   /// single vaccination
-  Vaccination(this.chargeNr, this.doctorSignature, this.vaccinationDate,
-      this.vaccinationDescription, this.vaccinationName);
+  Vaccination(this.vaccinationName, this.chargeNr, this.vaccinationDate,
+      this.doctorSignature, this.vaccinationDescription);
 
   /// vaccinations for today
-  Vaccination.today(this.chargeNr, this.doctorSignature,
-      this.vaccinationDescription, this.vaccinationName)
+  Vaccination.today(this.vaccinationName, this.chargeNr, this.doctorSignature,
+      this.vaccinationDescription)
       : vaccinationDate = DateTime.now();
 
   /// Vaccination to db
   Vaccination.forDb(
-    this.chargeNr,
-    this.doctorSignature,
-    this.familyId,
-    this.userId,
-    this.vaccinationDate,
-    this.vaccinationDescription,
-    this.vaccinationName,
-  );
+      this.vaccinationName,
+      this.chargeNr,
+      this.vaccinationDate,
+      this.doctorSignature,
+      this.vaccinationDescription,
+      this.userId,
+      this.familyId);
 
   /// Map vaccination
   Map<String, dynamic> toMap() {
     /// map
     final Map<String, dynamic> map = <String, dynamic>{};
-    map['CHARGE_NR'] = chargeNr;
-    map['DOCTOR_SIGNATURE'] = doctorSignature;
-    map['FAMILY_ID'] = familyId;
-    map['USER_ID'] = userId;
-    map['VACCINE_DATE'] = vaccinationDate.toString();
-    map['VACCINE_DESCRIPTION'] = vaccinationDescription;
     map['VACCINE_NAME'] = vaccinationName;
+    map['CHARGE_NR'] = chargeNr;
+    map['VACCINE_DATE'] = vaccinationDate.toString();
+    map['DOCTOR_SIGNATURE'] = doctorSignature;
+    map['VACCINE_DESCRIPTION'] = vaccinationDescription;
+    map['USER_ID'] = userId;
+    map['FAMILY_ID'] = familyId;
     return map;
   }
 
   /// factory vaccination
   factory Vaccination.fromMap(Map<String, dynamic> data) => Vaccination.forDb(
-        data['CHARGE_NR'],
-        data['DOCTOR_SIGNATURE'],
-        data['FAMILY_ID'],
-        data['USER_ID'],
-        Util.getDateTimeFromString(data['VACCINE_DATE']),
-        data['VACCINE_DESCRIPTION'],
-        data['VACCINE_NAME'],
-      );
+      data['VACCINE_NAME'],
+      data['CHARGE_NR'],
+      Util.getDateTimeFromString(data['VACCINE_DATE']),
+      data['DOCTOR_SIGNATURE'],
+      data['VACCINE_DESCRIPTION'],
+      data['USER_ID'],
+      data['FAMILY_ID']);
 }

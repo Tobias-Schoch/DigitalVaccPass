@@ -124,8 +124,8 @@ class _QRViewExampleState extends State<QRViewExample> {
             barcodeString.substring(barcodeString.indexOf('DOCTOR:') + 7);
         final DateTime date = DateTime.utc(int.parse(c.elementAt(2)),
             int.parse(c.elementAt(1)), int.parse(c.elementAt(0)));
-        VaccinationDAO.create(chargeNr, doctorName, null,
-            User.loggedInUser.userDbId, date, null, vaccineName);
+        VaccinationDAO.create(vaccineName, chargeNr, date, doctorName, null,
+            User.loggedInUser.userDbId, null);
         Navigator.of(context).push(MaterialPageRoute(
             builder: (BuildContext context) => MyVaccinationPage(
                 isFloatingActionButtonVisible: true,
