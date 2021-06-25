@@ -1,4 +1,3 @@
-import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'custom_rect_twin.dart';
@@ -19,7 +18,7 @@ class AddTodoPopupCard extends StatelessWidget {
             return CustomRectTween(begin: begin, end: end);
           },
           child: Material(
-            color: PredefinedColors.accentWhite,
+            color: Theme.of(context).primaryColor,
             elevation: 2,
             shape:
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),

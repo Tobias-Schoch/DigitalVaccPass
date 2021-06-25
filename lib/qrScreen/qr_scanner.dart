@@ -8,7 +8,6 @@ import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../utils/app_bar.dart';
-import '../utils/util.dart';
 
 /// QR Scanner
 class QRViewExample extends StatefulWidget {
@@ -63,7 +62,7 @@ class _QRViewExampleState extends State<QRViewExample> {
       key: qrKey,
       onQRViewCreated: _onQRViewCreated,
       overlay: QrScannerOverlayShape(
-          borderColor: PredefinedColors.primaryColor,
+          borderColor: Theme.of(context).accentColor,
           borderRadius: 10,
           borderLength: 30,
           borderWidth: 15,

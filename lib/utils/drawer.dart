@@ -10,7 +10,6 @@ import '../familyScreen/family.dart';
 import '../homeScreen/home.dart';
 import '../main.dart';
 import '../qrScreen/qrcode.dart';
-import '../utils/util.dart';
 
 /// Drawer
 class MyDrawer extends StatelessWidget {
@@ -44,9 +43,9 @@ class MyDrawer extends StatelessWidget {
             Visibility(
               visible: isVisible,
               child: ListTile(
-                leading: const Icon(
+                leading: Icon(
                   Icons.insights_outlined,
-                  color: PredefinedColors.textColor,
+                  color: Theme.of(context).primaryColorLight,
                 ),
                 title: Text(
                   AppLocalizations.of(context).statistics,
@@ -61,8 +60,8 @@ class MyDrawer extends StatelessWidget {
             Visibility(
               visible: isVisible,
               child: ListTile(
-                leading: const Icon(Icons.qr_code_scanner_outlined,
-                    color: PredefinedColors.textColor),
+                leading: Icon(Icons.qr_code_scanner_outlined,
+                    color: Theme.of(context).primaryColorLight),
                 title: Text(
                   AppLocalizations.of(context).addVaccine,
                   style: Theme.of(context).textTheme.headline6,
@@ -75,17 +74,17 @@ class MyDrawer extends StatelessWidget {
             ),
             Visibility(
               visible: isVisible,
-              child: const Divider(
+              child: Divider(
                 thickness: 3,
-                color: PredefinedColors.primaryColor,
+                color: Theme.of(context).accentColor,
                 endIndent: 20,
                 indent: 15,
                 height: 40,
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.local_hospital_outlined,
-                  color: PredefinedColors.textColor),
+              leading: Icon(Icons.local_hospital_outlined,
+                  color: Theme.of(context).primaryColorLight),
               title: Text(
                 AppLocalizations.of(context).vaccPass,
                 style: Theme.of(context).textTheme.headline6,
@@ -96,8 +95,8 @@ class MyDrawer extends StatelessWidget {
               },
             ),
             ListTile(
-              leading: const Icon(Icons.masks_outlined,
-                  color: PredefinedColors.textColor),
+              leading: Icon(Icons.masks_outlined,
+                  color: Theme.of(context).primaryColorLight),
               title: Text(
                 AppLocalizations.of(context).testresults,
                 style: Theme.of(context).textTheme.headline6,
@@ -108,8 +107,8 @@ class MyDrawer extends StatelessWidget {
               },
             ),
             ListTile(
-              leading: const Icon(Icons.people_outline,
-                  color: PredefinedColors.textColor),
+              leading: Icon(Icons.people_outline,
+                  color: Theme.of(context).primaryColorLight),
               title: Text(
                 AppLocalizations.of(context).familyOverview,
                 style: Theme.of(context).textTheme.headline6,
@@ -120,8 +119,8 @@ class MyDrawer extends StatelessWidget {
               },
             ),
             ListTile(
-              leading: const Icon(Icons.qr_code_outlined,
-                  color: PredefinedColors.textColor),
+              leading:  Icon(Icons.qr_code_outlined,
+                  color: Theme.of(context).primaryColorLight),
               title: Text(
                 AppLocalizations.of(context).myQRCode,
                 style: Theme.of(context).textTheme.headline6,
@@ -131,16 +130,16 @@ class MyDrawer extends StatelessWidget {
                     builder: (context) => const MyQRPage()));
               },
             ),
-            const Divider(
+            Divider(
               thickness: 3,
-              color: PredefinedColors.primaryColor,
+              color: Theme.of(context).accentColor,
               endIndent: 20,
               indent: 15,
               height: 40,
             ),
             ListTile(
-              leading: const Icon(Icons.help_center_outlined,
-                  color: PredefinedColors.textColor),
+              leading: Icon(Icons.help_center_outlined,
+                  color: Theme.of(context).primaryColorLight),
               title: Text(
                 AppLocalizations.of(context).fAQ,
                 style: Theme.of(context).textTheme.headline6,
@@ -151,8 +150,8 @@ class MyDrawer extends StatelessWidget {
               },
             ),
             ListTile(
-              leading: const Icon(Icons.privacy_tip_outlined,
-                  color: PredefinedColors.textColor),
+              leading: Icon(Icons.privacy_tip_outlined,
+                  color: Theme.of(context).primaryColorLight),
               title: Text(
                 AppLocalizations.of(context).aboutUs,
                 style: Theme.of(context).textTheme.headline6,
@@ -164,7 +163,7 @@ class MyDrawer extends StatelessWidget {
             ),
             ListTile(
               leading:
-                  const Icon(Icons.logout, color: PredefinedColors.textColor),
+                  Icon(Icons.logout, color: Theme.of(context).primaryColorLight),
               title: Text(
                 AppLocalizations.of(context).logout,
                 style: Theme.of(context).textTheme.headline6,

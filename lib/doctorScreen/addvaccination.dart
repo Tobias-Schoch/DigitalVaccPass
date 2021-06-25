@@ -10,7 +10,6 @@ import '../hero_dialog/hero_widget.dart';
 import '../utils/app_bar.dart';
 import '../utils/drawer.dart';
 import '../utils/user.dart';
-import '../utils/util.dart';
 
 /// add vaccinationn
 class MyVaccinationAddPage extends StatefulWidget {
@@ -241,12 +240,12 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
         lastDate: DateTime.now(),
         builder: (BuildContext context, Widget child) => Theme(
               data: ThemeData.light().copyWith(
-                colorScheme: const ColorScheme.light(
-                  primary: PredefinedColors.primaryColor,
-                  surface: PredefinedColors.primaryColor,
-                  onSurface: PredefinedColors.textColor,
+                colorScheme: ColorScheme.light(
+                  primary: Theme.of(context).accentColor,
+                  surface: Theme.of(context).accentColor,
+                  onSurface: Theme.of(context).primaryColorLight,
                 ),
-                dialogBackgroundColor: Colors.white,
+                dialogBackgroundColor: Theme.of(context).primaryColor,
               ),
               child: child,
             ));

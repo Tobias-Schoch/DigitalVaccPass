@@ -1,4 +1,3 @@
-import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -291,8 +290,8 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                   const SizedBox(height: 25),
                   Row(children: <Widget>[
                     Checkbox(
-                      checkColor: PredefinedColors.accentWhite,
-                      activeColor: PredefinedColors.primaryColor,
+                      checkColor: Theme.of(context).primaryColor,
+                      activeColor: Theme.of(context).accentColor,
                       value: selectedDoctor,
                       onChanged: (bool value) {
                         setState(() {
