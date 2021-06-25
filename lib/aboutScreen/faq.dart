@@ -5,7 +5,6 @@ import '../utils/app_bar.dart';
 import '../utils/drawer.dart';
 import '../utils/user.dart';
 
-
 /// FAQ Page
 class MyFaqPage extends StatefulWidget {
   /// FAQ Page
@@ -24,8 +23,8 @@ class _MyFaqPageState extends State<MyFaqPage> {
   bool isDoctor = User.loggedInUser == null
       ? false
       : User.loggedInUser.userRole == Role.doctor
-      ? true
-      : false;
+          ? true
+          : false;
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -53,7 +52,9 @@ class _MyFaqPageState extends State<MyFaqPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           const SizedBox(height: 18),
-                          Text(AppLocalizations.of(context).fAQWhatHappensWithMyData,
+                          Text(
+                              AppLocalizations.of(context)
+                                  .fAQWhatHappensWithMyData,
                               style: Theme.of(context).textTheme.bodyText1,
                               textAlign: TextAlign.left),
                         ]),
@@ -61,8 +62,7 @@ class _MyFaqPageState extends State<MyFaqPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         const SizedBox(height: 10),
-                        Text(
-                            AppLocalizations.of(context).fAQDataAnswer,
+                        Text(AppLocalizations.of(context).fAQDataAnswer,
                             textAlign: TextAlign.left),
                         const SizedBox(height: 18),
                       ],
@@ -99,7 +99,9 @@ class _MyFaqPageState extends State<MyFaqPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           const SizedBox(height: 18),
-                          Text(AppLocalizations.of(context).fAQHowFastCanISeeNewVaccines,
+                          Text(
+                              AppLocalizations.of(context)
+                                  .fAQHowFastCanISeeNewVaccines,
                               style: Theme.of(context).textTheme.bodyText1,
                               textAlign: TextAlign.left),
                         ]),

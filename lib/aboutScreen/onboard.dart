@@ -6,8 +6,11 @@ import 'package:introduction_screen/introduction_screen.dart';
 import '../homeScreen/home.dart';
 import '../utils/app_bar.dart';
 
+/// Onboarding Screen
 class OnBoardingPage extends StatefulWidget {
+  /// Onboarding Screen
   const OnBoardingPage({Key key}) : super(key: key);
+
   @override
   _OnBoardingPageState createState() => _OnBoardingPageState();
 }
@@ -17,20 +20,22 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
 
   void _onIntroEnd(context) {
     Navigator.of(context).pushReplacement(
-      MaterialPageRoute(builder: (_) => MyHomeScreenPage(selectedTabIndex: 0,)),
+      MaterialPageRoute(
+          builder: (_) => MyHomeScreenPage(
+                selectedTabIndex: 0,
+              )),
     );
   }
 
   final pageDecoration = const PageDecoration(
-    titleTextStyle: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w700),
-    bodyTextStyle: TextStyle(fontSize: 19.0),
-    descriptionPadding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
+    titleTextStyle: TextStyle(fontSize: 28, fontWeight: FontWeight.w700),
+    bodyTextStyle: TextStyle(fontSize: 19),
+    descriptionPadding: EdgeInsets.fromLTRB(16, 0, 16, 16),
     imagePadding: EdgeInsets.zero,
   );
 
-  Widget _buildImage(String assetName, [double width = 350]) {
-    return Image.asset('assets/images/$assetName', width: width);
-  }
+  Widget _buildImage(String assetName, [double width = 350]) =>
+      Image.asset('assets/images/$assetName', width: width);
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -49,7 +54,8 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           ),
           PageViewModel(
             title: AppLocalizations.of(context).familyOverview,
-            body: AppLocalizations.of(context).onBoardScreenManageVaccineForFamily,
+            body: AppLocalizations.of(context)
+                .onBoardScreenManageVaccineForFamily,
             image: _buildImage('img2.png'),
             decoration: pageDecoration,
           ),
@@ -67,8 +73,8 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
         nextFlex: 0,
         skip: Text(AppLocalizations.of(context).skip,
             style: TextStyle(color: Theme.of(context).accentColor)),
-        next:
-            Icon(Icons.arrow_forward, color: Theme.of(context).primaryColorLight),
+        next: Icon(Icons.arrow_forward,
+            color: Theme.of(context).primaryColorLight),
         done: Text(AppLocalizations.of(context).done,
             style: TextStyle(
                 fontWeight: FontWeight.w600,
@@ -76,21 +82,21 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
         curve: Curves.fastLinearToSlowEaseIn,
         controlsMargin: const EdgeInsets.all(16),
         controlsPadding: kIsWeb
-            ? const EdgeInsets.all(12.0)
-            : const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
+            ? const EdgeInsets.all(12)
+            : const EdgeInsets.fromLTRB(8, 4, 8, 4),
         dotsDecorator: DotsDecorator(
-          size: const Size(10.0, 10.0),
+          size: const Size(10, 10),
           color: Theme.of(context).primaryColorLight,
           activeColor: Theme.of(context).accentColor,
-          activeSize: const Size(22.0, 10.0),
+          activeSize: const Size(22, 10),
           activeShape: const RoundedRectangleBorder(
-            borderRadius: const BorderRadius.all(Radius.circular(25.0)),
+            borderRadius: const BorderRadius.all(Radius.circular(25)),
           ),
         ),
         dotsContainerDecorator: ShapeDecoration(
           color: Theme.of(context).primaryColor,
           shape: const RoundedRectangleBorder(
-            borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+            borderRadius: const BorderRadius.all(Radius.circular(8)),
           ),
         ),
       ));
