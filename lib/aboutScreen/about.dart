@@ -21,7 +21,7 @@ class _MyAboutPageState extends State<MyAboutPage> {
     super.dispose();
   }
 
-  final String year = getDate.getYear();
+  final String year = GetDate.getYear();
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -59,7 +59,7 @@ class _MyAboutPageState extends State<MyAboutPage> {
                         const SizedBox(height: 10),
                         const Text('Version 1.0', textAlign: TextAlign.left),
                         const SizedBox(height: 2),
-                        Text('© ${year} Luis Nothvogel & Tobias Schoch',
+                        Text('© $year Luis Nothvogel & Tobias Schoch',
                             textAlign: TextAlign.left),
                         const SizedBox(height: 18),
                       ],
