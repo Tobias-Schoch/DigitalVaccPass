@@ -80,5 +80,5 @@ class _MyHomeScreenPage extends State<MyHomeScreenPage>
               isFloatingActionButtonVisible: true),
         ],
       ),
-      drawer: MyDrawer());
+      drawer: const MyDrawer());
 }

@@ -114,5 +114,5 @@ class _MyFaqPageState extends State<MyFaqPage> {
           ),
         ),
       ),
-      drawer: MyDrawer());
+      drawer: const MyDrawer());
 }

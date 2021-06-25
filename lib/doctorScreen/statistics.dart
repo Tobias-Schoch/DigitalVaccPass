@@ -135,6 +135,6 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
         backgroundColor: Theme.of(context).accentColor,
         child: const Icon(Icons.add),
       ),
-      drawer: MyDrawer());
+      drawer: const MyDrawer());
 
 }

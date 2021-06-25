@@ -95,5 +95,5 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
       ),
       floatingActionButton:
           myVisibleFloatingActionButtonForQrScanner(context, true, 'FAMILY'),
-      drawer: MyDrawer());
+      drawer: const MyDrawer());
 }

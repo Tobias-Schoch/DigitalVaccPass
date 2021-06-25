@@ -226,7 +226,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
             ),
           ),
         ),
-        drawer: MyDrawer());
+        drawer: const MyDrawer());
   }
 
   Future<void> _selectDate(BuildContext context) async {

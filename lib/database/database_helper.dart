@@ -70,13 +70,13 @@ class DatabaseHelper {
 
   Future<void> _initTestData(Database db) async {
     final Batch batch = db.batch();
-    for (var element in TestData.userListDb) {
+    for (final element in TestData.userListDb) {
       batch.insert(DatabaseHelper.userTable, element.toMap());
     }
     await batch.commit(noResult: true);
 
     final Batch familyBatch = db.batch();
-    for (var element in TestData.familyUserDb) {
+    for (final element in TestData.familyUserDb) {
       familyBatch.insert(
           DatabaseHelper.familyTable, element.toFamilyMemberMap());
     }
@@ -85,13 +85,13 @@ class DatabaseHelper {
     final Batch vaccBatch = db.batch();
     for (int i = 1; i < 6; i++) {
       if (i < 3) {
-        for (var element in TestData.vaccinationListDb) {
+        for (final element in TestData.vaccinationListDb) {
           element.userId = i;
           element.familyId = null;
           vaccBatch.insert(DatabaseHelper.vaccinesTable, element.toMap());
         }
       }
-      for (var element in TestData.vaccinationListDb) {
+      for (final element in TestData.vaccinationListDb) {
         element.userId = null;
         element.familyId = i;
         vaccBatch.insert(DatabaseHelper.vaccinesTable, element.toMap());
@@ -102,13 +102,13 @@ class DatabaseHelper {
     final Batch testBatch = db.batch();
     for (int i = 1; i < 6; i++) {
       if (i < 3) {
-        for (var element in TestData.testsListDb) {
+        for (final element in TestData.testsListDb) {
           element.userId = i;
           element.familyId = null;
           testBatch.insert(DatabaseHelper.testsTable, element.toMap());
         }
       }
-      for (var element in TestData.testsListDb) {
+      for (final element in TestData.testsListDb) {
         element.userId = null;
         element.familyId = i;
         testBatch.insert(DatabaseHelper.testsTable, element.toMap());

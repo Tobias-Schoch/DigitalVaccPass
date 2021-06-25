@@ -112,7 +112,7 @@ class TestData {
   /// Check if user is existing
   static User getMatchingUser(String email, String pw) {
     User matchingUser;
-    for (var element in userListDb) {
+    for (final element in userListDb) {
       if (matchingUser == null &&
           element.userEmail.compareTo(email) == 0 &&
           element.userPassword.compareTo(pw) == 0) {

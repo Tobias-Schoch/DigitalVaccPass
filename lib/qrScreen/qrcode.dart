@@ -111,5 +111,5 @@ class _MyQRPageState extends State<MyQRPage> {
           ],
         ),
       ),
-      drawer: MyDrawer());
+      drawer: const MyDrawer());
 }

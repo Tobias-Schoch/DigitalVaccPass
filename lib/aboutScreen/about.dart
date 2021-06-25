@@ -67,5 +67,5 @@ class _MyAboutPageState extends State<MyAboutPage> {
           ),
         ),
       ),
-      drawer: MyDrawer());
+      drawer: const MyDrawer());
 }
