@@ -31,11 +31,7 @@ class _MyDrawer extends State<MyDrawer> {
   }
 
   /// Check if user is logged in and if he has doctor role
-  bool isDoctor = User.loggedInUser == null
-      ? false
-      : User.loggedInUser.userRole == Role.doctor
-      ? true
-      : false;
+  bool isDoctor = User.loggedInUser.userRole == Role.doctor && true;
 
   @override
   Widget build(BuildContext context) => Drawer(
