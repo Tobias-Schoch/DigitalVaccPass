@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../doctorScreen/addvaccination.dart';
@@ -29,12 +28,11 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
     Util.checkFirstSeen(context);
   }
 
-
   bool isDoctor = User.loggedInUser == null
       ? false
       : User.loggedInUser.userRole == Role.doctor
-      ? true
-      : false;
+          ? true
+          : false;
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -61,19 +59,17 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           const SizedBox(height: 18),
-                          Text('02.05.2021 - 09.05.2021',
+                          Text(AppLocalizations.of(context).lastSevenDays,
                               style: Theme.of(context).textTheme.bodyText1),
                         ]),
                     subtitle: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const <Widget>[
+                      children: <Widget>[
                         const SizedBox(height: 10),
-                        const Text('Impfungen: 68', textAlign: TextAlign.left),
-                        const SizedBox(height: 8),
-                        const Text('Corona Impfungen: 65',
+                        Text(AppLocalizations.of(context).vaccinations + ": 68",
                             textAlign: TextAlign.left),
                         const SizedBox(height: 8),
-                        const Text('Corona Tests: 149',
+                        Text(AppLocalizations.of(context).tests + ': 149',
                             textAlign: TextAlign.left),
                         const SizedBox(height: 18),
                       ],
@@ -88,19 +84,17 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           const SizedBox(height: 18),
-                          Text('Mai bisher',
+                          Text(AppLocalizations.of(context).lastThirtyDays,
                               style: Theme.of(context).textTheme.bodyText1),
                         ]),
                     subtitle: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const <Widget>[
+                      children: <Widget>[
                         const SizedBox(height: 10),
-                        const Text('Impfungen: 248', textAlign: TextAlign.left),
-                        const SizedBox(height: 8),
-                        const Text('Corona Impfungen: 230',
+                        Text(AppLocalizations.of(context).vaccinations + ": 68",
                             textAlign: TextAlign.left),
                         const SizedBox(height: 8),
-                        const Text('Corona Tests: 1370',
+                        Text(AppLocalizations.of(context).tests + ': 149',
                             textAlign: TextAlign.left),
                         const SizedBox(height: 18),
                       ],
@@ -115,47 +109,17 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           const SizedBox(height: 18),
-                          Text('April',
+                          Text(AppLocalizations.of(context).overall,
                               style: Theme.of(context).textTheme.bodyText1),
                         ]),
                     subtitle: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const <Widget>[
+                      children: <Widget>[
                         const SizedBox(height: 10),
-                        const Text('Impfungen: 735', textAlign: TextAlign.left),
-                        const SizedBox(height: 8),
-                        const Text('Corona Impfungen: 710',
+                        Text(AppLocalizations.of(context).vaccinations + ": 68",
                             textAlign: TextAlign.left),
                         const SizedBox(height: 8),
-                        const Text('Corona Tests: 7299',
-                            textAlign: TextAlign.left),
-                        const SizedBox(height: 18),
-                      ],
-                    ))
-              ])),
-              const SizedBox(height: 20),
-              Card(
-                  child:
-                      Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-                ListTile(
-                    title: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          const SizedBox(height: 18),
-                          Text('2021 bisher',
-                              style: Theme.of(context).textTheme.bodyText1),
-                        ]),
-                    subtitle: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const <Widget>[
-                        const SizedBox(height: 10),
-                        const Text('Impfungen: 1720',
-                            textAlign: TextAlign.left),
-                        const SizedBox(height: 8),
-                        const Text('Corona Impfungen: 1599',
-                            textAlign: TextAlign.left),
-                        const SizedBox(height: 8),
-                        const Text('Corona Tests: 14682',
+                        Text(AppLocalizations.of(context).tests + ': 149',
                             textAlign: TextAlign.left),
                         const SizedBox(height: 18),
                       ],

@@ -15,11 +15,11 @@
   "@testID": {
     "description": ""
   },
-  "digitalVaccPass": "Digital Vaccine Pass ",
+  "digitalVaccPass": "Digital vaccine pass ",
   "@digitalVaccPass": {
     "description": ""
   },
-  "vaccPass": "Vaccine Pass",
+  "vaccPass": "Vaccine pass",
   "@vaccPass": {
     "description": ""
   },
@@ -31,7 +31,7 @@
   "@fAQWhatHappensWithMyData" : {
     "description": ""
   },
-  "fAQDataAnswer": "Data privacy is very important to us. That is why we don´t save any of your Data. They are just saved on your Mobile and can only be accessed by you",
+  "fAQDataAnswer": "Data privacy is very important to us. That is why we don´t save any of your data. They are just saved on your mobile phone and can only be accessed by you",
   "@fAQDataAnswer" : {
     "description": ""
   },
@@ -39,31 +39,31 @@
   "@fAQVaccPassSafe" : {
     "description": ""
   },
-  "fAQVaccPassSafeAnswer": "Yes it is. The App was developed by Experts and Professors that specialize in that Field",
+  "fAQVaccPassSafeAnswer": "Yes it is. The app was developed by experts and professors that specialize in that Field",
   "@fAQVaccPassSafeAnswer" : {
     "description": ""
   },
-  "fAQHowFastCanISeeNewVaccines": "How fast can I see new Vaccines",
+  "fAQHowFastCanISeeNewVaccines": "How fast can I see new vaccines",
   "@fAQHowFastCanISeeNewVaccines" : {
     "description": ""
   },
-  "fAQHowFastAnswer": "Almost immediately after scanning the QR-Code from your Doctor",
+  "fAQHowFastAnswer": "Almost immediately after scanning the QR-Code from your doctor",
   "@fAQHowFastAnswer" : {
     "description": ""
   },
-  "yourVaccPass": "Your Vaccine Pass",
+  "yourVaccPass": "Your vaccine pass",
   "@yourVaccPass" : {
     "description": ""
   },
-  "getYourVaccPass": "Get your digital Vaccine Pass now and you cant loose it anymore",
+  "getYourVaccPass": "Get your digital vaccine pass now and you cant loose it anymore",
   "@getYourVaccPass" : {
     "description": ""
   },
-  "familyOverview": "Family Overview",
+  "familyOverview": "Family overview",
   "@familyOverview" : {
     "description": ""
   },
-  "onBoardScreenManageVaccineForFamily": "Manage the Vaccine Pass for your Family Members",
+  "onBoardScreenManageVaccineForFamily": "Manage the vaccine pass for your family members",
   "@onBoardScreenManageVaccineForFamily" : {
     "description": ""
   },
@@ -143,7 +143,7 @@
   "@forgotPassword" : {
     "description": ""
   },
-  "emailAndPwDontMatch": "E-mail and Password are wrong",
+  "emailAndPwDontMatch": "Mail and password are wrong",
   "@emailAndPwDontMatch" : {
     "description": ""
   },
@@ -151,7 +151,7 @@
   "@register" : {
     "description": ""
   },
-  "firstLastName": "First and Last name",
+  "firstLastName": "First and last name",
   "@firstLastName" : {
     "description": ""
   },
@@ -159,7 +159,7 @@
   "@nameCantBeEmpty" : {
     "description": ""
   },
-  "notAValidEmail": "Not a valid E-mail address",
+  "notAValidEmail": "Not a valid mail address",
   "@notAValidEmail" : {
     "description": ""
   },
@@ -209,6 +209,30 @@
   },
   "noVaccinesAvailable": "No vaccines added yet.",
   "@noVaccinesAvailable" : {
+    "description": ""
+  },
+  "registerAsDoctor": "Register as doctor",
+  "@registerAsDoctor" : {
+    "description": ""
+  },
+  "lastSevenDays": "Last 7 days",
+  "@lastSevenDays" : {
+    "description": ""
+  },
+  "lastThirtyDays": "Last 30 days",
+  "@lastThirtyDays" : {
+    "description": ""
+  },
+  "overall": "Overall",
+  "@overall" : {
+    "description": ""
+  },
+  "vaccinations": "Vaccinations",
+  "@vaccinations" : {
+    "description": ""
+  },
+  "tests": "Tests",
+  "@tests" : {
     "description": ""
   }
 }
