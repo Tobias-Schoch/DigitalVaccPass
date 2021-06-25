@@ -4,6 +4,11 @@ pipeline {
         PATH = "/usr/local/bin:/usr/bin:/bin:~/development/flutter/bin:"
     }
     stages {
+        stage ('Flutter Doctor') {
+            steps {
+                sh "flutter doctor -v"
+            }
+        }
         stage('SonarQube Analysis') {
             steps {
                 sh "flutter pub get"
