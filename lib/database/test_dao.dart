@@ -29,7 +29,7 @@ class TestDAO {
   static Future<List<Test>> getAllTestsForUser(int userId) async {
     final Database dbClient = await con.db;
     final List<Map<String, Object>> list = await dbClient.rawQuery(
-        'SELECT * FROM ' + DatabaseHelper.testsTable + ' WHERE USER_ID = ?',
+        'SELECT * FROM ${DatabaseHelper.testsTable} WHERE USER_ID = ?',
         [userId]);
 
     final List<Test> vaccList = list.isNotEmpty
@@ -43,7 +43,7 @@ class TestDAO {
   static Future<List<Test>> getAllTestsForFamilyUser(int familyId) async {
     final Database dbClient = await con.db;
     final List<Map<String, Object>> list = await dbClient.rawQuery(
-        'SELECT * FROM ' + DatabaseHelper.testsTable + ' WHERE FAMILY_ID = ?',
+        'SELECT * FROM ${DatabaseHelper.testsTable} WHERE FAMILY_ID = ?',
         [familyId]);
 
     final List<Test> vaccList = list.isNotEmpty

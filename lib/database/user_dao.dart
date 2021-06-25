@@ -22,7 +22,7 @@ class UserDAO {
   static Future<User> getUserByEmail(String userEmail) async {
     final Database dbClient = await con.db;
     final List<Map<String, Object>> list = await dbClient.rawQuery(
-        'SELECT * FROM ' + DatabaseHelper.userTable + ' WHERE USER_EMAIL = ?',
+        'SELECT * FROM ${DatabaseHelper.userTable} WHERE USER_EMAIL = ?',
         [userEmail]);
     if (list.isNotEmpty) {
       return User.fromMap(list[0]);
@@ -36,9 +36,8 @@ class UserDAO {
       String userEmail, String userPassword) async {
     final Database dbClient = await con.db;
     final List<Map<String, Object>> list = await dbClient.rawQuery(
-        'SELECT USER_ID FROM ' +
-            DatabaseHelper.userTable +
-            ' WHERE USER_EMAIL = ? AND PASSWORD = ?',
+        'SELECT USER_ID FROM ${DatabaseHelper.userTable} '
+            'WHERE USER_EMAIL = ? AND PASSWORD = ?',
         [userEmail, userPassword]);
     if (list.isNotEmpty) {
       return true;

@@ -67,10 +67,11 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         const SizedBox(height: 10),
-                        Text(AppLocalizations.of(context).vaccinations + ': 68',
+                        Text(
+                            '${AppLocalizations.of(context).vaccinations} : 68',
                             textAlign: TextAlign.left),
                         const SizedBox(height: 8),
-                        Text(AppLocalizations.of(context).tests + ': 149',
+                        Text('${AppLocalizations.of(context).tests} : 149',
                             textAlign: TextAlign.left),
                         const SizedBox(height: 18),
                       ],
@@ -92,10 +93,11 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         const SizedBox(height: 10),
-                        Text(AppLocalizations.of(context).vaccinations + ': 68',
+                        Text(
+                            '${AppLocalizations.of(context).vaccinations} : 68',
                             textAlign: TextAlign.left),
                         const SizedBox(height: 8),
-                        Text(AppLocalizations.of(context).tests + ': 149',
+                        Text('${AppLocalizations.of(context).tests} : 149',
                             textAlign: TextAlign.left),
                         const SizedBox(height: 18),
                       ],
@@ -117,10 +119,11 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         const SizedBox(height: 10),
-                        Text(AppLocalizations.of(context).vaccinations + ': 68',
+                        Text(
+                            '${AppLocalizations.of(context).vaccinations} : 68',
                             textAlign: TextAlign.left),
                         const SizedBox(height: 8),
-                        Text(AppLocalizations.of(context).tests + ': 149',
+                        Text('${AppLocalizations.of(context).tests} : 149',
                             textAlign: TextAlign.left),
                         const SizedBox(height: 18),
                       ],
@@ -140,6 +143,7 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
         child: const Icon(Icons.add),
       ),
       drawer: MyDrawer(isVisible: isDoctor));
+
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);

@@ -72,7 +72,8 @@ class _MyDrawer extends State<MyDrawer> {
                 ),
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (BuildContext context) => const MyStatisticPage()));
+                      builder: (BuildContext context) =>
+                          const MyStatisticPage()));
                 },
               ),
             ),
@@ -87,7 +88,8 @@ class _MyDrawer extends State<MyDrawer> {
                 ),
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (BuildContext context) => const MyVaccinationAddPage()));
+                      builder: (BuildContext context) =>
+                          const MyVaccinationAddPage()));
                 },
               ),
             ),
@@ -147,8 +149,8 @@ class _MyDrawer extends State<MyDrawer> {
                 style: Theme.of(context).textTheme.headline6,
               ),
               onTap: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (BuildContext context) => const MyQRPage()));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => const MyQRPage()));
               },
             ),
             Divider(
@@ -166,8 +168,8 @@ class _MyDrawer extends State<MyDrawer> {
                 style: Theme.of(context).textTheme.headline6,
               ),
               onTap: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (BuildContext context) => const MyFaqPage()));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => const MyFaqPage()));
               },
             ),
             ListTile(
@@ -190,8 +192,8 @@ class _MyDrawer extends State<MyDrawer> {
                 style: Theme.of(context).textTheme.headline6,
               ),
               onTap: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (BuildContext context) => const MyApp()));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => const MyApp()));
               },
             ),
           ],

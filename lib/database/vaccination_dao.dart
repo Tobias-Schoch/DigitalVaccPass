@@ -8,7 +8,6 @@ final DatabaseHelper con = DatabaseHelper();
 
 /// VaccinationDAO
 class VaccinationDAO {
-
   /// Add vaccination
   static Future<int> create(
       String vaccinationName,
@@ -42,7 +41,7 @@ class VaccinationDAO {
   static Future<List<Vaccination>> getAllVaccinesForUser(int userId) async {
     final Database dbClient = await con.db;
     final List<Map<String, Object>> list = await dbClient.rawQuery(
-        'SELECT * FROM ' + DatabaseHelper.vaccinesTable + ' WHERE USER_ID = ?',
+        'SELECT * FROM ${DatabaseHelper.vaccinesTable} WHERE USER_ID = ?',
         [userId]);
 
     final List<Vaccination> vaccList = list.isNotEmpty
@@ -57,9 +56,7 @@ class VaccinationDAO {
       int familyId) async {
     final Database dbClient = await con.db;
     final List<Map<String, Object>> list = await dbClient.rawQuery(
-        'SELECT * FROM ' +
-            DatabaseHelper.vaccinesTable +
-            ' WHERE FAMILY_ID = ?',
+        'SELECT * FROM ${DatabaseHelper.vaccinesTable} WHERE FAMILY_ID = ?',
         [familyId]);
 
     final List<Vaccination> vaccList = list.isNotEmpty

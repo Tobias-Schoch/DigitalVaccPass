@@ -49,28 +49,28 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
     qrData = '';
 
     if (_vaccineTextEditingController.text.isNotEmpty) {
-      qrData += 'VACCINE: ' + _vaccineTextEditingController.text + '\r\n';
+      qrData += 'VACCINE: ${_vaccineTextEditingController.text} \r\n';
     } else {
       qrData = null;
       return;
     }
 
     if (_chargeNrTextEditingController.text.isNotEmpty) {
-      qrData += 'CHARGENR: ' + _chargeNrTextEditingController.text + '\r\n';
+      qrData += 'CHARGENR: ${_chargeNrTextEditingController.text} \r\n';
     } else {
       qrData = null;
       return;
     }
 
     if (_textEditingController.text.isNotEmpty) {
-      qrData += 'DATE: ' + _textEditingController.text + '\r\n';
+      qrData += 'DATE: ${_textEditingController.text} \r\n';
     } else {
       qrData = null;
       return;
     }
 
     if (User.loggedInUser != null) {
-      qrData += 'DOCTOR: ' + User.loggedInUser.userName + '\r\n';
+      qrData += 'DOCTOR: ${User.loggedInUser.userName} \r\n';
       qrData = publicKey.encryptToBase64(qrData);
     } else {
       qrData = null;
