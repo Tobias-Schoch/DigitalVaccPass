@@ -9,7 +9,7 @@ import '../utils/util.dart';
 /// Informations about the app
 class MyAboutPage extends StatefulWidget {
   /// Informations about the app
-  MyAboutPage({Key key}) : super(key: key);
+  const MyAboutPage({Key key}) : super(key: key);
 
   @override
   _MyAboutPageState createState() => _MyAboutPageState();

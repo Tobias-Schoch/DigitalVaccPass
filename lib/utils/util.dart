@@ -55,10 +55,9 @@ class PredefinedColors {
 
 class getDate {
   static String getYear() {
-    var now = new DateTime.now();
-    var formatter = new DateFormat('yyyy');
-    String formattedDate = formatter.format(now);
-    return formattedDate;
+    final DateTime now = new DateTime.now();
+    final DateFormat formatter = new DateFormat('yyyy');
+    return formatter.format(now).toString();
   }
 }
 
