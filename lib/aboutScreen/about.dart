@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -60,7 +61,7 @@ class _MyAboutPageState extends State<MyAboutPage> {
                         ]),
                     subtitle: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const <Widget>[
+                      children: <Widget>[
                         const SizedBox(height: 10),
                         Text('Version 1.0', textAlign: TextAlign.left),
                         const SizedBox(height: 2),
@@ -78,4 +79,9 @@ class _MyAboutPageState extends State<MyAboutPage> {
       drawer: MyDrawer(
         isVisible: isDoctor,
       ));
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty<bool>('absorbing', isDoctor));
+  }
 }
