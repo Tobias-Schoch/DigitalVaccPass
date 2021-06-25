@@ -196,4 +196,10 @@ class _MyDrawer extends State<MyDrawer> {
           ],
         ),
       );
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty<bool>('isDoctor_drawer', isDoctor));
+  }
 }

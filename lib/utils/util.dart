@@ -92,9 +92,12 @@ class TestData {
 
   /// example tests
   static List<Test> testsListDb = [
-    Test(DateTime.parse(strDt), 'testDescription', 'testId', 'testName', Status.pending),
-    Test(DateTime.parse(strDt), 'testDescription2', 'testId2', 'testName2', Status.good),
-    Test(DateTime.parse(strDt), 'testDescription3', 'testId3', 'testName3', Status.bad),
+    Test(DateTime.parse(strDt), 'testDescription', 'testId', 'testName',
+        Status.pending),
+    Test(DateTime.parse(strDt), 'testDescription2', 'testId2', 'testName2',
+        Status.good),
+    Test(DateTime.parse(strDt), 'testDescription3', 'testId3', 'testName3',
+        Status.bad),
   ];
 
   /// Generate data for vaccination list with faker
@@ -113,11 +116,11 @@ class TestData {
   static List<Test> generateTestsList(int size) => List<Test>.generate(
       size,
       (int i) => Test(
-          faker.date.dateTime(),
-          faker.lorem.word(),
-          faker.lorem.sentence(),
-          faker.randomGenerator.decimal().toString(),
-          faker.randomGenerator.element(Status.values),
+            faker.date.dateTime(),
+            faker.lorem.word(),
+            faker.lorem.sentence(),
+            faker.randomGenerator.decimal().toString(),
+            faker.randomGenerator.element(Status.values),
           ));
 
   /// Check if user is existing

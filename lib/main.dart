@@ -9,7 +9,7 @@ import 'l10n/l10n.dart';
 import 'loginScreen/login.dart';
 import 'utils/util.dart';
 
-main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Color(0x00fafafa),
@@ -98,7 +98,7 @@ class MyApp extends StatelessWidget {
         ),
         hoverColor: Colors.transparent,
       ),
-      home: const MyHomePage(title: 'Impfpass'),
+      home: const MyHomePage(),
     );
   }
 }
@@ -106,15 +106,8 @@ class MyApp extends StatelessWidget {
 /// set startpoint for app
 class MyHomePage extends StatefulWidget {
   /// set startpoint for app
-  const MyHomePage({Key key, this.title}) : super(key: key);
+  const MyHomePage({Key key}) : super(key: key);
 
-  final String title;
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<String>('title_main', title));
-  }
 
   @override
   _MyHomePageState createState() => _MyHomePageState();

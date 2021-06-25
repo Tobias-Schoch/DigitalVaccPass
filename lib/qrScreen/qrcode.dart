@@ -93,17 +93,11 @@ class _MyQRPageState extends State<MyQRPage> {
             const SizedBox(height: 25),
             Flexible(
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Visibility(
-                    visible: User.loggedInUser == null ? false : true,
-                    child: QrImage(
-                      data: qrData(LastUser.lastUser),
-                      size: 200,
-                    ),
-                  ),
-                  Visibility(
-                    visible: User.loggedInUser == null ? true : false,
-                    child: Image.asset('assets/images/qr.png', width: 200),
+                  QrImage(
+                    data: qrData(LastUser.lastUser),
+                    size: MediaQuery.of(context).size.width * 0.9,
                   ),
                 ],
               ),
