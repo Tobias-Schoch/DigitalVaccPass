@@ -90,14 +90,19 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           activeColor: Theme.of(context).accentColor,
           activeSize: const Size(22, 10),
           activeShape: const RoundedRectangleBorder(
-            borderRadius: const BorderRadius.all(Radius.circular(25)),
+            borderRadius: BorderRadius.all(Radius.circular(25)),
           ),
         ),
         dotsContainerDecorator: ShapeDecoration(
           color: Theme.of(context).primaryColor,
           shape: const RoundedRectangleBorder(
-            borderRadius: const BorderRadius.all(Radius.circular(8)),
+            borderRadius: BorderRadius.all(Radius.circular(8)),
           ),
         ),
       ));
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('absorbing', introKey));
+  }
 }

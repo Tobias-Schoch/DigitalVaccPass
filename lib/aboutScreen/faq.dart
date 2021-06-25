@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -123,4 +124,9 @@ class _MyFaqPageState extends State<MyFaqPage> {
       drawer: MyDrawer(
         isVisible: isDoctor,
       ));
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty<bool>('absorbing', isDoctor));
+  }
 }
