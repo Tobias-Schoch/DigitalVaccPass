@@ -24,12 +24,6 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
     super.dispose();
   }
 
-  bool isDoctor = User.loggedInUser == null
-      ? false
-      : User.loggedInUser.userRole == Role.doctor
-          ? true
-          : false;
-
   @override
   Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(
@@ -101,11 +95,5 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
       ),
       floatingActionButton:
           myVisibleFloatingActionButtonForQrScanner(context, true, 'FAMILY'),
-      drawer: MyDrawer(isVisible: isDoctor));
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<bool>('isDoctor_family', isDoctor));
-  }
+      drawer: MyDrawer());
 }

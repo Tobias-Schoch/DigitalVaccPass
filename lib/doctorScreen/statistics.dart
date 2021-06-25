@@ -5,7 +5,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../doctorScreen/addvaccination.dart';
 import '../utils/app_bar.dart';
 import '../utils/drawer.dart';
-import '../utils/user.dart';
 import '../utils/util.dart';
 
 /// Statistics for doctor
@@ -28,12 +27,6 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
     super.initState();
     Util.checkFirstSeen(context);
   }
-
-  bool isDoctor = User.loggedInUser == null
-      ? false
-      : User.loggedInUser.userRole == Role.doctor
-          ? true
-          : false;
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -142,11 +135,6 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
         backgroundColor: Theme.of(context).accentColor,
         child: const Icon(Icons.add),
       ),
-      drawer: MyDrawer(isVisible: isDoctor));
+      drawer: MyDrawer());
 
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<bool>('isDoctor_stat', isDoctor));
-  }
 }

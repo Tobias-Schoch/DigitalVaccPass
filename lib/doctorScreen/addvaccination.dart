@@ -33,13 +33,6 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  /// Check if user is logged in and if he has doctor role
-  bool isDoctor = User.loggedInUser == null
-      ? false
-      : User.loggedInUser.userRole == Role.doctor
-          ? true
-          : false;
-
   bool isQrVisible = false;
   String qrData = '';
 
@@ -233,9 +226,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
             ),
           ),
         ),
-        drawer: MyDrawer(
-          isVisible: isDoctor,
-        ));
+        drawer: MyDrawer());
   }
 
   Future<void> _selectDate(BuildContext context) async {
@@ -276,7 +267,6 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<bool>('isDoctor_addvac', isDoctor));
     properties
         .add(DiagnosticsProperty<bool>('isQrVisible_addvac', isQrVisible));
     properties.add(DiagnosticsProperty<String>('qrData_addvac', qrData));

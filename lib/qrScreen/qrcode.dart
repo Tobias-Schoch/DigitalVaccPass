@@ -65,12 +65,6 @@ class _MyQRPageState extends State<MyQRPage> {
     super.dispose();
   }
 
-  bool isDoctor = User.loggedInUser == null
-      ? false
-      : User.loggedInUser.userRole == Role.doctor
-          ? true
-          : false;
-
   @override
   Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(
@@ -117,11 +111,5 @@ class _MyQRPageState extends State<MyQRPage> {
           ],
         ),
       ),
-      drawer: MyDrawer(isVisible: isDoctor));
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<bool>('isDoctor_qrcode', isDoctor));
-  }
+      drawer: MyDrawer());
 }

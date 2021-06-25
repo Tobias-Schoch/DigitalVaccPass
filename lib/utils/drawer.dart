@@ -12,18 +12,12 @@ import '../familyScreen/family.dart';
 import '../homeScreen/home.dart';
 import '../main.dart';
 import '../qrScreen/qrcode.dart';
+import 'user.dart';
 
 /// Drawer
 class MyDrawer extends StatefulWidget {
   /// Drawer
-  MyDrawer({Key key, this.isVisible}) : super(key: key);
-  bool isVisible;
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<bool>('isVisible_drawer', isVisible));
-  }
+  MyDrawer({Key key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() => _MyDrawer();
@@ -35,6 +29,13 @@ class _MyDrawer extends State<MyDrawer> {
     SystemChannels.textInput.invokeMethod('TextInput.hide');
     super.initState();
   }
+
+  /// Check if user is logged in and if he has doctor role
+  bool isDoctor = User.loggedInUser == null
+      ? false
+      : User.loggedInUser.userRole == Role.doctor
+      ? true
+      : false;
 
   @override
   Widget build(BuildContext context) => Drawer(
@@ -60,7 +61,7 @@ class _MyDrawer extends State<MyDrawer> {
               ),
             ),
             Visibility(
-              visible: widget.isVisible,
+              visible: isDoctor,
               child: ListTile(
                 leading: Icon(
                   Icons.insights_outlined,
@@ -78,7 +79,7 @@ class _MyDrawer extends State<MyDrawer> {
               ),
             ),
             Visibility(
-              visible: widget.isVisible,
+              visible: isDoctor,
               child: ListTile(
                 leading: Icon(Icons.qr_code_scanner_outlined,
                     color: Theme.of(context).primaryColorLight),
@@ -94,7 +95,7 @@ class _MyDrawer extends State<MyDrawer> {
               ),
             ),
             Visibility(
-              visible: widget.isVisible,
+              visible: isDoctor,
               child: Divider(
                 thickness: 3,
                 color: Theme.of(context).accentColor,

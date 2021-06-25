@@ -4,7 +4,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../utils/app_bar.dart';
 import '../utils/drawer.dart';
-import '../utils/user.dart';
 
 /// FAQ Page
 class MyFaqPage extends StatefulWidget {
@@ -20,12 +19,6 @@ class _MyFaqPageState extends State<MyFaqPage> {
   void dispose() {
     super.dispose();
   }
-
-  bool isDoctor = User.loggedInUser == null
-      ? false
-      : User.loggedInUser.userRole == Role.doctor
-          ? true
-          : false;
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -121,13 +114,5 @@ class _MyFaqPageState extends State<MyFaqPage> {
           ),
         ),
       ),
-      drawer: MyDrawer(
-        isVisible: isDoctor,
-      ));
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<bool>('isDoctor_faq', isDoctor));
-  }
+      drawer: MyDrawer());
 }

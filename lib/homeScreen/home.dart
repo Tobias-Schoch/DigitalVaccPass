@@ -19,13 +19,6 @@ class MyHomeScreenPage extends StatefulWidget {
   int selectedTabIndex = 0;
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(
-        DiagnosticsProperty<int>('selectedTabIndex_home', selectedTabIndex));
-  }
-
-  @override
   State<StatefulWidget> createState() => _MyHomeScreenPage();
 }
 
@@ -37,6 +30,7 @@ class _MyHomeScreenPage extends State<MyHomeScreenPage>
   @override
   void initState() {
     super.initState();
+    _tabController = TabController(vsync: this, length: 2, initialIndex: 0);
     selectTab(widget.selectedTabIndex);
     Util.checkFirstSeen(context);
   }
@@ -51,12 +45,6 @@ class _MyHomeScreenPage extends State<MyHomeScreenPage>
     _selectedTabIndex = index;
     _tabController.animateTo(_selectedTabIndex);
   }
-
-  bool isDoctor = User.loggedInUser == null
-      ? false
-      : User.loggedInUser.userRole == Role.doctor
-          ? true
-          : false;
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -92,13 +80,5 @@ class _MyHomeScreenPage extends State<MyHomeScreenPage>
               isFloatingActionButtonVisible: true),
         ],
       ),
-      drawer: MyDrawer(
-        isVisible: isDoctor,
-      ));
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<bool>('isDoctor_home', isDoctor));
-  }
+      drawer: MyDrawer());
 }
