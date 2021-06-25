@@ -69,9 +69,12 @@ class TestData {
 
   /// family member
   static List<User> familyUserDb = [
-    User.withData(testsListDb, 'test@test.de', 'test', 'pw', Role.normal, vaccinationListDb),
-    User.withData(testsListDb, 'test1@test.de', 'test1', 'pw1', Role.normal, vaccinationListDb),
-    User.withData(testsListDb, 'test2@test.de', 'test2', 'pw2', Role.normal, vaccinationListDb),
+    User.withData(testsListDb, 'test@test.de', 'test', 'pw', Role.normal,
+        vaccinationListDb),
+    User.withData(testsListDb, 'test1@test.de', 'test1', 'pw1', Role.normal,
+        vaccinationListDb),
+    User.withData(testsListDb, 'test2@test.de', 'test2', 'pw2', Role.normal,
+        vaccinationListDb),
   ];
 
   /// Example date
@@ -89,12 +92,9 @@ class TestData {
 
   /// example tests
   static List<Test> testsListDb = [
-    Test('testName', 'testId', DateTime.parse(strDt), Status.pending,
-        'testDescription'),
-    Test('testName2', 'testId2', DateTime.parse(strDt), Status.good,
-        'testDescription2'),
-    Test('testName3', 'testId3', DateTime.parse(strDt), Status.bad,
-        'testDescription3')
+    Test(DateTime.parse(strDt), 'testDescription', 'testId', 'testName', Status.pending),
+    Test(DateTime.parse(strDt), 'testDescription2', 'testId2', 'testName2', Status.good),
+    Test(DateTime.parse(strDt), 'testDescription3', 'testId3', 'testName3', Status.bad),
   ];
 
   /// Generate data for vaccination list with faker
@@ -113,11 +113,12 @@ class TestData {
   static List<Test> generateTestsList(int size) => List<Test>.generate(
       size,
       (int i) => Test(
-          faker.lorem.word(),
-          faker.randomGenerator.decimal().toString(),
           faker.date.dateTime(),
+          faker.lorem.word(),
+          faker.lorem.sentence(),
+          faker.randomGenerator.decimal().toString(),
           faker.randomGenerator.element(Status.values),
-          faker.lorem.sentence()));
+          ));
 
   /// Check if user is existing
   static User getMatchingUser(String email, String pw) {
