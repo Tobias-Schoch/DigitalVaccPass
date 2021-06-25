@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../aboutScreen/about.dart';
 import '../aboutScreen/faq.dart';
@@ -12,10 +13,21 @@ import '../main.dart';
 import '../qrScreen/qrcode.dart';
 
 /// Drawer
-class MyDrawer extends StatelessWidget {
+class MyDrawer extends StatefulWidget {
   /// Drawer
-  const MyDrawer({Key key, this.isVisible}) : super(key: key);
-  final bool isVisible;
+  MyDrawer({Key key, this.isVisible}) : super(key: key);
+  bool isVisible;
+
+  @override
+  State<StatefulWidget> createState() => _MyDrawer();
+}
+
+class _MyDrawer extends State<MyDrawer> {
+  @override
+  void initState() {
+    SystemChannels.textInput.invokeMethod('TextInput.hide');
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) => Drawer(
@@ -41,7 +53,7 @@ class MyDrawer extends StatelessWidget {
               ),
             ),
             Visibility(
-              visible: isVisible,
+              visible: widget.isVisible,
               child: ListTile(
                 leading: Icon(
                   Icons.insights_outlined,
@@ -58,7 +70,7 @@ class MyDrawer extends StatelessWidget {
               ),
             ),
             Visibility(
-              visible: isVisible,
+              visible: widget.isVisible,
               child: ListTile(
                 leading: Icon(Icons.qr_code_scanner_outlined,
                     color: Theme.of(context).primaryColorLight),
@@ -73,7 +85,7 @@ class MyDrawer extends StatelessWidget {
               ),
             ),
             Visibility(
-              visible: isVisible,
+              visible: widget.isVisible,
               child: Divider(
                 thickness: 3,
                 color: Theme.of(context).accentColor,
