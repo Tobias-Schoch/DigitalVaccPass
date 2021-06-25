@@ -24,11 +24,11 @@ class MyVaccinationPage extends StatefulWidget {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<User>('selectedUser_vaccination'
-        , selectedUser));
     properties.add(
-        DiagnosticsProperty<bool>('isFloatingActionButtonVisible_vaccination',
-            isFloatingActionButtonVisible));
+        DiagnosticsProperty<User>('selectedUser_vaccination', selectedUser));
+    properties.add(DiagnosticsProperty<bool>(
+        'isFloatingActionButtonVisible_vaccination',
+        isFloatingActionButtonVisible));
   }
 
   @override
@@ -105,26 +105,55 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
                                                     children: <Widget>[
                                                       ListTile(
                                                         title: Column(
-                                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
                                                             children: <Widget>[
                                                               const SizedBox(
                                                                   height: 18),
                                                               Text(
-                                                                  snapshot.data[index].vaccinationName,
-                                                                  style: Theme.of(context).textTheme.bodyText1),
+                                                                  snapshot
+                                                                      .data[
+                                                                          index]
+                                                                      .vaccinationName,
+                                                                  style: Theme.of(
+                                                                          context)
+                                                                      .textTheme
+                                                                      .bodyText1),
                                                             ]),
-                                                        subtitle: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                                                        subtitle: Column(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
                                                           children: <Widget>[
                                                             const SizedBox(
                                                                 height: 10),
-                                                            Text(AppLocalizations.of(context).date +
-                                                                DateFormat('dd.MM.yyyy').format(snapshot.data[index].vaccinationDate)),
+                                                            Text(AppLocalizations.of(
+                                                                        context)
+                                                                    .date +
+                                                                DateFormat(
+                                                                        'dd.MM.yyyy')
+                                                                    .format(snapshot
+                                                                        .data[
+                                                                            index]
+                                                                        .vaccinationDate)),
                                                             const SizedBox(
                                                                 height: 8),
-                                                            Text(AppLocalizations.of(context).chargeNr + snapshot.data[index].chargeNr),
+                                                            Text(AppLocalizations.of(
+                                                                        context)
+                                                                    .chargeNr +
+                                                                snapshot
+                                                                    .data[index]
+                                                                    .chargeNr),
                                                             const SizedBox(
                                                                 height: 8),
-                                                            Text(AppLocalizations.of(context).doctor + snapshot.data[index].doctorSignature.toString()),
+                                                            Text(AppLocalizations.of(
+                                                                        context)
+                                                                    .doctor +
+                                                                snapshot
+                                                                    .data[index]
+                                                                    .doctorSignature
+                                                                    .toString()),
                                                             const SizedBox(
                                                                 height: 18),
                                                           ],
