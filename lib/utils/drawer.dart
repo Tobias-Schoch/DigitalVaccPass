@@ -54,12 +54,8 @@ class MyDrawer extends StatelessWidget {
                   style: Theme.of(context).textTheme.headline6,
                 ),
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      PageTransition(
-                          type: PageTransitionType.size,
-                          alignment: Alignment.bottomCenter,
-                          child: const MyStatisticPage()));
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const MyStatisticPage()));
                 },
               ),
             ),
@@ -73,12 +69,8 @@ class MyDrawer extends StatelessWidget {
                   style: Theme.of(context).textTheme.headline6,
                 ),
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      PageTransition(
-                          type: PageTransitionType.size,
-                          alignment: Alignment.bottomCenter,
-                          child: const MyVaccinationAddPage()));
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const MyVaccinationAddPage()));
                 },
               ),
             ),
@@ -100,12 +92,8 @@ class MyDrawer extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline6,
               ),
               onTap: () {
-                Navigator.push(
-                    context,
-                    PageTransition(
-                        type: PageTransitionType.size,
-                        alignment: Alignment.bottomCenter,
-                        child: MyHomeScreenPage(selectedTabIndex: 0)));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => MyHomeScreenPage(selectedTabIndex: 0)));
               },
             ),
             ListTile(
@@ -116,26 +104,10 @@ class MyDrawer extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline6,
               ),
               onTap: () {
-                Navigator.push(
-                    context,
-                    PageTransition(
-                        type: PageTransitionType.size,
-                        alignment: Alignment.bottomCenter,
-                        child: MyHomeScreenPage(selectedTabIndex: 1)));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => MyHomeScreenPage(selectedTabIndex: 1)));
               },
             ),
-            // ListTile(
-            //   leading: Icon(Icons.qr_code_scanner_outlined),
-            //   title: Text(
-            //     'MyOnboardPage',
-            //     style: Theme.of(context).textTheme.headline6,
-            //   ),
-            //   onTap: () {
-            //     Navigator.of(context).push(
-            //         MaterialPageRoute(builder: (context) =>
-            //         MyOnboardPage()));
-            //   },
-            // ),
             ListTile(
               leading: const Icon(Icons.people_outline,
                   color: PredefinedColors.textColor),
@@ -144,12 +116,8 @@ class MyDrawer extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline6,
               ),
               onTap: () {
-                Navigator.push(
-                    context,
-                    PageTransition(
-                        type: PageTransitionType.size,
-                        alignment: Alignment.bottomCenter,
-                        child: const MyFamilyPage()));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const MyFamilyPage()));
               },
             ),
             ListTile(
@@ -160,12 +128,8 @@ class MyDrawer extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline6,
               ),
               onTap: () {
-                Navigator.push(
-                    context,
-                    PageTransition(
-                        type: PageTransitionType.size,
-                        alignment: Alignment.bottomCenter,
-                        child: const MyQRPage()));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const MyQRPage()));
               },
             ),
             const Divider(
@@ -183,12 +147,8 @@ class MyDrawer extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline6,
               ),
               onTap: () {
-                Navigator.push(
-                    context,
-                    PageTransition(
-                        type: PageTransitionType.size,
-                        alignment: Alignment.bottomCenter,
-                        child: const MyFaqPage()));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const MyFaqPage()));
               },
             ),
             ListTile(
@@ -199,12 +159,8 @@ class MyDrawer extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline6,
               ),
               onTap: () {
-                Navigator.push(
-                    context,
-                    PageTransition(
-                        type: PageTransitionType.size,
-                        alignment: Alignment.bottomCenter,
-                        child: const MyAboutPage()));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const MyAboutPage()));
               },
             ),
             ListTile(
@@ -215,30 +171,10 @@ class MyDrawer extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline6,
               ),
               onTap: () {
-                Navigator.push(
-                    context,
-                    PageTransition(
-                        type: PageTransitionType.size,
-                        alignment: Alignment.bottomCenter,
-                        child: const MyApp()));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const MyApp()));
               },
             ),
-            // ListTile(
-            //   leading:
-            //   const Icon(Icons.accessible, color: PredefinedColors.textColor),
-            //   title: Text(
-            //     'OnBoard',
-            //     style: Theme.of(context).textTheme.headline6,
-            //   ),
-            //   onTap: () {
-            //     Navigator.push(
-            //         context,
-            //         PageTransition(
-            //             type: PageTransitionType.size,
-            //             alignment: Alignment.bottomCenter,
-            //             child: OnBoardingPage()));
-            //   },
-            // ),
           ],
         ),
       );

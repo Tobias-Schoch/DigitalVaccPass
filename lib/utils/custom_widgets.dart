@@ -5,18 +5,13 @@ import 'package:page_transition/page_transition.dart';
 
 import '../qrScreen/qrcode.dart';
 
-/// Hero Dialog
 Widget myVisibleFloatingActionButton(BuildContext context, bool isVisible) =>
     Visibility(
         visible: isVisible,
         child: FloatingActionButton(
           onPressed: () {
-            Navigator.push(
-                context,
-                PageTransition(
-                    type: PageTransitionType.size,
-                    alignment: Alignment.bottomCenter,
-                    child: const MyQRPage()));
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const MyQRPage()));
           },
           backgroundColor: Theme.of(context).accentColor,
           child: const Icon(Icons.add),
@@ -27,12 +22,8 @@ Widget myVisibleFloatingActionButtonForQrScanner(BuildContext context, bool isVi
         visible: isVisible,
         child: FloatingActionButton(
           onPressed: () {
-            Navigator.push(
-                context,
-                PageTransition(
-                    type: PageTransitionType.size,
-                    alignment: Alignment.bottomCenter,
-                    child: QRViewExample(calledFrom: calledFromWidget)));
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => QRViewExample(calledFrom: calledFromWidget)));
           },
           backgroundColor: Theme.of(context).accentColor,
           child: const Icon(Icons.add),

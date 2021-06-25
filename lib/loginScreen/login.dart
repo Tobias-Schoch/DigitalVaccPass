@@ -152,12 +152,8 @@ class _MyLoginPageState extends State<MyLoginPage> {
                       primary: Theme.of(context).primaryColorLight,
                     ),
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          PageTransition(
-                              type: PageTransitionType.size,
-                              alignment: Alignment.bottomCenter,
-                              child: const MyForgotPasswordPage()));
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const MyForgotPasswordPage()));
                     },
                     child: Row(
                       children: <Widget>[
@@ -181,20 +177,12 @@ class _MyLoginPageState extends State<MyLoginPage> {
                               myEmailTextController.text.toLowerCase());
                           if (User.loggedInUser != null &&
                               User.loggedInUser.userRole == Role.doctor) {
-                            await Navigator.push(
-                                context,
-                                PageTransition(
-                                    type: PageTransitionType.size,
-                                    alignment: Alignment.bottomCenter,
-                                    child: const MyStatisticPage()));
+
+                            await Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const MyStatisticPage()));
                           } else {
-                            await Navigator.push(
-                                context,
-                                PageTransition(
-                                    type: PageTransitionType.size,
-                                    alignment: Alignment.bottomCenter,
-                                    child:
-                                        MyHomeScreenPage(selectedTabIndex: 0)));
+                            await Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => MyHomeScreenPage(selectedTabIndex: 0)));
                           }
 
                           LastUser.lastUser =
@@ -240,12 +228,8 @@ class _MyLoginPageState extends State<MyLoginPage> {
                         ),
                       ),
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            PageTransition(
-                                type: PageTransitionType.size,
-                                alignment: Alignment.bottomCenter,
-                                child: const MyRegisterPage()));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const MyRegisterPage()));
                       },
                       label: Flexible(
                           child: Text(AppLocalizations.of(context).register,

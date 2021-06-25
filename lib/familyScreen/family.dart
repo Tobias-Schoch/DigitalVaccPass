@@ -64,18 +64,13 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
                                             const SizedBox(height: 18),
                                             InkWell(
                                               onTap: () {
-                                                Navigator.push(
-                                                    context,
-                                                    PageTransition(
-                                                        type: PageTransitionType
-                                                            .size,
-                                                        alignment: Alignment
-                                                            .bottomCenter,
-                                                        child:
-                                                        MyFamilyHomeScreenPage(
-                                                            selectedUser:
-                                                                snapshot.data[
-                                                                    index])));
+                                                Navigator.of(context).push(
+                                                    MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            MyFamilyHomeScreenPage(
+                                                                selectedUser:
+                                                                    snapshot.data[
+                                                                        index])));
                                               },
                                               child: ListTile(
                                                 title: Text(
@@ -102,7 +97,7 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
           ],
         ),
       ),
-      floatingActionButton: myVisibleFloatingActionButtonForQrScanner(
-          context, true, "FAMILY"),
+      floatingActionButton:
+          myVisibleFloatingActionButtonForQrScanner(context, true, "FAMILY"),
       drawer: MyDrawer(isVisible: isDoctor));
 }

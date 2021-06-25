@@ -4,10 +4,8 @@ import 'package:digital_vac_pass/database/vaccination_DAO.dart';
 import 'package:digital_vac_pass/homeScreen/vaccination.dart';
 import 'package:digital_vac_pass/utils/user.dart';
 import 'package:flutter/material.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
-import '../doctorScreen/statistics.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../utils/app_bar.dart';
 import '../utils/util.dart';
@@ -43,13 +41,9 @@ class _QRViewExampleState extends State<QRViewExample> {
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
           leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
-            onPressed: () => Navigator.pop(
-                context,
-                PageTransition(
-                    type: PageTransitionType.size,
-                    alignment: Alignment.bottomCenter))
-          ),
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () =>
+                  Navigator.pop(context)),
           title: const MyHeader(),
           elevation: 0,
         ),
@@ -85,10 +79,17 @@ class _QRViewExampleState extends State<QRViewExample> {
       sleep(const Duration(milliseconds: 10));
       setState(() {
         switch (widget.calledFrom) {
-          case "VACCINE": _calledFromVaccine(scanData); break;
-          case "TEST": _calledFromTest(scanData); break;
-          case "FAMILY": _calledFromFamily(scanData); break;
-          default: break;
+          case "VACCINE":
+            _calledFromVaccine(scanData);
+            break;
+          case "TEST":
+            _calledFromTest(scanData);
+            break;
+          case "FAMILY":
+            _calledFromFamily(scanData);
+            break;
+          default:
+            break;
         }
       });
     });
@@ -97,20 +98,30 @@ class _QRViewExampleState extends State<QRViewExample> {
   void _calledFromVaccine(result) {
     if (result != null) {
       barcodeString = result.code.toString();
-      if (barcodeString.contains('VACCINE:') && barcodeString.contains('CHARGENR:') && barcodeString.contains('DATE:') && barcodeString.contains('DOCTOR:')) {
-        String vaccineName = barcodeString.substring(barcodeString.indexOf("VACCINE:") + 8, barcodeString.indexOf("\r\nCHARGENR:"));
-        String chargeNr = barcodeString.substring(barcodeString.indexOf("CHARGENR:") + 9, barcodeString.indexOf("\r\nDATE:"));
-        String dateAsString = barcodeString.substring(barcodeString.indexOf("DATE:") + 5, barcodeString.indexOf("\r\nDOCTOR:"));
+      if (barcodeString.contains('VACCINE:') &&
+          barcodeString.contains('CHARGENR:') &&
+          barcodeString.contains('DATE:') &&
+          barcodeString.contains('DOCTOR:')) {
+        String vaccineName = barcodeString.substring(
+            barcodeString.indexOf("VACCINE:") + 8,
+            barcodeString.indexOf("\r\nCHARGENR:"));
+        String chargeNr = barcodeString.substring(
+            barcodeString.indexOf("CHARGENR:") + 9,
+            barcodeString.indexOf("\r\nDATE:"));
+        String dateAsString = barcodeString.substring(
+            barcodeString.indexOf("DATE:") + 5,
+            barcodeString.indexOf("\r\nDOCTOR:"));
         List<String> c = dateAsString.split(".");
-        String doctorName = barcodeString.substring(barcodeString.indexOf("DOCTOR:") + 7);
-        DateTime date = DateTime.utc(int.parse(c.elementAt(2)), int.parse(c.elementAt(1)), int.parse(c.elementAt(0)));
-        VaccinationDAO.create(vaccineName, chargeNr, date, doctorName, null, User.loggedInUser.userDbId, null);
-        Navigator.push(
-            context,
-            PageTransition(
-                type: PageTransitionType.size,
-                alignment: Alignment.bottomCenter,
-                child: MyVaccinationPage(isFloatingActionButtonVisible: true, selectedUser: User.loggedInUser)));
+        String doctorName =
+            barcodeString.substring(barcodeString.indexOf("DOCTOR:") + 7);
+        DateTime date = DateTime.utc(int.parse(c.elementAt(2)),
+            int.parse(c.elementAt(1)), int.parse(c.elementAt(0)));
+        VaccinationDAO.create(vaccineName, chargeNr, date, doctorName, null,
+            User.loggedInUser.userDbId, null);
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => MyVaccinationPage(
+                isFloatingActionButtonVisible: true,
+                selectedUser: User.loggedInUser)));
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             behavior: SnackBarBehavior.floating,
@@ -119,12 +130,11 @@ class _QRViewExampleState extends State<QRViewExample> {
             content: Container(
                 height: 20,
                 child: Center(
-                  child:  Text(
+                  child: Text(
                     AppLocalizations.of(context).vaccineAdded,
                     textAlign: TextAlign.center,
                   ),
-                )
-            ),
+                )),
           ),
         );
       }
@@ -134,14 +144,12 @@ class _QRViewExampleState extends State<QRViewExample> {
   void _calledFromTest(result) {
     if (result != null) {
       barcodeString = result.code.toString();
-
     }
   }
 
   void _calledFromFamily(result) {
     if (result != null) {
       barcodeString = result.code.toString();
-
     }
   }
 

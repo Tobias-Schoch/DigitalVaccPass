@@ -250,12 +250,9 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                         //     myEmailTextController.text,
                         //     myPasswordTextController.text,
                         //     Role.normal));
-                        await Navigator.push(
-                            context,
-                            PageTransition(
-                                type: PageTransitionType.size,
-                                alignment: Alignment.bottomCenter,
-                                child: const MyLoginPage()));
+
+                        await Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const MyLoginPage()));
                       },
                       label: Flexible(
                         child: Text(AppLocalizations.of(context).register,

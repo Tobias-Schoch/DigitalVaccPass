@@ -168,12 +168,8 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(
-              context,
-              PageTransition(
-                  type: PageTransitionType.size,
-                  alignment: Alignment.bottomCenter,
-                  child: const MyVaccinationAddPage()));
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => const MyVaccinationAddPage()));
         },
         backgroundColor: Theme.of(context).accentColor,
         child: const Icon(Icons.add),
