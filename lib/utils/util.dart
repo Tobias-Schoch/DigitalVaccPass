@@ -17,8 +17,8 @@ class Util {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     final bool _seen = (prefs.getBool('firstStartabc') ?? false);
     if (!_seen) {
-      prefs.setBool('firstStartabc', true);
-      Navigator.of(context).pushReplacement(
+      await prefs.setBool('firstStartabc', true);
+      await Navigator.of(context).pushReplacement(
           new MaterialPageRoute(builder: (context) => const OnBoardingPage()));
     }
   }
