@@ -61,11 +61,11 @@ class _MyAboutPageState extends State<MyAboutPage> {
                         ]),
                     subtitle: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
+                      children: const <Widget>[
                         const SizedBox(height: 10),
-                        Text('Version 1.0', textAlign: TextAlign.left),
+                        const Text('Version 1.0', textAlign: TextAlign.left),
                         const SizedBox(height: 2),
-                        Text('© 2021 Luis Nothvogel & Tobias Schoch',
+                        const Text('© 2021 Luis Nothvogel & Tobias Schoch',
                             textAlign: TextAlign.left),
                         const SizedBox(height: 18),
                       ],
