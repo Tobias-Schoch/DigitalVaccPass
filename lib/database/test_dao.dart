@@ -33,7 +33,7 @@ class TestDAO {
         [userId]);
 
     final List<Test> vaccList = list.isNotEmpty
-        ? list.map((e) => Test.fromMap(e)).toList()
+        ? list.map((Map<String, Object> e) => Test.fromMap(e)).toList()
         : List<Test>.empty();
 
     return vaccList;
@@ -47,7 +47,7 @@ class TestDAO {
         [familyId]);
 
     final List<Test> vaccList = list.isNotEmpty
-        ? list.map((e) => Test.fromMap(e)).toList()
+        ? list.map((Map<String, Object> e) => Test.fromMap(e)).toList()
         : List<Test>.empty();
 
     return vaccList;

@@ -26,7 +26,7 @@ class FamilyDAO {
         await dbClient.rawQuery('SELECT * FROM ${DatabaseHelper.familyTable}');
 
     final List<User> familyMemberList = list.isNotEmpty
-        ? list.map((e) => User.familyMemberFromMap(e)).toList()
+        ? list.map((Map<String, Object> e) => User.familyMemberFromMap(e)).toList()
         : List<User>.empty();
 
     return familyMemberList;

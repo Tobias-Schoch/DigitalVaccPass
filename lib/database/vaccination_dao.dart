@@ -45,7 +45,7 @@ class VaccinationDAO {
         [userId]);
 
     final List<Vaccination> vaccList = list.isNotEmpty
-        ? list.map((e) => Vaccination.fromMap(e)).toList()
+        ? list.map((Map<String, Object> e) => Vaccination.fromMap(e)).toList()
         : List<Vaccination>.empty();
 
     return vaccList;
@@ -60,7 +60,7 @@ class VaccinationDAO {
         [familyId]);
 
     final List<Vaccination> vaccList = list.isNotEmpty
-        ? list.map((e) => Vaccination.fromMap(e)).toList()
+        ? list.map((Map<String, Object> e) => Vaccination.fromMap(e)).toList()
         : List<Vaccination>.empty();
 
     return vaccList;
