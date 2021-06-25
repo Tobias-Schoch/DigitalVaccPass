@@ -70,7 +70,6 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
     if (User.loggedInUser != null) {
       qrData += "DOCTOR: " + User.loggedInUser.userName + "\r\n";
       qrData = publicKey.encryptToBase64(qrData);
-      qrData = privateKey.decryptToUtf8(qrData);
     } else {
       qrData = null;
       return;
