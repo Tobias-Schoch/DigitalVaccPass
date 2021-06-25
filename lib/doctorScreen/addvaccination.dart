@@ -217,7 +217,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                               _buildQrData();
                               Navigator.of(context).push(HeroDialogRoute(
                                 builder: (BuildContext context) =>
-                                    AddTodoPopupCard(qrData),
+                                    PopupCard(qrData),
                               ));
                             }
                           },

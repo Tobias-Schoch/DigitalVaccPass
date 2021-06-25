@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -11,7 +12,15 @@ import '../utils/user.dart';
 class MyFamilyHomeScreenPage extends StatefulWidget {
   /// Single family
   const MyFamilyHomeScreenPage({Key key, this.selectedUser}) : super(key: key);
+
+  /// selected family member
   final User selectedUser;
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty<User>('absorbing', selectedUser));
+  }
 
   @override
   State<StatefulWidget> createState() => _MyFamilyHomeScreenPage();

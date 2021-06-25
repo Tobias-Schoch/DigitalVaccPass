@@ -64,7 +64,7 @@ class DatabaseHelper {
     await db.execute(vaccinesTable);
     await db.execute(testsTable);
     // await db.execute(statisticTable);
-    _initTestData(db);
+    await _initTestData(db);
   }
 
   Future<void> _initTestData(Database db) async {

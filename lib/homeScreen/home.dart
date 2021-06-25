@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -13,7 +14,14 @@ import '../utils/util.dart';
 class MyHomeScreenPage extends StatefulWidget {
   /// Home screen to chose between vaccinations and tests
   MyHomeScreenPage({Key key, this.selectedTabIndex}) : super(key: key);
+  /// Selected tab (vaccinations, tests)
   int selectedTabIndex = 0;
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty<int>('absorbing', selectedTabIndex));
+  }
 
   @override
   State<StatefulWidget> createState() => _MyHomeScreenPage();
@@ -27,7 +35,6 @@ class _MyHomeScreenPage extends State<MyHomeScreenPage>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(vsync: this, length: 2, initialIndex: 0);
     selectTab(widget.selectedTabIndex);
     Util.checkFirstSeen(context);
   }
@@ -86,4 +93,9 @@ class _MyHomeScreenPage extends State<MyHomeScreenPage>
       drawer: MyDrawer(
         isVisible: isDoctor,
       ));
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty<bool>('absorbing', isDoctor));
+  }
 }
