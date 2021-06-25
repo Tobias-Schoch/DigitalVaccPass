@@ -29,12 +29,25 @@ class Util {
 
 /// All colors defined for this project
 class PredefinedColors {
+  /// Color for pending test
   static const Color lightOrange = Color(0xffFFFACC);
+
+  /// Color for positive test
   static const Color lightRed = Color(0xffFEC3C3);
+
+  /// Color for negative test
   static const Color lightGreen = Color(0xffDEFFDB);
+
+  /// Primary color
   static const Color primaryColor = Color(0xff5D5FEF);
+
+  /// Text color
   static const Color textColor = Color(0xff263238);
+
+  /// Background text color if no vaccinations or tests are added
   static const Color backgroundTextColor = Color(0xffcbcbf3);
+
+  /// Our specific White
   static const Color accentWhite = Color(0xfffafafa);
 }
 
@@ -48,20 +61,17 @@ class LastUser {
 class TestData {
   /// user logins
   static List<User> userListDb = [
-    User.withData('Luis Nothvogel', 't', 't', Role.normal, vaccinationListDb,
-        testsListDb),
+    User.withData(testsListDb, 't', 'Luis Nothvogel', 't', Role.normal,
+        vaccinationListDb),
     User.withData(
-        'Dr. Anna Mayer', 'a', 'a', Role.doctor, vaccinationListDb, testsListDb)
+        testsListDb, 'a', 'Dr. Anna Mayer', 'a', Role.doctor, vaccinationListDb)
   ];
 
   /// family member
   static List<User> familyUserDb = [
-    User.withData('test', 'test@test.de', 'pw', Role.normal, vaccinationListDb,
-        testsListDb),
-    User.withData('test1', 'test1@test.de', 'pw1', Role.normal,
-        vaccinationListDb, testsListDb),
-    User.withData('test2', 'test2@test.de', 'pw2', Role.normal,
-        vaccinationListDb, testsListDb),
+    User.withData(testsListDb, 'test@test.de', 'test', 'pw', Role.normal, vaccinationListDb),
+    User.withData(testsListDb, 'test1@test.de', 'test1', 'pw1', Role.normal, vaccinationListDb),
+    User.withData(testsListDb, 'test2@test.de', 'test2', 'pw2', Role.normal, vaccinationListDb),
   ];
 
   /// Example date

@@ -2,13 +2,19 @@ import '../utils/util.dart';
 
 /// Test
 class Test {
+  /// test name
   String testName;
+  /// test ID
   String testIdNr;
+  /// test date
   DateTime testDate;
+  /// test status
   Status testStatus;
+  /// test description
   String testDescription;
-
+  /// User id
   int userId;
+  /// Single Family member id
   int familyId;
 
   /// Single Test

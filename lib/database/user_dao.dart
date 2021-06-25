@@ -37,7 +37,7 @@ class UserDAO {
     final Database dbClient = await con.db;
     final List<Map<String, Object>> list = await dbClient.rawQuery(
         'SELECT USER_ID FROM ${DatabaseHelper.userTable} '
-            'WHERE USER_EMAIL = ? AND PASSWORD = ?',
+        'WHERE USER_EMAIL = ? AND PASSWORD = ?',
         [userEmail, userPassword]);
     if (list.isNotEmpty) {
       return true;

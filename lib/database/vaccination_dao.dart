@@ -10,26 +10,28 @@ final DatabaseHelper con = DatabaseHelper();
 class VaccinationDAO {
   /// Add vaccination
   static Future<int> create(
-      String vaccinationName,
-      String chargeNr,
-      DateTime vaccinationDate,
-      String doctorSignature,
-      String vaccinationDescription,
-      int userId,
-      int familyId) async {
+    String chargeNr,
+    String doctorSignature,
+    int familyId,
+    int userId,
+    DateTime vaccinationDate,
+    String vaccinationDescription,
+    String vaccinationName,
+  ) async {
     final Database dbClient = await con.db;
     if (vaccinationName != null &&
         vaccinationName.isNotEmpty &&
         chargeNr != null &&
         chargeNr.isNotEmpty) {
       final Vaccination insertVaccine = Vaccination.forDb(
-          vaccinationName,
-          chargeNr,
-          vaccinationDate,
-          doctorSignature,
-          vaccinationDescription,
-          userId,
-          familyId);
+        chargeNr,
+        doctorSignature,
+        familyId,
+        userId,
+        vaccinationDate,
+        vaccinationDescription,
+        vaccinationName,
+      );
       final int id = await dbClient.insert(
           DatabaseHelper.vaccinesTable, insertVaccine.toMap());
       return id;
