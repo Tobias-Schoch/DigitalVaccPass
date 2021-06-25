@@ -19,7 +19,7 @@ class MyFamilyHomeScreenPage extends StatefulWidget {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<User>('absorbing', selectedUser));
+    properties.add(DiagnosticsProperty<User>('selectedUser', selectedUser));
   }
 
   @override

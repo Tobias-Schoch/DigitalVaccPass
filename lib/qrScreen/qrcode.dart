@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
@@ -20,8 +21,10 @@ class _MyQRPageState extends State<MyQRPage> {
     const String qrData = '';
 
     // if (User.loggedInUser != null) {
-    //   List<Vaccination> vaccList = VaccinationDAO.getAllVaccinesForUser(User.loggedInUser.userDbId);
-    //   List<Test> testList = TestDAO.getAllTestsForUser(User.loggedInUser.userDbId);
+    //   List<Vaccination> vaccList = VaccinationDAO.getAllVaccinesForUser
+    //   (User.loggedInUser.userDbId);
+    //   List<Test> testList = TestDAO.getAllTestsForUser
+    //   (User.loggedInUser.userDbId);
     //   qrData += "EMAIL: " + User.loggedInUser.userEmail + "\r\n";
     //   qrData += "NAME: " + User.loggedInUser.userName + "\r\n";
     //
@@ -65,8 +68,8 @@ class _MyQRPageState extends State<MyQRPage> {
   bool isDoctor = User.loggedInUser == null
       ? false
       : User.loggedInUser.userRole == Role.doctor
-      ? true
-      : false;
+          ? true
+          : false;
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -99,9 +102,8 @@ class _MyQRPageState extends State<MyQRPage> {
                 children: <Widget>[
                   Visibility(
                     visible: User.loggedInUser == null ? false : true,
-                    child: QrImage (
+                    child: QrImage(
                       data: qrData(LastUser.lastUser),
-                      version: QrVersions.auto,
                       size: 200,
                     ),
                   ),
@@ -116,4 +118,10 @@ class _MyQRPageState extends State<MyQRPage> {
         ),
       ),
       drawer: MyDrawer(isVisible: isDoctor));
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty<bool>('isDoctor', isDoctor));
+  }
 }

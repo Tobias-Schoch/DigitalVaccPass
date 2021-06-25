@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -20,8 +21,8 @@ class MyLoginPage extends StatefulWidget {
 }
 
 class _MyLoginPageState extends State<MyLoginPage> {
-  final myEmailTextController = TextEditingController();
-  final myPasswordController = TextEditingController();
+  final TextEditingController myEmailTextController = TextEditingController();
+  final TextEditingController myPasswordController = TextEditingController();
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -152,7 +153,8 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     ),
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const MyForgotPasswordPage()));
+                          builder: (BuildContext context) =>
+                              const MyForgotPasswordPage()));
                     },
                     child: Row(
                       children: <Widget>[
@@ -178,10 +180,11 @@ class _MyLoginPageState extends State<MyLoginPage> {
                           if (User.loggedInUser != null &&
                               User.loggedInUser.userRole == Role.doctor) {
                             await Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const MyStatisticPage()));
+                                builder: (BuildContext context) =>
+                                    const MyStatisticPage()));
                           } else {
                             await Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) =>
+                                builder: (BuildContext context) =>
                                     MyHomeScreenPage(selectedTabIndex: 0)));
                           }
 
@@ -231,7 +234,8 @@ class _MyLoginPageState extends State<MyLoginPage> {
                       ),
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const MyRegisterPage()));
+                            builder: (BuildContext context) =>
+                                const MyRegisterPage()));
                       },
                       label: Flexible(
                           child: Text(AppLocalizations.of(context).register,
@@ -249,4 +253,13 @@ class _MyLoginPageState extends State<MyLoginPage> {
           ),
         ),
       );
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty<TextEditingController>(
+        'myEmailTextController', myEmailTextController));
+    properties.add(DiagnosticsProperty<TextEditingController>(
+        'myPasswordController', myPasswordController));
+  }
 }

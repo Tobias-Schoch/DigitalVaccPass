@@ -33,7 +33,7 @@ class Vaccination {
   /// Map vaccination
   Map<String, dynamic> toMap() {
     /// map
-    final map = Map<String, dynamic>();
+    final Map<String, dynamic> map = <String, dynamic>{};
     map['VACCINE_NAME'] = vaccinationName;
     map['CHARGE_NR'] = chargeNr;
     map['VACCINE_DATE'] = vaccinationDate.toString();

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -16,9 +17,10 @@ class MyRegisterPage extends StatefulWidget {
 }
 
 class _MyRegisterPageState extends State<MyRegisterPage> {
-  final myPasswordTextController = TextEditingController();
-  final myNameTextController = TextEditingController();
-  final myEmailTextController = TextEditingController();
+  final TextEditingController myPasswordTextController =
+      TextEditingController();
+  final TextEditingController myNameTextController = TextEditingController();
+  final TextEditingController myEmailTextController = TextEditingController();
   bool selectedDoctor = false;
 
   final GlobalKey<FormState> _formRegisterKey = GlobalKey<FormState>();
@@ -32,8 +34,7 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
   }
 
   @override
-  Widget build(BuildContext context) =>
-      Scaffold(
+  Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
           title: const MyHeader(),
           elevation: 0,
@@ -47,64 +48,43 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Text(AppLocalizations
-                      .of(context)
-                      .registration,
-                      style: Theme
-                          .of(context)
-                          .textTheme
-                          .headline4,
+                  Text(AppLocalizations.of(context).registration,
+                      style: Theme.of(context).textTheme.headline4,
                       textAlign: TextAlign.left),
                   const SizedBox(height: 25),
                   TextFormField(
                     controller: myNameTextController,
                     autofocus: true,
-                    cursorColor: Theme
-                        .of(context)
-                        .primaryColorLight,
+                    cursorColor: Theme.of(context).primaryColorLight,
                     decoration: InputDecoration(
-                      labelText: AppLocalizations
-                          .of(context)
-                          .firstLastName,
-                      fillColor: Theme
-                          .of(context)
-                          .accentColor,
+                      labelText: AppLocalizations.of(context).firstLastName,
+                      fillColor: Theme.of(context).accentColor,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
                         borderSide: BorderSide(
-                          color: Theme
-                              .of(context)
-                              .accentColor,
+                          color: Theme.of(context).accentColor,
                           width: 3,
                         ),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
                         borderSide: BorderSide(
-                          color: Theme
-                              .of(context)
-                              .primaryColorLight,
+                          color: Theme.of(context).primaryColorLight,
                           width: 3,
                         ),
                       ),
                       focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
                           borderSide: BorderSide(
-                            color: Theme
-                                .of(context)
-                                .accentColor,
+                            color: Theme.of(context).accentColor,
                             width: 3,
                           )),
                       labelStyle:
-                      TextStyle(color: Theme
-                          .of(context)
-                          .primaryColorLight),
+                          TextStyle(color: Theme.of(context).primaryColorLight),
                     ),
                     validator: (String value) {
                       if (value.isEmpty) {
-                        return AppLocalizations
-                            .of(context)
-                            .nameCantBeEmpty;
+                        return AppLocalizations.of(context).nameCantBeEmpty;
                       } else {
                         return null;
                       }
@@ -113,56 +93,38 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                   const SizedBox(height: 25),
                   TextFormField(
                     controller: myEmailTextController,
-                    cursorColor: Theme
-                        .of(context)
-                        .primaryColorLight,
+                    cursorColor: Theme.of(context).primaryColorLight,
                     decoration: InputDecoration(
-                      labelText: AppLocalizations
-                          .of(context)
-                          .email,
-                      fillColor: Theme
-                          .of(context)
-                          .accentColor,
+                      labelText: AppLocalizations.of(context).email,
+                      fillColor: Theme.of(context).accentColor,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
                         borderSide: BorderSide(
-                          color: Theme
-                              .of(context)
-                              .accentColor,
+                          color: Theme.of(context).accentColor,
                           width: 3,
                         ),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
                         borderSide: BorderSide(
-                          color: Theme
-                              .of(context)
-                              .primaryColorLight,
+                          color: Theme.of(context).primaryColorLight,
                           width: 3,
                         ),
                       ),
                       focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
                           borderSide: BorderSide(
-                            color: Theme
-                                .of(context)
-                                .accentColor,
+                            color: Theme.of(context).accentColor,
                             width: 3,
                           )),
                       labelStyle:
-                      TextStyle(color: Theme
-                          .of(context)
-                          .primaryColorLight),
+                          TextStyle(color: Theme.of(context).primaryColorLight),
                     ),
                     validator: (String value) {
                       if (value.isEmpty) {
-                        return AppLocalizations
-                            .of(context)
-                            .emailCantBeEmpty;
+                        return AppLocalizations.of(context).emailCantBeEmpty;
                       } else if (!value.contains('@')) {
-                        return AppLocalizations
-                            .of(context)
-                            .notAValidEmail;
+                        return AppLocalizations.of(context).notAValidEmail;
                       } else {
                         return null;
                       }
@@ -172,61 +134,41 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                   const SizedBox(height: 25),
                   TextFormField(
                     controller: myPasswordTextController,
-                    cursorColor: Theme
-                        .of(context)
-                        .primaryColorLight,
+                    cursorColor: Theme.of(context).primaryColorLight,
                     decoration: InputDecoration(
-                      labelText: AppLocalizations
-                          .of(context)
-                          .password,
-                      fillColor: Theme
-                          .of(context)
-                          .accentColor,
+                      labelText: AppLocalizations.of(context).password,
+                      fillColor: Theme.of(context).accentColor,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
                         borderSide: BorderSide(
-                          color: Theme
-                              .of(context)
-                              .accentColor,
+                          color: Theme.of(context).accentColor,
                           width: 3,
                         ),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
                         borderSide: BorderSide(
-                          color: Theme
-                              .of(context)
-                              .primaryColorLight,
+                          color: Theme.of(context).primaryColorLight,
                           width: 3,
                         ),
                       ),
                       focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
                           borderSide: BorderSide(
-                            color: Theme
-                                .of(context)
-                                .accentColor,
+                            color: Theme.of(context).accentColor,
                             width: 3,
                           )),
                       labelStyle:
-                      TextStyle(color: Theme
-                          .of(context)
-                          .primaryColorLight),
+                          TextStyle(color: Theme.of(context).primaryColorLight),
                     ),
                     obscureText: true,
                     validator: (String value) {
                       if (value.isEmpty) {
-                        return AppLocalizations
-                            .of(context)
-                            .passwordCantBeEmpty;
+                        return AppLocalizations.of(context).passwordCantBeEmpty;
                       } else if (value.length < 8) {
-                        return AppLocalizations
-                            .of(context)
-                            .passwordErrLength;
+                        return AppLocalizations.of(context).passwordErrLength;
                       } else if (!value.contains(RegExp(r'[0-9]'))) {
-                        return AppLocalizations
-                            .of(context)
-                            .passwordErrNumber;
+                        return AppLocalizations.of(context).passwordErrNumber;
                       } else {
                         return null;
                       }
@@ -234,53 +176,40 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                   ),
                   const SizedBox(height: 25),
                   TextFormField(
-                    cursorColor: Theme
-                        .of(context)
-                        .primaryColorLight,
+                    cursorColor: Theme.of(context).primaryColorLight,
                     decoration: InputDecoration(
                       labelText: 'Passwort wiederholen',
-                      fillColor: Theme
-                          .of(context)
-                          .accentColor,
+                      fillColor: Theme.of(context).accentColor,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
                         borderSide: BorderSide(
-                          color: Theme
-                              .of(context)
-                              .accentColor,
+                          color: Theme.of(context).accentColor,
                           width: 3,
                         ),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
                         borderSide: BorderSide(
-                          color: Theme
-                              .of(context)
-                              .primaryColorLight,
+                          color: Theme.of(context).primaryColorLight,
                           width: 3,
                         ),
                       ),
                       focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
                           borderSide: BorderSide(
-                            color: Theme
-                                .of(context)
-                                .accentColor,
+                            color: Theme.of(context).accentColor,
                             width: 3,
                           )),
                       labelStyle:
-                      TextStyle(color: Theme
-                          .of(context)
-                          .primaryColorLight),
+                          TextStyle(color: Theme.of(context).primaryColorLight),
                     ),
                     obscureText: true,
                     validator: (String value) {
                       if (myPasswordTextController.value.text
-                          .compareTo(value) !=
-                          0 ||
+                                  .compareTo(value) !=
+                              0 ||
                           value.isEmpty) {
-                        return AppLocalizations
-                            .of(context)
+                        return AppLocalizations.of(context)
                             .passwordErrDontMatch;
                       } else {
                         return null;
@@ -296,15 +225,12 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                       onChanged: (bool value) {
                         setState(() {
                           selectedDoctor =
-                          selectedDoctor == true ? false : true;
+                              selectedDoctor == true ? false : true;
                         });
                       },
                     ),
                     const SizedBox(width: 25),
-                    Text(
-                        AppLocalizations
-                            .of(context)
-                            .registerAsDoctor),
+                    Text(AppLocalizations.of(context).registerAsDoctor),
                   ]),
                   const SizedBox(height: 25),
                   ConstrainedBox(
@@ -326,12 +252,11 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                         //     Role.normal));
 
                         await Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const MyLoginPage()));
+                            builder: (BuildContext context) =>
+                                const MyLoginPage()));
                       },
                       label: Flexible(
-                        child: Text(AppLocalizations
-                            .of(context)
-                            .register,
+                        child: Text(AppLocalizations.of(context).register,
                             style: const TextStyle(fontSize: 20)),
                       ),
                       icon: const Icon(Icons.how_to_reg),
@@ -343,4 +268,16 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
           ),
         ),
       );
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty<TextEditingController>(
+        'myPasswordTextController', myPasswordTextController));
+    properties.add(DiagnosticsProperty<TextEditingController>(
+        'myNameTextController', myNameTextController));
+    properties.add(DiagnosticsProperty<TextEditingController>(
+        'myEmailTextController', myEmailTextController));
+    properties.add(DiagnosticsProperty<bool>('selectedDoctor', selectedDoctor));
+  }
 }

@@ -20,7 +20,7 @@ class MyHomeScreenPage extends StatefulWidget {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<int>('absorbing', selectedTabIndex));
+    properties.add(DiagnosticsProperty<int>('selectedTabIndex', selectedTabIndex));
   }
 
   @override
@@ -96,6 +96,6 @@ class _MyHomeScreenPage extends State<MyHomeScreenPage>
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<bool>('absorbing', isDoctor));
+    properties.add(DiagnosticsProperty<bool>('isDoctor', isDoctor));
   }
 }

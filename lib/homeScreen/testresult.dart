@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
@@ -17,6 +18,14 @@ class MyTestPage extends StatefulWidget {
 
   final User selectedUser;
   final bool isFloatingActionButtonVisible;
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty<User>('selectedUser', selectedUser));
+    properties.add(
+        DiagnosticsProperty<bool>('isFloatingActionButtonVisible', isFloatingActionButtonVisible));
+  }
 
   @override
   _MyTestPageState createState() => _MyTestPageState();
@@ -49,7 +58,7 @@ class _MyTestPageState extends State<MyTestPage> {
               Expanded(
                   child: FutureBuilder<bool>(
                       future: testNotEmpty(),
-                      builder: (context, snapshot) {
+                      builder: (BuildContext context, AsyncSnapshot snapshot) {
                         if (snapshot.data == null) {
                           return const CircularProgressIndicator();
                         } else if (snapshot.data == true) {
@@ -68,108 +77,69 @@ class _MyTestPageState extends State<MyTestPage> {
                                                 .backgroundTextColor))),
                               ]);
                         } else {
-                          return FutureBuilder<List>(
+                          return FutureBuilder<List<Test>>(
                             future: widget.isFloatingActionButtonVisible
                                 ? TestDAO.getAllTestsForUser(
                                     widget.selectedUser.userDbId)
                                 : TestDAO.getAllTestsForFamilyUser(
                                     widget.selectedUser.userDbId),
-                            builder: (context, snapshot) => snapshot.hasData
-                                ? ListView.builder(
-                                    itemCount: snapshot.data.length,
-                                    itemBuilder: (context, index) => Column(
-                                          children: <Widget>[
-                                            Card(
-                                              color: snapshot.data[index]
-                                                          .testStatus ==
-                                                      Status.pending
-                                                  ? PredefinedColors.lightOrange
-                                                  : snapshot.data[index]
-                                                              .testStatus ==
-                                                          Status.good
-                                                      ? PredefinedColors
-                                                          .lightGreen
-                                                      : PredefinedColors
-                                                          .lightRed,
-                                              child: Row(
-                                                children: <Widget>[
-                                                  Expanded(
-                                                    child: Column(
+                            builder:
+                                (BuildContext context,
+                                        AsyncSnapshot snapshot) =>
+                                    snapshot.hasData
+                                        ? ListView.builder(
+                                            itemCount: snapshot.data.length,
+                                            itemBuilder:
+                                                (BuildContext context,
+                                                        int index) =>
+                                                    Column(
                                                       children: <Widget>[
-                                                        ListTile(
-                                                          title: Column(
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
+                                                        Card(
+                                                          color: snapshot.data[index].testStatus == Status.pending ? PredefinedColors.lightOrange
+                                                              : snapshot.data[index].testStatus == Status.good ? PredefinedColors.lightGreen
+                                                              : PredefinedColors.lightRed,
+                                                          child: Row(
                                                             children: <Widget>[
-                                                              const SizedBox(
-                                                                  height: 18),
-                                                              Text(
-                                                                snapshot
-                                                                    .data[index]
-                                                                    .testName,
-                                                                style: Theme.of(
-                                                                        context)
-                                                                    .textTheme
-                                                                    .bodyText1,
+                                                              Expanded(
+                                                                child: Column(
+                                                                  children:
+                                                                  <Widget>[
+                                                                    ListTile(
+                                                                      title: Column(
+                                                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                                                        children: <Widget>[
+                                                                          const SizedBox(height: 18),
+                                                                          Text(
+                                                                            snapshot.data[index].testName,
+                                                                            style: Theme.of(context).textTheme.bodyText1,
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                      subtitle: Column(
+                                                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                                                        children: <Widget>[
+                                                                          const SizedBox(height: 10),
+                                                                          Text(AppLocalizations.of(context).date + DateFormat('dd.MM.yyyy').format(snapshot.data[index].testDate)),
+                                                                          const SizedBox(height: 8),
+                                                                          Text(AppLocalizations.of(context).testID + snapshot.data[index].testIdNr),
+                                                                          const SizedBox(height: 8),
+                                                                          Text(snapshot.data[index].testStatus.toString().substring(snapshot.data[index].testStatus.toString().indexOf('.') + 1)),
+                                                                          const SizedBox(height: 18),
+                                                                        ],
+                                                                      ),
+                                                                    )
+                                                                  ],
+                                                                ),
                                                               ),
                                                             ],
                                                           ),
-                                                          subtitle: Column(
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: <Widget>[
-                                                              const SizedBox(
-                                                                  height: 10),
-                                                              Text(AppLocalizations.of(
-                                                                          context)
-                                                                      .date +
-                                                                  DateFormat(
-                                                                          'dd.MM.yyyy')
-                                                                      .format(snapshot
-                                                                          .data[
-                                                                              index]
-                                                                          .testDate)),
-                                                              const SizedBox(
-                                                                  height: 8),
-                                                              Text(AppLocalizations.of(
-                                                                          context)
-                                                                      .testID +
-                                                                  snapshot
-                                                                      .data[
-                                                                          index]
-                                                                      .testIdNr),
-                                                              const SizedBox(
-                                                                  height: 8),
-                                                              Text(snapshot
-                                                                  .data[index]
-                                                                  .testStatus
-                                                                  .toString()
-                                                                  .substring(snapshot
-                                                                          .data[
-                                                                              index]
-                                                                          .testStatus
-                                                                          .toString()
-                                                                          .indexOf(
-                                                                              '.') +
-                                                                      1)),
-                                                              const SizedBox(
-                                                                  height: 18),
-                                                            ],
-                                                          ),
-                                                        )
+                                                        ),
+                                                        const SizedBox(
+                                                            height: 20),
                                                       ],
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                            const SizedBox(height: 20),
-                                          ],
-                                        ))
-                                : const Center(
-                                    child: CircularProgressIndicator()),
+                                                    ))
+                                        : const Center(
+                                            child: CircularProgressIndicator()),
                           );
                         }
                       }))

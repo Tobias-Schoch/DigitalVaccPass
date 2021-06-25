@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -17,6 +18,12 @@ class MyDrawer extends StatefulWidget {
   /// Drawer
   MyDrawer({Key key, this.isVisible}) : super(key: key);
   bool isVisible;
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty<bool>('isVisible', isVisible));
+  }
 
   @override
   State<StatefulWidget> createState() => _MyDrawer();
@@ -65,7 +72,7 @@ class _MyDrawer extends State<MyDrawer> {
                 ),
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const MyStatisticPage()));
+                      builder: (BuildContext context) => const MyStatisticPage()));
                 },
               ),
             ),
@@ -80,7 +87,7 @@ class _MyDrawer extends State<MyDrawer> {
                 ),
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const MyVaccinationAddPage()));
+                      builder: (BuildContext context) => const MyVaccinationAddPage()));
                 },
               ),
             ),
@@ -103,7 +110,7 @@ class _MyDrawer extends State<MyDrawer> {
               ),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) =>
+                    builder: (BuildContext context) =>
                         MyHomeScreenPage(selectedTabIndex: 0)));
               },
             ),
@@ -116,7 +123,7 @@ class _MyDrawer extends State<MyDrawer> {
               ),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) =>
+                    builder: (BuildContext context) =>
                         MyHomeScreenPage(selectedTabIndex: 1)));
               },
             ),
@@ -129,7 +136,7 @@ class _MyDrawer extends State<MyDrawer> {
               ),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const MyFamilyPage()));
+                    builder: (BuildContext context) => const MyFamilyPage()));
               },
             ),
             ListTile(
@@ -141,7 +148,7 @@ class _MyDrawer extends State<MyDrawer> {
               ),
               onTap: () {
                 Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => const MyQRPage()));
+                    MaterialPageRoute(builder: (BuildContext context) => const MyQRPage()));
               },
             ),
             Divider(
@@ -160,7 +167,7 @@ class _MyDrawer extends State<MyDrawer> {
               ),
               onTap: () {
                 Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => const MyFaqPage()));
+                    MaterialPageRoute(builder: (BuildContext context) => const MyFaqPage()));
               },
             ),
             ListTile(
@@ -172,7 +179,7 @@ class _MyDrawer extends State<MyDrawer> {
               ),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const MyAboutPage()));
+                    builder: (BuildContext context) => const MyAboutPage()));
               },
             ),
             ListTile(
@@ -184,7 +191,7 @@ class _MyDrawer extends State<MyDrawer> {
               ),
               onTap: () {
                 Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => const MyApp()));
+                    MaterialPageRoute(builder: (BuildContext context) => const MyApp()));
               },
             ),
           ],

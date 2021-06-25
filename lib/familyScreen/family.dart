@@ -47,7 +47,7 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
                 textAlign: TextAlign.left),
             const SizedBox(height: 25),
             Expanded(
-              child: FutureBuilder<List>(
+              child: FutureBuilder<List<User>>(
                 future: FamilyDAO.getAllFamilyMembers(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) =>
                     snapshot.hasData
@@ -67,11 +67,8 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
                                                   onTap: () {
                                                     Navigator.of(context).push(
                                                         MaterialPageRoute(
-                                                            builder: (context) =>
-                                                                MyFamilyHomeScreenPage(
-                                                                    selectedUser:
-                                                                        snapshot
-                                                                            .data[index])));
+                                                            builder: (BuildContextcontext) =>
+                                                                MyFamilyHomeScreenPage(selectedUser: snapshot.data[index])));
                                                   },
                                                   child: ListTile(
                                                     title: Text(
@@ -106,6 +103,6 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<bool>('absorbing', isDoctor));
+    properties.add(DiagnosticsProperty<bool>('isDoctor', isDoctor));
   }
 }

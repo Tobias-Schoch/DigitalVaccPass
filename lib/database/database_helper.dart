@@ -37,7 +37,7 @@ class DatabaseHelper {
     return _db;
   }
 
-  Future<Database> _onCreate(Database db, int version) async {
+  Future<void> _onCreate(Database db, int version) async {
     //id, name, email, role, pw
     const String userTable =
         'CREATE TABLE USER (USER_ID INTEGER PRIMARY KEY AUTOINCREMENT, '

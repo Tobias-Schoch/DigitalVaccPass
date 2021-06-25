@@ -1,4 +1,5 @@
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -8,10 +9,10 @@ import 'l10n/l10n.dart';
 import 'loginScreen/login.dart';
 import 'utils/util.dart';
 
-main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    statusBarColor: const Color(0x00fafafa),
+    statusBarColor: Color(0x00fafafa),
   ));
   runApp(const MyApp());
 }
@@ -66,31 +67,31 @@ class MyApp extends StatelessWidget {
           ),
         ),
         textTheme: const TextTheme(
-          headline1: const TextStyle(
+          headline1: TextStyle(
               fontWeight: FontWeight.w700,
               fontSize: 35,
               color: PredefinedColors.textColor),
-          headline3: const TextStyle(
+          headline3: TextStyle(
               fontWeight: FontWeight.w700,
               fontSize: 20,
               color: PredefinedColors.textColor),
-          headline4: const TextStyle(
+          headline4: TextStyle(
               fontWeight: FontWeight.w700,
               fontSize: 30,
               color: PredefinedColors.textColor),
-          headline5: const TextStyle(
+          headline5: TextStyle(
               fontWeight: FontWeight.w500,
               fontSize: 20,
               color: PredefinedColors.textColor),
-          headline6: const TextStyle(
+          headline6: TextStyle(
               fontWeight: FontWeight.w500,
               fontSize: 15,
               color: PredefinedColors.textColor),
-          bodyText1: const TextStyle(
+          bodyText1: TextStyle(
               fontWeight: FontWeight.w700,
               fontSize: 24,
               color: PredefinedColors.textColor),
-          bodyText2: const TextStyle(
+          bodyText2: TextStyle(
               fontWeight: FontWeight.w400,
               fontSize: 20,
               color: PredefinedColors.textColor),
@@ -110,6 +111,12 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty<String>('title', title));
+  }
+
+  @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
@@ -127,6 +134,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) =>
       const Scaffold(
-        body: const MyLoginPage(),
+        body: MyLoginPage(),
       );
 }

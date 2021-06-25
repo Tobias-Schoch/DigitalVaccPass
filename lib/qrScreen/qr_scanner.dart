@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:ninja/ninja.dart';
@@ -17,6 +18,12 @@ class QRViewExample extends StatefulWidget {
   const QRViewExample({Key key, this.calledFrom}) : super(key: key);
 
   final String calledFrom;
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty<String>('calledFrom', calledFrom));
+  }
 
   @override
   State<StatefulWidget> createState() => _QRViewExampleState();
@@ -43,8 +50,7 @@ class _QRViewExampleState extends State<QRViewExample> {
         appBar: AppBar(
           leading: IconButton(
               icon: const Icon(Icons.arrow_back),
-              onPressed: () =>
-                  Navigator.pop(context)),
+              onPressed: () => Navigator.pop(context)),
           title: const MyHeader(),
           elevation: 0,
         ),
@@ -73,7 +79,7 @@ class _QRViewExampleState extends State<QRViewExample> {
   }
 
   void _onQRViewCreated(QRViewController controller) {
-    final privateKey = RSAPrivateKey.fromPEM(privateKeyPem);
+    final RSAPrivateKey privateKey = RSAPrivateKey.fromPEM(privateKeyPem);
     setState(() {
       this.controller = controller;
     });
@@ -81,13 +87,13 @@ class _QRViewExampleState extends State<QRViewExample> {
       sleep(const Duration(milliseconds: 10));
       setState(() {
         switch (widget.calledFrom) {
-          case "VACCINE":
+          case 'VACCINE':
             _calledFromVaccine(privateKey.decryptToUtf8(scanData));
             break;
-          case "TEST":
+          case 'TEST':
             _calledFromTest(scanData);
             break;
-          case "FAMILY":
+          case 'FAMILY':
             _calledFromFamily(scanData);
             break;
           default:
@@ -97,31 +103,30 @@ class _QRViewExampleState extends State<QRViewExample> {
     });
   }
 
-  void _calledFromVaccine(result) {
+  void _calledFromVaccine(String result) {
     if (result != null) {
-      barcodeString = result.code.toString();
       if (barcodeString.contains('VACCINE:') &&
           barcodeString.contains('CHARGENR:') &&
           barcodeString.contains('DATE:') &&
           barcodeString.contains('DOCTOR:')) {
         final String vaccineName = barcodeString.substring(
-            barcodeString.indexOf("VACCINE:") + 8,
-            barcodeString.indexOf("\r\nCHARGENR:"));
+            barcodeString.indexOf('VACCINE:') + 8,
+            barcodeString.indexOf('\r\nCHARGENR:'));
         final String chargeNr = barcodeString.substring(
-            barcodeString.indexOf("CHARGENR:") + 9,
-            barcodeString.indexOf("\r\nDATE:"));
+            barcodeString.indexOf('CHARGENR:') + 9,
+            barcodeString.indexOf('\r\nDATE:'));
         final String dateAsString = barcodeString.substring(
-            barcodeString.indexOf("DATE:") + 5,
-            barcodeString.indexOf("\r\nDOCTOR:"));
-        final List<String> c = dateAsString.split(".");
+            barcodeString.indexOf('DATE:') + 5,
+            barcodeString.indexOf('\r\nDOCTOR:'));
+        final List<String> c = dateAsString.split('.');
         final String doctorName =
-            barcodeString.substring(barcodeString.indexOf("DOCTOR:") + 7);
+            barcodeString.substring(barcodeString.indexOf('DOCTOR:') + 7);
         final DateTime date = DateTime.utc(int.parse(c.elementAt(2)),
             int.parse(c.elementAt(1)), int.parse(c.elementAt(0)));
         VaccinationDAO.create(vaccineName, chargeNr, date, doctorName, null,
             User.loggedInUser.userDbId, null);
         Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => MyVaccinationPage(
+            builder: (BuildContext context) => MyVaccinationPage(
                 isFloatingActionButtonVisible: true,
                 selectedUser: User.loggedInUser)));
         ScaffoldMessenger.of(context).showSnackBar(
@@ -143,13 +148,13 @@ class _QRViewExampleState extends State<QRViewExample> {
     }
   }
 
-  void _calledFromTest(result) {
+  void _calledFromTest(Barcode result) {
     if (result != null) {
       barcodeString = result.code.toString();
     }
   }
 
-  void _calledFromFamily(result) {
+  void _calledFromFamily(Barcode result) {
     if (result != null) {
       barcodeString = result.code.toString();
     }
@@ -159,5 +164,15 @@ class _QRViewExampleState extends State<QRViewExample> {
   void dispose() {
     controller?.dispose();
     super.dispose();
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty<Barcode>('result', result));
+    properties.add(DiagnosticsProperty<String>('barcodeString', barcodeString));
+    properties
+        .add(DiagnosticsProperty<QRViewController>('controller', controller));
+    properties.add(DiagnosticsProperty<GlobalKey>('qrKey', qrKey));
   }
 }

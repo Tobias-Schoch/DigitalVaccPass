@@ -80,11 +80,12 @@ class _MyForgotPasswordPageState extends State<MyForgotPasswordPage> {
                   child: ElevatedButton.icon(
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const MyLoginPage()));
+                          builder: (BuildContext context) =>
+                              const MyLoginPage()));
                     },
                     label: Flexible(
                         child: Text(
-                          AppLocalizations.of(context).reset,
+                      AppLocalizations.of(context).reset,
                       style: const TextStyle(fontSize: 20),
                       overflow: TextOverflow.clip,
                     )),

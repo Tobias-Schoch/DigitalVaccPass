@@ -9,38 +9,44 @@ import '../utils/test.dart';
 import '../utils/user.dart';
 import '../utils/vaccination.dart';
 
+/// Util
 class Util {
+  /// String to date
   static DateTime getDateTimeFromString(String dateTimeString) =>
       DateTime.parse(dateTimeString);
 
   /// Save and load shared preference and check if first start
-  static Future checkFirstSeen(BuildContext context) async {
+  static Future<void> checkFirstSeen(BuildContext context) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     final bool _seen = prefs.getBool('firstStartabc') ?? false;
     if (!_seen) {
       await prefs.setBool('firstStartabc', true);
-      await Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (BuildContext context) => const OnBoardingPage()));
+      await Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (BuildContext context) => const OnBoardingPage()));
     }
   }
 }
 
+/// All colors defined for this project
 class PredefinedColors {
-  static const lightOrange = const Color(0xffFFFACC);
-  static const lightRed = const Color(0xffFEC3C3);
-  static const lightGreen = const Color(0xffDEFFDB);
-  static const primaryColor = const Color(0xff5D5FEF);
-  static const textColor = const Color(0xff263238);
-  static const backgroundTextColor = const Color(0xffcbcbf3);
-  static const accentWhite = const Color(0xfffafafa);
+  static const Color lightOrange = Color(0xffFFFACC);
+  static const Color lightRed = Color(0xffFEC3C3);
+  static const Color lightGreen = Color(0xffDEFFDB);
+  static const Color primaryColor = Color(0xff5D5FEF);
+  static const Color textColor = Color(0xff263238);
+  static const Color backgroundTextColor = Color(0xffcbcbf3);
+  static const Color accentWhite = Color(0xfffafafa);
 }
 
+/// logged in user defined
 class LastUser {
   /// logged in user defined
   static String lastUser = '';
 }
 
+/// Data for testing
 class TestData {
+  /// user logins
   static List<User> userListDb = [
     User.withData('Luis Nothvogel', 't', 't', Role.normal, vaccinationListDb,
         testsListDb),
@@ -48,6 +54,7 @@ class TestData {
         'Dr. Anna Mayer', 'a', 'a', Role.doctor, vaccinationListDb, testsListDb)
   ];
 
+  /// family member
   static List<User> familyUserDb = [
     User.withData('test', 'test@test.de', 'pw', Role.normal, vaccinationListDb,
         testsListDb),
@@ -57,7 +64,10 @@ class TestData {
         vaccinationListDb, testsListDb),
   ];
 
+  /// Example date
   static String strDt = '2021-05-28';
+
+  /// test vaccinations
   static List<Vaccination> vaccinationListDb = [
     Vaccination(
         'covid', '0001', DateTime.parse(strDt), 'kekDoctor', 'beschreibung'),
@@ -67,6 +77,7 @@ class TestData {
         'covid3', '0003', DateTime.parse(strDt), 'kekDoctor3', 'beschreibung3')
   ];
 
+  /// example tests
   static List<Test> testsListDb = [
     Test('testName', 'testId', DateTime.parse(strDt), Status.pending,
         'testDescription'),
@@ -98,6 +109,7 @@ class TestData {
           faker.randomGenerator.element(Status.values),
           faker.lorem.sentence()));
 
+  /// Check if user is existing
   static User getMatchingUser(String email, String pw) {
     User matchingUser;
     userListDb.forEach((element) {

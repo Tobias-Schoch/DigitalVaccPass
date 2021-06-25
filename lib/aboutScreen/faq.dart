@@ -128,6 +128,6 @@ class _MyFaqPageState extends State<MyFaqPage> {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<bool>('absorbing', isDoctor));
+    properties.add(DiagnosticsProperty<bool>('isDoctor', isDoctor));
   }
 }
