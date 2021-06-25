@@ -250,6 +250,5 @@
   "addedPersonSuccess": "Person was added succesfully",
   "@addedPersonSuccess" : {
     "description": ""
-  },
-
+  }
 }
