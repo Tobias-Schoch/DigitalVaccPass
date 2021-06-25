@@ -2,10 +2,11 @@ import 'dart:io';
 
 import 'package:digital_vac_pass/database/vaccination_DAO.dart';
 import 'package:digital_vac_pass/homeScreen/vaccination.dart';
+import 'package:digital_vac_pass/utils/rsa.dart';
 import 'package:digital_vac_pass/utils/user.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
-
+import 'package:ninja/ninja.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../utils/app_bar.dart';
 
@@ -71,6 +72,7 @@ class _QRViewExampleState extends State<QRViewExample> {
   }
 
   void _onQRViewCreated(QRViewController controller) {
+    final privateKey = RSAPrivateKey.fromPEM(privateKeyPem);
     setState(() {
       this.controller = controller;
     });
@@ -79,7 +81,7 @@ class _QRViewExampleState extends State<QRViewExample> {
       setState(() {
         switch (widget.calledFrom) {
           case "VACCINE":
-            _calledFromVaccine(scanData);
+            _calledFromVaccine(privateKey.decryptToUtf8(scanData));
             break;
           case "TEST":
             _calledFromTest(scanData);

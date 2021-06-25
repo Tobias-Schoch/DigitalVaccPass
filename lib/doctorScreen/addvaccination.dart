@@ -1,8 +1,10 @@
 import 'dart:io';
 
+import 'package:digital_vac_pass/utils/rsa.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:ninja/ninja.dart';
 
 import '../hero_dialog/custom_rect_twin.dart';
 import '../hero_dialog/hero_dialog_route.dart';
@@ -39,7 +41,11 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
   String qrData = "";
 
   void _buildQrData() {
+
+    final privateKey = RSAPrivateKey.fromPEM(privateKeyPem);
+    final publicKey = privateKey.toPublicKey;
     qrData = "";
+
     if (_vaccineTextEditingController.text.isNotEmpty) {
       qrData += "VACCINE: " + _vaccineTextEditingController.text + "\r\n";
     } else {
@@ -63,6 +69,8 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
 
     if (User.loggedInUser != null) {
       qrData += "DOCTOR: " + User.loggedInUser.userName + "\r\n";
+      qrData = publicKey.encryptToBase64(qrData);
+      qrData = privateKey.decryptToUtf8(qrData);
     } else {
       qrData = null;
       return;
@@ -193,8 +201,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                   ),
                   const SizedBox(height: 25),
                   GestureDetector(
-                    onTap: () {
-                    },
+                    onTap: () {},
                     child: Hero(
                       tag: 'show-qr-hero',
                       createRectTween: (begin, end) {

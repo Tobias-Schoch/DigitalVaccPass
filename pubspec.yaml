@@ -35,6 +35,7 @@ dependencies:
   sqflite: ^2.0.0+3
   introduction_screen: ^2.1.0
   dots_indicator: ^2.0.0
+  ninja: ^3.0.2
 
 dev_dependencies:
   flutter_test:
