@@ -2,7 +2,9 @@ import 'dart:ui';
 
 import 'package:flutter/widgets.dart';
 
+/// Animation recttween
 class CustomRectTween extends RectTween {
+  /// Animation recttween
   CustomRectTween({
     @required Rect begin,
     @required Rect end,

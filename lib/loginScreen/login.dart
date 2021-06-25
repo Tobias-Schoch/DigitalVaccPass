@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../database/user_DAO.dart';
+import '../database/user_dao.dart';
 import '../doctorScreen/statistics.dart';
 import '../homeScreen/home.dart';
 import '../loginScreen/forgotpassword.dart';
@@ -157,7 +157,8 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     child: Row(
                       children: <Widget>[
                         Flexible(
-                            child: Text(AppLocalizations.of(context).forgotPassword)),
+                            child: Text(
+                                AppLocalizations.of(context).forgotPassword)),
                       ],
                     ),
                   ),
@@ -176,12 +177,12 @@ class _MyLoginPageState extends State<MyLoginPage> {
                               myEmailTextController.text.toLowerCase());
                           if (User.loggedInUser != null &&
                               User.loggedInUser.userRole == Role.doctor) {
-
                             await Navigator.of(context).push(MaterialPageRoute(
                                 builder: (context) => const MyStatisticPage()));
                           } else {
                             await Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => MyHomeScreenPage(selectedTabIndex: 0)));
+                                builder: (context) =>
+                                    MyHomeScreenPage(selectedTabIndex: 0)));
                           }
 
                           LastUser.lastUser =
@@ -197,7 +198,9 @@ class _MyLoginPageState extends State<MyLoginPage> {
                               content: Container(
                                   height: 20,
                                   child: Center(
-                                    child: Text(AppLocalizations.of(context).emailAndPwDontMatch,
+                                    child: Text(
+                                      AppLocalizations.of(context)
+                                          .emailAndPwDontMatch,
                                       textAlign: TextAlign.center,
                                     ),
                                   )),

@@ -27,7 +27,7 @@ class DatabaseHelper {
   initDb() async {
     //io.Directory documentsDirectory = await getApplicationDocumentsDirectory();
     //String path = join(documentsDirectory.path, "digital_vaccination_pass.db");
-    final Database _db = await openDatabase("digital_vaccination_passV4.db",
+    final Database _db = await openDatabase('digital_vaccination_passV4.db',
         version: 1, onCreate: _onCreate);
     return _db;
   }

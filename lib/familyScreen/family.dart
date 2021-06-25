@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../database/family_DAO.dart';
-import '../utils/custom_widgets.dart';
+import '../database/family_dao.dart';
 import '../utils/app_bar.dart';
+import '../utils/custom_widgets.dart';
 import '../utils/drawer.dart';
 import '../utils/user.dart';
 import 'family_home_screen.dart';
@@ -49,7 +49,7 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
               child: FutureBuilder<List>(
                 future: FamilyDAO.getAllFamilyMembers(),
                 builder: (context, snapshot) => snapshot.hasData
-                    ? new ListView.builder(
+                    ? ListView.builder(
                         itemCount: snapshot.data.length,
                         itemBuilder: (context, index) => Column(
                               children: <Widget>[
@@ -96,6 +96,6 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
         ),
       ),
       floatingActionButton:
-          myVisibleFloatingActionButtonForQrScanner(context, true, "FAMILY"),
+          myVisibleFloatingActionButtonForQrScanner(context, true, 'FAMILY'),
       drawer: MyDrawer(isVisible: isDoctor));
 }

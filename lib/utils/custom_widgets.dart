@@ -9,20 +9,22 @@ Widget myVisibleFloatingActionButton(BuildContext context, bool isVisible) =>
         visible: isVisible,
         child: FloatingActionButton(
           onPressed: () {
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const MyQRPage()));
+            Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => const MyQRPage()));
           },
           backgroundColor: Theme.of(context).accentColor,
           child: const Icon(Icons.add),
         ));
 
-Widget myVisibleFloatingActionButtonForQrScanner(BuildContext context, bool isVisible, String calledFromWidget) =>
+Widget myVisibleFloatingActionButtonForQrScanner(
+        BuildContext context, bool isVisible, String calledFromWidget) =>
     Visibility(
         visible: isVisible,
         child: FloatingActionButton(
           onPressed: () {
             Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => QRViewExample(calledFrom: calledFromWidget)));
+                builder: (context) =>
+                    QRViewExample(calledFrom: calledFromWidget)));
           },
           backgroundColor: Theme.of(context).accentColor,
           child: const Icon(Icons.add),

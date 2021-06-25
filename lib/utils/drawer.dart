@@ -103,7 +103,8 @@ class _MyDrawer extends State<MyDrawer> {
               ),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => MyHomeScreenPage(selectedTabIndex: 0)));
+                    builder: (context) =>
+                        MyHomeScreenPage(selectedTabIndex: 0)));
               },
             ),
             ListTile(
@@ -115,7 +116,8 @@ class _MyDrawer extends State<MyDrawer> {
               ),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => MyHomeScreenPage(selectedTabIndex: 1)));
+                    builder: (context) =>
+                        MyHomeScreenPage(selectedTabIndex: 1)));
               },
             ),
             ListTile(
@@ -131,15 +133,15 @@ class _MyDrawer extends State<MyDrawer> {
               },
             ),
             ListTile(
-              leading:  Icon(Icons.qr_code_outlined,
+              leading: Icon(Icons.qr_code_outlined,
                   color: Theme.of(context).primaryColorLight),
               title: Text(
                 AppLocalizations.of(context).myQRCode,
                 style: Theme.of(context).textTheme.headline6,
               ),
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const MyQRPage()));
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => const MyQRPage()));
               },
             ),
             Divider(
@@ -157,8 +159,8 @@ class _MyDrawer extends State<MyDrawer> {
                 style: Theme.of(context).textTheme.headline6,
               ),
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const MyFaqPage()));
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => const MyFaqPage()));
               },
             ),
             ListTile(
@@ -174,15 +176,15 @@ class _MyDrawer extends State<MyDrawer> {
               },
             ),
             ListTile(
-              leading:
-                  Icon(Icons.logout, color: Theme.of(context).primaryColorLight),
+              leading: Icon(Icons.logout,
+                  color: Theme.of(context).primaryColorLight),
               title: Text(
                 AppLocalizations.of(context).logout,
                 style: Theme.of(context).textTheme.headline6,
               ),
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const MyApp()));
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => const MyApp()));
               },
             ),
           ],

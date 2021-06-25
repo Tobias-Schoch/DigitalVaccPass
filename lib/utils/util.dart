@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../aboutScreen/onboard.dart';
-import '../utils/user.dart';
 import '../utils/test.dart';
+import '../utils/user.dart';
 import '../utils/vaccination.dart';
 
 class Util {
@@ -15,11 +15,11 @@ class Util {
 
   static Future checkFirstSeen(context) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    final bool _seen = (prefs.getBool('firstStartabc') ?? false);
+    final bool _seen = prefs.getBool('firstStartabc') ?? false;
     if (!_seen) {
       await prefs.setBool('firstStartabc', true);
       await Navigator.of(context).pushReplacement(
-          new MaterialPageRoute(builder: (context) => const OnBoardingPage()));
+          MaterialPageRoute(builder: (context) => const OnBoardingPage()));
     }
   }
 }

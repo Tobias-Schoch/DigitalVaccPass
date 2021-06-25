@@ -4,11 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 
-import '../database/vaccination_DAO.dart';
+import '../database/vaccination_dao.dart';
 import '../utils/custom_widgets.dart';
 import '../utils/user.dart';
 import '../utils/util.dart';
 import '../utils/vaccination.dart';
+
 /// Vaccination overview
 class MyVaccinationPage extends StatefulWidget {
   /// Vaccination overview
@@ -52,14 +53,16 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
                     future: vaccinationNotEmpty(),
                     builder: (context, snapshot) {
                       if (snapshot.data == null) {
-                        return Container(child: const CircularProgressIndicator());
+                        return const CircularProgressIndicator();
                       } else if (snapshot.data == true) {
                         return Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
                               Visibility(
                                   visible: snapshot.data,
-                                  child: Text(AppLocalizations.of(context).noVaccinesAvailable,
+                                  child: Text(
+                                      AppLocalizations.of(context)
+                                          .noVaccinesAvailable,
                                       style: const TextStyle(
                                           fontWeight: FontWeight.w700,
                                           fontSize: 24,
@@ -109,19 +112,28 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
                                                       children: <Widget>[
                                                         const SizedBox(
                                                             height: 10),
-                                                        Text(AppLocalizations.of(context).date +
-                                                            DateFormat('dd.MM.yyyy')
+                                                        Text(AppLocalizations
+                                                                    .of(context)
+                                                                .date +
+                                                            DateFormat(
+                                                                    'dd.MM.yyyy')
                                                                 .format(snapshot
-                                                                .data[index]
-                                                                .vaccinationDate)),
+                                                                    .data[index]
+                                                                    .vaccinationDate)),
                                                         const SizedBox(
                                                             height: 8),
-                                                        Text(AppLocalizations.of(context).chargeNr +
-                                                            snapshot
-                                                                .data[index].chargeNr),
+                                                        Text(
+                                                            AppLocalizations.of(
+                                                                        context)
+                                                                    .chargeNr +
+                                                                snapshot
+                                                                    .data[index]
+                                                                    .chargeNr),
                                                         const SizedBox(
                                                             height: 8),
-                                                        Text(AppLocalizations.of(context).doctor +
+                                                        Text(AppLocalizations
+                                                                    .of(context)
+                                                                .doctor +
                                                             snapshot.data[index]
                                                                 .doctorSignature
                                                                 .toString()),
@@ -150,6 +162,6 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
           ),
         ),
         floatingActionButton: myVisibleFloatingActionButtonForQrScanner(
-            context, widget.isFloatingActionButtonVisible, "VACCINE"),
+            context, widget.isFloatingActionButtonVisible, 'VACCINE'),
       );
 }

@@ -1,6 +1,5 @@
 import 'dart:io';
 
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
@@ -39,37 +38,36 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
           : false;
 
   bool isQrVisible = false;
-  String qrData = "";
+  String qrData = '';
 
   void _buildQrData() {
-
     final privateKey = RSAPrivateKey.fromPEM(privateKeyPem);
     final publicKey = privateKey.toPublicKey;
-    qrData = "";
+    qrData = '';
 
     if (_vaccineTextEditingController.text.isNotEmpty) {
-      qrData += "VACCINE: " + _vaccineTextEditingController.text + "\r\n";
+      qrData += 'VACCINE: ' + _vaccineTextEditingController.text + '\r\n';
     } else {
       qrData = null;
       return;
     }
 
     if (_chargeNrTextEditingController.text.isNotEmpty) {
-      qrData += "CHARGENR: " + _chargeNrTextEditingController.text + "\r\n";
+      qrData += 'CHARGENR: ' + _chargeNrTextEditingController.text + '\r\n';
     } else {
       qrData = null;
       return;
     }
 
     if (_textEditingController.text.isNotEmpty) {
-      qrData += "DATE: " + _textEditingController.text + "\r\n";
+      qrData += 'DATE: ' + _textEditingController.text + '\r\n';
     } else {
       qrData = null;
       return;
     }
 
     if (User.loggedInUser != null) {
-      qrData += "DOCTOR: " + User.loggedInUser.userName + "\r\n";
+      qrData += 'DOCTOR: ' + User.loggedInUser.userName + '\r\n';
       qrData = publicKey.encryptToBase64(qrData);
     } else {
       qrData = null;
@@ -204,9 +202,8 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                     onTap: () {},
                     child: Hero(
                       tag: 'show-qr-hero',
-                      createRectTween: (begin, end) {
-                        return CustomRectTween(begin: begin, end: end);
-                      },
+                      createRectTween: (begin, end) =>
+                          CustomRectTween(begin: begin, end: end),
                       child: ConstrainedBox(
                         constraints: const BoxConstraints.tightFor(height: 60),
                         child: ElevatedButton.icon(
@@ -215,10 +212,9 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                               FocusScope.of(context).unfocus();
                               sleep(const Duration(milliseconds: 50));
                               _buildQrData();
-                              Navigator.of(context)
-                                  .push(HeroDialogRoute(builder: (context) {
-                                return AddTodoPopupCard(qrData);
-                              }));
+                              Navigator.of(context).push(HeroDialogRoute(
+                                builder: (context) => AddTodoPopupCard(qrData),
+                              ));
                             }
                           },
                           label: Text(AppLocalizations.of(context).generateQr,

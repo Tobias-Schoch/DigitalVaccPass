@@ -18,8 +18,14 @@ class Vaccination {
       this.vaccinationDescription)
       : vaccinationDate = DateTime.now();
 
-  Vaccination.forDb(this.vaccinationName, this.chargeNr, this.vaccinationDate,
-      this.doctorSignature, this.vaccinationDescription, this.userId, this.familyId);
+  Vaccination.forDb(
+      this.vaccinationName,
+      this.chargeNr,
+      this.vaccinationDate,
+      this.doctorSignature,
+      this.vaccinationDescription,
+      this.userId,
+      this.familyId);
 
   Map<String, dynamic> toMap() {
     final map = Map<String, dynamic>();
@@ -34,13 +40,11 @@ class Vaccination {
   }
 
   factory Vaccination.fromMap(Map<String, dynamic> data) => Vaccination.forDb(
-    data['VACCINE_NAME'],
-    data['CHARGE_NR'],
-    Util.getDateTimeFromString(data['VACCINE_DATE']),
-    data['DOCTOR_SIGNATURE'],
-    data['VACCINE_DESCRIPTION'],
-    data['USER_ID'],
-    data['FAMILY_ID']
-  );
-
+      data['VACCINE_NAME'],
+      data['CHARGE_NR'],
+      Util.getDateTimeFromString(data['VACCINE_DATE']),
+      data['DOCTOR_SIGNATURE'],
+      data['VACCINE_DESCRIPTION'],
+      data['USER_ID'],
+      data['FAMILY_ID']);
 }

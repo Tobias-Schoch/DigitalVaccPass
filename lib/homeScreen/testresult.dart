@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 
-import '../database/test_DAO.dart';
+import '../database/test_dao.dart';
 import '../utils/custom_widgets.dart';
+import '../utils/test.dart';
 import '../utils/user.dart';
 import '../utils/util.dart';
-import '../utils/test.dart';
 
 /// Test results
 class MyTestPage extends StatefulWidget {
@@ -51,14 +51,16 @@ class _MyTestPageState extends State<MyTestPage> {
                       future: testNotEmpty(),
                       builder: (context, snapshot) {
                         if (snapshot.data == null) {
-                          return Container(child: const CircularProgressIndicator());
+                          return const CircularProgressIndicator();
                         } else if (snapshot.data == true) {
                           return Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
                                 Visibility(
                                     visible: snapshot.data,
-                                    child: Text(AppLocalizations.of(context).noTestsAvailable,
+                                    child: Text(
+                                        AppLocalizations.of(context)
+                                            .noTestsAvailable,
                                         style: const TextStyle(
                                             fontWeight: FontWeight.w700,
                                             fontSize: 24,
@@ -120,27 +122,38 @@ class _MyTestPageState extends State<MyTestPage> {
                                                             children: <Widget>[
                                                               const SizedBox(
                                                                   height: 10),
-                                                              Text(AppLocalizations.of(context).date +
-                                                                  DateFormat('dd.MM.yyyy')
+                                                              Text(AppLocalizations.of(
+                                                                          context)
+                                                                      .date +
+                                                                  DateFormat(
+                                                                          'dd.MM.yyyy')
                                                                       .format(snapshot
-                                                                      .data[index]
-                                                                      .testDate)),
+                                                                          .data[
+                                                                              index]
+                                                                          .testDate)),
                                                               const SizedBox(
                                                                   height: 8),
-                                                              Text(AppLocalizations.of(context).testID +
-                                                                  snapshot.data[index]
+                                                              Text(AppLocalizations.of(
+                                                                          context)
+                                                                      .testID +
+                                                                  snapshot
+                                                                      .data[
+                                                                          index]
                                                                       .testIdNr),
                                                               const SizedBox(
                                                                   height: 8),
                                                               Text(snapshot
-                                                                  .data[index].testStatus
-                                                                  .toString()
-                                                                  .substring(snapshot
                                                                   .data[index]
                                                                   .testStatus
                                                                   .toString()
-                                                                  .indexOf('.') +
-                                                                  1)),
+                                                                  .substring(snapshot
+                                                                          .data[
+                                                                              index]
+                                                                          .testStatus
+                                                                          .toString()
+                                                                          .indexOf(
+                                                                              '.') +
+                                                                      1)),
                                                               const SizedBox(
                                                                   height: 18),
                                                             ],
@@ -164,6 +177,6 @@ class _MyTestPageState extends State<MyTestPage> {
           ),
         ),
         floatingActionButton: myVisibleFloatingActionButtonForQrScanner(
-            context, widget.isFloatingActionButtonVisible, "TEST"),
+            context, widget.isFloatingActionButtonVisible, 'TEST'),
       );
 }

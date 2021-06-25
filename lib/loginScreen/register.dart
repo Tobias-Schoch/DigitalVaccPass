@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../database/user_DAO.dart';
+import '../database/user_dao.dart';
 import '../loginScreen/login.dart';
 import '../utils/app_bar.dart';
 import '../utils/user.dart';

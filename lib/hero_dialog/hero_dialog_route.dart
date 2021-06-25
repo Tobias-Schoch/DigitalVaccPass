@@ -2,7 +2,9 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+/// Hero Dialog
 class HeroDialogRoute<T> extends PageRoute<T> {
+  /// Hero Dialog
   HeroDialogRoute({
     @required WidgetBuilder builder,
     RouteSettings settings,
@@ -29,15 +31,13 @@ class HeroDialogRoute<T> extends PageRoute<T> {
 
   @override
   Widget buildTransitions(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation, Widget child) {
-    return child;
-  }
+      Animation<double> secondaryAnimation, Widget child) =>
+    child;
 
   @override
   Widget buildPage(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation) {
-    return _builder(context);
-  }
+      Animation<double> secondaryAnimation) =>
+    _builder(context);
 
   @override
   String get barrierLabel => 'Popup dialog open';
