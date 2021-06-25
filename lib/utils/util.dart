@@ -1,7 +1,9 @@
+import 'dart:core';
 import 'dart:ui';
 
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../aboutScreen/onboard.dart';
@@ -49,6 +51,15 @@ class PredefinedColors {
 
   /// Our specific White
   static const Color accentWhite = Color(0xfffafafa);
+}
+
+class getDate {
+  static String getYear() {
+    var now = new DateTime.now();
+    var formatter = new DateFormat('yyyy');
+    String formattedDate = formatter.format(now);
+    return formattedDate;
+  }
 }
 
 /// logged in user defined

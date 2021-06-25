@@ -4,11 +4,12 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../utils/app_bar.dart';
 import '../utils/drawer.dart';
+import '../utils/util.dart';
 
 /// Informations about the app
 class MyAboutPage extends StatefulWidget {
   /// Informations about the app
-  const MyAboutPage({Key key}) : super(key: key);
+  MyAboutPage({Key key}) : super(key: key);
 
   @override
   _MyAboutPageState createState() => _MyAboutPageState();
@@ -19,6 +20,8 @@ class _MyAboutPageState extends State<MyAboutPage> {
   void dispose() {
     super.dispose();
   }
+
+  final String date = getDate.getYear();
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -52,11 +55,11 @@ class _MyAboutPageState extends State<MyAboutPage> {
                         ]),
                     subtitle: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const <Widget>[
+                      children: <Widget>[
                         SizedBox(height: 10),
                         Text('Version 1.0', textAlign: TextAlign.left),
                         SizedBox(height: 2),
-                        Text('© 2021 Luis Nothvogel & Tobias Schoch',
+                        Text('© ${date} Luis Nothvogel & Tobias Schoch',
                             textAlign: TextAlign.left),
                         SizedBox(height: 18),
                       ],
