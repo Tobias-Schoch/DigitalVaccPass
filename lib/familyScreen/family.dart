@@ -1,8 +1,8 @@
-import 'package:digital_vac_pass/utils/custom_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../database/family_DAO.dart';
+import '../utils/custom_widgets.dart';
 import '../utils/app_bar.dart';
 import '../utils/drawer.dart';
 import '../utils/user.dart';

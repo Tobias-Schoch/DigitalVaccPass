@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../aboutScreen/about.dart';
 import '../aboutScreen/faq.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../doctorScreen/addvaccination.dart';
 import '../doctorScreen/statistics.dart';
 import '../familyScreen/family.dart';

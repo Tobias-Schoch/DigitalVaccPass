@@ -1,4 +1,4 @@
-import 'package:digital_vac_pass/utils/util.dart';
+import '../utils/util.dart';
 
 /// Define vaccinations
 class Vaccination {

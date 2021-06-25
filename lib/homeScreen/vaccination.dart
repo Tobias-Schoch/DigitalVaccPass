@@ -1,15 +1,14 @@
 import 'dart:async';
-import 'package:digital_vac_pass/utils/util.dart';
-import 'package:digital_vac_pass/utils/vaccination.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:intl/intl.dart';
 
 import '../database/vaccination_DAO.dart';
 import '../utils/custom_widgets.dart';
 import '../utils/user.dart';
-
+import '../utils/util.dart';
+import '../utils/vaccination.dart';
 /// Vaccination overview
 class MyVaccinationPage extends StatefulWidget {
   /// Vaccination overview

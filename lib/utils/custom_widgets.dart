@@ -1,7 +1,7 @@
-import 'package:digital_vac_pass/qrScreen/qr_scanner.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../qrScreen/qr_scanner.dart';
 import '../qrScreen/qrcode.dart';
 
 Widget myVisibleFloatingActionButton(BuildContext context, bool isVisible) =>
