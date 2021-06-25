@@ -8,14 +8,23 @@ class DatabaseHelper {
   DatabaseHelper.privateConstructor();
 
   static final DatabaseHelper _instance = DatabaseHelper.privateConstructor();
-
+  /// Database instance
   factory DatabaseHelper() => _instance;
   static Database _db;
 
+  /// User String
   static const String userTable = 'USER';
+
+  /// Family Member String
   static const String familyTable = 'FAMILY_MEMBER';
+
+  /// Vaccines String
   static const String vaccinesTable = 'VACCINES';
+
+  /// Tests String
   static const String testsTable = 'TESTS';
+
+  /// Statistics String
   static const String statisticTable = 'STATISTIC';
 
   Future<Database> get db async {

@@ -124,6 +124,7 @@ class _MyFaqPageState extends State<MyFaqPage> {
       drawer: MyDrawer(
         isVisible: isDoctor,
       ));
+
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);

@@ -6,8 +6,6 @@ import '../utils/app_bar.dart';
 import '../utils/drawer.dart';
 import '../utils/user.dart';
 
-
-
 /// Informations about the app
 class MyAboutPage extends StatefulWidget {
   /// Informations about the app
@@ -22,7 +20,7 @@ class _MyAboutPageState extends State<MyAboutPage> {
   void dispose() {
     super.dispose();
   }
-  
+
   bool isDoctor = User.loggedInUser == null
       ? false
       : User.loggedInUser.userRole == Role.doctor
@@ -79,6 +77,7 @@ class _MyAboutPageState extends State<MyAboutPage> {
       drawer: MyDrawer(
         isVisible: isDoctor,
       ));
+
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);

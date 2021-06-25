@@ -100,9 +100,11 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           ),
         ),
       ));
+
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties.add(DiagnosticsProperty('absorbing', introKey));
+    properties.add(DiagnosticsProperty('absorbing', pageDecoration));
   }
 }

@@ -2,22 +2,32 @@ import '../utils/util.dart';
 
 /// Define vaccinations
 class Vaccination {
+  /// vaccinationName
   String vaccinationName;
+  /// chargeNr
   String chargeNr;
+  /// vaccinationDate
   DateTime vaccinationDate;
+  /// doctorSignature
   String doctorSignature;
+  /// vaccinationDescription
   String vaccinationDescription;
 
+  /// userId
   int userId;
+  /// familyId
   int familyId;
 
+  /// single vaccination
   Vaccination(this.vaccinationName, this.chargeNr, this.vaccinationDate,
       this.doctorSignature, this.vaccinationDescription);
 
+  /// vaccinations for today
   Vaccination.today(this.vaccinationName, this.chargeNr, this.doctorSignature,
       this.vaccinationDescription)
       : vaccinationDate = DateTime.now();
 
+  /// Vaccination to db
   Vaccination.forDb(
       this.vaccinationName,
       this.chargeNr,
@@ -27,7 +37,9 @@ class Vaccination {
       this.userId,
       this.familyId);
 
+  /// Map vaccination
   Map<String, dynamic> toMap() {
+    /// map
     final map = Map<String, dynamic>();
     map['VACCINE_NAME'] = vaccinationName;
     map['CHARGE_NR'] = chargeNr;
@@ -39,6 +51,7 @@ class Vaccination {
     return map;
   }
 
+  /// factory vaccination
   factory Vaccination.fromMap(Map<String, dynamic> data) => Vaccination.forDb(
       data['VACCINE_NAME'],
       data['CHARGE_NR'],

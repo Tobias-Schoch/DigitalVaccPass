@@ -13,13 +13,14 @@ class Util {
   static DateTime getDateTimeFromString(String dateTimeString) =>
       DateTime.parse(dateTimeString);
 
-  static Future checkFirstSeen(context) async {
+  /// Save and load shared preference and check if first start
+  static Future checkFirstSeen(BuildContext context) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     final bool _seen = prefs.getBool('firstStartabc') ?? false;
     if (!_seen) {
       await prefs.setBool('firstStartabc', true);
       await Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const OnBoardingPage()));
+          MaterialPageRoute(builder: (BuildContext context) => const OnBoardingPage()));
     }
   }
 }
@@ -35,6 +36,7 @@ class PredefinedColors {
 }
 
 class LastUser {
+  /// logged in user defined
   static String lastUser = '';
 }
 
@@ -74,6 +76,7 @@ class TestData {
         'testDescription3')
   ];
 
+  /// Generate data for vaccination list with faker
   static List<Vaccination> generateVaccList(
           int size) =>
       List<Vaccination>.generate(
@@ -85,6 +88,7 @@ class TestData {
               faker.person.name(),
               faker.lorem.sentence()));
 
+  /// Generate data for test list with faker
   static List<Test> generateTestsList(int size) => List<Test>.generate(
       size,
       (int i) => Test(
