@@ -20,7 +20,7 @@ import 'util.dart';
 
 Future<void> main() async {
 
-  testGoldens('Login Screen Test', (tester) async {
+  /*testGoldens('Login Screen Test', (tester) async {
     final builder = DeviceBuilder()
       ..overrideDevicesForAllScenarios(
         devices: devicesWithDifferentTextScales,
@@ -212,7 +212,7 @@ Future<void> main() async {
       );
     await tester.pumpDeviceBuilder(builder);
     await screenMatchesGolden(tester, 'statisticsScreen');
-  });
+  });*/
 }
 
 
