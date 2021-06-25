@@ -9,7 +9,7 @@ import 'l10n/l10n.dart';
 import 'loginScreen/login.dart';
 import 'utils/util.dart';
 
-void main() async {
+main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Color(0x00fafafa),
