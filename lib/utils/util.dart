@@ -53,7 +53,7 @@ class PredefinedColors {
   static const Color accentWhite = Color(0xfffafafa);
 }
 
-class getDate {
+class GetDate {
   static String getYear() {
     final DateTime now = new DateTime.now();
     final DateFormat formatter = new DateFormat('yyyy');
