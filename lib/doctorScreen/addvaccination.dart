@@ -3,8 +3,10 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:qr_flutter/qr_flutter.dart';
 
+import '../hero_dialog/custom_rect_twin.dart';
+import '../hero_dialog/hero_dialog_route.dart';
+import '../hero_dialog/hero_widget.dart';
 import '../utils/app_bar.dart';
 import '../utils/drawer.dart';
 import '../utils/user.dart';
@@ -20,11 +22,12 @@ class MyVaccinationAddPage extends StatefulWidget {
 }
 
 class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
-
   DateTime _selectedDate;
   final TextEditingController _textEditingController = TextEditingController();
-  final TextEditingController _vaccineTextEditingController = TextEditingController();
-  final TextEditingController _chargeNrTextEditingController = TextEditingController();
+  final TextEditingController _vaccineTextEditingController =
+      TextEditingController();
+  final TextEditingController _chargeNrTextEditingController =
+      TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
   bool isDoctor = User.loggedInUser == null
@@ -54,7 +57,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
 
     if (_textEditingController.text.isNotEmpty) {
       qrData += "DATE: " + _textEditingController.text + "\r\n";
-    }  else {
+    } else {
       qrData = null;
       return;
     }
@@ -190,32 +193,34 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                     },
                   ),
                   const SizedBox(height: 25),
-                  ConstrainedBox(
-                    constraints: const BoxConstraints.tightFor(height: 60),
-                    child: ElevatedButton.icon(
-                      onPressed: () {
-                        if (_formKey.currentState.validate()) {
-                          FocusScope.of(context).unfocus();
-                          sleep(const Duration(milliseconds: 50));
-                          _buildQrData();
-                          if (qrData != null && qrData.isNotEmpty) {
-                            isQrVisible = true;
-                          } else {
-                            isQrVisible = false;
-                          }
-                        }
+                  GestureDetector(
+                    onTap: () {
+                    },
+                    child: Hero(
+                      tag: 'show-qr-hero',
+                      createRectTween: (begin, end) {
+                        return CustomRectTween(begin: begin, end: end);
                       },
-                      label: Text(AppLocalizations.of(context).generateQr,
-                          style: TextStyle(fontSize: 20)),
-                      icon: const Icon(Icons.qr_code_scanner),
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints.tightFor(height: 60),
+                        child: ElevatedButton.icon(
+                          onPressed: () {
+                            if (_formKey.currentState.validate()) {
+                              FocusScope.of(context).unfocus();
+                              sleep(const Duration(milliseconds: 50));
+                              _buildQrData();
+                              Navigator.of(context)
+                                  .push(HeroDialogRoute(builder: (context) {
+                                return AddTodoPopupCard(qrData);
+                              }));
+                            }
+                          },
+                          label: Text(AppLocalizations.of(context).generateQr,
+                              style: TextStyle(fontSize: 20)),
+                          icon: const Icon(Icons.qr_code_scanner),
+                        ),
+                      ),
                     ),
-                  ),
-                  Visibility(
-                    visible: isQrVisible,
-                      child: QrImage(
-                        data: qrData,
-                        version: QrVersions.auto,
-                      )
                   ),
                 ],
               ),
