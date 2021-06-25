@@ -8,7 +8,6 @@ final DatabaseHelper con = DatabaseHelper();
 
 /// UserDAO
 class UserDAO {
-
   /// Create User
   static Future<int> create(String userName, String userEmail,
       String userPassword, Role userRole) async {
@@ -33,7 +32,8 @@ class UserDAO {
   }
 
   /// Check if mail password combination is right
-  static Future<bool> userLoginCheck(String userEmail, String userPassword) async {
+  static Future<bool> userLoginCheck(
+      String userEmail, String userPassword) async {
     final Database dbClient = await con.db;
     final List<Map<String, Object>> list = await dbClient.rawQuery(
         'SELECT USER_ID FROM ' +

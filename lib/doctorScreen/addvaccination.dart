@@ -216,7 +216,8 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                               sleep(const Duration(milliseconds: 50));
                               _buildQrData();
                               Navigator.of(context).push(HeroDialogRoute(
-                                builder: (BuildContext context) => AddTodoPopupCard(qrData),
+                                builder: (BuildContext context) =>
+                                    AddTodoPopupCard(qrData),
                               ));
                             }
                           },
@@ -237,7 +238,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
         ));
   }
 
-  void _selectDate(BuildContext context) async {
+  Future<void> _selectDate(BuildContext context) async {
     final DateTime newSelectedDate = await showDatePicker(
         context: context,
         locale: const Locale('de', 'DE'),

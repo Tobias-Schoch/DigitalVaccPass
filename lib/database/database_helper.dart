@@ -11,37 +11,33 @@ class DatabaseHelper {
   /// Database instance
   factory DatabaseHelper() => _instance;
   static Database _db;
-
-  /// User String
   static const String userTable = 'USER';
-
-  /// Family Member String
   static const String familyTable = 'FAMILY_MEMBER';
-
-  /// Vaccines String
   static const String vaccinesTable = 'VACCINES';
-
-  /// Tests String
   static const String testsTable = 'TESTS';
-
-  /// Statistics String
   static const String statisticTable = 'STATISTIC';
 
+  /// call initDb
   Future<Database> get db async {
-    if (_db != null) return _db;
+    if (_db != null)  {
+      return _db;
+    }
     _db = await initDb();
     return _db;
   }
 
-  initDb() async {
-    //io.Directory documentsDirectory = await getApplicationDocumentsDirectory();
-    //String path = join(documentsDirectory.path, "digital_vaccination_pass.db");
+  /// Open database
+  Future<Database> initDb() async {
+    //io.Directory documentsDirectory =
+    // await getApplicationDocumentsDirectory();
+    //String path = join(documentsDirectory.path,
+    // "digital_vaccination_pass.db");
     final Database _db = await openDatabase('digital_vaccination_passV4.db',
         version: 1, onCreate: _onCreate);
     return _db;
   }
 
-  _onCreate(Database db, int version) async {
+  Future<Database> _onCreate(Database db, int version) async {
     //id, name, email, role, pw
     const String userTable =
         'CREATE TABLE USER (USER_ID INTEGER PRIMARY KEY AUTOINCREMENT, '
@@ -71,7 +67,7 @@ class DatabaseHelper {
     _initTestData(db);
   }
 
-  _initTestData(Database db) async {
+  Future<void> _initTestData(Database db) async {
     final Batch batch = db.batch();
     TestData.userListDb.forEach(
         (element) => {batch.insert(DatabaseHelper.userTable, element.toMap())});

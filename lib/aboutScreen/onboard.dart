@@ -16,7 +16,7 @@ class OnBoardingPage extends StatefulWidget {
 }
 
 class _OnBoardingPageState extends State<OnBoardingPage> {
-  final introKey = GlobalKey<IntroductionScreenState>();
+  final GlobalKey<IntroductionScreenState> introKey = GlobalKey<IntroductionScreenState>();
 
   void _onIntroEnd(BuildContext context) {
     Navigator.of(context).pushReplacement(
@@ -27,7 +27,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
     );
   }
 
-  final pageDecoration = const PageDecoration(
+  final PageDecoration pageDecoration = const PageDecoration(
     titleTextStyle: TextStyle(fontSize: 28, fontWeight: FontWeight.w700),
     bodyTextStyle: TextStyle(fontSize: 19),
     descriptionPadding: EdgeInsets.fromLTRB(16, 0, 16, 16),

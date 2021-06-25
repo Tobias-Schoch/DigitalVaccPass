@@ -8,7 +8,6 @@ final DatabaseHelper con = DatabaseHelper();
 
 /// TestDAO
 class TestDAO {
-
   /// Add test
   static Future<int> create(
       String testName,
@@ -29,7 +28,7 @@ class TestDAO {
   /// Get all tests for current user
   static Future<List<Test>> getAllTestsForUser(int userId) async {
     final Database dbClient = await con.db;
-    final List<Map> list = await dbClient.rawQuery(
+    final List<Map<String, Object>> list = await dbClient.rawQuery(
         'SELECT * FROM ' + DatabaseHelper.testsTable + ' WHERE USER_ID = ?',
         [userId]);
 
@@ -43,7 +42,7 @@ class TestDAO {
   /// Get all tests for specific family member
   static Future<List<Test>> getAllTestsForFamilyUser(int familyId) async {
     final Database dbClient = await con.db;
-    final List<Map> list = await dbClient.rawQuery(
+    final List<Map<String, Object>> list = await dbClient.rawQuery(
         'SELECT * FROM ' + DatabaseHelper.testsTable + ' WHERE FAMILY_ID = ?',
         [familyId]);
 
