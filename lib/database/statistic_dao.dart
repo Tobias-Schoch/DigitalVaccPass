@@ -1,8 +1,9 @@
-import 'package:digital_vac_pass/utils/statistic.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:sqflite/sqflite.dart';
 
 import 'database_helper.dart';
+import '../utils/statistic.dart';
 
 /// DatabaseHelper
 final DatabaseHelper con = DatabaseHelper();

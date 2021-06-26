@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -62,13 +64,19 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
                                       alignment: Alignment.centerRight,
                                       padding: EdgeInsets.symmetric(
                                           horizontal: 10.0),
-                                      child: Icon(Icons.delete_sweep, color: Theme.of(context).primaryColor,),
+                                      child: Icon(
+                                        Icons.delete_sweep,
+                                        color: Theme.of(context).primaryColor,
+                                      ),
                                     ),
-                                    key: UniqueKey(),
-                                    onDismissed: (DismissDirection direction) {
+                                    key: ValueKey<User>(snapshot.data[index]),
+                                    onDismissed:
+                                        (DismissDirection direction) async {
                                       setState(() {
-                                        FamilyDAO.deleteFamilyMember(snapshot.data[index].familyDbId);
+                                        snapshot.data.removeAt(index);
                                       });
+                                      await FamilyDAO.deleteFamilyMember(
+                                          snapshot.data[index].familyDbId);
                                     },
                                     direction: DismissDirection.endToStart,
                                     child: Column(

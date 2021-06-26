@@ -34,7 +34,14 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
   String _buildCardBody(List<Statistic> element) {
     String body = "";
     for (int i = 0; i < element.length; i++) {
-      body += element[i].vaccineName + ": " + element[i].amount.toString() + "\r\n";
+      if (i == element.length - 1) {
+        body += element[i].vaccineName + ": " + element[i].amount.toString();
+      } else {
+        body += element[i].vaccineName +
+            ": " +
+            element[i].amount.toString() +
+            "\r\n";
+      }
     }
     return body;
   }
@@ -55,7 +62,12 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
         alignment: Alignment.topLeft,
         margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
         child: Column(
-          children: [
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(AppLocalizations.of(context).statistic,
+                style: Theme.of(context).textTheme.headline4,
+                textAlign: TextAlign.left),
+            const SizedBox(height: 25),
             Expanded(
               child: FutureBuilder<List>(
                 future: StatisticDAO.getStatisticsForYear(DateTime.now().year),
@@ -71,15 +83,42 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
                                         child: Column(
                                           children: <Widget>[
                                             ListTile(
-                                              title: Text(DateFormat.MMMM().format(DateTime(2021, snapshot.data[index].month)).toString()),
-                                              subtitle: Text(_buildCardBody(snapshot.data[index].statistics)),
-                                            ),
+                                              title: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: <Widget>[
+                                                    const SizedBox(height: 18),
+                                                    Text(
+                                                      DateFormat.MMMM()
+                                                          .format(DateTime(
+                                                              2021,
+                                                              snapshot
+                                                                  .data[index]
+                                                                  .month))
+                                                          .toString(),
+                                                      style: Theme.of(context)
+                                                          .textTheme
+                                                          .bodyText1,
+                                                    ),
+                                                  ]),
+                                              subtitle: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: <Widget>[
+                                                    const SizedBox(height: 8),
+                                                    Text(_buildCardBody(snapshot
+                                                        .data[index]
+                                                        .statistics)),
+                                                    const SizedBox(height: 18),
+                                                  ]),
+                                            )
                                           ],
                                         ),
                                       ),
                                     ],
                                   ),
                                 ),
+                                const SizedBox(height: 20),
                               ],
                             ))
                     : const Center(
