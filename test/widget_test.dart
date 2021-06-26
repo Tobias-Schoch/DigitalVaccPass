@@ -11,7 +11,6 @@ import 'package:digital_vac_pass/utils/app_bar.dart';
 import 'package:digital_vac_pass/utils/drawer.dart';
 import 'package:digital_vac_pass/aboutScreen/faq.dart';
 import 'package:digital_vac_pass/loginScreen/login.dart';
-import 'package:digital_vac_pass/qrScreen/qrcode.dart';
 import 'package:digital_vac_pass/doctorScreen/statistics_screen.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
 import 'package:digital_vac_pass/loginScreen/forgotpassword.dart';
@@ -72,39 +71,39 @@ Future<void> main() async {
     await screenMatchesGolden(tester, 'forgotPassword');
   });
 
-  // testGoldens('Vaccination Screen Test', (tester) async {
-  //   final builder = DeviceBuilder()
-  //     ..overrideDevicesForAllScenarios(
-  //       devices: devicesWithDifferentTextScales,
-  //     )
-  //     ..addScenario(
-  //         widget: MyVaccinationPage(selectedUser: TestData.userListDb.first, isFloatingActionButtonVisible: true),
-  //         name: 'vaccination page'
-  //     )
-  //     ..addScenario(
-  //         widget: MyVaccinationPage(selectedUser: TestData.userListDb.first, isFloatingActionButtonVisible: false),
-  //         name: 'vaccination page without action button'
-  //     );
-  //   await tester.pumpDeviceBuilder(builder);
-  //   await screenMatchesGolden(tester, 'vaccinationScreen');
-  // });
+  testGoldens('Vaccination Screen Test', (tester) async {
+    final builder = DeviceBuilder()
+      ..overrideDevicesForAllScenarios(
+        devices: devicesWithDifferentTextScales,
+      )
+      ..addScenario(
+          widget: MyVaccinationPage(selectedUser: TestData.userListDb.first, isFloatingActionButtonVisible: true),
+          name: 'vaccination page'
+      )
+      ..addScenario(
+          widget: MyVaccinationPage(selectedUser: TestData.userListDb.first, isFloatingActionButtonVisible: false),
+          name: 'vaccination page without action button'
+      );
+    await tester.pumpDeviceBuilder(builder);
+    await screenMatchesGolden(tester, 'vaccinationScreen');
+  });
 
-  // testGoldens('Tests Screen Test', (tester) async {
-  //   final builder = DeviceBuilder()
-  //     ..overrideDevicesForAllScenarios(
-  //       devices: devicesWithDifferentTextScales,
-  //     )
-  //     ..addScenario(
-  //         widget: MyTestPage(selectedUser: TestData.userListDb.first, isFloatingActionButtonVisible: true),
-  //         name: 'tests page'
-  //     )
-  //     ..addScenario(
-  //         widget: MyTestPage(selectedUser: TestData.userListDb.first, isFloatingActionButtonVisible: false),
-  //         name: 'tests without action button page'
-  //     );
-  //   await tester.pumpDeviceBuilder(builder);
-  //   await screenMatchesGolden(tester, 'testsScreen');
-  // });
+  testGoldens('Tests Screen Test', (tester) async {
+    final builder = DeviceBuilder()
+      ..overrideDevicesForAllScenarios(
+        devices: devicesWithDifferentTextScales,
+      )
+      ..addScenario(
+          widget: MyTestPage(selectedUser: TestData.userListDb.first, isFloatingActionButtonVisible: true),
+          name: 'tests page'
+      )
+      ..addScenario(
+          widget: MyTestPage(selectedUser: TestData.userListDb.first, isFloatingActionButtonVisible: false),
+          name: 'tests without action button page'
+      );
+    await tester.pumpDeviceBuilder(builder);
+    await screenMatchesGolden(tester, 'testsScreen');
+  });
 
   testGoldens('About Screen Test', (tester) async {
     final builder = DeviceBuilder()
@@ -162,18 +161,18 @@ Future<void> main() async {
     await screenMatchesGolden(tester, 'drawerScreen');
   });
 
-  // testGoldens('family Screen Test', (tester) async {
-  //   final builder = DeviceBuilder()
-  //     ..overrideDevicesForAllScenarios(
-  //       devices: devicesWithDifferentTextScales,
-  //     )
-  //     ..addScenario(
-  //         widget: MyFamilyPage(),
-  //         name: 'family page'
-  //     );
-  //   await tester.pumpDeviceBuilder(builder);
-  //   await screenMatchesGolden(tester, 'familyScreen');
-  // });
+  testGoldens('family Screen Test', (tester) async {
+    final builder = DeviceBuilder()
+      ..overrideDevicesForAllScenarios(
+        devices: devicesWithDifferentTextScales,
+      )
+      ..addScenario(
+          widget: MyFamilyPage(),
+          name: 'family page'
+      );
+    await tester.pumpDeviceBuilder(builder);
+    await screenMatchesGolden(tester, 'familyScreen');
+  });
 
   testGoldens('FAQ Screen Test', (tester) async {
     final builder = DeviceBuilder()

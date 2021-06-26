@@ -54,12 +54,6 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
 
   String qrData = '';
 
-  void _buildQrData() {
-    qrData = '';
-    qrData += 'NAME: ${User.loggedInUser.userName} \r\n';
-    qrData += 'EMAIL: ${User.loggedInUser.userEmail} \r\n';
-    qrData += 'VACCINATION: ${VaccinationDAO.getAllVaccinesForUser(User.loggedInUser.userDbId)} \r\n';
-  }
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -82,9 +76,9 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
                   child: ConstrainedBox(
                     constraints: const BoxConstraints.tightFor(height: 60),
                     child: ElevatedButton.icon(
-                      onPressed: () {
+                      onPressed: () async {
                         sleep(const Duration(milliseconds: 50));
-                        _buildQrData();
+                        qrData = await Util.buildUserQrData();
                         Navigator.of(context).push(HeroDialogRoute(
                           builder: (BuildContext context) => PopupCard(qrData),
                         ));

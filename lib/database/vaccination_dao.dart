@@ -40,9 +40,8 @@ class VaccinationDAO {
   /// Get all vaccinations for specific user
   static Future<List<Vaccination>> getAllVaccinesForUser(int userId) async {
     final Database dbClient = await con.db;
-    final List<Map<String, Object>> list = await dbClient.rawQuery(
-        'SELECT * FROM ${DatabaseHelper.vaccinesTable} WHERE USER_ID = ?',
-        [userId]);
+    final List<Map<String, Object>> list = await dbClient.query(
+        DatabaseHelper.vaccinesTable, where: 'USER_ID = ?', whereArgs: [userId], orderBy: 'VACCINE_DATE');
 
     final List<Vaccination> vaccList = list.isNotEmpty
         ? list.map((Map<String, Object> e) => Vaccination.fromMap(e)).toList()
@@ -55,9 +54,8 @@ class VaccinationDAO {
   static Future<List<Vaccination>> getAllVaccinesForFamilyUser(
       int familyId) async {
     final Database dbClient = await con.db;
-    final List<Map<String, Object>> list = await dbClient.rawQuery(
-        'SELECT * FROM ${DatabaseHelper.vaccinesTable} WHERE FAMILY_ID = ?',
-        [familyId]);
+    final List<Map<String, Object>> list = await dbClient.query(
+        DatabaseHelper.vaccinesTable, where: 'FAMILY_ID = ?', whereArgs: [familyId]);
 
     final List<Vaccination> vaccList = list.isNotEmpty
         ? list.map((Map<String, Object> e) => Vaccination.fromMap(e)).toList()

@@ -1,5 +1,10 @@
 import 'dart:io';
 
+import 'package:digital_vac_pass/database/family_dao.dart';
+import 'package:digital_vac_pass/database/test_dao.dart';
+import 'package:digital_vac_pass/familyScreen/family.dart';
+import 'package:digital_vac_pass/homeScreen/test_screen.dart';
+import 'package:digital_vac_pass/utils/test.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -159,45 +164,54 @@ class _QRViewExampleState extends State<QRViewExample> {
     if (result != null) {
       controller.stopCamera();
       barcodeString = result.code.toString();
+
       /// url for testing
       // barcodeString = 'https://app.soda-software.de/result/8acb8033ffe2fc52fc9f57f23023965776e03e08dd269f0b';
       if (barcodeString.contains('https://app.soda')) {
         http.Response resp = await http.get(Uri.parse(barcodeString));
         String body = resp.body;
 
-        String testDateString = body.substring(body.indexOf('%M\">') + 4, body.indexOf('</time'));
-        DateTime testDate = DateFormat('dd.MM.yyyy hh:mm').parse(testDateString);
+        String testDateString =
+            body.substring(body.indexOf('%M\">') + 4, body.indexOf('</time'));
+        DateTime testDate =
+            DateFormat('dd.MM.yyyy hh:mm').parse(testDateString);
         String testName = "";
-        Status testStatus = body.contains('NEGATIVE') ? Status.good : body.contains('POSITIVE') ? Status.bad : Status.pending;
-        
+        Status testStatus = body.contains('NEGATIVE')
+            ? Status.good
+            : body.contains('POSITIVE')
+                ? Status.bad
+                : Status.pending;
+
         List<String> test1 = body.split('\n');
         for (int i = 0; i < test1.length; i++) {
           if (test1[i].contains('Test type')) {
-            testName = test1[i + 1].substring(test1[i + 1].indexOf('>') + 1, test1[i + 1].indexOf('</'));
+            testName = test1[i + 1].substring(
+                test1[i + 1].indexOf('>') + 1, test1[i + 1].indexOf('</'));
             break;
           }
         }
         if (testName.isNotEmpty) {
-          TestDAO.create(testName, null, testDate, testStatus, null, User.loggedInUser.userDbId, null);
+          TestDAO.create(testName, null, testDate, testStatus, null,
+              User.loggedInUser.userDbId, null);
         }
         Navigator.of(context).push(MaterialPageRoute(
             builder: (BuildContext context) => MyTestPage(
                 isFloatingActionButtonVisible: true,
                 selectedUser: User.loggedInUser)));
         ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              behavior: SnackBarBehavior.floating,
-              width: 320,
-              duration: const Duration(milliseconds: 3000),
-              content: Container(
-                  height: 20,
-                  child: Center(
-                    child: Text(
-                      AppLocalizations.of(context).testAdded,
-                      textAlign: TextAlign.center,
-                    ),
-                  )),
-            ),
+          SnackBar(
+            behavior: SnackBarBehavior.floating,
+            width: 320,
+            duration: const Duration(milliseconds: 3000),
+            content: Container(
+                height: 20,
+                child: Center(
+                  child: Text(
+                    AppLocalizations.of(context).testAdded,
+                    textAlign: TextAlign.center,
+                  ),
+                )),
+          ),
         );
       }
     }
@@ -205,27 +219,61 @@ class _QRViewExampleState extends State<QRViewExample> {
 
   void _calledFromFamily(Barcode result) {
     if (result != null) {
+      controller.stopCamera();
       barcodeString = result.code.toString();
       //TODO add family member, check barcode String
-      
-      Navigator.of(context).push(MaterialPageRoute(
-          builder: (BuildContext context) => MyFamilyPage()));
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          behavior: SnackBarBehavior.floating,
-          width: 320,
-          duration: const Duration(milliseconds: 3000),
-          content: Container(
-              height: 20,
-              child: Center(
-                child: Text(
-                  AppLocalizations.of(context).familyMemberAdded,
-                  textAlign: TextAlign.center,
-                ),
-              )),
-        ),
-      );
+      if (barcodeString.contains('EMAIL:') &&
+              barcodeString.contains('NAME:') &&
+              barcodeString.contains('VACCINES') ||
+          barcodeString.contains('TESTS')) {
+        _addFamilyMember(barcodeString);
+        if (barcodeString.contains('TESTS')) {
+          _addTests(barcodeString.substring(barcodeString.indexOf('TESTS'), barcodeString.indexOf('3]')));
+        }
+        if (barcodeString.contains('VACCINES')) {
+          _addVaccines(barcodeString.substring(barcodeString.indexOf('VACCINES'), barcodeString.indexOf('4]')).split('\r\n'));
+        }
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (BuildContext context) => MyFamilyPage()));
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            behavior: SnackBarBehavior.floating,
+            width: 320,
+            duration: const Duration(milliseconds: 3000),
+            content: Container(
+                height: 20,
+                child: Center(
+                  child: Text(
+                    AppLocalizations.of(context).familyMemberAdded,
+                    textAlign: TextAlign.center,
+                  ),
+                )),
+          ),
+        );
+      }
     }
+  }
+
+  void _addFamilyMember(String qrCodeString) async {
+    String familyMemberEmail = qrCodeString.substring(
+        qrCodeString.indexOf('EMAIL: ') + 7, qrCodeString.indexOf('0\r\n'));
+    String familyMemberName = qrCodeString.substring(
+        qrCodeString.indexOf('NAME: ') + 6, qrCodeString.indexOf('1\r\n'));
+    if (familyMemberName.isNotEmpty && familyMemberEmail.isNotEmpty) {
+      // await FamilyDAO.create(familyMemberName, familyMemberEmail);
+    }
+  }
+
+  void _addVaccines(List<String> qrCodeString) {
+    List<String> a = qrCodeString;
+    print(qrCodeString);
+    // VaccinationDAO.create(vaccinationName, chargeNr, vaccinationDate, doctorSignature, vaccinationDescription, userId, familyId);
+  }
+
+  void _addTests(String qrCodeString) {
+    String a = qrCodeString;
+    print(qrCodeString);
+    // TestDAO.create(testName, testIdNr, testDate, testStatus, testDescription, userId, familyId);
   }
 
   @override
