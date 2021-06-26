@@ -151,7 +151,24 @@ class _QRViewExampleState extends State<QRViewExample> {
 
   void _calledFromTest(Barcode result) {
     if (result != null) {
+      controller.stopCamera();
       barcodeString = result.code.toString();
+      barcodeString = 'https://app.soda-software.de/result/8acb8033ffe2fc52fc9f57f23023965776e03e08dd269f0b';
+      if (barcodeString.contains('https://')) {
+        HttpClientResponse response1;
+        HttpClient client = new HttpClient();
+        client.getUrl(Uri.parse(barcodeString))
+            .then((HttpClientRequest request) {
+
+              return request.close();
+        })
+            .then((HttpClientResponse response) {
+              response1 = response;
+            print(response);
+        });
+        print(response1);
+        client.close();
+      }
     }
   }
 

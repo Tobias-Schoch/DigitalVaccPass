@@ -127,7 +127,7 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
                               ? VaccinationDAO.getAllVaccinesForUser(
                               widget.selectedUser.userDbId)
                               : VaccinationDAO.getAllVaccinesForFamilyUser(
-                              widget.selectedUser.userDbId),
+                              widget.selectedUser.familyDbId),
                           builder: (BuildContext context,
                               AsyncSnapshot snapshot) =>
                           snapshot.hasData

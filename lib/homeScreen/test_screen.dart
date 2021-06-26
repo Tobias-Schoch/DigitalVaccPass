@@ -87,7 +87,7 @@ class _MyTestPageState extends State<MyTestPage> {
                                 ? TestDAO.getAllTestsForUser(
                                     widget.selectedUser.userDbId)
                                 : TestDAO.getAllTestsForFamilyUser(
-                                    widget.selectedUser.userDbId),
+                                    widget.selectedUser.familyDbId),
                             builder:
                                 (BuildContext context,
                                         AsyncSnapshot snapshot) =>
