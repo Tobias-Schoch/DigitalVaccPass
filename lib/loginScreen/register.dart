@@ -178,7 +178,7 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                   TextFormField(
                     cursorColor: Theme.of(context).primaryColorLight,
                     decoration: InputDecoration(
-                      labelText: 'Passwort wiederholen',
+                      labelText: AppLocalizations.of(context).repeatPassword,
                       fillColor: Theme.of(context).accentColor,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
