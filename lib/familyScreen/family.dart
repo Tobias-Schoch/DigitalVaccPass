@@ -64,7 +64,7 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
                                           horizontal: 10.0),
                                       child: Icon(Icons.delete_sweep, color: Theme.of(context).primaryColor,),
                                     ),
-                                    key: ValueKey<int>(snapshot.data.length),
+                                    key: ValueKey<int>(index),
                                     direction: DismissDirection.endToStart,
                                     child: Column(
                                       children: <Widget>[
