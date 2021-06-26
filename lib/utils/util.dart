@@ -1,6 +1,8 @@
 import 'dart:core';
 import 'dart:ui';
 
+import 'package:digital_vac_pass/database/test_dao.dart';
+import 'package:digital_vac_pass/database/vaccination_dao.dart';
 import 'package:digital_vac_pass/utils/statistic.dart';
 import 'package:digital_vac_pass/utils/vaccination.dart';
 import 'package:faker/faker.dart';
@@ -27,6 +29,51 @@ class Util {
       await Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (BuildContext context) => const OnBoardingPage()));
     }
+  }
+
+  static Future<String> buildUserQrData() async {
+    String qrData = '';
+
+    if (User.loggedInUser != null) {
+      List<Vaccination> vaccList = await VaccinationDAO.getAllVaccinesForUser
+        (User.loggedInUser.userDbId);
+      List<Test> testList = await TestDAO.getAllTestsForUser
+        (User.loggedInUser.userDbId);
+      qrData += "EMAIL: " + User.loggedInUser.userEmail + "0\r\n";
+      qrData += "NAME: " + User.loggedInUser.userName + "1\r\n";
+
+      if (testList.isNotEmpty) {
+        qrData += "TESTS[";
+        testList.forEach((element) {
+          qrData += "TEST[";
+          qrData += "NAME: " + element.testName.toString() + "\r\n";
+          qrData += "IDNR: " + element.testIdNr.toString() + "\r\n";
+          qrData += "DATE: " + element.testDate.toString() + "\r\n";
+          qrData += "STATUS: " + element.testStatus.toString() + "\r\n";
+          qrData += "DESCR: " + element.testDescription.toString() + "\r\n";
+          qrData += "FAMILY_ID: " + element.familyId.toString() + "\r\n";
+          qrData += "]";
+        });
+        qrData += "3]";
+      }
+
+      if (vaccList.isNotEmpty) {
+        qrData += "VACCINES[";
+        vaccList.forEach((element) {
+          qrData += "VACCINE[";
+          qrData += "NAME: " + element.vaccinationName.toString() + "\r\n";
+          qrData += "CHARGENR: " + element.chargeNr.toString() + "\r\n";
+          qrData += "DATE: " + element.vaccinationDate.toString() + "\r\n";
+          qrData += "DOC: " + element.doctorSignature.toString() + "\r\n";
+          qrData += "DESCR: " + element.vaccinationDescription.toString() + "\r\n";
+          qrData += "]";
+        });
+        qrData += "4]";
+      }
+
+    }
+
+    return qrData;
   }
 }
 
