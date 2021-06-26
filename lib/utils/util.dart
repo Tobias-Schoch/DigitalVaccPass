@@ -20,9 +20,9 @@ class Util {
   /// Save and load shared preference and check if first start
   static Future<void> checkFirstSeen(BuildContext context) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    final bool _seen = prefs.getBool('firstStarter') ?? false;
+    final bool _seen = prefs.getBool('firstStarterd') ?? false;
     if (!_seen) {
-      await prefs.setBool('firstStarter', true);
+      await prefs.setBool('firstStarterd', true);
       await Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (BuildContext context) => const OnBoardingPage()));
     }

@@ -28,6 +28,12 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
   Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(
         title: const MyHeader(),
+        leading: Builder(
+          builder: (context) => IconButton(
+            icon: Icon(Icons.sort),
+            onPressed: () => Scaffold.of(context).openDrawer(),
+          ),
+        ),
         elevation: 0,
       ),
       body: Container(

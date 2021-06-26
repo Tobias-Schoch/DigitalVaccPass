@@ -39,6 +39,12 @@ class _MyFamilyHomeScreenPage extends State<MyFamilyHomeScreenPage> {
       child: Scaffold(
         appBar: AppBar(
           title: const MyHeader(),
+          leading: Builder(
+            builder: (context) => IconButton(
+              icon: Icon(Icons.sort),
+              onPressed: () => Scaffold.of(context).openDrawer(),
+            ),
+          ),
           elevation: 0,
           bottom: TabBar(
             indicator: UnderlineTabIndicator(
