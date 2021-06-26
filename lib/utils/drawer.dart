@@ -11,7 +11,6 @@ import '../doctorScreen/statistics.dart';
 import '../familyScreen/family.dart';
 import '../homeScreen/home.dart';
 import '../main.dart';
-import '../qrScreen/qrcode.dart';
 import 'user.dart';
 
 /// Drawer
@@ -136,18 +135,6 @@ class _MyDrawer extends State<MyDrawer> {
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) => const MyFamilyPage()));
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.qr_code_outlined,
-                  color: Theme.of(context).primaryColorLight),
-              title: Text(
-                AppLocalizations.of(context).myQRCode,
-                style: Theme.of(context).textTheme.headline6,
-              ),
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => const MyQRPage()));
               },
             ),
             Divider(

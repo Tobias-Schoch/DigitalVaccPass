@@ -74,30 +74,34 @@ class TestData {
     User.withData('Luis Nothvogel', 't', 't', Role.normal, vaccinationListDb,
         testsListDb),
     User.withData(
-        'Dr. Anna Mayer', 'a', 'a', Role.doctor, vaccinationListDb, testsListDb)
+        'Dr. Anna Mayer', 'a', 'a', Role.doctor, vaccinationListDb, testsListDb),
+    User.withData(
+        'Dr. Tobias Schoch', 'c', 'c', Role.doctor, vaccinationListDb, testsListDb)
   ];
 
   /// family member
   static List<User> familyUserDb = [
-    User.withData('test', 'test@test.de', 'pw', Role.normal, vaccinationListDb,
+    User.withData('Peter Müller', 'test@test.de', 'pw', Role.normal, vaccinationListDb,
         testsListDb),
-    User.withData('test1', 'test1@test.de', 'pw1', Role.normal,
+    User.withData('Juliane Müller', 'test1@test.de', 'pw1', Role.normal,
         vaccinationListDb, testsListDb),
-    User.withData('test2', 'test2@test.de', 'pw2', Role.normal,
+    User.withData('Leo Müller', 'test2@test.de', 'pw2', Role.normal,
         vaccinationListDb, testsListDb),
   ];
 
   /// Example date
   static String strDt = '2021-05-28';
+  static String strDt2 = '2021-04-15';
+  static String strDt3 = '2020-11-28';
 
   /// test vaccinations
   static List<Vaccination> vaccinationListDb = [
     Vaccination(
-        'covid', '0001', DateTime.parse(strDt), 'kekDoctor', 'beschreibung'),
+        'Covid-19 Biontech', '24356567', DateTime.parse(strDt), 'Dr. Anna Mayer', 'beschreibung'),
     Vaccination(
-        'covid2', '0002', DateTime.parse(strDt), 'kekDoctor2', 'beschreibung2'),
+        'Covid-19 Biontech', '452343', DateTime.parse(strDt2), 'Dr. Anna Mayer', 'beschreibung2'),
     Vaccination(
-        'covid3', '0003', DateTime.parse(strDt), 'kekDoctor3', 'beschreibung3')
+        'Tetanus', '23423', DateTime.parse(strDt3), 'Dr. Jörg Schmidt', 'beschreibung3')
   ];
 
   /// example tests
