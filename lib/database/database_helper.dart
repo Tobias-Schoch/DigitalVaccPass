@@ -1,3 +1,4 @@
+import 'package:digital_vac_pass/utils/statistic.dart';
 import 'package:sqflite/sqflite.dart';
 
 import '../utils/util.dart';
@@ -58,7 +59,7 @@ class DatabaseHelper {
         'TEST_NAME TEXT, TEST_ID_NR TEXT, TEST_DATE TEXT, TEST_STATUS TEXT, '
         'TEST_DESCRIPTION TEXT, USER_ID INTEGER, FAMILY_ID INTEGER)';
     //
-    const String statisticTable = 'CREATE TABLE STATISTIC (VACCINE_NAME TEXT PRIMARY KEY, AMOUNT INTEGER, MONTH INTEGER PRIMARY KEY, YEAR INTEGER PRIMARY KEY)';
+    const String statisticTable = 'CREATE TABLE STATISTIC (VACCINE_NAME TEXT, AMOUNT INTEGER, MONTH INTEGER, YEAR INTEGER, PRIMARY KEY (VACCINE_NAME, MONTH, YEAR))';
 
     await db.execute(userTable);
     await db.execute(familyTable);
@@ -115,5 +116,12 @@ class DatabaseHelper {
       }
     }
     await testBatch.commit(noResult: true);
+
+    final Batch statisticBatch = db.batch();
+    for (Statistic s in TestData.statisticListDb) {
+      statisticBatch.insert(DatabaseHelper.statisticTable, s.toMap());
+    }
+    await statisticBatch.commit(noResult: true);
   }
+
 }
