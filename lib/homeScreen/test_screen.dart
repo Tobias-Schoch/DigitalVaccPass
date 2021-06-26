@@ -62,7 +62,10 @@ class _MyTestPageState extends State<MyTestPage> {
                       future: testNotEmpty(),
                       builder: (BuildContext context, AsyncSnapshot snapshot) {
                         if (snapshot.data == null) {
-                          return const CircularProgressIndicator();
+                          return const CircularProgressIndicator(
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                                PredefinedColors.primaryColor),
+                          );
                         } else if (snapshot.data == true) {
                           return Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -164,7 +167,10 @@ class _MyTestPageState extends State<MyTestPage> {
                                                       ],
                                                     ))
                                         : const Center(
-                                            child: CircularProgressIndicator()),
+                                            child: CircularProgressIndicator(
+                                              valueColor: AlwaysStoppedAnimation<Color>(
+                                                  PredefinedColors.primaryColor),
+                                            )),
                           );
                         }
                       }))

@@ -1,3 +1,5 @@
+import 'package:digital_vac_pass/utils/util.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -54,46 +56,63 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
                         ? ListView.builder(
                             itemCount: snapshot.data.length,
                             itemBuilder: (BuildContext context, int index) =>
-                                Column(
-                                  children: <Widget>[
-                                    Card(
-                                      child: Row(
-                                        children: <Widget>[
-                                          Expanded(
-                                            child: Column(
-                                              children: <Widget>[
-                                                const SizedBox(height: 18),
-                                                InkWell(
-                                                  onTap: () {
-                                                    Navigator.of(context).push(
-                                                        MaterialPageRoute(
-                                                            builder: (BuildContext context) =>
+                                Dismissible(
+                                    background: Container(
+                                      color: Theme.of(context).accentColor,
+                                      alignment: Alignment.centerRight,
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 10.0),
+                                      child: Icon(Icons.delete_sweep, color: Theme.of(context).primaryColor,),
+                                    ),
+                                    key: ValueKey<int>(snapshot.data.length),
+                                    direction: DismissDirection.endToStart,
+                                    child: Column(
+                                      children: <Widget>[
+                                        Card(
+                                          child: Row(
+                                            children: <Widget>[
+                                              Expanded(
+                                                child: Column(
+                                                  children: <Widget>[
+                                                    const SizedBox(height: 18),
+                                                    InkWell(
+                                                      onTap: () {
+                                                        Navigator.of(context).push(MaterialPageRoute(
+                                                            builder: (BuildContext
+                                                                    context) =>
                                                                 MyFamilyHomeScreenPage(
                                                                     selectedUser:
                                                                         snapshot
                                                                             .data[index])));
-                                                  },
-                                                  child: ListTile(
-                                                    title: Text(
-                                                      snapshot
-                                                          .data[index].userName,
-                                                      style: Theme.of(context)
-                                                          .textTheme
-                                                          .bodyText1,
+                                                      },
+                                                      child: ListTile(
+                                                        title: Text(
+                                                          snapshot.data[index]
+                                                              .userName,
+                                                          style:
+                                                              Theme.of(context)
+                                                                  .textTheme
+                                                                  .bodyText1,
+                                                        ),
+                                                      ),
                                                     ),
-                                                  ),
+                                                    const SizedBox(height: 18),
+                                                  ],
                                                 ),
-                                                const SizedBox(height: 18),
-                                              ],
-                                            ),
+                                              ),
+                                              const SizedBox(height: 20),
+                                            ],
                                           ),
-                                        ],
-                                      ),
-                                    ),
-                                    const SizedBox(height: 20),
-                                  ],
-                                ))
-                        : const Center(child: CircularProgressIndicator()),
+                                        ),
+                                        const SizedBox(height: 20),
+                                      ],
+                                    )),
+                          )
+                        : const Center(
+                            child: CircularProgressIndicator(
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                                PredefinedColors.primaryColor),
+                          )),
               ),
             ),
           ],
