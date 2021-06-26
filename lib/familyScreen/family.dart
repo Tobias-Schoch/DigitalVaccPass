@@ -64,7 +64,12 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
                                           horizontal: 10.0),
                                       child: Icon(Icons.delete_sweep, color: Theme.of(context).primaryColor,),
                                     ),
-                                    key: ValueKey<int>(snapshot.data.length),
+                                    key: UniqueKey(),
+                                    onDismissed: (DismissDirection direction) {
+                                      setState(() {
+                                        FamilyDAO.deleteFamilyMember(snapshot.data[index].familyDbId);
+                                      });
+                                    },
                                     direction: DismissDirection.endToStart,
                                     child: Column(
                                       children: <Widget>[
