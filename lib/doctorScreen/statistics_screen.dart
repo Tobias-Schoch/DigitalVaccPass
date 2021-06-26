@@ -1,6 +1,9 @@
+import 'package:digital_vac_pass/database/statistic_dao.dart';
+import 'package:digital_vac_pass/utils/statistic.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:intl/intl.dart';
 
 import '../doctorScreen/addvaccination.dart';
 import '../utils/app_bar.dart';
@@ -28,6 +31,14 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
     Util.checkFirstSeen(context);
   }
 
+  String _buildCardBody(List<Statistic> element) {
+    String body = "";
+    for (int i = 0; i < element.length; i++) {
+      body += element[i].vaccineName + ": " + element[i].amount.toString() + "\r\n";
+    }
+    return body;
+  }
+
   @override
   Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(
@@ -43,94 +54,43 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
       body: Container(
         alignment: Alignment.topLeft,
         margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
-        child: SingleChildScrollView(
-          child: Column(
-        //     crossAxisAlignment: CrossAxisAlignment.start,
-        //     children: <Widget>[
-        //       Text(AppLocalizations.of(context).statistic,
-        //           style: Theme.of(context).textTheme.headline4,
-        //           textAlign: TextAlign.left),
-        //       const SizedBox(height: 25),
-        //       Card(
-        //           child:
-        //               Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-        //         ListTile(
-        //             title: Column(
-        //                 crossAxisAlignment: CrossAxisAlignment.start,
-        //                 children: <Widget>[
-        //                   const SizedBox(height: 18),
-        //                   Text(AppLocalizations.of(context).lastSevenDays,
-        //                       style: Theme.of(context).textTheme.bodyText1),
-        //                 ]),
-        //             subtitle: Column(
-        //               crossAxisAlignment: CrossAxisAlignment.start,
-        //               children: <Widget>[
-        //                 const SizedBox(height: 10),
-        //                 Text(
-        //                     '${AppLocalizations.of(context).vaccinations} : 68',
-        //                     textAlign: TextAlign.left),
-        //                 const SizedBox(height: 8),
-        //                 Text('${AppLocalizations.of(context).tests} : 149',
-        //                     textAlign: TextAlign.left),
-        //                 const SizedBox(height: 18),
-        //               ],
-        //             ))
-        //       ])),
-        //       const SizedBox(height: 20),
-        //       Card(
-        //           child:
-        //               Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-        //         ListTile(
-        //             title: Column(
-        //                 crossAxisAlignment: CrossAxisAlignment.start,
-        //                 children: <Widget>[
-        //                   const SizedBox(height: 18),
-        //                   Text(AppLocalizations.of(context).lastThirtyDays,
-        //                       style: Theme.of(context).textTheme.bodyText1),
-        //                 ]),
-        //             subtitle: Column(
-        //               crossAxisAlignment: CrossAxisAlignment.start,
-        //               children: <Widget>[
-        //                 const SizedBox(height: 10),
-        //                 Text(
-        //                     '${AppLocalizations.of(context).vaccinations} : 68',
-        //                     textAlign: TextAlign.left),
-        //                 const SizedBox(height: 8),
-        //                 Text('${AppLocalizations.of(context).tests} : 149',
-        //                     textAlign: TextAlign.left),
-        //                 const SizedBox(height: 18),
-        //               ],
-        //             ))
-        //       ])),
-        //       const SizedBox(height: 20),
-        //       Card(
-        //           child:
-        //               Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-        //         ListTile(
-        //             title: Column(
-        //                 crossAxisAlignment: CrossAxisAlignment.start,
-        //                 children: <Widget>[
-        //                   const SizedBox(height: 18),
-        //                   Text(AppLocalizations.of(context).overall,
-        //                       style: Theme.of(context).textTheme.bodyText1),
-        //                 ]),
-        //             subtitle: Column(
-        //               crossAxisAlignment: CrossAxisAlignment.start,
-        //               children: <Widget>[
-        //                 const SizedBox(height: 10),
-        //                 Text(
-        //                     '${AppLocalizations.of(context).vaccinations} : 68',
-        //                     textAlign: TextAlign.left),
-        //                 const SizedBox(height: 8),
-        //                 Text('${AppLocalizations.of(context).tests} : 149',
-        //                     textAlign: TextAlign.left),
-        //                 const SizedBox(height: 18),
-        //               ],
-        //             ))
-        //       ])),
-        //       const SizedBox(height: 25),
-        //     ],
-          ),
+        child: Column(
+          children: [
+            Expanded(
+              child: FutureBuilder<List>(
+                future: StatisticDAO.getStatisticsForYear(DateTime.now().year),
+                builder: (context, snapshot) => snapshot.hasData
+                    ? ListView.builder(
+                        itemCount: snapshot.data.length,
+                        itemBuilder: (context, index) => Column(
+                              children: [
+                                Card(
+                                  child: Row(
+                                    children: <Widget>[
+                                      Expanded(
+                                        child: Column(
+                                          children: <Widget>[
+                                            ListTile(
+                                              title: Text(DateFormat.MMMM().format(DateTime(2021, snapshot.data[index].month)).toString()),
+                                              subtitle: Text(_buildCardBody(snapshot.data[index].statistics)),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ))
+                    : const Center(
+                        child: CircularProgressIndicator(
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                              PredefinedColors.primaryColor),
+                        ),
+                      ),
+              ),
+            )
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
@@ -142,5 +102,4 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
         child: const Icon(Icons.add),
       ),
       drawer: const MyDrawer());
-
 }

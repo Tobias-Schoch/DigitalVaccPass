@@ -26,3 +26,12 @@ class Statistic {
   );
 
 }
+
+class StatisticForScreen {
+
+  int month;
+  List<Statistic> statistics;
+
+  StatisticForScreen(this.month, this.statistics);
+
+}

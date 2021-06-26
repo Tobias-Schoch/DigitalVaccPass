@@ -214,6 +214,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                               FocusScope.of(context).unfocus();
                               sleep(const Duration(milliseconds: 50));
                               _buildQrData();
+                              // TODO add to DB
                               Navigator.of(context).push(HeroDialogRoute(
                                 builder: (BuildContext context) =>
                                     PopupCard(qrData),

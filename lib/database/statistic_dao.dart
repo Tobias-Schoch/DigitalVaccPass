@@ -28,7 +28,7 @@ class StatisticDAO {
     }
   }
 
-  static Future<Map<int, List<Statistic>>> getStatisticsForYear(int year) async {
+  static Future<List<StatisticForScreen>> getStatisticsForYear(int year) async {
     final Database dbClient = await con.db;
     final List<Map<String, Object>> statisticsFromDbList = await dbClient.query(DatabaseHelper.statisticTable, where: "YEAR = ?", whereArgs: [year], orderBy: "MONTH desc");
 
@@ -37,29 +37,32 @@ class StatisticDAO {
         : List<Statistic>.empty();
 
     if (statisticList.isNotEmpty) {
-      final Map<int, List<Statistic>> statisticMap = new Map<int, List<Statistic>>();
+      List<StatisticForScreen> statisticForScreenList = List.empty(growable: true);
+      List<Statistic> usedStatistics = List.empty(growable: true);
 
       for (Statistic s in statisticList) {
-        if (!statisticMap.containsKey(s.month)) {
-          // new List
-          List<Statistic> list = [s];
-          statisticMap[s.month] = list;
+        if (statisticForScreenList.isEmpty) {
+          StatisticForScreen sForScreen = new StatisticForScreen(s.month, [s]);
+          statisticForScreenList.add(sForScreen);
+          usedStatistics.add(s);
         } else {
-          // update List
-          List<Statistic> list;
-          statisticMap.forEach((key, value) {
-            if (key == s.month) {
-              list = value;
+          for (StatisticForScreen sF in statisticForScreenList) {
+            if (sF.month == s.month) {
+              sF.statistics.add(s);
+              usedStatistics.add(s);
             }
-          });
-          list.add(s);
-          statisticMap[s.month] = list;
+          }
+          if (!usedStatistics.contains(s)) {
+            StatisticForScreen sForScreen = new StatisticForScreen(s.month, [s]);
+            statisticForScreenList.add(sForScreen);
+            usedStatistics.add(s);
+          }
         }
       }
 
-      return statisticMap;
+      return statisticForScreenList;
     }
 
-    return new Map<int, List<Statistic>>();
+    return new List<StatisticForScreen>.empty();
   }
 }
