@@ -25,7 +25,7 @@ class _MyFaqPageState extends State<MyFaqPage> {
       appBar: AppBar(
         title: const MyHeader(),
         leading: Builder(
-          builder: (context) => IconButton(
+          builder: (BuildContext context) => IconButton(
             icon: const Icon(Icons.sort),
             onPressed: () => Scaffold.of(context).openDrawer(),
           ),

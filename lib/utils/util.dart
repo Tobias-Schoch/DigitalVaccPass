@@ -1,18 +1,18 @@
 import 'dart:core';
 import 'dart:ui';
 
-import 'package:digital_vac_pass/database/test_dao.dart';
-import 'package:digital_vac_pass/database/vaccination_dao.dart';
-import 'package:digital_vac_pass/utils/statistic.dart';
-import 'package:digital_vac_pass/utils/vaccination.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../database/test_dao.dart';
+import '../database/vaccination_dao.dart';
 import '../aboutScreen/onboard.dart';
+import '../utils/statistic.dart';
 import '../utils/test.dart';
 import '../utils/user.dart';
+import '../utils/vaccination.dart';
 
 /// Util
 class Util {
@@ -31,46 +31,48 @@ class Util {
     }
   }
 
+  /// Build QR Data from user
   static Future<String> buildUserQrData() async {
     String qrData = '';
 
     if (User.loggedInUser != null) {
-      final List<Vaccination> vaccList = await VaccinationDAO.getAllVaccinesForUser
-        (User.loggedInUser.userDbId);
-      final List<Test> testList = await TestDAO.getAllTestsForUser
-        (User.loggedInUser.userDbId);
-      qrData += "EMAIL: " + User.loggedInUser.userEmail + "0\r\n";
-      qrData += "NAME: " + User.loggedInUser.userName + "1\r\n";
+      final List<Vaccination> vaccList =
+          await VaccinationDAO.getAllVaccinesForUser(
+              User.loggedInUser.userDbId);
+      final List<Test> testList =
+          await TestDAO.getAllTestsForUser(User.loggedInUser.userDbId);
+      qrData += 'EMAIL: ' + User.loggedInUser.userEmail + "0\r\n";
+      qrData += 'NAME: ' + User.loggedInUser.userName + "1\r\n";
 
       if (testList.isNotEmpty) {
-        qrData += "TESTS[";
+        qrData += 'TESTS[';
         testList.forEach((element) {
-          qrData += "TEST[";
-          qrData += "NAME: " + element.testName.toString() + "\r\n";
-          qrData += "IDNR: " + element.testIdNr.toString() + "\r\n";
-          qrData += "DATE: " + element.testDate.toString() + "\r\n";
-          qrData += "STATUS: " + element.testStatus.toString() + "\r\n";
-          qrData += "DESCR: " + element.testDescription.toString() + "\r\n";
-          qrData += "FAMILY_ID: " + element.familyId.toString() + "\r\n";
-          qrData += "]";
+          qrData += 'TEST[';
+          qrData += 'NAME: ' + element.testName.toString() + "\r\n";
+          qrData += 'IDNR: ' + element.testIdNr.toString() + "\r\n";
+          qrData += 'DATE: ' + element.testDate.toString() + "\r\n";
+          qrData += 'STATUS: ' + element.testStatus.toString() + "\r\n";
+          qrData += 'DESCR: ' + element.testDescription.toString() + "\r\n";
+          qrData += 'FAMILY_ID: ' + element.familyId.toString() + "\r\n";
+          qrData += ']';
         });
-        qrData += "3]";
+        qrData += '3]';
       }
 
       if (vaccList.isNotEmpty) {
-        qrData += "VACCINES[";
+        qrData += 'VACCINES[';
         vaccList.forEach((element) {
-          qrData += "VACCINE[";
-          qrData += "NAME: " + element.vaccinationName.toString() + "\r\n";
-          qrData += "CHARGENR: " + element.chargeNr.toString() + "\r\n";
-          qrData += "DATE: " + element.vaccinationDate.toString() + "\r\n";
-          qrData += "DOC: " + element.doctorSignature.toString() + "\r\n";
-          qrData += "DESCR: " + element.vaccinationDescription.toString() + "\r\n";
-          qrData += "]";
+          qrData += 'VACCINE[';
+          qrData += 'NAME: ' + element.vaccinationName.toString() + "\r\n";
+          qrData += 'CHARGENR: ' + element.chargeNr.toString() + "\r\n";
+          qrData += 'DATE: ' + element.vaccinationDate.toString() + "\r\n";
+          qrData += 'DOC: ' + element.doctorSignature.toString() + "\r\n";
+          qrData +=
+              'DESCR: ' + element.vaccinationDescription.toString() + "\r\n";
+          qrData += ']';
         });
-        qrData += "4]";
+        qrData += '4]';
       }
-
     }
 
     return qrData;
@@ -121,16 +123,16 @@ class TestData {
   static List<User> userListDb = [
     User.withData('Luis Nothvogel', 't', 't', Role.normal, vaccinationListDb,
         testsListDb),
-    User.withData(
-        'Dr. Anna Mayer', 'a', 'a', Role.doctor, vaccinationListDb, testsListDb),
-    User.withData(
-        'Dr. Tobias Schoch', 'c', 'c', Role.doctor, vaccinationListDb, testsListDb)
+    User.withData('Dr. Anna Mayer', 'a', 'a', Role.doctor, vaccinationListDb,
+        testsListDb),
+    User.withData('Dr. Tobias Schoch', 'c', 'c', Role.doctor, vaccinationListDb,
+        testsListDb)
   ];
 
   /// family member
   static List<User> familyUserDb = [
-    User.withData('Peter Müller', 'test@test.de', 'pw', Role.normal, vaccinationListDb,
-        testsListDb),
+    User.withData('Peter Müller', 'test@test.de', 'pw', Role.normal,
+        vaccinationListDb, testsListDb),
     User.withData('Juliane Müller', 'test1@test.de', 'pw1', Role.normal,
         vaccinationListDb, testsListDb),
     User.withData('Leo Müller', 'test2@test.de', 'pw2', Role.normal,
@@ -144,12 +146,12 @@ class TestData {
 
   /// test vaccinations
   static List<Vaccination> vaccinationListDb = [
-    Vaccination(
-        'Covid-19 Biontech', '24356567', DateTime.parse(strDt), 'Dr. Anna Mayer', 'beschreibung'),
-    Vaccination(
-        'Covid-19 Biontech', '452343', DateTime.parse(strDt2), 'Dr. Anna Mayer', 'beschreibung2'),
-    Vaccination(
-        'Tetanus', '23423', DateTime.parse(strDt3), 'Dr. Jörg Schmidt', 'beschreibung3')
+    Vaccination('Covid-19 Biontech', '24356567', DateTime.parse(strDt),
+        'Dr. Anna Mayer', 'beschreibung'),
+    Vaccination('Covid-19 Biontech', '452343', DateTime.parse(strDt2),
+        'Dr. Anna Mayer', 'beschreibung2'),
+    Vaccination('Tetanus', '23423', DateTime.parse(strDt3), 'Dr. Jörg Schmidt',
+        'beschreibung3')
   ];
 
   /// example tests

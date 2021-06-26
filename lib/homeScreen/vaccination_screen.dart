@@ -54,7 +54,6 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
 
   String qrData = '';
 
-
   @override
   Widget build(BuildContext context) => Scaffold(
         body: Container(
@@ -119,96 +118,96 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
                         return FutureBuilder<List<Vaccination>>(
                           future: widget.isFloatingActionButtonVisible
                               ? VaccinationDAO.getAllVaccinesForUser(
-                              widget.selectedUser.userDbId)
+                                  widget.selectedUser.userDbId)
                               : VaccinationDAO.getAllVaccinesForFamilyUser(
-                              widget.selectedUser.familyDbId),
+                                  widget.selectedUser.familyDbId),
                           builder: (BuildContext context,
-                              AsyncSnapshot snapshot) =>
-                          snapshot.hasData
-                              ? ListView.builder(
-                            itemCount: snapshot.data.length,
-                            itemBuilder:
-                                (BuildContext context, int index) =>
-                                InkWell(
-                                    child: Column(
-                                      children: <Widget>[
-                                        Card(
-                                          child: Row(
-                                            children: <Widget>[
-                                              Expanded(
-                                                child: Column(
-                                                  children: <Widget>[
-                                                    ListTile(
-                                                      title: Column(
+                                  AsyncSnapshot snapshot) =>
+                              snapshot.hasData
+                                  ? ListView.builder(
+                                      itemCount: snapshot.data.length,
+                                      itemBuilder:
+                                          (BuildContext context, int index) =>
+                                              InkWell(
+                                                  child: Column(
+                                        children: <Widget>[
+                                          Card(
+                                            child: Row(
+                                              children: <Widget>[
+                                                Expanded(
+                                                  child: Column(
+                                                    children: <Widget>[
+                                                      ListTile(
+                                                        title: Column(
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
+                                                            children: <Widget>[
+                                                              const SizedBox(
+                                                                  height: 18),
+                                                              Text(
+                                                                  snapshot
+                                                                      .data[
+                                                                          index]
+                                                                      .vaccinationName,
+                                                                  style: Theme.of(
+                                                                          context)
+                                                                      .textTheme
+                                                                      .bodyText1),
+                                                            ]),
+                                                        subtitle: Column(
                                                           crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
+                                                              CrossAxisAlignment
+                                                                  .start,
                                                           children: <Widget>[
                                                             const SizedBox(
-                                                                height: 18),
-                                                            Text(
+                                                                height: 10),
+                                                            Text(AppLocalizations.of(
+                                                                        context)
+                                                                    .date +
+                                                                DateFormat(
+                                                                        'dd.MM.yyyy')
+                                                                    .format(snapshot
+                                                                        .data[
+                                                                            index]
+                                                                        .vaccinationDate)),
+                                                            const SizedBox(
+                                                                height: 8),
+                                                            Text(AppLocalizations.of(
+                                                                        context)
+                                                                    .chargeNr +
                                                                 snapshot
-                                                                    .data[
-                                                                index]
-                                                                    .vaccinationName,
-                                                                style: Theme.of(
-                                                                    context)
-                                                                    .textTheme
-                                                                    .bodyText1),
-                                                          ]),
-                                                      subtitle: Column(
-                                                        crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                        children: <Widget>[
-                                                          const SizedBox(
-                                                              height: 10),
-                                                          Text(AppLocalizations.of(
-                                                              context)
-                                                              .date +
-                                                              DateFormat(
-                                                                  'dd.MM.yyyy')
-                                                                  .format(snapshot
-                                                                  .data[
-                                                              index]
-                                                                  .vaccinationDate)),
-                                                          const SizedBox(
-                                                              height: 8),
-                                                          Text(AppLocalizations.of(
-                                                              context)
-                                                              .chargeNr +
-                                                              snapshot
-                                                                  .data[index]
-                                                                  .chargeNr),
-                                                          const SizedBox(
-                                                              height: 8),
-                                                          Text(AppLocalizations.of(
-                                                              context)
-                                                              .doctor +
-                                                              snapshot
-                                                                  .data[index]
-                                                                  .doctorSignature
-                                                                  .toString()),
-                                                          const SizedBox(
-                                                              height: 18),
-                                                        ],
+                                                                    .data[index]
+                                                                    .chargeNr),
+                                                            const SizedBox(
+                                                                height: 8),
+                                                            Text(AppLocalizations.of(
+                                                                        context)
+                                                                    .doctor +
+                                                                snapshot
+                                                                    .data[index]
+                                                                    .doctorSignature
+                                                                    .toString()),
+                                                            const SizedBox(
+                                                                height: 18),
+                                                          ],
+                                                        ),
                                                       ),
-                                                    ),
-                                                  ],
+                                                    ],
+                                                  ),
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                        const SizedBox(height: 20),
-                                      ],
+                                          const SizedBox(height: 20),
+                                        ],
+                                      )),
+                                    )
+                                  : const Center(
+                                      child: CircularProgressIndicator(
+                                      valueColor: AlwaysStoppedAnimation<Color>(
+                                          PredefinedColors.primaryColor),
                                     )),
-                          )
-                              : const Center(
-                              child: CircularProgressIndicator(
-                                valueColor: AlwaysStoppedAnimation<Color>(
-                                    PredefinedColors.primaryColor),
-                              )),
                         );
                       }
                     }),
@@ -219,10 +218,10 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
         floatingActionButton: myVisibleFloatingActionButtonForQrScanner(
             context, widget.isFloatingActionButtonVisible, 'VACCINE'),
       );
+
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties
-        .add(DiagnosticsProperty<String>('qrData', qrData));
+    properties.add(DiagnosticsProperty<String>('qrData', qrData));
   }
 }

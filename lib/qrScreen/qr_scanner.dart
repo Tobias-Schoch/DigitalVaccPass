@@ -1,10 +1,5 @@
 import 'dart:io';
 
-import 'package:digital_vac_pass/database/family_dao.dart';
-import 'package:digital_vac_pass/database/test_dao.dart';
-import 'package:digital_vac_pass/familyScreen/family.dart';
-import 'package:digital_vac_pass/homeScreen/test_screen.dart';
-import 'package:digital_vac_pass/utils/test.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -20,8 +15,8 @@ import '../homeScreen/test_screen.dart';
 import '../homeScreen/vaccination_screen.dart';
 import '../utils/app_bar.dart';
 import '../utils/rsa.dart';
-import '../utils/user.dart';
 import '../utils/test.dart';
+import '../utils/user.dart';
 
 /// QR Scanner
 class QRViewExample extends StatefulWidget {
@@ -175,7 +170,7 @@ class _QRViewExampleState extends State<QRViewExample> {
             body.substring(body.indexOf('%M\">') + 4, body.indexOf('</time'));
         final DateTime testDate =
             DateFormat('dd.MM.yyyy hh:mm').parse(testDateString);
-        String testName = "";
+        String testName = '';
         final Status testStatus = body.contains('NEGATIVE')
             ? Status.good
             : body.contains('POSITIVE')
@@ -228,10 +223,14 @@ class _QRViewExampleState extends State<QRViewExample> {
           barcodeString.contains('TESTS')) {
         _addFamilyMember(barcodeString);
         if (barcodeString.contains('TESTS')) {
-          _addTests(barcodeString.substring(barcodeString.indexOf('TESTS'), barcodeString.indexOf('3]')));
+          _addTests(barcodeString.substring(
+              barcodeString.indexOf('TESTS'), barcodeString.indexOf('3]')));
         }
         if (barcodeString.contains('VACCINES')) {
-          _addVaccines(barcodeString.substring(barcodeString.indexOf('VACCINES'), barcodeString.indexOf('4]')).split('\r\n'));
+          _addVaccines(barcodeString
+              .substring(barcodeString.indexOf('VACCINES'),
+                  barcodeString.indexOf('4]'))
+              .split('\r\n'));
         }
         Navigator.of(context).push(MaterialPageRoute(
             builder: (BuildContext context) => const MyFamilyPage()));
@@ -271,7 +270,6 @@ class _QRViewExampleState extends State<QRViewExample> {
 
   void _addTests(String qrCodeString) {
     final String a = qrCodeString;
-    print(qrCodeString);
     // TestDAO.create(testName, testIdNr, testDate, testStatus, testDescription, userId, familyId);
   }
 

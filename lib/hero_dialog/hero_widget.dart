@@ -11,6 +11,7 @@ class PopupCard extends StatelessWidget {
   /// Hero widget
   const PopupCard(this.qrData, {Key key}) : super(key: key);
 
+  /// Data to display in qrcode
   final String qrData;
 
   @override

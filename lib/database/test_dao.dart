@@ -29,7 +29,10 @@ class TestDAO {
   static Future<List<Test>> getAllTestsForUser(int userId) async {
     final Database dbClient = await con.db;
     final List<Map<String, Object>> list = await dbClient.query(
-        DatabaseHelper.testsTable, where: 'USER_ID = ?', whereArgs: [userId], orderBy: 'TEST_DATE DESC');
+        DatabaseHelper.testsTable,
+        where: 'USER_ID = ?',
+        whereArgs: [userId],
+        orderBy: 'TEST_DATE DESC');
 
     final List<Test> testList = list.isNotEmpty
         ? list.map((Map<String, Object> e) => Test.fromMap(e)).toList()
@@ -42,7 +45,9 @@ class TestDAO {
   static Future<List<Test>> getAllTestsForFamilyUser(int familyId) async {
     final Database dbClient = await con.db;
     final List<Map<String, Object>> list = await dbClient.query(
-        DatabaseHelper.testsTable, where: 'FAMILY_ID = ?', whereArgs: [familyId]);
+        DatabaseHelper.testsTable,
+        where: 'FAMILY_ID = ?',
+        whereArgs: [familyId]);
 
     final List<Test> vaccList = list.isNotEmpty
         ? list.map((Map<String, Object> e) => Test.fromMap(e)).toList()

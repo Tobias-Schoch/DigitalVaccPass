@@ -1,13 +1,12 @@
 import 'dart:io';
 
-import 'package:digital_vac_pass/database/statistic_dao.dart';
-import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:ninja/ninja.dart';
 
+import '../database/statistic_dao.dart';
 import '../hero_dialog/custom_rect_twin.dart';
 import '../hero_dialog/hero_dialog_route.dart';
 import '../hero_dialog/hero_widget.dart';
@@ -82,7 +81,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
         appBar: AppBar(
           title: const MyHeader(),
           leading: Builder(
-            builder: (context) => IconButton(
+            builder: (BuildContext context) => IconButton(
               icon: const Icon(Icons.sort),
               onPressed: () => Scaffold.of(context).openDrawer(),
             ),
@@ -216,7 +215,10 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                               FocusScope.of(context).unfocus();
                               sleep(const Duration(milliseconds: 50));
                               _buildQrData();
-                              StatisticDAO.create(_vaccineTextEditingController.text, DateFormat('dd.MM.yyyy').parse(_textEditingController.text));
+                              StatisticDAO.create(
+                                  _vaccineTextEditingController.text,
+                                  DateFormat('dd.MM.yyyy')
+                                      .parse(_textEditingController.text));
                               Navigator.of(context).push(HeroDialogRoute(
                                 builder: (BuildContext context) =>
                                     PopupCard(qrData),

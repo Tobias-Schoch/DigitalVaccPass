@@ -22,7 +22,9 @@ class UserDAO {
   static Future<User> getUserByEmail(String userEmail) async {
     final Database dbClient = await con.db;
     final List<Map<String, Object>> list = await dbClient.query(
-        DatabaseHelper.userTable, where: 'USER_EMAIL = ?', whereArgs: [userEmail]);
+        DatabaseHelper.userTable,
+        where: 'USER_EMAIL = ?',
+        whereArgs: [userEmail]);
     if (list.isNotEmpty) {
       return User.fromMap(list[0]);
     } else {
@@ -35,7 +37,9 @@ class UserDAO {
       String userEmail, String userPassword) async {
     final Database dbClient = await con.db;
     final List<Map<String, Object>> list = await dbClient.query(
-        DatabaseHelper.userTable, where: 'USER_EMAIL = ? AND PASSWORD = ?', whereArgs: [userEmail, userPassword]);
+        DatabaseHelper.userTable,
+        where: 'USER_EMAIL = ? AND PASSWORD = ?',
+        whereArgs: [userEmail, userPassword]);
     if (list.isNotEmpty) {
       return true;
     } else {

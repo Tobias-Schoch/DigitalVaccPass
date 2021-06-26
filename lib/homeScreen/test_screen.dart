@@ -168,9 +168,10 @@ class _MyTestPageState extends State<MyTestPage> {
                                                     ))
                                         : const Center(
                                             child: CircularProgressIndicator(
-                                              valueColor: AlwaysStoppedAnimation<Color>(
-                                                  PredefinedColors.primaryColor),
-                                            )),
+                                            valueColor: AlwaysStoppedAnimation<
+                                                    Color>(
+                                                PredefinedColors.primaryColor),
+                                          )),
                           );
                         }
                       }))

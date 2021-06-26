@@ -1,6 +1,6 @@
-import 'package:digital_vac_pass/utils/statistic.dart';
 import 'package:sqflite/sqflite.dart';
 
+import '../utils/statistic.dart';
 import '../utils/util.dart';
 
 /// Database Helper

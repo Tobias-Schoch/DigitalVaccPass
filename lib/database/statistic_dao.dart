@@ -1,19 +1,19 @@
-import 'package:flutter/cupertino.dart';
 import 'package:sqflite/sqflite.dart';
 
-import 'database_helper.dart';
 import '../utils/statistic.dart';
+import 'database_helper.dart';
 
 /// DatabaseHelper
 final DatabaseHelper con = DatabaseHelper();
 
+/// Statistic DAO
 class StatisticDAO {
   /// Add vaccination
   static Future<int> create(String vaccineName, DateTime vaccineDate) async {
     final Database dbClient = await con.db;
     final List<Map<String, Object>> statisticFromDbList = await dbClient.query(
         DatabaseHelper.statisticTable,
-        where: "VACCINE_NAME = ? AND MONTH = ? AND YEAR = ?",
+        where: 'VACCINE_NAME = ? AND MONTH = ? AND YEAR = ?',
         whereArgs: [vaccineName, vaccineDate.month, vaccineDate.year],
         limit: 1);
 
@@ -26,16 +26,16 @@ class StatisticDAO {
     if (statisticList.isNotEmpty) {
       // update
       final Map<String, Object> data = {
-        "AMOUNT": statisticList.elementAt(0).amount + 1
+        'AMOUNT': statisticList.elementAt(0).amount + 1
       };
-      return await dbClient.update(DatabaseHelper.statisticTable, data,
-          where: "VACCINE_NAME = ? AND MONTH = ? AND YEAR = ?",
+      return dbClient.update(DatabaseHelper.statisticTable, data,
+          where: 'VACCINE_NAME = ? AND MONTH = ? AND YEAR = ?',
           whereArgs: [vaccineName, vaccineDate.month, vaccineDate.year]);
     } else {
       // insert
-      final statisticToInsert =
-          new Statistic(vaccineName, 1, vaccineDate.month, vaccineDate.year);
-      return await dbClient.insert(
+      final Statistic statisticToInsert =
+          Statistic(vaccineName, 1, vaccineDate.month, vaccineDate.year);
+      return dbClient.insert(
           DatabaseHelper.statisticTable, statisticToInsert.toMap());
     }
   }
@@ -45,9 +45,9 @@ class StatisticDAO {
     final Database dbClient = await con.db;
     final List<Map<String, Object>> statisticsFromDbList = await dbClient.query(
         DatabaseHelper.statisticTable,
-        where: "YEAR = ?",
+        where: 'YEAR = ?',
         whereArgs: [year],
-        orderBy: "MONTH desc");
+        orderBy: 'MONTH desc');
 
     final List<Statistic> statisticList = statisticsFromDbList.isNotEmpty
         ? statisticsFromDbList
@@ -63,7 +63,7 @@ class StatisticDAO {
       for (final Statistic s in statisticList) {
         if (statisticForScreenList.isEmpty) {
           final StatisticForScreen sForScreen =
-              new StatisticForScreen(s.month, [s]);
+              StatisticForScreen(s.month, [s]);
           statisticForScreenList.add(sForScreen);
           usedStatistics.add(s);
         } else {
@@ -75,7 +75,7 @@ class StatisticDAO {
           }
           if (!usedStatistics.contains(s)) {
             final StatisticForScreen sForScreen =
-                new StatisticForScreen(s.month, [s]);
+                StatisticForScreen(s.month, [s]);
             statisticForScreenList.add(sForScreen);
             usedStatistics.add(s);
           }
@@ -85,6 +85,6 @@ class StatisticDAO {
       return statisticForScreenList;
     }
 
-    return new List<StatisticForScreen>.empty();
+    return List<StatisticForScreen>.empty();
   }
 }

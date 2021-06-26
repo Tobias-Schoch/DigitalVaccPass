@@ -1,4 +1,3 @@
-import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +8,7 @@ import '../utils/app_bar.dart';
 import '../utils/custom_widgets.dart';
 import '../utils/drawer.dart';
 import '../utils/user.dart';
+import '../utils/util.dart';
 import 'family_home_screen.dart';
 
 /// Family overview
@@ -31,7 +31,7 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
       appBar: AppBar(
         title: const MyHeader(),
         leading: Builder(
-          builder: (context) => IconButton(
+          builder: (BuildContext context) => IconButton(
             icon: const Icon(Icons.sort),
             onPressed: () => Scaffold.of(context).openDrawer(),
           ),
@@ -61,7 +61,7 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
                                   color: Theme.of(context).accentColor,
                                   alignment: Alignment.centerRight,
                                   padding: const EdgeInsets.symmetric(
-                                      horizontal: 10.0),
+                                      horizontal: 10),
                                   child: Icon(
                                     Icons.delete_sweep,
                                     color: Theme.of(context).primaryColor,

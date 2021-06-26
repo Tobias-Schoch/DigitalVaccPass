@@ -1,10 +1,11 @@
+/// Statistic
 class Statistic {
-
   String vaccineName;
   int amount;
   int month;
   int year;
 
+  /// Statistic for vaccine
   Statistic(this.vaccineName, this.amount, this.month, this.year);
 
   /// Statistic to Map
@@ -19,19 +20,13 @@ class Statistic {
 
   /// Statistic from Map
   factory Statistic.fromMap(Map<String, dynamic> data) => Statistic(
-      data['VACCINE_NAME'],
-      data['AMOUNT'],
-      data['MONTH'],
-      data['YEAR']
-  );
-
+      data['VACCINE_NAME'], data['AMOUNT'], data['MONTH'], data['YEAR']);
 }
 
+/// Statistic for doctor screen
 class StatisticForScreen {
-
   int month;
   List<Statistic> statistics;
 
   StatisticForScreen(this.month, this.statistics);
-
 }

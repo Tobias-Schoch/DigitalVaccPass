@@ -1,13 +1,13 @@
-import 'package:digital_vac_pass/database/statistic_dao.dart';
-import 'package:digital_vac_pass/utils/statistic.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 
+import '../database/statistic_dao.dart';
 import '../doctorScreen/addvaccination.dart';
 import '../utils/app_bar.dart';
 import '../utils/drawer.dart';
+import '../utils/statistic.dart';
 import '../utils/util.dart';
 
 /// Statistics for doctor
@@ -32,15 +32,12 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
   }
 
   String _buildCardBody(List<Statistic> element) {
-    String body = "";
+    String body = '';
     for (int i = 0; i < element.length; i++) {
       if (i == element.length - 1) {
-        body += element[i].vaccineName + ": " + element[i].amount.toString();
+        body += '${element[i].vaccineName}: ${element[i].amount.toString()}' ;
       } else {
-        body += element[i].vaccineName +
-            ": " +
-            element[i].amount.toString() +
-            "\r\n";
+        body += '${element[i].vaccineName}: ${element[i].amount.toString()}\r\n';
       }
     }
     return body;
@@ -51,7 +48,7 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
       appBar: AppBar(
         title: const MyHeader(),
         leading: Builder(
-          builder: (context) => IconButton(
+          builder: (BuildContext context) => IconButton(
             icon: const Icon(Icons.sort),
             onPressed: () => Scaffold.of(context).openDrawer(),
           ),
@@ -71,11 +68,11 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
             Expanded(
               child: FutureBuilder<List>(
                 future: StatisticDAO.getStatisticsForYear(DateTime.now().year),
-                builder: (context, snapshot) => snapshot.hasData
+                builder: (BuildContext context, AsyncSnapshot snapshot) => snapshot.hasData
                     ? ListView.builder(
                         itemCount: snapshot.data.length,
-                        itemBuilder: (context, index) => Column(
-                              children: [
+                        itemBuilder: (BuildContext context, int index) => Column(
+                              children: <Widget>[
                                 Card(
                                   child: Row(
                                     children: <Widget>[
