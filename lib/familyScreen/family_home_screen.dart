@@ -39,6 +39,9 @@ class _MyFamilyHomeScreenPage extends State<MyFamilyHomeScreenPage> {
       child: Scaffold(
         appBar: AppBar(
           title: const MyHeader(),
+          leading: IconButton(
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () => Navigator.pop(context)),
           elevation: 0,
           bottom: TabBar(
             indicator: UnderlineTabIndicator(

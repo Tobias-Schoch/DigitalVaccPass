@@ -219,4 +219,10 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
         floatingActionButton: myVisibleFloatingActionButtonForQrScanner(
             context, widget.isFloatingActionButtonVisible, 'VACCINE'),
       );
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty<String>('qrData', qrData));
+  }
 }

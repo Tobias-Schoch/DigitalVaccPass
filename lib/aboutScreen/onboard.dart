@@ -41,6 +41,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: const MyHeader(),
         elevation: 0,
       ),
