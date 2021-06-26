@@ -250,5 +250,13 @@
   "addedPersonSuccess": "Person was added succesfully",
   "@addedPersonSuccess" : {
     "description": ""
+  },
+  "testAdded": "Test added",
+  "@testAdded": {
+    "description": ""
+  },
+  "familyMemberAdded": "Family member added",
+  "@familyMemberAdded": {
+    "description": ""
   }
 }

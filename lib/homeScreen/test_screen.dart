@@ -151,7 +151,7 @@ class _MyTestPageState extends State<MyTestPage> {
                                                                                 DateFormat('dd.MM.yyyy').format(snapshot.data[index].testDate)),
                                                                             const SizedBox(height: 8),
                                                                             Text(AppLocalizations.of(context).testID +
-                                                                                snapshot.data[index].testIdNr),
+                                                                                snapshot.data[index].testIdNr.toString()),
                                                                             const SizedBox(height: 8),
                                                                             Text(snapshot.data[index].testStatus.toString().substring(snapshot.data[index].testStatus.toString().indexOf('.') +
                                                                                 1)),

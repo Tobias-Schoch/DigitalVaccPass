@@ -61,5 +61,7 @@
     "vacPass": "Impfpass",
     "noTestsAvailable": "Keine Tests hinzugefügt",
     "addPerson": "Person hinzufügen",
-    "addedPersonSuccess": "Person wurde erfolgreich hinzugefügt"
+    "addedPersonSuccess": "Person wurde erfolgreich hinzugefügt",
+    "testAdded": "Test hinzugefügt",
+    "familyMemberAdded": "Familienmitglied hinzugefügt"
 }
