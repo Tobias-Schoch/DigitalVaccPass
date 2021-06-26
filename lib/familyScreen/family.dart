@@ -61,7 +61,7 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
                                                   onTap: () {
                                                     Navigator.of(context).push(
                                                         MaterialPageRoute(
-                                                            builder: (BuildContextcontext) =>
+                                                            builder: (BuildContext context) =>
                                                                 MyFamilyHomeScreenPage(
                                                                     selectedUser:
                                                                         snapshot
