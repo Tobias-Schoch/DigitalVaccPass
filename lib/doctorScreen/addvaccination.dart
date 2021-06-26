@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:digital_vac_pass/database/statistic_dao.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -214,7 +215,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                               FocusScope.of(context).unfocus();
                               sleep(const Duration(milliseconds: 50));
                               _buildQrData();
-                              // TODO add to DB
+                              StatisticDAO.create(_vaccineTextEditingController.text, DateTime.parse(_textEditingController.text));
                               Navigator.of(context).push(HeroDialogRoute(
                                 builder: (BuildContext context) =>
                                     PopupCard(qrData),
