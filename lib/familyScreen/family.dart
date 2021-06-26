@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';

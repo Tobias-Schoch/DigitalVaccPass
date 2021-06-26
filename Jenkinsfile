@@ -9,7 +9,7 @@ pipeline {
                 sh "flutter doctor -v"
             }
         }
-        stage ('Run Flutter Tests') {
+        /*stage ('Run Flutter Tests') {
             steps {
                 sh "flutter test --update-goldens"
                 sh "flutter test"
@@ -28,7 +28,7 @@ pipeline {
                 sh "git diff-index --quiet HEAD || (git commit -m 'Added Golden Screenshots from Build 1.0' \
                 && git push https://gitlab-ci-token:2LDK9QYHeQYzT57zGD-9@gitlab.in.htwg-konstanz.de/lehre/rschimka/mobile/g-mobile-sose21/04-mobile-sose21.git master:screenshots-build-1.0)"
             }
-        }
+        }*/
         stage('SonarQube Analysis') {
             steps {
                 sh "flutter pub get"
