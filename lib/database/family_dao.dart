@@ -38,7 +38,7 @@ class FamilyDAO {
 
     await dbClient.delete(DatabaseHelper.vaccinesTable, where: "FAMILY_ID = ?", whereArgs: [familyId]);
     await dbClient.delete(DatabaseHelper.testsTable, where: "FAMILY_ID = ?", whereArgs: [familyId]);
-    int count = await dbClient.delete(DatabaseHelper.familyTable, where: "FAMILY_ID = ?", whereArgs: [familyId]);
+    int count = await dbClient.delete(DatabaseHelper.familyTable, where: "FAMILY_MEMBER_ID = ?", whereArgs: [familyId]);
 
     if (count > 0) {
       return true;
