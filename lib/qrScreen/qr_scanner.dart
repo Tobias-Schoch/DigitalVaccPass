@@ -1,10 +1,17 @@
+import 'dart:ffi';
 import 'dart:io';
 
+import 'package:digital_vac_pass/database/test_dao.dart';
+import 'package:digital_vac_pass/familyScreen/family.dart';
+import 'package:digital_vac_pass/homeScreen/test_screen.dart';
+import 'package:digital_vac_pass/utils/test.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:intl/intl.dart';
 import 'package:ninja/ninja.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:http/http.dart' as http;
 
 import '../database/vaccination_dao.dart';
 import '../homeScreen/vaccination_screen.dart';
@@ -149,25 +156,50 @@ class _QRViewExampleState extends State<QRViewExample> {
     }
   }
 
-  void _calledFromTest(Barcode result) {
+  void _calledFromTest(Barcode result) async {
     if (result != null) {
       controller.stopCamera();
       barcodeString = result.code.toString();
-      barcodeString = 'https://app.soda-software.de/result/8acb8033ffe2fc52fc9f57f23023965776e03e08dd269f0b';
-      if (barcodeString.contains('https://')) {
-        HttpClientResponse response1;
-        HttpClient client = new HttpClient();
-        client.getUrl(Uri.parse(barcodeString))
-            .then((HttpClientRequest request) {
+      /// url for testing
+      // barcodeString = 'https://app.soda-software.de/result/8acb8033ffe2fc52fc9f57f23023965776e03e08dd269f0b';
+      if (barcodeString.contains('https://app.soda')) {
+        http.Response resp = await http.get(Uri.parse(barcodeString));
+        String body = resp.body;
 
-              return request.close();
-        })
-            .then((HttpClientResponse response) {
-              response1 = response;
-            print(response);
-        });
-        print(response1);
-        client.close();
+        String testDateString = body.substring(body.indexOf('%M\">') + 4, body.indexOf('</time'));
+        DateTime testDate = DateFormat('dd.MM.yyyy hh:mm').parse(testDateString);
+        String testName = "";
+        Status testStatus = body.contains('NEGATIVE') ? Status.good : body.contains('POSITIVE') ? Status.bad : Status.pending;
+        
+        List<String> test1 = body.split('\n');
+        for (int i = 0; i < test1.length; i++) {
+          if (test1[i].contains('Test type')) {
+            testName = test1[i + 1].substring(test1[i + 1].indexOf('>') + 1, test1[i + 1].indexOf('</'));
+            break;
+          }
+        }
+        if (testName.isNotEmpty) {
+          TestDAO.create(testName, null, testDate, testStatus, null, User.loggedInUser.userDbId, null);
+        }
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (BuildContext context) => MyTestPage(
+                isFloatingActionButtonVisible: true,
+                selectedUser: User.loggedInUser)));
+        ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              behavior: SnackBarBehavior.floating,
+              width: 320,
+              duration: const Duration(milliseconds: 3000),
+              content: Container(
+                  height: 20,
+                  child: Center(
+                    child: Text(
+                      AppLocalizations.of(context).testAdded,
+                      textAlign: TextAlign.center,
+                    ),
+                  )),
+            ),
+        );
       }
     }
   }
@@ -175,6 +207,25 @@ class _QRViewExampleState extends State<QRViewExample> {
   void _calledFromFamily(Barcode result) {
     if (result != null) {
       barcodeString = result.code.toString();
+      //TODO add family member, check barcode String
+      
+      Navigator.of(context).push(MaterialPageRoute(
+          builder: (BuildContext context) => MyFamilyPage()));
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          behavior: SnackBarBehavior.floating,
+          width: 320,
+          duration: const Duration(milliseconds: 3000),
+          content: Container(
+              height: 20,
+              child: Center(
+                child: Text(
+                  AppLocalizations.of(context).familyMemberAdded,
+                  textAlign: TextAlign.center,
+                ),
+              )),
+        ),
+      );
     }
   }
 
