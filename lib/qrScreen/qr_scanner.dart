@@ -160,29 +160,29 @@ class _QRViewExampleState extends State<QRViewExample> {
     }
   }
 
-  void _calledFromTest(Barcode result) async {
+  _calledFromTest(Barcode result) async {
     if (result != null) {
-      controller.stopCamera();
+      await controller.stopCamera();
       barcodeString = result.code.toString();
 
       /// url for testing
       // barcodeString = 'https://app.soda-software.de/result/8acb8033ffe2fc52fc9f57f23023965776e03e08dd269f0b';
       if (barcodeString.contains('https://app.soda')) {
-        http.Response resp = await http.get(Uri.parse(barcodeString));
-        String body = resp.body;
+        final http.Response resp = await http.get(Uri.parse(barcodeString));
+        final String body = resp.body;
 
-        String testDateString =
+        final String testDateString =
             body.substring(body.indexOf('%M\">') + 4, body.indexOf('</time'));
-        DateTime testDate =
+        final DateTime testDate =
             DateFormat('dd.MM.yyyy hh:mm').parse(testDateString);
         String testName = "";
-        Status testStatus = body.contains('NEGATIVE')
+        final Status testStatus = body.contains('NEGATIVE')
             ? Status.good
             : body.contains('POSITIVE')
                 ? Status.bad
                 : Status.pending;
 
-        List<String> test1 = body.split('\n');
+        final List<String> test1 = body.split('\n');
         for (int i = 0; i < test1.length; i++) {
           if (test1[i].contains('Test type')) {
             testName = test1[i + 1].substring(
@@ -191,10 +191,10 @@ class _QRViewExampleState extends State<QRViewExample> {
           }
         }
         if (testName.isNotEmpty) {
-          TestDAO.create(testName, null, testDate, testStatus, null,
+          await TestDAO.create(testName, null, testDate, testStatus, null,
               User.loggedInUser.userDbId, null);
         }
-        Navigator.of(context).push(MaterialPageRoute(
+        await Navigator.of(context).push(MaterialPageRoute(
             builder: (BuildContext context) => MyTestPage(
                 isFloatingActionButtonVisible: true,
                 selectedUser: User.loggedInUser)));
@@ -234,7 +234,7 @@ class _QRViewExampleState extends State<QRViewExample> {
           _addVaccines(barcodeString.substring(barcodeString.indexOf('VACCINES'), barcodeString.indexOf('4]')).split('\r\n'));
         }
         Navigator.of(context).push(MaterialPageRoute(
-            builder: (BuildContext context) => MyFamilyPage()));
+            builder: (BuildContext context) => const MyFamilyPage()));
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             behavior: SnackBarBehavior.floating,
@@ -254,10 +254,10 @@ class _QRViewExampleState extends State<QRViewExample> {
     }
   }
 
-  void _addFamilyMember(String qrCodeString) async {
-    String familyMemberEmail = qrCodeString.substring(
+  _addFamilyMember(String qrCodeString) async {
+    final String familyMemberEmail = qrCodeString.substring(
         qrCodeString.indexOf('EMAIL: ') + 7, qrCodeString.indexOf('0\r\n'));
-    String familyMemberName = qrCodeString.substring(
+    final String familyMemberName = qrCodeString.substring(
         qrCodeString.indexOf('NAME: ') + 6, qrCodeString.indexOf('1\r\n'));
     if (familyMemberName.isNotEmpty && familyMemberEmail.isNotEmpty) {
       // await FamilyDAO.create(familyMemberName, familyMemberEmail);
@@ -265,13 +265,12 @@ class _QRViewExampleState extends State<QRViewExample> {
   }
 
   void _addVaccines(List<String> qrCodeString) {
-    List<String> a = qrCodeString;
-    print(qrCodeString);
+    final List<String> a = qrCodeString;
     // VaccinationDAO.create(vaccinationName, chargeNr, vaccinationDate, doctorSignature, vaccinationDescription, userId, familyId);
   }
 
   void _addTests(String qrCodeString) {
-    String a = qrCodeString;
+    final String a = qrCodeString;
     print(qrCodeString);
     // TestDAO.create(testName, testIdNr, testDate, testStatus, testDescription, userId, familyId);
   }

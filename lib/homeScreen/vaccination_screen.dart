@@ -79,7 +79,7 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
                       onPressed: () async {
                         sleep(const Duration(milliseconds: 50));
                         qrData = await Util.buildUserQrData();
-                        Navigator.of(context).push(HeroDialogRoute(
+                        await Navigator.of(context).push(HeroDialogRoute(
                           builder: (BuildContext context) => PopupCard(qrData),
                         ));
                       },

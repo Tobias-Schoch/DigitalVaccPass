@@ -35,9 +35,9 @@ class Util {
     String qrData = '';
 
     if (User.loggedInUser != null) {
-      List<Vaccination> vaccList = await VaccinationDAO.getAllVaccinesForUser
+      final List<Vaccination> vaccList = await VaccinationDAO.getAllVaccinesForUser
         (User.loggedInUser.userDbId);
-      List<Test> testList = await TestDAO.getAllTestsForUser
+      final List<Test> testList = await TestDAO.getAllTestsForUser
         (User.loggedInUser.userDbId);
       qrData += "EMAIL: " + User.loggedInUser.userEmail + "0\r\n";
       qrData += "NAME: " + User.loggedInUser.userName + "1\r\n";
