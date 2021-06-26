@@ -10,6 +10,7 @@ final DatabaseHelper con = DatabaseHelper();
 
 class StatisticDAO {
 
+  /// Add vaccination
   static Future<int> create(String vaccineName, DateTime vaccineDate) async {
     final Database dbClient = await con.db;
     final List<Map<String, Object>> statisticFromDbList = await dbClient.query(DatabaseHelper.statisticTable, where: "VACCINE_NAME = ? AND MONTH = ? AND YEAR = ?", whereArgs: [vaccineName, vaccineDate.month, vaccineDate.year], limit: 1);
@@ -29,6 +30,7 @@ class StatisticDAO {
     }
   }
 
+  /// Get statistics for doctor each month
   static Future<List<StatisticForScreen>> getStatisticsForYear(int year) async {
     final Database dbClient = await con.db;
     final List<Map<String, Object>> statisticsFromDbList = await dbClient.query(DatabaseHelper.statisticTable, where: "YEAR = ?", whereArgs: [year], orderBy: "MONTH desc");
