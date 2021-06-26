@@ -32,7 +32,7 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
         title: const MyHeader(),
         leading: Builder(
           builder: (context) => IconButton(
-            icon: Icon(Icons.sort),
+            icon: const Icon(Icons.sort),
             onPressed: () => Scaffold.of(context).openDrawer(),
           ),
         ),
@@ -60,8 +60,8 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
                                 background: Container(
                                   color: Theme.of(context).accentColor,
                                   alignment: Alignment.centerRight,
-                                  padding:
-                                      EdgeInsets.symmetric(horizontal: 10.0),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 10.0),
                                   child: Icon(
                                     Icons.delete_sweep,
                                     color: Theme.of(context).primaryColor,

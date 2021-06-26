@@ -59,7 +59,9 @@ class DatabaseHelper {
         'TEST_NAME TEXT, TEST_ID_NR TEXT, TEST_DATE TEXT, TEST_STATUS TEXT, '
         'TEST_DESCRIPTION TEXT, USER_ID INTEGER, FAMILY_ID INTEGER)';
     //
-    const String statisticTable = 'CREATE TABLE STATISTIC (VACCINE_NAME TEXT, AMOUNT INTEGER, MONTH INTEGER, YEAR INTEGER)';
+    const String statisticTable =
+        'CREATE TABLE STATISTIC (VACCINE_NAME TEXT, AMOUNT INTEGER, '
+        'MONTH INTEGER, YEAR INTEGER)';
 
     await db.execute(userTable);
     await db.execute(familyTable);
@@ -123,5 +125,4 @@ class DatabaseHelper {
     }
     await statisticBatch.commit(noResult: true);
   }
-
 }

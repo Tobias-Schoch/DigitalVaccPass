@@ -83,7 +83,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
           title: const MyHeader(),
           leading: Builder(
             builder: (context) => IconButton(
-              icon: Icon(Icons.sort),
+              icon: const Icon(Icons.sort),
               onPressed: () => Scaffold.of(context).openDrawer(),
             ),
           ),

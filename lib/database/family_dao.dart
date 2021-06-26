@@ -26,7 +26,9 @@ class FamilyDAO {
         await dbClient.rawQuery('SELECT * FROM ${DatabaseHelper.familyTable}');
 
     final List<User> familyMemberList = list.isNotEmpty
-        ? list.map((Map<String, Object> e) => User.familyMemberFromMap(e)).toList()
+        ? list
+            .map((Map<String, Object> e) => User.familyMemberFromMap(e))
+            .toList()
         : List<User>.empty();
 
     return familyMemberList;
@@ -35,10 +37,12 @@ class FamilyDAO {
   /// Delete Family with Vaccines,Tests
   static Future<bool> deleteFamilyMember(int familyId) async {
     final Database dbClient = await con.db;
-
-    int count = await dbClient.delete(DatabaseHelper.familyTable, where: "FAMILY_MEMBER_ID = ?", whereArgs: [familyId]);
-    await dbClient.delete(DatabaseHelper.vaccinesTable, where: "FAMILY_ID = ?", whereArgs: [familyId]);
-    await dbClient.delete(DatabaseHelper.testsTable, where: "FAMILY_ID = ?", whereArgs: [familyId]);
+    final int count = await dbClient.delete(DatabaseHelper.familyTable,
+        where: "FAMILY_MEMBER_ID = ?", whereArgs: [familyId]);
+    await dbClient.delete(DatabaseHelper.vaccinesTable,
+        where: "FAMILY_ID = ?", whereArgs: [familyId]);
+    await dbClient.delete(DatabaseHelper.testsTable,
+        where: "FAMILY_ID = ?", whereArgs: [familyId]);
 
     if (count > 0) {
       return true;
