@@ -35,9 +35,10 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
     String body = '';
     for (int i = 0; i < element.length; i++) {
       if (i == element.length - 1) {
-        body += '${element[i].vaccineName}: ${element[i].amount.toString()}' ;
+        body += '${element[i].vaccineName}: ${element[i].amount.toString()}';
       } else {
-        body += '${element[i].vaccineName}: ${element[i].amount.toString()}\r\n';
+        body +=
+            '${element[i].vaccineName}: ${element[i].amount.toString()}\r\n';
       }
     }
     return body;
@@ -68,62 +69,71 @@ class _MyStatisticPageState extends State<MyStatisticPage> {
             Expanded(
               child: FutureBuilder<List>(
                 future: StatisticDAO.getStatisticsForYear(DateTime.now().year),
-                builder: (BuildContext context, AsyncSnapshot snapshot) => snapshot.hasData
-                    ? ListView.builder(
-                        itemCount: snapshot.data.length,
-                        itemBuilder: (BuildContext context, int index) => Column(
-                              children: <Widget>[
-                                Card(
-                                  child: Row(
-                                    children: <Widget>[
-                                      Expanded(
-                                        child: Column(
-                                          children: <Widget>[
-                                            ListTile(
-                                              title: Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: <Widget>[
-                                                    const SizedBox(height: 18),
-                                                    Text(
-                                                      DateFormat.MMMM()
-                                                          .format(DateTime(
-                                                              2021,
-                                                              snapshot
-                                                                  .data[index]
-                                                                  .month))
-                                                          .toString(),
-                                                      style: Theme.of(context)
-                                                          .textTheme
-                                                          .bodyText1,
-                                                    ),
-                                                  ]),
-                                              subtitle: Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: <Widget>[
-                                                    const SizedBox(height: 8),
-                                                    Text(_buildCardBody(snapshot
-                                                        .data[index]
-                                                        .statistics)),
-                                                    const SizedBox(height: 18),
-                                                  ]),
-                                            )
-                                          ],
-                                        ),
+                builder: (BuildContext context, AsyncSnapshot snapshot) =>
+                    snapshot.hasData
+                        ? ListView.builder(
+                            itemCount: snapshot.data.length,
+                            itemBuilder: (BuildContext context, int index) =>
+                                Column(
+                                  children: <Widget>[
+                                    Card(
+                                      child: Row(
+                                        children: <Widget>[
+                                          Expanded(
+                                            child: Column(
+                                              children: <Widget>[
+                                                ListTile(
+                                                  title: Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: <Widget>[
+                                                        const SizedBox(
+                                                            height: 18),
+                                                        Text(
+                                                          DateFormat.MMMM()
+                                                              .format(DateTime(
+                                                                  2021,
+                                                                  snapshot
+                                                                      .data[
+                                                                          index]
+                                                                      .month))
+                                                              .toString(),
+                                                          style:
+                                                              Theme.of(context)
+                                                                  .textTheme
+                                                                  .bodyText1,
+                                                        ),
+                                                      ]),
+                                                  subtitle: Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: <Widget>[
+                                                        const SizedBox(
+                                                            height: 8),
+                                                        Text(_buildCardBody(
+                                                            snapshot.data[index]
+                                                                .statistics)),
+                                                        const SizedBox(
+                                                            height: 18),
+                                                      ]),
+                                                )
+                                              ],
+                                            ),
+                                          ),
+                                        ],
                                       ),
-                                    ],
-                                  ),
-                                ),
-                                const SizedBox(height: 20),
-                              ],
-                            ))
-                    : const Center(
-                        child: CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                              PredefinedColors.primaryColor),
-                        ),
-                      ),
+                                    ),
+                                    const SizedBox(height: 20),
+                                  ],
+                                ))
+                        : const Center(
+                            child: CircularProgressIndicator(
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                  PredefinedColors.primaryColor),
+                            ),
+                          ),
               ),
             )
           ],
