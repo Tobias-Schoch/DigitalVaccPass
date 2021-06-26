@@ -17,6 +17,7 @@ class MyQRPage extends StatefulWidget {
 }
 
 class _MyQRPageState extends State<MyQRPage> {
+
   static String qrData(String email) {
     const String qrData = '';
 

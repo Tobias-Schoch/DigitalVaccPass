@@ -3,8 +3,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../homeScreen/testresult.dart';
-import '../homeScreen/vaccination.dart';
+import '../homeScreen/test_screen.dart';
+import '../homeScreen/vaccination_screen.dart';
 import '../utils/app_bar.dart';
 import '../utils/drawer.dart';
 import '../utils/user.dart';

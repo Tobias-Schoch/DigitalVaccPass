@@ -31,4 +31,19 @@ class FamilyDAO {
 
     return familyMemberList;
   }
+
+  /// Delete Family with Vaccines,Tests
+  static Future<bool> deleteFamilyMember(int familyId) async {
+    final Database dbClient = await con.db;
+
+    await dbClient.delete(DatabaseHelper.vaccinesTable, where: "FAMILY_ID = ?", whereArgs: [familyId]);
+    await dbClient.delete(DatabaseHelper.testsTable, where: "FAMILY_ID = ?", whereArgs: [familyId]);
+    int count = await dbClient.delete(DatabaseHelper.familyTable, where: "FAMILY_ID = ?", whereArgs: [familyId]);
+
+    if (count > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

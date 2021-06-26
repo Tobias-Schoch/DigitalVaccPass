@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../database/user_dao.dart';
-import '../doctorScreen/statistics.dart';
+import '../doctorScreen/statistics_screen.dart';
 import '../homeScreen/home.dart';
 import '../loginScreen/forgotpassword.dart';
 import '../loginScreen/register.dart';

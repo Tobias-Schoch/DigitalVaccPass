@@ -7,7 +7,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../aboutScreen/about.dart';
 import '../aboutScreen/faq.dart';
 import '../doctorScreen/addvaccination.dart';
-import '../doctorScreen/statistics.dart';
+import '../doctorScreen/statistics_screen.dart';
 import '../familyScreen/family.dart';
 import '../homeScreen/home.dart';
 import '../main.dart';

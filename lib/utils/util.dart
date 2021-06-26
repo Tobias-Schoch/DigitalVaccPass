@@ -1,6 +1,7 @@
 import 'dart:core';
 import 'dart:ui';
 
+import 'package:digital_vac_pass/utils/vaccination.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -9,7 +10,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../aboutScreen/onboard.dart';
 import '../utils/test.dart';
 import '../utils/user.dart';
-import '../utils/vaccination.dart';
 
 /// Util
 class Util {

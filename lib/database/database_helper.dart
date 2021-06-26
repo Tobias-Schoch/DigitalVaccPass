@@ -58,13 +58,13 @@ class DatabaseHelper {
         'TEST_NAME TEXT, TEST_ID_NR TEXT, TEST_DATE TEXT, TEST_STATUS TEXT, '
         'TEST_DESCRIPTION TEXT, USER_ID INTEGER, FAMILY_ID INTEGER)';
     //
-    const String statisticTable = 'CREATE TABLE STATISTIC ()';
+    const String statisticTable = 'CREATE TABLE STATISTIC (VACCINE_NAME TEXT PRIMARY KEY, AMOUNT INTEGER, MONTH INTEGER PRIMARY KEY, YEAR INTEGER PRIMARY KEY)';
 
     await db.execute(userTable);
     await db.execute(familyTable);
     await db.execute(vaccinesTable);
     await db.execute(testsTable);
-    // await db.execute(statisticTable);
+    await db.execute(statisticTable);
     await _initTestData(db);
   }
 

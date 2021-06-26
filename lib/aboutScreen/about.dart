@@ -1,10 +1,10 @@
+import 'package:digital_vac_pass/utils/util.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../utils/app_bar.dart';
 import '../utils/drawer.dart';
-import '../utils/util.dart';
 
 /// Informations about the app
 class MyAboutPage extends StatefulWidget {

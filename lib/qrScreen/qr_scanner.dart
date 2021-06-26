@@ -7,7 +7,7 @@ import 'package:ninja/ninja.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 import '../database/vaccination_dao.dart';
-import '../homeScreen/vaccination.dart';
+import '../homeScreen/vaccination_screen.dart';
 import '../utils/app_bar.dart';
 import '../utils/rsa.dart';
 import '../utils/user.dart';

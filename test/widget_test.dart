@@ -12,7 +12,7 @@ import 'package:digital_vac_pass/utils/drawer.dart';
 import 'package:digital_vac_pass/aboutScreen/faq.dart';
 import 'package:digital_vac_pass/loginScreen/login.dart';
 import 'package:digital_vac_pass/qrScreen/qrcode.dart';
-import 'package:digital_vac_pass/doctorScreen/statistics.dart';
+import 'package:digital_vac_pass/doctorScreen/statistics_screen.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
 import 'package:digital_vac_pass/loginScreen/forgotpassword.dart';
 import 'package:digital_vac_pass/loginScreen/register.dart';
