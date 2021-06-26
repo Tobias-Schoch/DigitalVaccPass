@@ -1,6 +1,7 @@
 import 'dart:core';
 import 'dart:ui';
 
+import 'package:digital_vac_pass/utils/statistic.dart';
 import 'package:digital_vac_pass/utils/vaccination.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
@@ -112,6 +113,13 @@ class TestData {
         'testDescription2'),
     Test('testName3', 'testId3', DateTime.parse(strDt), Status.bad,
         'testDescription3')
+  ];
+
+  /// example Statistics
+  static List<Statistic> statisticListDb = [
+    Statistic('Covid-19 Biontech', 3, 6, 2021),
+    Statistic('Covid-19 Moderna', 6, 6, 2021),
+    Statistic('Covid-19 Moderna', 6, 5, 2021)
   ];
 
   /// Generate data for vaccination list with faker

@@ -15,7 +15,6 @@ pipeline {
                 sh "flutter test"
             }
         }
-
         stage('Update GIT') {
             steps {
                 sh "git config user.email 'lu851not@htwg-konstanz.de'"

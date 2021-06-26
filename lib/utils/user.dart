@@ -5,6 +5,8 @@ import '../utils/vaccination.dart';
 class User {
   /// User ID
   int userDbId;
+  /// Family ID
+  int familyDbId;
   /// User Name
   String userName;
   /// User Mail
@@ -34,7 +36,7 @@ class User {
       this.userRole, this.vaccinations, this.tests);
 
   /// Single family member with primary id
-  User.familyMember(this.userDbId, this.userName, this.userEmail);
+  User.familyMember(this.familyDbId, this.userName, this.userEmail);
 
   /// Single family member without primary id
   User.familyMemberWithoutId(this.userName, this.userEmail);
@@ -54,6 +56,7 @@ class User {
     final Map<String, dynamic> map = <String, dynamic>{};
     map['FAMILY_MEMBER_NAME'] = userName;
     map['FAMILY_MEMBER_EMAIL'] = userEmail;
+    map['FAMILY_MEMBER_ID'] = familyDbId;
     return map;
   }
 
