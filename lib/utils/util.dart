@@ -6,9 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../aboutScreen/onboard.dart';
 import '../database/test_dao.dart';
 import '../database/vaccination_dao.dart';
-import '../aboutScreen/onboard.dart';
 import '../utils/statistic.dart';
 import '../utils/test.dart';
 import '../utils/user.dart';
@@ -41,40 +41,40 @@ class Util {
               User.loggedInUser.userDbId);
       final List<Test> testList =
           await TestDAO.getAllTestsForUser(User.loggedInUser.userDbId);
-      qrData += 'EMAIL: ' + User.loggedInUser.userEmail + "0\r\n";
-      qrData += 'NAME: ' + User.loggedInUser.userName + "1\r\n";
+      qrData += 'EMAIL: ${User.loggedInUser.userEmail} 0\r\n';
+      qrData += 'NAME: ${User.loggedInUser.userName} 1\r\n';
 
       if (testList.isNotEmpty) {
         qrData += 'TESTS[';
-        testList.forEach((element) {
-          qrData += 'TEST[';
-          qrData += 'NAME: ' + element.testName.toString() + "\r\n";
-          qrData += 'IDNR: ' + element.testIdNr.toString() + "\r\n";
-          qrData += 'DATE: ' + element.testDate.toString() + "\r\n";
-          qrData += 'STATUS: ' + element.testStatus.toString() + "\r\n";
-          qrData += 'DESCR: ' + element.testDescription.toString() + "\r\n";
-          qrData += 'FAMILY_ID: ' + element.familyId.toString() + "\r\n";
-          qrData += ']';
-        });
+        for (final element in testList) {
+          testList.forEach((element) {
+            qrData += 'TEST[';
+            qrData += 'NAME: ${element.testName.toString()} \r\n';
+            qrData += 'IDNR: ${element.testIdNr.toString()} \r\n';
+            qrData += 'DATE: ${element.testDate.toString()} \r\n';
+            qrData += 'STATUS: ${element.testStatus.toString()} \r\n';
+            qrData += 'DESCR: ${element.testDescription.toString()} \r\n';
+            qrData += 'FAMILY_ID: ${element.familyId.toString()} \r\n';
+            qrData += ']';
+          });
+        }
         qrData += '3]';
       }
 
       if (vaccList.isNotEmpty) {
         qrData += 'VACCINES[';
-        vaccList.forEach((element) {
+        for (final element in vaccList) {
           qrData += 'VACCINE[';
-          qrData += 'NAME: ' + element.vaccinationName.toString() + "\r\n";
-          qrData += 'CHARGENR: ' + element.chargeNr.toString() + "\r\n";
-          qrData += 'DATE: ' + element.vaccinationDate.toString() + "\r\n";
-          qrData += 'DOC: ' + element.doctorSignature.toString() + "\r\n";
-          qrData +=
-              'DESCR: ' + element.vaccinationDescription.toString() + "\r\n";
+          qrData += 'NAME: ${element.vaccinationName.toString()} \r\n';
+          qrData += 'CHARGENR: ${element.chargeNr.toString()} \r\n';
+          qrData += 'DATE: ${element.vaccinationDate.toString()} \r\n';
+          qrData += 'DOC: ${element.doctorSignature.toString()} \r\n';
+          qrData += 'DESCR: ${element.vaccinationDescription.toString()} \r\n';
           qrData += ']';
-        });
+        }
         qrData += '4]';
       }
     }
-
     return qrData;
   }
 }
@@ -103,10 +103,12 @@ class PredefinedColors {
   static const Color accentWhite = Color(0xfffafafa);
 }
 
+/// Get Date
 class GetDate {
+  /// Get Year
   static String getYear() {
-    final DateTime now = new DateTime.now();
-    final DateFormat formatter = new DateFormat('yyyy');
+    final DateTime now = DateTime.now();
+    final DateFormat formatter = DateFormat('yyyy');
     return formatter.format(now).toString();
   }
 }
@@ -141,16 +143,14 @@ class TestData {
 
   /// Example date
   static String strDt = '2021-05-28';
-  static String strDt2 = '2021-04-15';
-  static String strDt3 = '2020-11-28';
 
   /// test vaccinations
   static List<Vaccination> vaccinationListDb = [
     Vaccination('Covid-19 Biontech', '24356567', DateTime.parse(strDt),
         'Dr. Anna Mayer', 'beschreibung'),
-    Vaccination('Covid-19 Biontech', '452343', DateTime.parse(strDt2),
+    Vaccination('Covid-19 Biontech', '452343', DateTime.parse(strDt),
         'Dr. Anna Mayer', 'beschreibung2'),
-    Vaccination('Tetanus', '23423', DateTime.parse(strDt3), 'Dr. Jörg Schmidt',
+    Vaccination('Tetanus', '23423', DateTime.parse(strDt), 'Dr. Jörg Schmidt',
         'beschreibung3')
   ];
 
