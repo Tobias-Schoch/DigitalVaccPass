@@ -60,14 +60,14 @@ class StatisticDAO {
           List.empty(growable: true);
       final List<Statistic> usedStatistics = List.empty(growable: true);
 
-      for (Statistic s in statisticList) {
+      for (final Statistic s in statisticList) {
         if (statisticForScreenList.isEmpty) {
           final StatisticForScreen sForScreen =
               new StatisticForScreen(s.month, [s]);
           statisticForScreenList.add(sForScreen);
           usedStatistics.add(s);
         } else {
-          for (StatisticForScreen sF in statisticForScreenList) {
+          for (final StatisticForScreen sF in statisticForScreenList) {
             if (sF.month == s.month) {
               sF.statistics.add(s);
               usedStatistics.add(s);
