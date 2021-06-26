@@ -1,10 +1,5 @@
-import 'dart:ffi';
 import 'dart:io';
 
-import 'package:digital_vac_pass/database/test_dao.dart';
-import 'package:digital_vac_pass/familyScreen/family.dart';
-import 'package:digital_vac_pass/homeScreen/test_screen.dart';
-import 'package:digital_vac_pass/utils/test.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -13,11 +8,15 @@ import 'package:ninja/ninja.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:http/http.dart' as http;
 
+import '../database/test_dao.dart';
 import '../database/vaccination_dao.dart';
+import '../familyScreen/family.dart';
+import '../homeScreen/test_screen.dart';
 import '../homeScreen/vaccination_screen.dart';
 import '../utils/app_bar.dart';
 import '../utils/rsa.dart';
 import '../utils/user.dart';
+import '../utils/test.dart';
 
 /// QR Scanner
 class QRViewExample extends StatefulWidget {

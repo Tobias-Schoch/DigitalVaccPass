@@ -52,81 +52,83 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
             const SizedBox(height: 25),
             Expanded(
               child: FutureBuilder<List<User>>(
-                future: FamilyDAO.getAllFamilyMembers(),
-                builder: (BuildContext context, AsyncSnapshot snapshot) =>
-                    snapshot.hasData
-                        ? ListView.builder(
-                            itemCount: snapshot.data.length,
-                            itemBuilder: (BuildContext context, int index) =>
-                                Dismissible(
-                                    background: Container(
-                                      color: Theme.of(context).accentColor,
-                                      alignment: Alignment.centerRight,
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal: 10.0),
-                                      child: Icon(
-                                        Icons.delete_sweep,
-                                        color: Theme.of(context).primaryColor,
-                                      ),
-                                    ),
-                                    key: ValueKey<User>(snapshot.data[index]),
-                                    onDismissed:
-                                        (DismissDirection direction) async {
-                                      setState(() {
-                                        snapshot.data.removeAt(index);
-                                      });
-                                      await FamilyDAO.deleteFamilyMember(
-                                          snapshot.data[index].familyDbId);
-                                    },
-                                    direction: DismissDirection.endToStart,
-                                    child: Column(
-                                      children: <Widget>[
-                                        Card(
-                                          child: Row(
-                                            children: <Widget>[
-                                              Expanded(
-                                                child: Column(
-                                                  children: <Widget>[
-                                                    const SizedBox(height: 18),
-                                                    InkWell(
-                                                      onTap: () {
-                                                        Navigator.of(context).push(MaterialPageRoute(
+                  future: FamilyDAO.getAllFamilyMembers(),
+                  builder: (BuildContext context, AsyncSnapshot snapshot) {
+                    if (snapshot.hasData) {
+                      return ListView.builder(
+                        itemCount: snapshot.data.length,
+                        itemBuilder: (BuildContext context, int index) =>
+                            Dismissible(
+                                background: Container(
+                                  color: Theme.of(context).accentColor,
+                                  alignment: Alignment.centerRight,
+                                  padding:
+                                      EdgeInsets.symmetric(horizontal: 10.0),
+                                  child: Icon(
+                                    Icons.delete_sweep,
+                                    color: Theme.of(context).primaryColor,
+                                  ),
+                                ),
+                                key: ValueKey<User>(snapshot.data[index]),
+                                onDismissed:
+                                    (DismissDirection direction) async {
+                                  await FamilyDAO.deleteFamilyMember(
+                                      snapshot.data[index].familyDbId);
+                                  setState(() {
+                                    snapshot.data.removeAt(index);
+                                  });
+                                },
+                                direction: DismissDirection.endToStart,
+                                child: Column(
+                                  children: <Widget>[
+                                    Card(
+                                      child: Row(
+                                        children: <Widget>[
+                                          Expanded(
+                                            child: Column(
+                                              children: <Widget>[
+                                                const SizedBox(height: 18),
+                                                InkWell(
+                                                  onTap: () {
+                                                    Navigator.of(context).push(
+                                                        MaterialPageRoute(
                                                             builder: (BuildContext
                                                                     context) =>
                                                                 MyFamilyHomeScreenPage(
                                                                     selectedUser:
                                                                         snapshot
                                                                             .data[index])));
-                                                      },
-                                                      child: ListTile(
-                                                        title: Text(
-                                                          snapshot.data[index]
-                                                              .userName,
-                                                          style:
-                                                              Theme.of(context)
-                                                                  .textTheme
-                                                                  .bodyText1,
-                                                        ),
-                                                      ),
+                                                  },
+                                                  child: ListTile(
+                                                    title: Text(
+                                                      snapshot
+                                                          .data[index].userName,
+                                                      style: Theme.of(context)
+                                                          .textTheme
+                                                          .bodyText1,
                                                     ),
-                                                    const SizedBox(height: 18),
-                                                  ],
+                                                  ),
                                                 ),
-                                              ),
-                                              const SizedBox(height: 20),
-                                            ],
+                                                const SizedBox(height: 18),
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                        const SizedBox(height: 20),
-                                      ],
-                                    )),
-                          )
-                        : const Center(
-                            child: CircularProgressIndicator(
-                            valueColor: AlwaysStoppedAnimation<Color>(
-                                PredefinedColors.primaryColor),
-                          )),
-              ),
+                                          const SizedBox(height: 20),
+                                        ],
+                                      ),
+                                    ),
+                                    const SizedBox(height: 20),
+                                  ],
+                                )),
+                      );
+                    } else {
+                      return const Center(
+                          child: CircularProgressIndicator(
+                        valueColor: AlwaysStoppedAnimation<Color>(
+                            PredefinedColors.primaryColor),
+                      ));
+                    }
+                  }),
             ),
           ],
         ),
