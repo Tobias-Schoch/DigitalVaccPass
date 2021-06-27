@@ -1,23 +1,18 @@
 # Digitaler Impfpass
 
-## Screens
+## Screens of the finished app
 
 ![Screens](/documentation/WP5.jpg)
 
-## Flutter
+## Figma
 
 https://www.figma.com/file/VIL42w7pMXSORDfHED8z46/DigitalVaccinationPass?node-id=0%3A1
 
 
-## Getting Started
+## Description
 
-This project is a starting point for a Flutter application.
+An international digital vaccination record in which you can add your own vaccinations and tests and those of your family members.
 
-A few resources to get you started if this is your first Flutter project:
+## Personas
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![](/documentation/grp4_persona_arzt.png)  |  ![](/documentation/grp4_persona_vater.png)
