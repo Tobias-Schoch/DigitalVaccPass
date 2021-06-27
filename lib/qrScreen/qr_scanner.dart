@@ -216,26 +216,26 @@ class _QRViewExampleState extends State<QRViewExample> {
     }
   }
 
-  void _calledFromFamily(Barcode result) async {
+  _calledFromFamily(Barcode result) async {
     if (result != null) {
-      controller.stopCamera();
+      await controller.stopCamera();
       barcodeString = result.code.toString();
       if (barcodeString.contains('EMAIL:') &&
               barcodeString.contains('NAME:') &&
               barcodeString.contains('VACCINES') ||
           barcodeString.contains('TESTS')) {
-        int familyId = await _addFamilyMember(barcodeString);
+        final int familyId = await _addFamilyMember(barcodeString);
         if (barcodeString.contains('TESTS') && familyId != null) {
-          String tests = barcodeString.substring(barcodeString.indexOf('TESTS'), barcodeString.indexOf('3]'));
-          List<String> testList = tests.split(']');
+          final String tests = barcodeString.substring(barcodeString.indexOf('TESTS'), barcodeString.indexOf('3]'));
+          final List<String> testList = tests.split(']');
           _addTests(testList, familyId);
         }
         if (barcodeString.contains('VACCINES') && familyId != null) {
-          String vaccines = barcodeString.substring(barcodeString.indexOf('VACCINES'), barcodeString.indexOf('4]'));
-          List<String> vaccineList = vaccines.split(']');
+          final String vaccines = barcodeString.substring(barcodeString.indexOf('VACCINES'), barcodeString.indexOf('4]'));
+          final List<String> vaccineList = vaccines.split(']');
           _addVaccines(vaccineList, familyId);
         }
-        Navigator.of(context).push(MaterialPageRoute(
+        await Navigator.of(context).push(MaterialPageRoute(
             builder: (BuildContext context) => const MyFamilyPage()));
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -267,36 +267,36 @@ class _QRViewExampleState extends State<QRViewExample> {
     return null;
   }
 
-  void _addTests(List<String> qrCodeString, int familyId) async {
-    List<Test> testsList = List.empty(growable: true);
+  _addTests(List<String> qrCodeString, int familyId) async {
+    final List<Test> testsList = List.empty(growable: true);
     for (int i = 0; i < qrCodeString.length; i++) {
       if (qrCodeString[i].contains('TEST')) {
-        String testName = qrCodeString[i].substring(qrCodeString[i].indexOf('NAME: ') + 6, qrCodeString[i].indexOf('\nIDNR'));
-        String idNr = qrCodeString[i].substring(qrCodeString[i].indexOf('IDNR: ') + 6, qrCodeString[i].indexOf('\nDA'));
-        String dateString = qrCodeString[i].substring(qrCodeString[i].indexOf('DATE: ') + 6, qrCodeString[i].indexOf('\nST'));
-        String statusString = qrCodeString[i].substring(qrCodeString[i].indexOf('STATUS: ') + 7, qrCodeString[i].indexOf('\nDE'));
-        String descr = qrCodeString[i].substring(qrCodeString[i].indexOf('DESCR: ') + 6, qrCodeString[i].indexOf('\nFAMILY_ID'));
-        Status testStatus = statusString.contains('good') ? Status.good : statusString.contains('bad') ? Status.bad : Status.pending;
-        DateTime date = Util.getDateTimeFromString(dateString);
+        final String testName = qrCodeString[i].substring(qrCodeString[i].indexOf('NAME: ') + 6, qrCodeString[i].indexOf('\nIDNR'));
+        final String idNr = qrCodeString[i].substring(qrCodeString[i].indexOf('IDNR: ') + 6, qrCodeString[i].indexOf('\nDA'));
+        final String dateString = qrCodeString[i].substring(qrCodeString[i].indexOf('DATE: ') + 6, qrCodeString[i].indexOf('\nST'));
+        final String statusString = qrCodeString[i].substring(qrCodeString[i].indexOf('STATUS: ') + 7, qrCodeString[i].indexOf('\nDE'));
+        final String descr = qrCodeString[i].substring(qrCodeString[i].indexOf('DESCR: ') + 6, qrCodeString[i].indexOf('\nFAMILY_ID'));
+        final Status testStatus = statusString.contains('good') ? Status.good : statusString.contains('bad') ? Status.bad : Status.pending;
+        final DateTime date = Util.getDateTimeFromString(dateString);
         testsList.add(Test.forDb(testName, idNr, date, testStatus, descr, null, familyId));
       }
     }
     await TestDAO.createBatch(testsList);
   }
 
-  void _addVaccines(List<String> qrCodeString, int familyId) async {
-    List<Vaccination> vaccineList = List.empty(growable: true);
+  _addVaccines(List<String> qrCodeString, int familyId) async {
+    final List<Vaccination> vaccineList = List.empty(growable: true);
     for (int i = 0; i < qrCodeString.length; i++) {
       if (qrCodeString[i].contains('VACCINE')) {
-        String vaccinationName = qrCodeString[i].substring(qrCodeString[i].indexOf('NAME: ') + 6, qrCodeString[i].indexOf('\nCH'));
-        String chargeNr = qrCodeString[i].substring(qrCodeString[i].indexOf('CHARGENR: ') + 10, qrCodeString[i].indexOf('\nDA'));
-        String dateString = qrCodeString[i].substring(qrCodeString[i].indexOf('DATE: ') + 6, qrCodeString[i].indexOf('\nDO'));
-        String doctor = qrCodeString[i].substring(qrCodeString[i].indexOf('DOC: ') + 5, qrCodeString[i].indexOf('\nDE'));
+        final String vaccinationName = qrCodeString[i].substring(qrCodeString[i].indexOf('NAME: ') + 6, qrCodeString[i].indexOf('\nCH'));
+        final String chargeNr = qrCodeString[i].substring(qrCodeString[i].indexOf('CHARGENR: ') + 10, qrCodeString[i].indexOf('\nDA'));
+        final String dateString = qrCodeString[i].substring(qrCodeString[i].indexOf('DATE: ') + 6, qrCodeString[i].indexOf('\nDO'));
+        final String doctor = qrCodeString[i].substring(qrCodeString[i].indexOf('DOC: ') + 5, qrCodeString[i].indexOf('\nDE'));
         String descr = qrCodeString[i].substring(qrCodeString[i].indexOf('DESCR: ') + 6);
         if (descr.contains('\n')) {
           descr = descr.replaceAll('\n', '');
         }
-        DateTime date = Util.getDateTimeFromString(dateString);
+        final DateTime date = Util.getDateTimeFromString(dateString);
         vaccineList.add(Vaccination.forDb(vaccinationName, chargeNr, date, doctor, descr, null, familyId));
       }
     }

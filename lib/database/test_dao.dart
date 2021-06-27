@@ -27,7 +27,7 @@ class TestDAO {
 
   static Future<int> createBatch(List<Test> testList) async {
     final Database dbClient = await con.db;
-    Batch testBatch = dbClient.batch();
+    final Batch testBatch = dbClient.batch();
     for (int i = 0; i < testList.length; i++) {
       testBatch.insert(DatabaseHelper.testsTable, testList.elementAt(i).toMap());
     }

@@ -39,7 +39,7 @@ class VaccinationDAO {
 
   static Future<int> createBatch(List<Vaccination> vaccList) async {
     final Database dbClient = await con.db;
-    Batch vaccBatch = dbClient.batch();
+    final Batch vaccBatch = dbClient.batch();
     for (int i = 0; i < vaccList.length; i++) {
       vaccBatch.insert(DatabaseHelper.vaccinesTable, vaccList.elementAt(i).toMap());
     }

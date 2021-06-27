@@ -52,6 +52,7 @@ class _MyFamilyPageState extends State<MyFamilyPage> {
               child: FutureBuilder<List<User>>(
                   future: FamilyDAO.getAllFamilyMembers(),
                   builder: (BuildContext context, AsyncSnapshot snapshot) {
+                    print(snapshot.data);
                     if (snapshot.hasData) {
                       return ListView.builder(
                         itemCount: snapshot.data.length,
