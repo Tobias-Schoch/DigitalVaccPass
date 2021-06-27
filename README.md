@@ -16,3 +16,12 @@ An international digital vaccination record in which you can add your own vaccin
 ## Personas
 
 <img src="/documentation/grp4_persona_arzt.png" width="425"/> <img src="/documentation/grp4_persona_vater.png" width="425"/>
+
+## Use-Cases
+
+- Manage vaccinations and tests securely digitally in the app 
+- Be able to store & manage family members' immunization records and tests in the app
+- Statistics for doctors
+- Vaccinations can only be entered by doctors
+- Access to official data from testing centers 
+
