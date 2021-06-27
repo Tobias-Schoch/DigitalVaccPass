@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:digital_vac_pass/database/database_helper.dart';
 import 'package:digital_vac_pass/database/family_dao.dart';
+import 'package:digital_vac_pass/utils/util.dart';
 import 'package:digital_vac_pass/utils/vaccination.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -276,7 +277,7 @@ class _QRViewExampleState extends State<QRViewExample> {
         String statusString = qrCodeString[i].substring(qrCodeString[i].indexOf('STATUS: ') + 7, qrCodeString[i].indexOf('\nDE'));
         String descr = qrCodeString[i].substring(qrCodeString[i].indexOf('DESCR: ') + 6, qrCodeString[i].indexOf('\nFAMILY_ID'));
         Status testStatus = statusString.contains('good') ? Status.good : statusString.contains('bad') ? Status.bad : Status.pending;
-        DateTime date = DateTime.tryParse(dateString);
+        DateTime date = Util.getDateTimeFromString(dateString);
         testsList.add(Test.forDb(testName, idNr, date, testStatus, descr, null, familyId));
       }
     }
@@ -296,7 +297,7 @@ class _QRViewExampleState extends State<QRViewExample> {
         if (descr.contains('\n')) {
           descr = descr.replaceAll('\n', '');
         }
-        DateTime date = DateTime.tryParse(dateString);
+        DateTime date = Util.getDateTimeFromString(dateString);
         vaccineList.add(Vaccination.forDb(vaccinationName, chargeNr, date, doctor, descr, null, familyId));
       }
     }

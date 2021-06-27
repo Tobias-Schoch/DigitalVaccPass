@@ -94,8 +94,7 @@ class StatisticDAO {
   static Future<List<GetAllVaccines>> getAllVaccines(String input) async {
     final Database dbClient = await con.db;
     final List<Map<String, Object>> statisticsFromDbList = await dbClient
-        .rawQuery(
-        "SELECT VACCINE_NAME FROM STATISTIC WHERE VACCINE_NAME LIKE '%$input%' GROUP BY VACCINE_NAME");
+        .rawQuery("SELECT VACCINE_NAME FROM STATISTIC WHERE VACCINE_NAME LIKE '%$input%' GROUP BY VACCINE_NAME");
 
     final List<GetAllVaccines> statisticList = statisticsFromDbList.isNotEmpty
         ? statisticsFromDbList

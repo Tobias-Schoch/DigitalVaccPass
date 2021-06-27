@@ -18,11 +18,14 @@ import '../utils/vaccination.dart';
 class Util {
   /// String to date
   static DateTime getDateTimeFromString(String dateTimeString) {
-    DateTime date = DateTime.tryParse(dateTimeString);
-    if (date == null) {
-      date = DateFormat('yyyy-MM-dd hh:mm:ss.sss').parse(dateTimeString);
+    if (dateTimeString != null) {
+      DateTime date = DateTime.tryParse(dateTimeString);
+      if (date == null) {
+        date = DateFormat('yyyy-MM-dd hh:mm:ss.sss').parse(dateTimeString);
+      }
+      return date;
     }
-    return date;
+    return DateTime.now();
   }
 
 
