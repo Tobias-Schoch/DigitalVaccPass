@@ -31,9 +31,9 @@ class Util {
   /// Save and load shared preference and check if first start
   static Future<void> checkFirstSeen(BuildContext context) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    final bool _seen = prefs.getBool('firstStarterd') ?? false;
+    final bool _seen = prefs.getBool('firstStart') ?? false;
     if (!_seen) {
-      await prefs.setBool('firstStarterd', true);
+      await prefs.setBool('firstStart', true);
       await Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (BuildContext context) => const OnBoardingPage()));
     }
@@ -150,7 +150,7 @@ class TestData {
   /// Example date
   static String strDt = '2021-05-28';
 
-  /// test vaccinations
+  /// example vaccinations
   static List<Vaccination> vaccinationListDb = [
     Vaccination('Covid-19 Biontech', '24356567', DateTime.parse(strDt),
         'Dr. Anna Mayer', 'beschreibung'),
@@ -171,11 +171,11 @@ class TestData {
   ];
 
   /// example Statistics
-  static List<Statistic> statisticListDb = [
-    Statistic('Covid-19 Biontech', 3, 6, 2021),
-    Statistic('Covid-19 Moderna', 6, 6, 2021),
-    Statistic('Covid-19 Moderna', 6, 5, 2021)
-  ];
+  // static List<Statistic> statisticListDb = [
+  //   Statistic('Covid-19 Biontech', 3, 6, 2021),
+  //   Statistic('Covid-19 Moderna', 6, 6, 2021),
+  //   Statistic('Covid-19 Moderna', 6, 5, 2021)
+  // ];
 
   /// Generate data for vaccination list with faker
   static List<Vaccination> generateVaccList(

@@ -120,9 +120,9 @@ class DatabaseHelper {
     await testBatch.commit(noResult: true);
 
     final Batch statisticBatch = db.batch();
-    for (final Statistic s in TestData.statisticListDb) {
-      statisticBatch.insert(DatabaseHelper.statisticTable, s.toMap());
-    }
+    // for (final Statistic s in TestData.statisticListDb) {
+    //   statisticBatch.insert(DatabaseHelper.statisticTable, s.toMap());
+    // }
     await statisticBatch.commit(noResult: true);
   }
 }
