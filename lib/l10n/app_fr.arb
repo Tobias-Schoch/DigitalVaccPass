@@ -22,7 +22,7 @@
     "done": "Prêt",
     "addVaccine": "Ajouter la vaccination",
     "vaccine": "Vaccination",
-    "vaccineCantBeEmpty": "La vaccination ne doit pas être vide,
+    "vaccineCantBeEmpty": "La vaccination ne doit pas être vide",
     "chargeNrCantBeEmpty": "FraisNr ne doit pas être vide",
     "dateCantBeEmpty": "La date ne doit pas être vide",
     "generateQr": "Générer un code QR",

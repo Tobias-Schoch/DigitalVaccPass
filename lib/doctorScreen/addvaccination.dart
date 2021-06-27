@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:intl/intl.dart';
 import 'package:ninja/ninja.dart';
 
@@ -93,148 +94,166 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
           margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
           child: SingleChildScrollView(
             child: Form(
-              key: _formKey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[
-                  Text(AppLocalizations.of(context).addVaccine,
-                      style: Theme.of(context).textTheme.headline4,
-                      textAlign: TextAlign.left),
-                  const SizedBox(height: 25),
-                  TextFormField(
-                    controller: _vaccineTextEditingController,
-                    cursorColor: Theme.of(context).primaryColorLight,
-                    decoration: InputDecoration(
-                      labelText: AppLocalizations.of(context).vaccine,
-                      fillColor: Theme.of(context).accentColor,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(
-                            color: Theme.of(context).accentColor, width: 3),
+                key: _formKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    Text(AppLocalizations.of(context).addVaccine,
+                        style: Theme.of(context).textTheme.headline4,
+                        textAlign: TextAlign.left),
+                    const SizedBox(height: 25),
+                    TypeAheadField(
+                      textFieldConfiguration: TextFieldConfiguration(
+                        controller: _vaccineTextEditingController,
+                        decoration: InputDecoration(
+                          labelText: AppLocalizations.of(context).vaccine,
+                          fillColor: Theme.of(context).accentColor,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            borderSide: BorderSide(
+                                color: Theme.of(context).accentColor, width: 3),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            borderSide: BorderSide(
+                                color: Theme.of(context).primaryColorLight,
+                                width: 3),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                              borderSide: BorderSide(
+                                  color: Theme.of(context).accentColor,
+                                  width: 3)),
+                          labelStyle: TextStyle(
+                              color: Theme.of(context).primaryColorLight),
+                        ),
+                        cursorColor: Theme.of(context).primaryColorLight,
                       ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(
-                            color: Theme.of(context).primaryColorLight,
-                            width: 3),
-                      ),
-                      focusedBorder: OutlineInputBorder(
+                      suggestionsCallback: (pattern) {
+                        return StatisticDAO.getAllVaccines(pattern);
+                      },
+                      itemBuilder: (BuildContext context, itemData) {
+                        return ListTile(
+                          title: Text(itemData),
+                        );
+                      },
+                      onSuggestionSelected: (suggestion) {
+                        _vaccineTextEditingController.text = suggestion;
+                      },
+                      // validator: (String value) {
+                      //   if (value == null || value.isEmpty) {
+                      //     return AppLocalizations.of(context)
+                      //         .vaccineCantBeEmpty;
+                      //   }
+                      //   return null;
+                      // },
+                    ),
+                    const SizedBox(height: 25),
+                    TextFormField(
+                      controller: _chargeNrTextEditingController,
+                      cursorColor: Theme.of(context).primaryColorLight,
+                      decoration: InputDecoration(
+                        labelText: AppLocalizations.of(context).chargeNr,
+                        fillColor: Theme.of(context).accentColor,
+                        border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
                           borderSide: BorderSide(
-                              color: Theme.of(context).accentColor, width: 3)),
-                      labelStyle:
-                          TextStyle(color: Theme.of(context).primaryColorLight),
-                    ),
-                    validator: (String value) {
-                      if (value == null || value.isEmpty) {
-                        return AppLocalizations.of(context).vaccineCantBeEmpty;
-                      }
-                      return null;
-                    },
-                  ),
-                  const SizedBox(height: 25),
-                  TextFormField(
-                    controller: _chargeNrTextEditingController,
-                    cursorColor: Theme.of(context).primaryColorLight,
-                    decoration: InputDecoration(
-                      labelText: AppLocalizations.of(context).chargeNr,
-                      fillColor: Theme.of(context).accentColor,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(
-                            color: Theme.of(context).accentColor, width: 3),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(
-                            color: Theme.of(context).primaryColorLight,
-                            width: 3),
-                      ),
-                      focusedBorder: OutlineInputBorder(
+                              color: Theme.of(context).accentColor, width: 3),
+                        ),
+                        enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
                           borderSide: BorderSide(
-                              color: Theme.of(context).accentColor, width: 3)),
-                      labelStyle:
-                          TextStyle(color: Theme.of(context).primaryColorLight),
+                              color: Theme.of(context).primaryColorLight,
+                              width: 3),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            borderSide: BorderSide(
+                                color: Theme.of(context).accentColor,
+                                width: 3)),
+                        labelStyle: TextStyle(
+                            color: Theme.of(context).primaryColorLight),
+                      ),
+                      validator: (String value) {
+                        if (value == null || value.isEmpty) {
+                          return AppLocalizations.of(context)
+                              .chargeNrCantBeEmpty;
+                        }
+                        return null;
+                      },
                     ),
-                    validator: (String value) {
-                      if (value == null || value.isEmpty) {
-                        return AppLocalizations.of(context).chargeNrCantBeEmpty;
-                      }
-                      return null;
-                    },
-                  ),
-                  const SizedBox(height: 25),
-                  TextFormField(
-                    controller: _textEditingController,
-                    onTap: () {
-                      FocusScope.of(context).requestFocus(FocusNode());
-                      _selectDate(context);
-                    },
-                    cursorColor: Theme.of(context).primaryColorLight,
-                    decoration: InputDecoration(
-                      labelText: AppLocalizations.of(context).date,
-                      fillColor: Theme.of(context).accentColor,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(
-                            color: Theme.of(context).accentColor, width: 3),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(
-                            color: Theme.of(context).primaryColorLight,
-                            width: 3),
-                      ),
-                      focusedBorder: OutlineInputBorder(
+                    const SizedBox(height: 25),
+                    TextFormField(
+                      controller: _textEditingController,
+                      onTap: () {
+                        FocusScope.of(context).requestFocus(FocusNode());
+                        _selectDate(context);
+                      },
+                      cursorColor: Theme.of(context).primaryColorLight,
+                      decoration: InputDecoration(
+                        labelText: AppLocalizations.of(context).date,
+                        fillColor: Theme.of(context).accentColor,
+                        border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
                           borderSide: BorderSide(
-                              color: Theme.of(context).accentColor, width: 3)),
-                      labelStyle:
-                          TextStyle(color: Theme.of(context).primaryColorLight),
+                              color: Theme.of(context).accentColor, width: 3),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: BorderSide(
+                              color: Theme.of(context).primaryColorLight,
+                              width: 3),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            borderSide: BorderSide(
+                                color: Theme.of(context).accentColor,
+                                width: 3)),
+                        labelStyle: TextStyle(
+                            color: Theme.of(context).primaryColorLight),
+                      ),
+                      validator: (String value) {
+                        if (value == null || value.isEmpty) {
+                          return AppLocalizations.of(context).dateCantBeEmpty;
+                        }
+                        return null;
+                      },
                     ),
-                    validator: (String value) {
-                      if (value == null || value.isEmpty) {
-                        return AppLocalizations.of(context).dateCantBeEmpty;
-                      }
-                      return null;
-                    },
-                  ),
-                  const SizedBox(height: 25),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Hero(
-                      tag: 'show-qr-hero',
-                      createRectTween: (Rect begin, Rect end) =>
-                          CustomRectTween(begin: begin, end: end),
-                      child: ConstrainedBox(
-                        constraints: const BoxConstraints.tightFor(height: 60),
-                        child: ElevatedButton.icon(
-                          onPressed: () {
-                            if (_formKey.currentState.validate()) {
-                              FocusScope.of(context).unfocus();
-                              sleep(const Duration(milliseconds: 50));
-                              _buildQrData();
-                              StatisticDAO.create(
-                                  _vaccineTextEditingController.text,
-                                  DateFormat('dd.MM.yyyy')
-                                      .parse(_textEditingController.text));
-                              Navigator.of(context).push(HeroDialogRoute(
-                                builder: (BuildContext context) =>
-                                    PopupCard(qrData),
-                              ));
-                            }
-                          },
-                          label: Text(AppLocalizations.of(context).generateQr,
-                              style: const TextStyle(fontSize: 20)),
-                          icon: const Icon(Icons.qr_code),
+                    const SizedBox(height: 25),
+                    GestureDetector(
+                      onTap: () {},
+                      child: Hero(
+                        tag: 'show-qr-hero',
+                        createRectTween: (Rect begin, Rect end) =>
+                            CustomRectTween(begin: begin, end: end),
+                        child: ConstrainedBox(
+                          constraints:
+                              const BoxConstraints.tightFor(height: 60),
+                          child: ElevatedButton.icon(
+                            onPressed: () {
+                              if (_formKey.currentState.validate()) {
+                                FocusScope.of(context).unfocus();
+                                sleep(const Duration(milliseconds: 50));
+                                _buildQrData();
+                                StatisticDAO.create(
+                                    _vaccineTextEditingController.text,
+                                    DateFormat('dd.MM.yyyy')
+                                        .parse(_textEditingController.text));
+                                Navigator.of(context).push(HeroDialogRoute(
+                                  builder: (BuildContext context) =>
+                                      PopupCard(qrData),
+                                ));
+                              }
+                            },
+                            label: Text(AppLocalizations.of(context).generateQr,
+                                style: const TextStyle(fontSize: 20)),
+                            icon: const Icon(Icons.qr_code),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ),
+                  ],
+                )),
           ),
         ),
         drawer: const MyDrawer());
