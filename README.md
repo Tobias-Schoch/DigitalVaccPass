@@ -9,7 +9,7 @@
 ---|---
 [Luis Nothvogel](https://github.com/Involute1) |[Tobias Schoch](https://github.com/Tobias-Schoch)
 
-## Sonarqube
+## 🔭 Sonarqube
 
 ![Screens](/documentation/sonarqube.png)
 
