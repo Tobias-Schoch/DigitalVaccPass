@@ -15,4 +15,4 @@ An international digital vaccination record in which you can add your own vaccin
 
 ## Personas
 
-![](/documentation/grp4_persona_arzt.png)  |  ![](/documentation/grp4_persona_vater.png)
+![alt-text-1](/documentation/grp4_persona_arzt.png "title-1") ![alt-text-2](/documentation/grp4_persona_vater.png "title-2")
