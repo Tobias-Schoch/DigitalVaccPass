@@ -171,11 +171,11 @@ class TestData {
   ];
 
   /// example Statistics
-  // static List<Statistic> statisticListDb = [
-  //   Statistic('Covid-19 Biontech', 3, 6, 2021),
-  //   Statistic('Covid-19 Moderna', 6, 6, 2021),
-  //   Statistic('Covid-19 Moderna', 6, 5, 2021)
-  // ];
+  static List<Statistic> statisticListDb = [
+    Statistic('Covid-19 Biontech', 3, 6, 2021),
+    Statistic('Covid-19 Moderna', 6, 6, 2021),
+    Statistic('Covid-19 Moderna', 6, 5, 2021)
+  ];
 
   /// Generate data for vaccination list with faker
   static List<Vaccination> generateVaccList(
