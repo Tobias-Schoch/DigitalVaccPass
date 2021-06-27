@@ -100,7 +100,6 @@ class StatisticDAO {
     final List<GetAllVaccines> statisticList = statisticsFromDbList.isNotEmpty
         ? statisticsFromDbList
         .map((Map<String, Object> e) => GetAllVaccines.fromMap(e)).toList()
-
         : List<GetAllVaccines>.empty();
 
     print(statisticsFromDbList);

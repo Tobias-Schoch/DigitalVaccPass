@@ -1,2 +1,2 @@
-Luis Nothvogel Backend, Aufgabenteilung
+Luis Nothvogel Backend, CI-Implementierung, Aufgabenteilung
 Tobias Schoch Frontend, Code Quality, Aufgabenteilung
