@@ -5,22 +5,28 @@ import '../utils/vaccination.dart';
 class User {
   /// User ID
   int userDbId;
+
   /// Family ID
   int familyDbId;
+
   /// User Name
   String userName;
+
   /// User Mail
   String userEmail;
+
   /// User Password
   String userPassword;
+
   /// User Role
   Role userRole;
 
-  // TODO Might not need those 2 lists, because of db
   /// List for vaccinations
   List<Vaccination> vaccinations;
+
   /// List for tests
   List<Test> tests;
+
   /// Get logged in user
   static User loggedInUser;
 

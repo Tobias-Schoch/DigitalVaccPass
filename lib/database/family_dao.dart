@@ -1,5 +1,3 @@
-import 'package:digital_vac_pass/utils/test.dart';
-import 'package:digital_vac_pass/utils/vaccination.dart';
 import 'package:sqflite/sqflite.dart';
 
 import '../utils/user.dart';

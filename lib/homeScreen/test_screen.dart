@@ -40,9 +40,10 @@ class _MyTestPageState extends State<MyTestPage> {
   }
 
   Future<bool> testNotEmpty() async {
-    final List<Test> tests = widget.isFloatingActionButtonVisible ?
-        await TestDAO.getAllTestsForUser(widget.selectedUser.userDbId)
-    : await TestDAO.getAllTestsForFamilyUser(widget.selectedUser.familyDbId);
+    final List<Test> tests = widget.isFloatingActionButtonVisible
+        ? await TestDAO.getAllTestsForUser(widget.selectedUser.userDbId)
+        : await TestDAO.getAllTestsForFamilyUser(
+            widget.selectedUser.familyDbId);
     return Future<bool>.value(tests.isEmpty);
   }
 
@@ -101,11 +102,24 @@ class _MyTestPageState extends State<MyTestPage> {
                                                     Column(
                                                       children: <Widget>[
                                                         Card(
-                                                            color: snapshot.data[index].testStatus == Status.pending
-                                                                ? PredefinedColors.lightOrange
-                                                                : snapshot.data[index].testStatus == Status.good
-                                                                    ? PredefinedColors.lightGreen
-                                                                : PredefinedColors.lightRed,
+                                                            color: snapshot
+                                                                        .data[
+                                                                            index]
+                                                                        .testStatus ==
+                                                                    Status
+                                                                        .pending
+                                                                ? PredefinedColors
+                                                                    .lightOrange
+                                                                : snapshot
+                                                                            .data[
+                                                                                index]
+                                                                            .testStatus ==
+                                                                        Status
+                                                                            .good
+                                                                    ? PredefinedColors
+                                                                        .lightGreen
+                                                                    : PredefinedColors
+                                                                        .lightRed,
                                                             child: Row(
                                                                 children: <
                                                                     Widget>[
@@ -117,8 +131,10 @@ class _MyTestPageState extends State<MyTestPage> {
                                                                       ListTile(
                                                                         title:
                                                                             Column(
-                                                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                                                          children: <Widget>[
+                                                                          crossAxisAlignment:
+                                                                              CrossAxisAlignment.start,
+                                                                          children: <
+                                                                              Widget>[
                                                                             const SizedBox(height: 18),
                                                                             Text(
                                                                               snapshot.data[index].testName,
@@ -128,8 +144,10 @@ class _MyTestPageState extends State<MyTestPage> {
                                                                         ),
                                                                         subtitle:
                                                                             Column(
-                                                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                                                          children: <Widget>[
+                                                                          crossAxisAlignment:
+                                                                              CrossAxisAlignment.start,
+                                                                          children: <
+                                                                              Widget>[
                                                                             const SizedBox(height: 10),
                                                                             Text(AppLocalizations.of(context).date +
                                                                                 DateFormat('dd.MM.yyyy').format(snapshot.data[index].testDate)),

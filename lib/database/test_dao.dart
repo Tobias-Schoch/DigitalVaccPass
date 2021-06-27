@@ -29,7 +29,8 @@ class TestDAO {
     final Database dbClient = await con.db;
     final Batch testBatch = dbClient.batch();
     for (int i = 0; i < testList.length; i++) {
-      testBatch.insert(DatabaseHelper.testsTable, testList.elementAt(i).toMap());
+      testBatch.insert(
+          DatabaseHelper.testsTable, testList.elementAt(i).toMap());
     }
     await testBatch.commit();
   }

@@ -94,7 +94,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
           margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
           child: SingleChildScrollView(
             child: Form(
-                key: this._formKey,
+                key: _formKey,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
@@ -104,7 +104,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                     const SizedBox(height: 25),
                     TypeAheadFormField(
                       textFieldConfiguration: TextFieldConfiguration(
-                        controller: this._vaccineTextEditingController,
+                        controller: _vaccineTextEditingController,
                         decoration: InputDecoration(
                           labelText: AppLocalizations.of(context).vaccine,
                           fillColor: Theme.of(context).accentColor,
@@ -138,16 +138,16 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                         );
                       },
                       onSuggestionSelected: (suggestion) {
-                        this._vaccineTextEditingController.text = suggestion.vaccineName;
-                        print(suggestion);
+                        _vaccineTextEditingController.text =
+                            suggestion.vaccineName;
                       },
-                      //validator: (String value) {
-                        //if (value == null || value.isEmpty) {
-                          //return AppLocalizations.of(context)
-                      //         .vaccineCantBeEmpty;
-                      //   }
-                      //   return null;
-                      // },
+                      validator: (String value) {
+                        if (value == null || value.isEmpty) {
+                          return AppLocalizations.of(context)
+                              .vaccineCantBeEmpty;
+                        }
+                        return null;
+                      },
                     ),
                     const SizedBox(height: 25),
                     TextFormField(

@@ -41,7 +41,8 @@ class VaccinationDAO {
     final Database dbClient = await con.db;
     final Batch vaccBatch = dbClient.batch();
     for (int i = 0; i < vaccList.length; i++) {
-      vaccBatch.insert(DatabaseHelper.vaccinesTable, vaccList.elementAt(i).toMap());
+      vaccBatch.insert(
+          DatabaseHelper.vaccinesTable, vaccList.elementAt(i).toMap());
     }
     await vaccBatch.commit();
   }

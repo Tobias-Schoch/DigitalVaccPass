@@ -28,7 +28,6 @@ class Util {
     return DateTime.now();
   }
 
-
   /// Save and load shared preference and check if first start
   static Future<void> checkFirstSeen(BuildContext context) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();

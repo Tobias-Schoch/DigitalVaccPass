@@ -1,9 +1,5 @@
 import 'dart:io';
 
-import 'package:digital_vac_pass/database/database_helper.dart';
-import 'package:digital_vac_pass/database/family_dao.dart';
-import 'package:digital_vac_pass/utils/util.dart';
-import 'package:digital_vac_pass/utils/vaccination.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -12,6 +8,7 @@ import 'package:ninja/ninja.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:http/http.dart' as http;
 
+import '../database/family_dao.dart';
 import '../database/test_dao.dart';
 import '../database/vaccination_dao.dart';
 import '../familyScreen/family.dart';
@@ -21,6 +18,8 @@ import '../utils/app_bar.dart';
 import '../utils/rsa.dart';
 import '../utils/test.dart';
 import '../utils/user.dart';
+import '../utils/util.dart';
+import '../utils/vaccination.dart';
 
 /// QR Scanner
 class QRViewExample extends StatefulWidget {
@@ -226,12 +225,14 @@ class _QRViewExampleState extends State<QRViewExample> {
           barcodeString.contains('TESTS')) {
         final int familyId = await _addFamilyMember(barcodeString);
         if (barcodeString.contains('TESTS') && familyId != null) {
-          final String tests = barcodeString.substring(barcodeString.indexOf('TESTS'), barcodeString.indexOf('3]'));
+          final String tests = barcodeString.substring(
+              barcodeString.indexOf('TESTS'), barcodeString.indexOf('3]'));
           final List<String> testList = tests.split(']');
           _addTests(testList, familyId);
         }
         if (barcodeString.contains('VACCINES') && familyId != null) {
-          final String vaccines = barcodeString.substring(barcodeString.indexOf('VACCINES'), barcodeString.indexOf('4]'));
+          final String vaccines = barcodeString.substring(
+              barcodeString.indexOf('VACCINES'), barcodeString.indexOf('4]'));
           final List<String> vaccineList = vaccines.split(']');
           _addVaccines(vaccineList, familyId);
         }
@@ -262,7 +263,7 @@ class _QRViewExampleState extends State<QRViewExample> {
     final String familyMemberName = qrCodeString.substring(
         qrCodeString.indexOf('NAME: ') + 6, qrCodeString.indexOf('1\n'));
     if (familyMemberName.isNotEmpty && familyMemberEmail.isNotEmpty) {
-     return await FamilyDAO.create(familyMemberName, familyMemberEmail);
+      return await FamilyDAO.create(familyMemberName, familyMemberEmail);
     }
     return null;
   }
@@ -271,14 +272,29 @@ class _QRViewExampleState extends State<QRViewExample> {
     final List<Test> testsList = List.empty(growable: true);
     for (int i = 0; i < qrCodeString.length; i++) {
       if (qrCodeString[i].contains('TEST')) {
-        final String testName = qrCodeString[i].substring(qrCodeString[i].indexOf('NAME: ') + 6, qrCodeString[i].indexOf('\nIDNR'));
-        final String idNr = qrCodeString[i].substring(qrCodeString[i].indexOf('IDNR: ') + 6, qrCodeString[i].indexOf('\nDA'));
-        final String dateString = qrCodeString[i].substring(qrCodeString[i].indexOf('DATE: ') + 6, qrCodeString[i].indexOf('\nST'));
-        final String statusString = qrCodeString[i].substring(qrCodeString[i].indexOf('STATUS: ') + 7, qrCodeString[i].indexOf('\nDE'));
-        final String descr = qrCodeString[i].substring(qrCodeString[i].indexOf('DESCR: ') + 6, qrCodeString[i].indexOf('\nFAMILY_ID'));
-        final Status testStatus = statusString.contains('good') ? Status.good : statusString.contains('bad') ? Status.bad : Status.pending;
+        final String testName = qrCodeString[i].substring(
+            qrCodeString[i].indexOf('NAME: ') + 6,
+            qrCodeString[i].indexOf('\nIDNR'));
+        final String idNr = qrCodeString[i].substring(
+            qrCodeString[i].indexOf('IDNR: ') + 6,
+            qrCodeString[i].indexOf('\nDA'));
+        final String dateString = qrCodeString[i].substring(
+            qrCodeString[i].indexOf('DATE: ') + 6,
+            qrCodeString[i].indexOf('\nST'));
+        final String statusString = qrCodeString[i].substring(
+            qrCodeString[i].indexOf('STATUS: ') + 7,
+            qrCodeString[i].indexOf('\nDE'));
+        final String descr = qrCodeString[i].substring(
+            qrCodeString[i].indexOf('DESCR: ') + 6,
+            qrCodeString[i].indexOf('\nFAMILY_ID'));
+        final Status testStatus = statusString.contains('good')
+            ? Status.good
+            : statusString.contains('bad')
+                ? Status.bad
+                : Status.pending;
         final DateTime date = Util.getDateTimeFromString(dateString);
-        testsList.add(Test.forDb(testName, idNr, date, testStatus, descr, null, familyId));
+        testsList.add(Test.forDb(
+            testName, idNr, date, testStatus, descr, null, familyId));
       }
     }
     await TestDAO.createBatch(testsList);
@@ -288,22 +304,30 @@ class _QRViewExampleState extends State<QRViewExample> {
     final List<Vaccination> vaccineList = List.empty(growable: true);
     for (int i = 0; i < qrCodeString.length; i++) {
       if (qrCodeString[i].contains('VACCINE')) {
-        final String vaccinationName = qrCodeString[i].substring(qrCodeString[i].indexOf('NAME: ') + 6, qrCodeString[i].indexOf('\nCH'));
-        final String chargeNr = qrCodeString[i].substring(qrCodeString[i].indexOf('CHARGENR: ') + 10, qrCodeString[i].indexOf('\nDA'));
-        final String dateString = qrCodeString[i].substring(qrCodeString[i].indexOf('DATE: ') + 6, qrCodeString[i].indexOf('\nDO'));
-        final String doctor = qrCodeString[i].substring(qrCodeString[i].indexOf('DOC: ') + 5, qrCodeString[i].indexOf('\nDE'));
-        String descr = qrCodeString[i].substring(qrCodeString[i].indexOf('DESCR: ') + 6);
+        final String vaccinationName = qrCodeString[i].substring(
+            qrCodeString[i].indexOf('NAME: ') + 6,
+            qrCodeString[i].indexOf('\nCH'));
+        final String chargeNr = qrCodeString[i].substring(
+            qrCodeString[i].indexOf('CHARGENR: ') + 10,
+            qrCodeString[i].indexOf('\nDA'));
+        final String dateString = qrCodeString[i].substring(
+            qrCodeString[i].indexOf('DATE: ') + 6,
+            qrCodeString[i].indexOf('\nDO'));
+        final String doctor = qrCodeString[i].substring(
+            qrCodeString[i].indexOf('DOC: ') + 5,
+            qrCodeString[i].indexOf('\nDE'));
+        String descr =
+            qrCodeString[i].substring(qrCodeString[i].indexOf('DESCR: ') + 6);
         if (descr.contains('\n')) {
           descr = descr.replaceAll('\n', '');
         }
         final DateTime date = Util.getDateTimeFromString(dateString);
-        vaccineList.add(Vaccination.forDb(vaccinationName, chargeNr, date, doctor, descr, null, familyId));
+        vaccineList.add(Vaccination.forDb(
+            vaccinationName, chargeNr, date, doctor, descr, null, familyId));
       }
     }
     await VaccinationDAO.createBatch(vaccineList);
   }
-
-
 
   @override
   void dispose() {

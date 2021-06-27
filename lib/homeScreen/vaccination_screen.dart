@@ -47,9 +47,11 @@ class _MyVaccinationPage extends State<MyVaccinationPage> {
   }
 
   Future<bool> vaccinationNotEmpty() async {
-    final List<Vaccination> vaccines = widget.isFloatingActionButtonVisible ?
-        await VaccinationDAO.getAllVaccinesForUser(widget.selectedUser.userDbId)
-    : await VaccinationDAO.getAllVaccinesForFamilyUser(widget.selectedUser.familyDbId);
+    final List<Vaccination> vaccines = widget.isFloatingActionButtonVisible
+        ? await VaccinationDAO.getAllVaccinesForUser(
+            widget.selectedUser.userDbId)
+        : await VaccinationDAO.getAllVaccinesForFamilyUser(
+            widget.selectedUser.familyDbId);
     return Future<bool>.value(vaccines.isEmpty);
   }
 

@@ -34,9 +34,8 @@ class StatisticForScreen {
 class GetAllVaccines {
   String vaccineName;
 
-  factory GetAllVaccines.fromMap(Map<String, dynamic> data) => GetAllVaccines(
-      data['VACCINE_NAME']);
+  factory GetAllVaccines.fromMap(Map<String, dynamic> data) =>
+      GetAllVaccines(data['VACCINE_NAME']);
 
   GetAllVaccines(this.vaccineName);
 }
-

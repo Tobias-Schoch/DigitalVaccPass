@@ -109,6 +109,6 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
     properties.add(DiagnosticsProperty<GlobalKey<IntroductionScreenState>>(
         'introKey_onboard', introKey));
     properties.add(DiagnosticsProperty<PageDecoration>(
-        'pageDecoration_onboard', pageDecoration ));
+        'pageDecoration_onboard', pageDecoration));
   }
 }

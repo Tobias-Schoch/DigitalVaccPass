@@ -31,13 +31,13 @@ class HeroDialogRoute<T> extends PageRoute<T> {
 
   @override
   Widget buildTransitions(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation, Widget child) =>
-    child;
+          Animation<double> secondaryAnimation, Widget child) =>
+      child;
 
   @override
   Widget buildPage(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation) =>
-    _builder(context);
+          Animation<double> secondaryAnimation) =>
+      _builder(context);
 
   @override
   String get barrierLabel => 'Popup dialog open';

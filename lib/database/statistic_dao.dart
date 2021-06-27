@@ -19,16 +19,14 @@ class StatisticDAO {
 
     final List<Statistic> statisticList = statisticFromDbList.isNotEmpty
         ? statisticFromDbList
-        .map((Map<String, Object> e) => Statistic.fromMap(e))
-        .toList()
+            .map((Map<String, Object> e) => Statistic.fromMap(e))
+            .toList()
         : List<Statistic>.empty();
 
     if (statisticList.isNotEmpty) {
       // update
       final Map<String, Object> data = {
-        'AMOUNT': statisticList
-            .elementAt(0)
-            .amount + 1
+        'AMOUNT': statisticList.elementAt(0).amount + 1
       };
       return dbClient.update(DatabaseHelper.statisticTable, data,
           where: 'VACCINE_NAME = ? AND MONTH = ? AND YEAR = ?',
@@ -36,7 +34,7 @@ class StatisticDAO {
     } else {
       // insert
       final Statistic statisticToInsert =
-      Statistic(vaccineName, 1, vaccineDate.month, vaccineDate.year);
+          Statistic(vaccineName, 1, vaccineDate.month, vaccineDate.year);
       return dbClient.insert(
           DatabaseHelper.statisticTable, statisticToInsert.toMap());
     }
@@ -53,19 +51,19 @@ class StatisticDAO {
 
     final List<Statistic> statisticList = statisticsFromDbList.isNotEmpty
         ? statisticsFromDbList
-        .map((Map<String, Object> e) => Statistic.fromMap(e))
-        .toList()
+            .map((Map<String, Object> e) => Statistic.fromMap(e))
+            .toList()
         : List<Statistic>.empty();
 
     if (statisticList.isNotEmpty) {
       final List<StatisticForScreen> statisticForScreenList =
-      List.empty(growable: true);
+          List.empty(growable: true);
       final List<Statistic> usedStatistics = List.empty(growable: true);
 
       for (final Statistic s in statisticList) {
         if (statisticForScreenList.isEmpty) {
           final StatisticForScreen sForScreen =
-          StatisticForScreen(s.month, [s]);
+              StatisticForScreen(s.month, [s]);
           statisticForScreenList.add(sForScreen);
           usedStatistics.add(s);
         } else {
@@ -77,7 +75,7 @@ class StatisticDAO {
           }
           if (!usedStatistics.contains(s)) {
             final StatisticForScreen sForScreen =
-            StatisticForScreen(s.month, [s]);
+                StatisticForScreen(s.month, [s]);
             statisticForScreenList.add(sForScreen);
             usedStatistics.add(s);
           }
@@ -93,15 +91,16 @@ class StatisticDAO {
   /// Get all vaccines for autocomplete
   static Future<List<GetAllVaccines>> getAllVaccines(String input) async {
     final Database dbClient = await con.db;
-    final List<Map<String, Object>> statisticsFromDbList = await dbClient
-        .rawQuery("SELECT VACCINE_NAME FROM STATISTIC WHERE VACCINE_NAME LIKE '%$input%' GROUP BY VACCINE_NAME");
+    final List<
+        Map<String,
+            Object>> statisticsFromDbList = await dbClient.rawQuery(
+        "SELECT VACCINE_NAME FROM STATISTIC WHERE VACCINE_NAME LIKE '%$input%' GROUP BY VACCINE_NAME");
 
     final List<GetAllVaccines> statisticList = statisticsFromDbList.isNotEmpty
         ? statisticsFromDbList
-        .map((Map<String, Object> e) => GetAllVaccines.fromMap(e)).toList()
+            .map((Map<String, Object> e) => GetAllVaccines.fromMap(e))
+            .toList()
         : List<GetAllVaccines>.empty();
-
-    print(statisticsFromDbList);
 
     return statisticList;
   }
