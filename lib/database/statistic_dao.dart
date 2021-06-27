@@ -99,9 +99,6 @@ class StatisticDAO {
 
     print(statisticsFromDbList);
 
-    return List.generate(1, (index) {
-      return {
-        'EZ': statisticsFromDbList};
-    });
+    return statisticsFromDbList;
   }
 }
