@@ -63,5 +63,7 @@
     "addPerson": "Adicionar pessoa",
     "addedPersonSuccess": "A pessoa foi acrescentada com sucesso",
     "testAdded": "Teste adicionado",
-    "familyMemberAdded": "Membro da família adicionado"
+    "familyMemberAdded": "Membro da família adicionado",
+    "fAQOfficialTest": "Posso digitalizar testes oficiais e adicioná-los à minha aplicação?",
+    "fAQOfficialTestAnswer": "Sim, os testes oficiais também podem ser digitalizados."
 }

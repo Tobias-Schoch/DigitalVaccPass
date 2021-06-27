@@ -63,5 +63,7 @@
     "addPerson": "Ajouter une personne",
     "addedPersonSuccess": "La personne a été ajoutée avec succès",
     "testAdded": "Test ajouté",
-    "familyMemberAdded": "Membre de la famille ajouté"
+    "familyMemberAdded": "Membre de la famille ajouté",
+    "fAQOfficialTest": "Puis-je scanner les tests officiels et les ajouter à mon application ?",
+    "fAQOfficialTestAnswer": "Oui, les tests officiels peuvent également être scannés."
 }

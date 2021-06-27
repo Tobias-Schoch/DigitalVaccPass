@@ -258,5 +258,13 @@
   "familyMemberAdded": "Family member added",
   "@familyMemberAdded": {
     "description": ""
+  },
+  "fAQOfficialTest": "Can I scan official tests and add them to my app?",
+  "@fAQOfficialTest": {
+    "description": ""
+  },
+  "fAQOfficialTestAnswer": "Yes, official tests can also be scanned.",
+  "@fAQOfficialTestAnswer": {
+    "description": ""
   }
 }

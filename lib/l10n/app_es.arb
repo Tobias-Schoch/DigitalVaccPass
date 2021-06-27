@@ -63,5 +63,7 @@
     "addPerson": "Añadir persona",
     "addedPersonSuccess": "La persona se ha añadido con éxito",
     "testAdded": "Prueba añadida",
-    "familyMemberAdded": "Miembro de la familia añadido"
+    "familyMemberAdded": "Miembro de la familia añadido",
+    "fAQOfficialTest": "¿Puedo escanear los exámenes oficiales y añadirlos a mi aplicación?",
+    "fAQOfficialTestAnswer": "Sí, los exámenes oficiales también se pueden escanear."
 }

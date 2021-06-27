@@ -101,7 +101,7 @@ class _MyFaqPageState extends State<MyFaqPage> {
                           const SizedBox(height: 18),
                           Text(
                               AppLocalizations.of(context)
-                                  .fAQHowFastCanISeeNewVaccines,
+                                  .fAQOfficialTest,
                               style: Theme.of(context).textTheme.bodyText1,
                               textAlign: TextAlign.left),
                         ]),
@@ -109,12 +109,37 @@ class _MyFaqPageState extends State<MyFaqPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         const SizedBox(height: 10),
-                        Text(AppLocalizations.of(context).fAQHowFastAnswer,
+                        Text(AppLocalizations.of(context).fAQOfficialTestAnswer,
                             textAlign: TextAlign.left),
                         const SizedBox(height: 18),
                       ],
                     ))
               ])),
+              const SizedBox(height: 20),
+              Card(
+                  child:
+                  Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+                    ListTile(
+                        title: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              const SizedBox(height: 18),
+                              Text(
+                                  AppLocalizations.of(context)
+                                      .fAQHowFastCanISeeNewVaccines,
+                                  style: Theme.of(context).textTheme.bodyText1,
+                                  textAlign: TextAlign.left),
+                            ]),
+                        subtitle: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            const SizedBox(height: 10),
+                            Text(AppLocalizations.of(context).fAQHowFastAnswer,
+                                textAlign: TextAlign.left),
+                            const SizedBox(height: 18),
+                          ],
+                        ))
+                  ])),
               const SizedBox(height: 25),
             ],
           ),
