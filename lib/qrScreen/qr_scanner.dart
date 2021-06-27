@@ -265,7 +265,6 @@ class _QRViewExampleState extends State<QRViewExample> {
     if (familyMemberName.isNotEmpty && familyMemberEmail.isNotEmpty) {
       return FamilyDAO.create(familyMemberName, familyMemberEmail);
     }
-    return null;
   }
 
   _addTests(List<String> qrCodeString, int familyId) async {
