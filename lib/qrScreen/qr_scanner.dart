@@ -281,7 +281,6 @@ class _QRViewExampleState extends State<QRViewExample> {
         testsList.add(Test.forDb(testName, idNr, date, testStatus, descr, null, familyId));
       }
     }
-    print('FAMILY_ID ' + familyId.toString() + ' SIZE OF TESTS: ' + testsList.length.toString());
     await TestDAO.createBatch(testsList);
   }
 
@@ -301,7 +300,6 @@ class _QRViewExampleState extends State<QRViewExample> {
         vaccineList.add(Vaccination.forDb(vaccinationName, chargeNr, date, doctor, descr, null, familyId));
       }
     }
-    print('FAMILY_ID ' + familyId.toString() + ' SIZE OF VACCINES: ' + vaccineList.length.toString());
     await VaccinationDAO.createBatch(vaccineList);
   }
 
