@@ -94,7 +94,7 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
           margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
           child: SingleChildScrollView(
             child: Form(
-                key: _formKey,
+                key: this._formKey,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
@@ -102,9 +102,9 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                         style: Theme.of(context).textTheme.headline4,
                         textAlign: TextAlign.left),
                     const SizedBox(height: 25),
-                    TypeAheadField(
+                    TypeAheadFormField(
                       textFieldConfiguration: TextFieldConfiguration(
-                        controller: _vaccineTextEditingController,
+                        controller: this._vaccineTextEditingController,
                         decoration: InputDecoration(
                           labelText: AppLocalizations.of(context).vaccine,
                           fillColor: Theme.of(context).accentColor,
@@ -129,20 +129,21 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                         ),
                         cursorColor: Theme.of(context).primaryColorLight,
                       ),
-                      suggestionsCallback: (pattern) {
-                        return StatisticDAO.getAllVaccines(pattern);
+                      suggestionsCallback: (pattern) async {
+                        return await StatisticDAO.getAllVaccines(pattern);
                       },
-                      itemBuilder: (BuildContext context, itemData) {
+                      itemBuilder: (BuildContext context, suggestion) {
                         return ListTile(
-                          title: Text(itemData),
+                          title: Text(suggestion),
                         );
                       },
                       onSuggestionSelected: (suggestion) {
-                        _vaccineTextEditingController.text = suggestion;
+                        this._vaccineTextEditingController.text = suggestion;
+                        print(suggestion);
                       },
-                      // validator: (String value) {
-                      //   if (value == null || value.isEmpty) {
-                      //     return AppLocalizations.of(context)
+                      //validator: (String value) {
+                        //if (value == null || value.isEmpty) {
+                          //return AppLocalizations.of(context)
                       //         .vaccineCantBeEmpty;
                       //   }
                       //   return null;

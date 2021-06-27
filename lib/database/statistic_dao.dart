@@ -91,14 +91,20 @@ class StatisticDAO {
   }
 
   /// Get all vaccines for autocomplete
-  static Future<List<Map<String, Object>>> getAllVaccines(String input) async {
+  static Future<List<GetAllVaccines>> getAllVaccines(String input) async {
     final Database dbClient = await con.db;
-    final List<Map<String, String>> statisticsFromDbList = await dbClient
+    final List<Map<String, Object>> statisticsFromDbList = await dbClient
         .rawQuery(
         "SELECT VACCINE_NAME FROM STATISTIC WHERE VACCINE_NAME LIKE '%$input%'");
 
+    final List<GetAllVaccines> statisticList = statisticsFromDbList.isNotEmpty
+        ? statisticsFromDbList
+        .map((Map<String, Object> e) => GetAllVaccines.fromMap(e))
+        .toList()
+        : List<GetAllVaccines>.empty();
+
     print(statisticsFromDbList);
 
-    return statisticsFromDbList;
+    return statisticList;
   }
 }
