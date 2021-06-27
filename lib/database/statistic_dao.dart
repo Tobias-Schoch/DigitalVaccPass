@@ -95,12 +95,12 @@ class StatisticDAO {
     final Database dbClient = await con.db;
     final List<Map<String, Object>> statisticsFromDbList = await dbClient
         .rawQuery(
-        "SELECT VACCINE_NAME FROM STATISTIC WHERE VACCINE_NAME LIKE '%$input%'");
+        "SELECT VACCINE_NAME FROM STATISTIC WHERE VACCINE_NAME LIKE '%$input%' GROUP BY VACCINE_NAME");
 
     final List<GetAllVaccines> statisticList = statisticsFromDbList.isNotEmpty
         ? statisticsFromDbList
-        .map((Map<String, Object> e) => GetAllVaccines.fromMap(e))
-        .toList()
+        .map((Map<String, Object> e) => GetAllVaccines.fromMap(e)).toList()
+
         : List<GetAllVaccines>.empty();
 
     print(statisticsFromDbList);

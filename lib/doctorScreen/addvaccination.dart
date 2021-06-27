@@ -134,11 +134,11 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                       },
                       itemBuilder: (BuildContext context, suggestion) {
                         return ListTile(
-                          title: Text(suggestion),
+                          title: Text(suggestion.vaccineName),
                         );
                       },
                       onSuggestionSelected: (suggestion) {
-                        this._vaccineTextEditingController.text = suggestion;
+                        this._vaccineTextEditingController.text = suggestion.vaccineName;
                         print(suggestion);
                       },
                       //validator: (String value) {
