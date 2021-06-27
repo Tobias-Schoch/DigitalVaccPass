@@ -25,6 +25,15 @@ class TestDAO {
     return id;
   }
 
+  static Future<int> createBatch(List<Test> testList) async {
+    final Database dbClient = await con.db;
+    Batch testBatch = dbClient.batch();
+    for (int i = 0; i < testList.length; i++) {
+      testBatch.insert(DatabaseHelper.testsTable, testList.elementAt(i).toMap());
+    }
+    await testBatch.commit();
+  }
+
   /// Get all tests for current user
   static Future<List<Test>> getAllTestsForUser(int userId) async {
     final Database dbClient = await con.db;
@@ -49,10 +58,10 @@ class TestDAO {
         where: 'FAMILY_ID = ?',
         whereArgs: [familyId]);
 
-    final List<Test> vaccList = list.isNotEmpty
+    final List<Test> testList = list.isNotEmpty
         ? list.map((Map<String, Object> e) => Test.fromMap(e)).toList()
         : List<Test>.empty();
 
-    return vaccList;
+    return testList;
   }
 }

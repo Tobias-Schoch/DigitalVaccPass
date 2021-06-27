@@ -37,6 +37,15 @@ class VaccinationDAO {
     return null;
   }
 
+  static Future<int> createBatch(List<Vaccination> vaccList) async {
+    final Database dbClient = await con.db;
+    Batch vaccBatch = dbClient.batch();
+    for (int i = 0; i < vaccList.length; i++) {
+      vaccBatch.insert(DatabaseHelper.vaccinesTable, vaccList.elementAt(i).toMap());
+    }
+    await vaccBatch.commit();
+  }
+
   /// Get all vaccinations for specific user
   static Future<List<Vaccination>> getAllVaccinesForUser(int userId) async {
     final Database dbClient = await con.db;

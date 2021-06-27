@@ -40,8 +40,9 @@ class _MyTestPageState extends State<MyTestPage> {
   }
 
   Future<bool> testNotEmpty() async {
-    final List<Test> tests =
-        await TestDAO.getAllTestsForUser(User.loggedInUser.userDbId);
+    final List<Test> tests = widget.isFloatingActionButtonVisible ?
+        await TestDAO.getAllTestsForUser(widget.selectedUser.userDbId)
+    : await TestDAO.getAllTestsForFamilyUser(widget.selectedUser.familyDbId);
     return Future<bool>.value(tests.isEmpty);
   }
 

@@ -1,5 +1,8 @@
 import 'dart:io';
 
+import 'package:digital_vac_pass/database/database_helper.dart';
+import 'package:digital_vac_pass/database/family_dao.dart';
+import 'package:digital_vac_pass/utils/vaccination.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -212,25 +215,24 @@ class _QRViewExampleState extends State<QRViewExample> {
     }
   }
 
-  void _calledFromFamily(Barcode result) {
+  void _calledFromFamily(Barcode result) async {
     if (result != null) {
       controller.stopCamera();
       barcodeString = result.code.toString();
-      //TODO add family member, check barcode String
       if (barcodeString.contains('EMAIL:') &&
               barcodeString.contains('NAME:') &&
               barcodeString.contains('VACCINES') ||
           barcodeString.contains('TESTS')) {
-        _addFamilyMember(barcodeString);
-        if (barcodeString.contains('TESTS')) {
-          _addTests(barcodeString.substring(
-              barcodeString.indexOf('TESTS'), barcodeString.indexOf('3]')));
+        int familyId = await _addFamilyMember(barcodeString);
+        if (barcodeString.contains('TESTS') && familyId != null) {
+          String tests = barcodeString.substring(barcodeString.indexOf('TESTS'), barcodeString.indexOf('3]'));
+          List<String> testList = tests.split(']');
+          _addTests(testList, familyId);
         }
-        if (barcodeString.contains('VACCINES')) {
-          _addVaccines(barcodeString
-              .substring(barcodeString.indexOf('VACCINES'),
-                  barcodeString.indexOf('4]'))
-              .split('\r\n'));
+        if (barcodeString.contains('VACCINES') && familyId != null) {
+          String vaccines = barcodeString.substring(barcodeString.indexOf('VACCINES'), barcodeString.indexOf('4]'));
+          List<String> vaccineList = vaccines.split(']');
+          _addVaccines(vaccineList, familyId);
         }
         Navigator.of(context).push(MaterialPageRoute(
             builder: (BuildContext context) => const MyFamilyPage()));
@@ -253,25 +255,56 @@ class _QRViewExampleState extends State<QRViewExample> {
     }
   }
 
-  _addFamilyMember(String qrCodeString) async {
+  Future<int> _addFamilyMember(String qrCodeString) async {
     final String familyMemberEmail = qrCodeString.substring(
-        qrCodeString.indexOf('EMAIL: ') + 7, qrCodeString.indexOf('0\r\n'));
+        qrCodeString.indexOf('EMAIL: ') + 7, qrCodeString.indexOf('0\n'));
     final String familyMemberName = qrCodeString.substring(
-        qrCodeString.indexOf('NAME: ') + 6, qrCodeString.indexOf('1\r\n'));
+        qrCodeString.indexOf('NAME: ') + 6, qrCodeString.indexOf('1\n'));
     if (familyMemberName.isNotEmpty && familyMemberEmail.isNotEmpty) {
-      // await FamilyDAO.create(familyMemberName, familyMemberEmail);
+     return await FamilyDAO.create(familyMemberName, familyMemberEmail);
     }
+    return null;
   }
 
-  void _addVaccines(List<String> qrCodeString) {
-    final List<String> a = qrCodeString;
-    // VaccinationDAO.create(vaccinationName, chargeNr, vaccinationDate, doctorSignature, vaccinationDescription, userId, familyId);
+  void _addTests(List<String> qrCodeString, int familyId) async {
+    List<Test> testsList = List.empty(growable: true);
+    for (int i = 0; i < qrCodeString.length; i++) {
+      if (qrCodeString[i].contains('TEST')) {
+        String testName = qrCodeString[i].substring(qrCodeString[i].indexOf('NAME: ') + 6, qrCodeString[i].indexOf('\nIDNR'));
+        String idNr = qrCodeString[i].substring(qrCodeString[i].indexOf('IDNR: ') + 6, qrCodeString[i].indexOf('\nDA'));
+        String dateString = qrCodeString[i].substring(qrCodeString[i].indexOf('DATE: ') + 6, qrCodeString[i].indexOf('\nST'));
+        String statusString = qrCodeString[i].substring(qrCodeString[i].indexOf('STATUS: ') + 7, qrCodeString[i].indexOf('\nDE'));
+        String descr = qrCodeString[i].substring(qrCodeString[i].indexOf('DESCR: ') + 6, qrCodeString[i].indexOf('\nFAMILY_ID'));
+        Status testStatus = statusString.contains('good') ? Status.good : statusString.contains('bad') ? Status.bad : Status.pending;
+        DateTime date = DateTime.tryParse(dateString);
+        testsList.add(Test.forDb(testName, idNr, date, testStatus, descr, null, familyId));
+      }
+    }
+    print('FAMILY_ID ' + familyId.toString() + ' SIZE OF TESTS: ' + testsList.length.toString());
+    await TestDAO.createBatch(testsList);
   }
 
-  void _addTests(String qrCodeString) {
-    final String a = qrCodeString;
-    // TestDAO.create(testName, testIdNr, testDate, testStatus, testDescription, userId, familyId);
+  void _addVaccines(List<String> qrCodeString, int familyId) async {
+    List<Vaccination> vaccineList = List.empty(growable: true);
+    for (int i = 0; i < qrCodeString.length; i++) {
+      if (qrCodeString[i].contains('VACCINE')) {
+        String vaccinationName = qrCodeString[i].substring(qrCodeString[i].indexOf('NAME: ') + 6, qrCodeString[i].indexOf('\nCH'));
+        String chargeNr = qrCodeString[i].substring(qrCodeString[i].indexOf('CHARGENR: ') + 10, qrCodeString[i].indexOf('\nDA'));
+        String dateString = qrCodeString[i].substring(qrCodeString[i].indexOf('DATE: ') + 6, qrCodeString[i].indexOf('\nDO'));
+        String doctor = qrCodeString[i].substring(qrCodeString[i].indexOf('DOC: ') + 5, qrCodeString[i].indexOf('\nDE'));
+        String descr = qrCodeString[i].substring(qrCodeString[i].indexOf('DESCR: ') + 6);
+        if (descr.contains('\n')) {
+          descr = descr.replaceAll('\n', '');
+        }
+        DateTime date = DateTime.tryParse(dateString);
+        vaccineList.add(Vaccination.forDb(vaccinationName, chargeNr, date, doctor, descr, null, familyId));
+      }
+    }
+    print('FAMILY_ID ' + familyId.toString() + ' SIZE OF VACCINES: ' + vaccineList.length.toString());
+    await VaccinationDAO.createBatch(vaccineList);
   }
+
+
 
   @override
   void dispose() {

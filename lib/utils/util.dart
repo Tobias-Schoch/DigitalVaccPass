@@ -17,8 +17,14 @@ import '../utils/vaccination.dart';
 /// Util
 class Util {
   /// String to date
-  static DateTime getDateTimeFromString(String dateTimeString) =>
-      DateTime.parse(dateTimeString);
+  static DateTime getDateTimeFromString(String dateTimeString) {
+    DateTime date = DateTime.tryParse(dateTimeString);
+    if (date == null) {
+      date = DateFormat('yyyy-MM-dd hh:mm:ss.sss').parse(dateTimeString);
+    }
+    return date;
+  }
+
 
   /// Save and load shared preference and check if first start
   static Future<void> checkFirstSeen(BuildContext context) async {
@@ -41,38 +47,38 @@ class Util {
               User.loggedInUser.userDbId);
       final List<Test> testList =
           await TestDAO.getAllTestsForUser(User.loggedInUser.userDbId);
-      qrData += 'EMAIL: ${User.loggedInUser.userEmail} 0\r\n';
-      qrData += 'NAME: ${User.loggedInUser.userName} 1\r\n';
+      qrData += 'EMAIL: ${User.loggedInUser.userEmail} 0\n';
+      qrData += 'NAME: ${User.loggedInUser.userName} 1\n';
 
       if (testList.isNotEmpty) {
-        qrData += 'TESTS[';
+        qrData += 'TESTS[\n';
         for (final element in testList) {
           testList.forEach((element) {
-            qrData += 'TEST[';
-            qrData += 'NAME: ${element.testName.toString()} \r\n';
-            qrData += 'IDNR: ${element.testIdNr.toString()} \r\n';
-            qrData += 'DATE: ${element.testDate.toString()} \r\n';
-            qrData += 'STATUS: ${element.testStatus.toString()} \r\n';
-            qrData += 'DESCR: ${element.testDescription.toString()} \r\n';
-            qrData += 'FAMILY_ID: ${element.familyId.toString()} \r\n';
-            qrData += ']';
+            qrData += 'TEST[\n';
+            qrData += 'NAME: ${element.testName.toString()} \n';
+            qrData += 'IDNR: ${element.testIdNr.toString()} \n';
+            qrData += 'DATE: ${element.testDate.toString()} \n';
+            qrData += 'STATUS: ${element.testStatus.toString()} \n';
+            qrData += 'DESCR: ${element.testDescription.toString()} \n';
+            qrData += 'FAMILY_ID: ${element.familyId.toString()} \n';
+            qrData += ']\n';
           });
         }
-        qrData += '3]';
+        qrData += '3]\n';
       }
 
       if (vaccList.isNotEmpty) {
-        qrData += 'VACCINES[';
+        qrData += 'VACCINES[\n';
         for (final element in vaccList) {
-          qrData += 'VACCINE[';
-          qrData += 'NAME: ${element.vaccinationName.toString()} \r\n';
-          qrData += 'CHARGENR: ${element.chargeNr.toString()} \r\n';
-          qrData += 'DATE: ${element.vaccinationDate.toString()} \r\n';
-          qrData += 'DOC: ${element.doctorSignature.toString()} \r\n';
-          qrData += 'DESCR: ${element.vaccinationDescription.toString()} \r\n';
-          qrData += ']';
+          qrData += 'VACCINE[\n';
+          qrData += 'NAME: ${element.vaccinationName.toString()}\n';
+          qrData += 'CHARGENR: ${element.chargeNr.toString()}\n';
+          qrData += 'DATE: ${element.vaccinationDate.toString()}\n';
+          qrData += 'DOC: ${element.doctorSignature.toString()}\n';
+          qrData += 'DESCR: ${element.vaccinationDescription.toString()}\n';
+          qrData += ']\n';
         }
-        qrData += '4]';
+        qrData += '4]\n';
       }
     }
     return qrData;
