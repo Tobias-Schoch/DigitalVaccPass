@@ -55,16 +55,14 @@ class Util {
       if (testList.isNotEmpty) {
         qrData += 'TESTS[\n';
         for (final element in testList) {
-          testList.forEach((element) {
-            qrData += 'TEST[\n';
-            qrData += 'NAME: ${element.testName.toString()} \n';
-            qrData += 'IDNR: ${element.testIdNr.toString()} \n';
-            qrData += 'DATE: ${element.testDate.toString()} \n';
-            qrData += 'STATUS: ${element.testStatus.toString()} \n';
-            qrData += 'DESCR: ${element.testDescription.toString()} \n';
-            qrData += 'FAMILY_ID: ${element.familyId.toString()} \n';
-            qrData += ']\n';
-          });
+          qrData += 'TEST[\n';
+          qrData += 'NAME: ${element.testName.toString()} \n';
+          qrData += 'IDNR: ${element.testIdNr.toString()} \n';
+          qrData += 'DATE: ${element.testDate.toString()} \n';
+          qrData += 'STATUS: ${element.testStatus.toString()} \n';
+          qrData += 'DESCR: ${element.testDescription.toString()} \n';
+          qrData += 'FAMILY_ID: ${element.familyId.toString()} \n';
+          qrData += ']\n';
         }
         qrData += '3]\n';
       }

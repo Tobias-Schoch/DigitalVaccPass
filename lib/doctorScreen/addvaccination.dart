@@ -129,14 +129,12 @@ class _MyVaccinationAddPageState extends State<MyVaccinationAddPage> {
                         ),
                         cursorColor: Theme.of(context).primaryColorLight,
                       ),
-                      suggestionsCallback: (pattern) async {
-                        return await StatisticDAO.getAllVaccines(pattern);
-                      },
-                      itemBuilder: (BuildContext context, suggestion) {
-                        return ListTile(
-                          title: Text(suggestion.vaccineName),
-                        );
-                      },
+                      suggestionsCallback: (pattern) =>
+                          StatisticDAO.getAllVaccines(pattern),
+                      itemBuilder: (BuildContext context, suggestion) =>
+                          ListTile(
+                        title: Text(suggestion.vaccineName),
+                      ),
                       onSuggestionSelected: (suggestion) {
                         _vaccineTextEditingController.text =
                             suggestion.vaccineName;

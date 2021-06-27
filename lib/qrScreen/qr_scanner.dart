@@ -257,13 +257,13 @@ class _QRViewExampleState extends State<QRViewExample> {
     }
   }
 
-  Future<int> _addFamilyMember(String qrCodeString) async {
+  Future<int> _addFamilyMember(String qrCodeString) {
     final String familyMemberEmail = qrCodeString.substring(
         qrCodeString.indexOf('EMAIL: ') + 7, qrCodeString.indexOf('0\n'));
     final String familyMemberName = qrCodeString.substring(
         qrCodeString.indexOf('NAME: ') + 6, qrCodeString.indexOf('1\n'));
     if (familyMemberName.isNotEmpty && familyMemberEmail.isNotEmpty) {
-      return await FamilyDAO.create(familyMemberName, familyMemberEmail);
+      return FamilyDAO.create(familyMemberName, familyMemberEmail);
     }
     return null;
   }
