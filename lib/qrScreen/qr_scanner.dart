@@ -93,9 +93,9 @@ class _QRViewExampleState extends State<QRViewExample> {
     setState(() {
       this.controller = controller;
     });
-    controller.scannedDataStream.listen((scanData) {
-      sleep(const Duration(milliseconds: 10));
-      setState(() {
+    controller.scannedDataStream.listen((scanData)  {
+      setState(() async {
+        await controller.stopCamera();
         switch (widget.calledFrom) {
           case 'VACCINE':
             _calledFromVaccine(privateKey.decryptToUtf8(scanData));
@@ -160,7 +160,6 @@ class _QRViewExampleState extends State<QRViewExample> {
 
   _calledFromTest(Barcode result) async {
     if (result != null) {
-      await controller.stopCamera();
       barcodeString = result.code.toString();
 
       /// url for testing
@@ -189,7 +188,7 @@ class _QRViewExampleState extends State<QRViewExample> {
           }
         }
         if (testName.isNotEmpty) {
-          await TestDAO.create(testName, null, testDate, testStatus, null,
+          await TestDAO.create(testName, '', testDate, testStatus, null,
               User.loggedInUser.userDbId, null);
         }
         await Navigator.of(context).push(MaterialPageRoute(
@@ -217,7 +216,6 @@ class _QRViewExampleState extends State<QRViewExample> {
 
   _calledFromFamily(Barcode result) async {
     if (result != null) {
-      await controller.stopCamera();
       barcodeString = result.code.toString();
       if (barcodeString.contains('EMAIL:') &&
               barcodeString.contains('NAME:') &&
