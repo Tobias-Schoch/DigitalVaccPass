@@ -11,7 +11,7 @@
 
 ## 🔭 Sonarqube
 
-![Screens](/documentation/sonarqube.png)
+![Screens](/documentation/sonarqube.png) Added Jenkins and Travis.ci
 
 ## 🖌 Figma
 
@@ -20,7 +20,7 @@ https://www.figma.com/file/VIL42w7pMXSORDfHED8z46/DigitalVaccinationPass?node-id
 
 ## 📋 Description
 
-An international digital vaccination record in which you can add your own vaccinations and tests and those of your family members.
+An international digital vaccination record in which you can add your own vaccinations and tests and those of your family members. 
 
 ## 👨 Personas
 
