@@ -11,7 +11,7 @@
 
 ## 🔭 Sonarqube
 
-![Screens](/documentation/sonarqube.png) Added Jenkins and Travis.ci
+![Screens](/documentation/sonarqube.png) Added Jenkins and Sonarqube
 
 ## 🖌 Figma
 
