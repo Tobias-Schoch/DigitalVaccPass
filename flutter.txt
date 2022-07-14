@@ -1,8 +1,6 @@
 FLUTTER
 
 
-
-
 Architecture:
 https://pub.dev/packages/mvc_pattern
 
