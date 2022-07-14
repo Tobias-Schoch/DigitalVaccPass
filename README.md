@@ -33,6 +33,3 @@ An international digital vaccination record in which you can add your own vaccin
 - Statistics for doctors
 - Vaccinations can only be entered by doctors
 - Access to official data from testing centers 
-
-
-Jenkins test
